@@ -1,23 +1,21 @@
-'use client'
-import Image from 'next/image'
-import styles from './style.module.scss'
+import Image from 'next/image';
+import styles from '../../styles/hero.module.scss';
 import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { slideUp } from './animation';
 import { motion } from 'framer-motion';
 
-export default function Home() {
-
-  const firstText = useRef(null);
-  const secondText = useRef(null);
-  const heroText = useRef(null);
-  const slider = useRef(null);
+export default function Home(): JSX.Element {
+  const firstText = useRef<HTMLParagraphElement>(null);
+  const secondText = useRef<HTMLParagraphElement>(null);
+  const heroText = useRef<HTMLHeadingElement>(null);
+  const slider = useRef<HTMLDivElement>(null);
   let xPercent = 0;
   let yPercent = 0;
   let direction = -1;
 
-  useLayoutEffect( () => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(slider.current, {
       scrollTrigger: {
@@ -25,52 +23,51 @@ export default function Home() {
         scrub: 0.25,
         start: 0,
         end: window.innerHeight,
-        onUpdate: e => direction = e.direction * -1
+        onUpdate: (e) => (direction = e.direction * -1),
       },
-      x: "-500px",
-    })
+      x: '-500px',
+    });
     requestAnimationFrame(animate);
-  }, [])
+  }, []);
 
   const animate = () => {
-    if(xPercent < -100){
+    if (xPercent < -100) {
       xPercent = 0;
-    }
-    else if(xPercent > 0){
+    } else if (xPercent > 0) {
       xPercent = -100;
     }
-    gsap.set(firstText.current, {xPercent: xPercent})
-    gsap.set(secondText.current, {xPercent: xPercent})
+    gsap.set(firstText.current, { xPercent: xPercent });
+    gsap.set(secondText.current, { xPercent: xPercent });
     requestAnimationFrame(animate);
     xPercent += 0.1 * direction;
-  }
+  };
 
   const animateHeroText = () => {
-    if(yPercent < -100){
+    if (yPercent < -100) {
       yPercent = 0;
-    }
-    else if(yPercent > 0){
+    } else if (yPercent > 0) {
       yPercent = -100;
     }
-    gsap.set(heroText.current, {yPercent: yPercent})
-    gsap.set(heroText.current, {yPercent: yPercent})
+    gsap.set(heroText.current, { yPercent: yPercent });
+    gsap.set(heroText.current, { yPercent: yPercent });
     requestAnimationFrame(animate);
     xPercent += 0.1 * direction;
-  }
+  };
 
   return (
     <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.hero}>
       <video autoPlay loop muted className={styles.hero__video}>
-              <source src='/images/mountains_video.mp4' type='video/mp4' />
-            </video>
-       {/* <Image 
+        <source src="/images/mountains_video.mp4" type="video/mp4" />
+      </video>
+      {/* <Image 
         src="/images/background.jpg"
         fill={true}
         alt="background"
       /> */}
-      
-      <div className={styles.hero__text}><h1 ref={heroText}>Brand + Digital Design Studio</h1></div>
-       <div className={styles.sliderContainer}>
+      <div className={styles.hero__text}>
+        <h1 ref={heroText}>Brand + Digital Design Studio</h1>
+      </div>
+      <div className={styles.sliderContainer}>
         <div ref={slider} className={styles.slider}>
           <p ref={firstText}>Brand + Digital Design Studio</p>
           <p ref={secondText}>Brand + Digital Design Studio</p>
@@ -84,5 +81,5 @@ export default function Home() {
         {/* <p>Designer & Developer</p> */}
       </div>
     </motion.main>
-  )
+  );
 }

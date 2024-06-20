@@ -1,4 +1,4 @@
-.landing{
+.hero{
     position: relative;
     display: flex;
     height: 100vh;
@@ -7,6 +7,31 @@
     img{
       object-fit: cover;
     }
+    .hero__text {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 70vw;
+      height: 100%;
+      padding-left: 8vw;
+
+      h1 {
+      position: relative;
+      margin: 0px;
+      color: white;
+      font-size: 8rem;
+      font-weight: 500;
+      line-height: 1.2;
+
+      }
+    }
+
+    .hero__video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
     
     .sliderContainer{
       position: absolute;

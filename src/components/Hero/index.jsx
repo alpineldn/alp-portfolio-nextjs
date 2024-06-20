@@ -11,8 +11,10 @@ export default function Home() {
 
   const firstText = useRef(null);
   const secondText = useRef(null);
+  const heroText = useRef(null);
   const slider = useRef(null);
   let xPercent = 0;
+  let yPercent = 0;
   let direction = -1;
 
   useLayoutEffect( () => {
@@ -43,25 +45,43 @@ export default function Home() {
     xPercent += 0.1 * direction;
   }
 
+  const animateHeroText = () => {
+    if(yPercent < -100){
+      yPercent = 0;
+    }
+    else if(yPercent > 0){
+      yPercent = -100;
+    }
+    gsap.set(heroText.current, {yPercent: yPercent})
+    gsap.set(heroText.current, {yPercent: yPercent})
+    requestAnimationFrame(animate);
+    xPercent += 0.1 * direction;
+  }
+
   return (
-    <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.landing}>
-      <Image 
+    <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.hero}>
+      <video autoPlay loop muted className={styles.hero__video}>
+              <source src='/images/mountains_video.mp4' type='video/mp4' />
+            </video>
+       {/* <Image 
         src="/images/background.jpg"
         fill={true}
         alt="background"
-      />
-      <div className={styles.sliderContainer}>
+      /> */}
+      
+      <div className={styles.hero__text}><h1 ref={heroText}>Brand + Digital Design Studio</h1></div>
+       <div className={styles.sliderContainer}>
         <div ref={slider} className={styles.slider}>
-          <p ref={firstText}>Freelance Developer -</p>
-          <p ref={secondText}>Freelance Developer -</p>
+          <p ref={firstText}>Brand + Digital Design Studio</p>
+          <p ref={secondText}>Brand + Digital Design Studio</p>
         </div>
       </div>
       <div data-scroll data-scroll-speed={0.1} className={styles.description}>
-        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 8.5C8.27614 8.5 8.5 8.27614 8.5 8L8.5 3.5C8.5 3.22386 8.27614 3 8 3C7.72386 3 7.5 3.22386 7.5 3.5V7.5H3.5C3.22386 7.5 3 7.72386 3 8C3 8.27614 3.22386 8.5 3.5 8.5L8 8.5ZM0.646447 1.35355L7.64645 8.35355L8.35355 7.64645L1.35355 0.646447L0.646447 1.35355Z" fill="white"/>
-        </svg>
-        <p>Freelance</p>
-        <p>Designer & Developer</p>
+        </svg> */}
+        <p>Born in London, working Globally</p>
+        {/* <p>Designer & Developer</p> */}
       </div>
     </motion.main>
   )

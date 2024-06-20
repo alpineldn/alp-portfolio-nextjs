@@ -19,13 +19,13 @@ export default function index() {
             <div className={styles.body}>
                 <div className={styles.title}>
                     <span>
-                        <div className={styles.imageContainer}>
+                        {/* <div className={styles.imageContainer}>
                             <Image 
                             fill={true}
                             alt={"image"}
                             src={`/images/background.jpg`}
                             />
-                        </div>
+                        </div> */}
                         <h2>Let's work</h2>
                     </span>
                     <h2>together</h2>

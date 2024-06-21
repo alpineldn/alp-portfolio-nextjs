@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import styles from '../../styles/hero.module.scss';
+import styles from '../../app/styles/hero.module.scss';
 import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { SplitText } from 'gsap/SplitText';
 import { slideUp } from './animation';
 import { motion } from 'framer-motion';
 

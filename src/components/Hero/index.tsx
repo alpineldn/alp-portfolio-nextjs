@@ -1,13 +1,15 @@
-import Image from 'next/image';
-import styles from '../../app/styles/hero.module.scss';
-import { useRef, useLayoutEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import { SplitText } from 'gsap/SplitText';
-import { slideUp } from './animation';
-import { motion } from 'framer-motion';
+import Image from "next/image";
+import styles from "../../app/styles/hero.module.scss";
+import { useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { SplitText } from "gsap/SplitText";
+import { slideUp } from "./animation";
+import { motion } from "framer-motion";
 
-export default function Home(): JSX.Element {
+interface HeroProps {}
+
+const Hero: React.FC<HeroProps> = ({}) => {
   const firstText = useRef<HTMLParagraphElement>(null);
   const secondText = useRef<HTMLParagraphElement>(null);
   const heroText = useRef<HTMLHeadingElement>(null);
@@ -26,7 +28,7 @@ export default function Home(): JSX.Element {
         end: window.innerHeight,
         onUpdate: (e) => (direction = e.direction * -1),
       },
-      x: '-500px',
+      x: "-500px",
     });
     requestAnimationFrame(animate);
   }, []);
@@ -56,11 +58,16 @@ export default function Home(): JSX.Element {
   };
 
   return (
-    <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.hero}>
+    <motion.main
+      variants={slideUp}
+      initial="initial"
+      animate="enter"
+      className={styles.hero}
+    >
       <video autoPlay loop muted className={styles.hero__video}>
         <source src="/images/mountains_video.mp4" type="video/mp4" />
       </video>
-      {/* <Image 
+      {/* <Image
         src="/images/background.jpg"
         fill={true}
         alt="background"
@@ -83,4 +90,6 @@ export default function Home(): JSX.Element {
       </div>
     </motion.main>
   );
-}
+};
+
+export default Hero;

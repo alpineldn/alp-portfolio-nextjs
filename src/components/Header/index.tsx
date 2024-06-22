@@ -94,18 +94,25 @@ const Header: React.FC<HeaderProps> = ({}) => {
           </Magnetic>
         </div>
       </div>
-      <div ref={button} className="fixed right-0 z-[4] scale-0">
+
+      <div
+        ref={button}
+        className={cn(
+          styles.headerButtonContainer,
+          "fixed right-0 z-[4] scale-0",
+        )}
+      >
         <RoundedButton
           onClick={() => {
             setIsActive(!isActive);
           }}
-          className="align-center relative m-[20px] flex h-[80px] w-[80px] cursor-pointer justify-center rounded-[50%] bg-[#1c1d20]"
+          className="relative m-[20px] flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] bg-[#1c1d20]"
         >
           <div
             className={cn(
-              "relative z-[1] w-full after:before:relative after:before:m-auto after:before:block after:before:h-[1px] after:before:w-[40%] after:before:bg-white after:before:transition-transform after:before:duration-300 after:before:content-['']",
+              "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[40%] before:bg-white before:transition-transform before:duration-300 before:content-[''] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[40%] after:bg-white after:transition-transform after:duration-300 after:content-['']",
               {
-                "bg-red-700 before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45":
+                "before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45":
                   isActive,
               },
             )}

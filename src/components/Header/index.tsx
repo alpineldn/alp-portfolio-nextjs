@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Rounded from "../../common/RoundedButton";
 import Magnetic from "../../common/Magnetic";
+import cn from "../../utils/cn";
 
 interface HeaderProps {}
 
@@ -50,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
   return (
     <>
-      <div ref={header} className={styles.header}>
+      <div ref={header} className={cn(styles.header, "")}>
         <div className={styles.logo}>
           <p className={styles.copyright}>©</p>
           <div className={styles.name}>

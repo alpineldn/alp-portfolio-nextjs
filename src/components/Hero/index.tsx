@@ -58,15 +58,15 @@ const Hero: React.FC<HeroProps> = ({}) => {
   };
 
   return (
-    <motion.main
+    <motion.div
       variants={slideUp}
       initial="initial"
       animate="enter"
       className={styles.hero}
     >
-      <video autoPlay loop muted className={styles.hero__video}>
+      {/* <video autoPlay loop muted className={styles.hero__video}>
         <source src="/images/mountains_video.mp4" type="video/mp4" />
-      </video>
+      </video> */}
       {/* <Image
         src="/images/background.jpg"
         fill={true}
@@ -88,7 +88,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         <p>Born in London, working Globally</p>
         {/* <p>Designer & Developer</p> */}
       </div>
-    </motion.main>
+    </motion.div>
   );
 };
 

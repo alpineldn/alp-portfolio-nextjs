@@ -3,11 +3,11 @@ import { useEffect, useRef } from "react";
 import styles from "./style.module.scss";
 import gsap from "gsap";
 import Magnetic from "../Magnetic";
+import cn from "../../utils/cn";
 
-interface RoundedButtonProps {
+interface RoundedButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   backgroundColor?: string;
   children: React.ReactNode;
-  attributes?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 const RoundedButton: React.FC<RoundedButtonProps> = ({
@@ -25,12 +25,12 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({
       .to(
         circle.current,
         { top: "-25%", width: "150%", duration: 0.4, ease: "power3.in" },
-        "enter"
+        "enter",
       )
       .to(
         circle.current,
         { top: "-150%", width: "125%", duration: 0.25 },
-        "exit"
+        "exit",
       );
   }, []);
 
@@ -48,7 +48,9 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({
   return (
     <Magnetic>
       <div
-        className={styles.roundedButton}
+        className={cn(
+          "border-[rgb(136, 136, 136)] relative flex cursor-pointer items-center justify-center rounded-[3em] border p-[15px_60px_15px_60px]",
+        )}
         style={{ overflow: "hidden" }}
         onMouseEnter={() => {
           manageMouseEnter();

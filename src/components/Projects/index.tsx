@@ -113,14 +113,14 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
     active: boolean,
     index: number,
     x: number,
-    y: number
+    y: number,
   ) => {
     moveItems(x, y);
     setModal({ active, index });
   };
 
   return (
-    <main
+    <section
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
@@ -189,7 +189,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
           View
         </motion.div>
       </>
-    </main>
+    </section>
   );
 };
 

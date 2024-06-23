@@ -5,7 +5,6 @@ import RoundedButton from '@/common/RoundedButton';
 import Magnetic from '@/common/Magnetic';
 
 interface ContactProps {}
-
 const Contact: React.FC<ContactProps> = () => {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({

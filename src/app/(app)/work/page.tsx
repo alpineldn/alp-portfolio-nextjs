@@ -1,7 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Projects from '../../../components/Projects';
+import Projects from '@/components/Projects';
+import Preloader from '@/components/Preloader';
 
 interface WorkProps {}
 const Work: React.FC<WorkProps> = () => {
@@ -16,12 +17,16 @@ const Work: React.FC<WorkProps> = () => {
         setIsLoading(false);
         document.body.style.cursor = 'default';
         window.scrollTo(0, 0);
-      }, 2000);
+      }, 1000);
     })();
   }, []);
 
   return (
     <main>
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader pageName="Work" />}
+      </AnimatePresence>
+
       <Projects />
     </main>
   );

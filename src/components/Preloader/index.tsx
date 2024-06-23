@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { opacity, slideUp } from './anim';
-import cn from '../../utils/cn';
+import { usePathname } from 'next/navigation';
 
 const words: string[] = [
   'Hello',
@@ -14,8 +14,11 @@ const words: string[] = [
   'Hallo',
 ];
 
-interface PreloaderProps {}
-const Preloader: React.FC<PreloaderProps> = () => {
+interface PreloaderProps {
+  pageName?: string;
+}
+const Preloader: React.FC<PreloaderProps> = ({ pageName }) => {
+  const pathname = usePathname();
   const [index, setIndex] = useState<number>(0);
   const [dimension, setDimension] = useState<{ width: number; height: number }>(
     { width: 0, height: 0 },
@@ -26,7 +29,7 @@ const Preloader: React.FC<PreloaderProps> = () => {
   }, []);
 
   useEffect(() => {
-    if (index === words.length - 1) return;
+    if (index === words.length - 1 || pathname !== '/') return;
     setTimeout(
       () => {
         setIndex(index + 1);
@@ -71,7 +74,8 @@ const Preloader: React.FC<PreloaderProps> = () => {
             animate="enter"
           >
             <span className="mr-[10px] block h-[10px] w-[10px] rounded-[50%] bg-white"></span>
-            {words[index]}
+
+            {pathname === '/' ? words[index] : pageName}
           </motion.p>
           <svg className="absolute top-0 h-[calc(100%+300px)] w-full">
             <motion.path

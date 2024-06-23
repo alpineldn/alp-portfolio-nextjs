@@ -9,28 +9,27 @@ interface ViewControlProps {
 }
 
 const ViewControl: React.FC<ViewControlProps> = ({ viewMode, setViewMode }) => {
+  const listViewActive = viewMode === 'list';
+  const gridViewActive = viewMode === 'grid';
+
   return (
     <div className="flex justify-end gap-4">
       <RoundedButton
-        backgroundColor={'#334BD3'}
+        backgroundColor={listViewActive ? '#1c1d20' : '#334BD3'}
         onClick={() => setViewMode('list')}
         className={cn(
           'group relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] group-hover:!text-white',
-          viewMode === 'list'
-            ? '!bg-[#1c1d20] text-white'
-            : 'border text-black',
+          listViewActive ? '!bg-[#1c1d20] text-white' : 'border text-black',
         )}
       >
         <ListIcon className="relative z-10" />
       </RoundedButton>
       <RoundedButton
         onClick={() => setViewMode('grid')}
-        backgroundColor={'#334BD3'}
+        backgroundColor={gridViewActive ? '#1c1d20' : '#334BD3'}
         className={cn(
           'relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] border text-black group-hover:!text-white',
-          viewMode === 'grid'
-            ? '!bg-[#1c1d20] text-white'
-            : 'border text-black',
+          gridViewActive ? '!bg-[#1c1d20] text-white' : 'border text-black',
         )}
       >
         <GridIcon className="relative z-10" />

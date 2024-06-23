@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import styles from './style.module.scss';
 import gsap from 'gsap';
 import Magnetic from '../Magnetic';
+import cn from '@/utils/cn';
 
 interface RoundedButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   backgroundColor?: string;
@@ -61,7 +62,7 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({
         <div
           ref={circle}
           style={{ backgroundColor }}
-          className={styles.circle}
+          className={cn(styles.circle, "transition-colors duration-300 ease-smooth-curve")}
         ></div>
       </div>
     </Magnetic>

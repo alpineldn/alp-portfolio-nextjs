@@ -1,9 +1,8 @@
-import styles from "./style.module.scss";
-
 interface FooterProps {}
+
 const Footer: React.FC<FooterProps> = ({}) => {
   return (
-    <div className={styles.footer}>
+    <div className="flex w-full justify-between gap-[40px] text-[12px]">
       <a>Awwwards</a>
       <a>Instagram</a>
       <a>Dribble</a>

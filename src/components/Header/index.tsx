@@ -1,14 +1,13 @@
-"use client";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import styles from "./style.module.scss";
-import { usePathname } from "next/navigation";
-import { AnimatePresence } from "framer-motion";
-import Nav from "./nav";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import RoundedButton from "../../common/RoundedButton";
-import Magnetic from "../../common/Magnetic";
-import cn from "../../utils/cn";
+'use client';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { AnimatePresence } from 'framer-motion';
+import Nav from './nav';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import RoundedButton from '../../common/RoundedButton';
+import Magnetic from '../../common/Magnetic';
+import cn from '../../utils/cn';
 
 interface HeaderProps {}
 
@@ -17,8 +16,6 @@ const Header: React.FC<HeaderProps> = ({}) => {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
   const button = useRef<HTMLDivElement>(null);
-
-  console.log({ button });
 
   useEffect(() => {
     if (isActive) setIsActive(false);
@@ -35,14 +32,14 @@ const Header: React.FC<HeaderProps> = ({}) => {
           gsap.to(button.current, {
             scale: 1,
             duration: 0.25,
-            ease: "power1.out",
+            ease: 'power1.out',
           });
         },
         onEnterBack: () => {
           gsap.to(button.current, {
             scale: 0,
             duration: 0.25,
-            ease: "power1.out",
+            ease: 'power1.out',
           });
 
           setIsActive(false);
@@ -95,13 +92,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
         </div>
       </div>
 
-      <div
-        ref={button}
-        className={cn(
-          styles.headerButtonContainer,
-          "fixed right-0 z-[4] scale-0",
-        )}
-      >
+      <div ref={button} className="fixed right-0 z-[4] scale-0">
         <RoundedButton
           onClick={() => {
             setIsActive(!isActive);
@@ -112,13 +103,14 @@ const Header: React.FC<HeaderProps> = ({}) => {
             className={cn(
               "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[40%] before:bg-white before:transition-transform before:duration-300 before:content-[''] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[40%] after:bg-white after:transition-transform after:duration-300 after:content-['']",
               {
-                "before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45":
+                'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
                   isActive,
               },
             )}
           ></div>
         </RoundedButton>
       </div>
+
       <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
     </>
   );

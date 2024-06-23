@@ -49,7 +49,7 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({
     <Magnetic>
       <div
         className={cn(
-          "border-[rgb(136, 136, 136)] relative flex cursor-pointer items-center justify-center rounded-[3em] border p-[15px_60px_15px_60px]",
+          "border-[rgb(136,136,136)] relative flex cursor-pointer items-center justify-center rounded-[3em] border p-[15px_60px_15px_60px]",
         )}
         style={{ overflow: "hidden" }}
         onMouseEnter={() => {

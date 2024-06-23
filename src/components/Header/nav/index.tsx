@@ -1,32 +1,33 @@
-import React, { useState } from "react";
-import styles from "./style.module.scss";
-import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { menuSlide } from "../animation";
-import Link from "./Link";
-import Curve from "./Curve";
-import Footer from "./Footer";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { menuSlide } from '../animation';
+import LinkEl from './Link';
+import Curve from './Curve';
+import Footer from './Footer';
 
 const navItems = [
   {
-    title: "Home",
-    href: "/",
+    title: 'Home',
+    href: '/',
   },
   {
-    title: "Work",
-    href: "/work",
+    title: 'Work',
+    href: '/work',
   },
   {
-    title: "About",
-    href: "/about",
+    title: 'About',
+    href: '/about',
   },
   {
-    title: "Contact",
-    href: "/contact",
+    title: 'Contact',
+    href: '/contact',
   },
 ];
 
-export default function index() {
+interface NavProps {}
+
+const Nav: React.FC<NavProps> = () => {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
@@ -36,26 +37,26 @@ export default function index() {
       initial="initial"
       animate="enter"
       exit="exit"
-      className={styles.menu}
+      className="fixed right-0 top-0 z-[3] h-screen bg-[rgb(41,41,41)] text-white"
     >
-      <div className={styles.body}>
+      <div className="box-border flex h-full flex-col justify-between p-[100px]">
         <div
           onMouseLeave={() => {
             setSelectedIndicator(pathname);
           }}
-          className={styles.nav}
+          className="mt-[80px] flex flex-col gap-[12px] text-[56px]"
         >
-          <div className={styles.header}>
+          <div className="mb-[40px] border-b border-b-[rgb(153,153,153)] text-[11px] uppercase text-[rgb(153,153,153)]">
             <p>Navigation</p>
           </div>
           {navItems.map((data, index) => {
             return (
-              <Link
+              <LinkEl
                 key={index}
                 data={{ ...data, index }}
                 isActive={selectedIndicator == data.href}
                 setSelectedIndicator={setSelectedIndicator}
-              ></Link>
+              ></LinkEl>
             );
           })}
         </div>
@@ -64,4 +65,6 @@ export default function index() {
       <Curve />
     </motion.div>
   );
-}
+};
+
+export default Nav;

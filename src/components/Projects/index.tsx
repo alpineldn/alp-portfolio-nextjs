@@ -4,7 +4,7 @@ import Project from './components/project';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
-import Rounded from '../../common/RoundedButton';
+import RoundedButton from '@/common/RoundedButton';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -137,9 +137,9 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
           );
         })}
       </div>
-      <Rounded>
+      <RoundedButton>
         <p>More work</p>
-      </Rounded>
+      </RoundedButton>
 
       <>
         <motion.div

@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Rounded from '../../common/RoundedButton';
 import { useRef } from 'react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
-import Magnetic from '../../common/Magnetic';
+import RoundedButton from '@/common/RoundedButton';
+import Magnetic from '@/common/Magnetic';
 
 interface ContactProps {}
 
@@ -34,14 +34,14 @@ const Contact: React.FC<ContactProps> = () => {
             style={{ x }}
             className="absolute left-[calc(100%-400px)] top-[calc(100%-75px)]"
           >
-            <Rounded
+            <RoundedButton
               backgroundColor={'#334BD3'}
               className="absolute flex h-[180px] w-[180px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white"
             >
               <p className="relative z-[2] m-0 text-base font-light">
                 Get in touch
               </p>
-            </Rounded>
+            </RoundedButton>
           </motion.div>
           <motion.svg
             className="absolute left-full top-[30%]"
@@ -59,16 +59,16 @@ const Contact: React.FC<ContactProps> = () => {
           </motion.svg>
         </div>
         <div className="mx-[200px] mt-[100px] flex gap-5">
-          <Rounded>
+          <RoundedButton>
             <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
               info@dennissnellenberg.com
             </p>
-          </Rounded>
-          <Rounded>
+          </RoundedButton>
+          <RoundedButton>
             <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
               +31 6 27 84 74 30
             </p>
-          </Rounded>
+          </RoundedButton>
         </div>
         <div className="mt-[200px] flex justify-between p-5">
           <div className="flex items-end gap-2.5">

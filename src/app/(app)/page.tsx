@@ -1,12 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Preloader from '../../components/Preloader';
-import Hero from '../../components/Hero';
-import Projects from '../../components/Projects';
-import Description from '../../components/Description';
-import SlidingImages from '../../components/SlidingImages';
-import Contact from '../../components/Contact';
+import Preloader from '@/components/Preloader';
+import Hero from '@/components/Hero';
+import Description from '@/components/Description';
+import Projects from '@/components/Projects';
+import SlidingImages from '@/components/SlidingImages';
+import Contact from '@/components/Contact';
 
 interface HomeProps {}
 const Home: React.FC<HomeProps> = () => {

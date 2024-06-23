@@ -1,7 +1,7 @@
 import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { slideUp, opacity } from './animation';
-import Rounded from '../../common/RoundedButton';
+import RoundedButton from '@/common/RoundedButton';
 
 interface DescriptionProps {}
 
@@ -45,11 +45,11 @@ const Description: React.FC<DescriptionProps> = () => {
           me in a unique place in the web design world.
         </motion.p>
         <div data-scroll data-scroll-speed={0.1}>
-          <Rounded className="absolute left-[calc(100%-200px)] top-[80%] flex h-[180px] w-[180px] cursor-pointer items-center justify-center rounded-[50%] bg-[#1C1D20] text-white">
+          <RoundedButton className="absolute left-[calc(100%-200px)] top-[80%] flex h-[180px] w-[180px] cursor-pointer items-center justify-center rounded-[50%] bg-[#1C1D20] text-white">
             <p className="relative z-[1] m-0 text-[16px] font-light">
               About me
             </p>
-          </Rounded>
+          </RoundedButton>
         </div>
       </div>
     </div>

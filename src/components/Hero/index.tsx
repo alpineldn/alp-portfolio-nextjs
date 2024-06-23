@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/all';
 import { SplitText } from 'gsap/SplitText';
 import { slideUp } from './animation';
 import { motion } from 'framer-motion';
-import cn from '../../utils/cn';
 
 interface HeroProps {}
 

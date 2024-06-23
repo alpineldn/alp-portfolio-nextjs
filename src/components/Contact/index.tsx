@@ -1,9 +1,8 @@
-import styles from "./style.module.scss";
-import Image from "next/image";
-import Rounded from "../../common/RoundedButton";
-import { useRef } from "react";
-import { useScroll, motion, useTransform, useSpring } from "framer-motion";
-import Magnetic from "../../common/Magnetic";
+import Image from 'next/image';
+import Rounded from '../../common/RoundedButton';
+import { useRef } from 'react';
+import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
+import Magnetic from '../../common/Magnetic';
 
 interface ContactProps {}
 
@@ -11,32 +10,41 @@ const Contact: React.FC<ContactProps> = () => {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start end", "end end"],
+    offset: ['start end', 'end end'],
   });
   const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
   return (
-    <motion.div style={{ y }} ref={container} className={styles.contact}>
-      <div className={styles.body}>
-        <div className={styles.title}>
-          <span>
-            {/* <div className={styles.imageContainer}>
-                            <Image
-                            fill={true}
-                            alt={"image"}
-                            src={`/images/background.jpg`}
-                            />
-                        </div> */}
-            <h2>Let's work</h2>
+    <motion.div
+      style={{ y }}
+      ref={container}
+      className="relative flex flex-col items-center justify-center bg-[#141516] text-white"
+    >
+      <div className="w-full max-w-[1800px] bg-[#141516] pt-[200px]">
+        <div className="relative mx-[200px] border-b border-solid border-b-[rgb(134,134,134)] pb-[100px]">
+          <span className="flex items-center">
+            {/* <div className="relative h-[100px] w-[100px] overflow-hidden rounded-[50%]">
+              <Image className="object-cover" fill={true} alt={'image'} src={`/images/background.jpg`} />
+            </div> */}
+            <h2 className="m-0 text-[5vw] font-light">Let's work</h2>
           </span>
-          <h2>together</h2>
-          <motion.div style={{ x }} className={styles.buttonContainer}>
-            <Rounded backgroundColor={"#334BD3"} className={styles.button}>
-              <p>Get in touch</p>
+          <h2 className="m-0 text-[5vw] font-light">together</h2>
+          <motion.div
+            style={{ x }}
+            className="absolute left-[calc(100%-400px)] top-[calc(100%-75px)]"
+          >
+            <Rounded
+              backgroundColor={'#334BD3'}
+              className="absolute flex h-[180px] w-[180px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white"
+            >
+              <p className="relative z-[2] m-0 text-base font-light">
+                Get in touch
+              </p>
             </Rounded>
           </motion.div>
           <motion.svg
+            className="absolute left-full top-[30%]"
             style={{ rotate, scale: 2 }}
             width="9"
             height="9"
@@ -50,40 +58,62 @@ const Contact: React.FC<ContactProps> = () => {
             />
           </motion.svg>
         </div>
-        <div className={styles.nav}>
+        <div className="mx-[200px] mt-[100px] flex gap-5">
           <Rounded>
-            <p>info@dennissnellenberg.com</p>
+            <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+              info@dennissnellenberg.com
+            </p>
           </Rounded>
           <Rounded>
-            <p>+31 6 27 84 74 30</p>
+            <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+              +31 6 27 84 74 30
+            </p>
           </Rounded>
         </div>
-        <div className={styles.info}>
-          <div>
-            <span>
-              <h3>Version</h3>
-              <p>2022 © Edition</p>
+        <div className="mt-[200px] flex justify-between p-5">
+          <div className="flex items-end gap-2.5">
+            <span className="flex flex-col gap-[15px]">
+              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
+                Version
+              </h3>
+              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+                2022 © Edition
+              </p>
             </span>
-            <span>
-              <h3>Version</h3>
-              <p>11:49 PM GMT+2</p>
+            <span className="flex flex-col gap-[15px]">
+              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
+                Version
+              </h3>
+              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+                11:49 PM GMT+2
+              </p>
             </span>
           </div>
-          <div>
-            <span>
-              <h3>socials</h3>
+          <div className="flex items-end gap-2.5">
+            <span className="flex flex-col gap-[15px]">
+              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
+                socials
+              </h3>
               <Magnetic>
-                <p>Awwwards</p>
+                <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+                  Awwwards
+                </p>
               </Magnetic>
             </span>
             <Magnetic>
-              <p>Instagram</p>
+              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+                Instagram
+              </p>
             </Magnetic>
             <Magnetic>
-              <p>Dribbble</p>
+              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+                Dribbble
+              </p>
             </Magnetic>
             <Magnetic>
-              <p>Linkedin</p>
+              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+                Linkedin
+              </p>
             </Magnetic>
           </div>
         </div>

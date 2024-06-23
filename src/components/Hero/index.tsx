@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import styles from '../../app/styles/hero.module.scss';
 import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';

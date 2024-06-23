@@ -1,4 +1,3 @@
-import styles from './style.module.scss';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { slide, scale } from '../../animation';
@@ -25,7 +24,7 @@ const LinkEl: React.FC<LinkProps> = ({
 
   return (
     <motion.div
-      className={cn(styles.link, className)}
+      className={cn('relative flex items-center', className)}
       onMouseEnter={() => {
         setSelectedIndicator(href);
       }}
@@ -38,7 +37,7 @@ const LinkEl: React.FC<LinkProps> = ({
       <motion.div
         variants={scale}
         animate={isActive ? 'open' : 'closed'}
-        className={styles.indicator}
+        className="absolute left-[-30px] h-2.5 w-2.5 rounded-[50%] bg-[white]"
       ></motion.div>
       <Link href={href}>{title}</Link>
     </motion.div>

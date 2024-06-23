@@ -12,11 +12,8 @@ const Description: React.FC<DescriptionProps> = () => {
   const isInView = useInView(description);
 
   return (
-    <div
-      ref={description}
-      className="mt-[200px] flex justify-center px-[200px]"
-    >
-      <div className="relative flex max-w-[1400px] gap-[50px]">
+    <section ref={description} className="mt-[200px] flex justify-center">
+      <div className="container relative flex gap-[50px]">
         <p className="m-0 gap-[8px] text-[36px] leading-[1.3]">
           {phrase.split(' ').map((word, index) => {
             return (
@@ -52,7 +49,7 @@ const Description: React.FC<DescriptionProps> = () => {
           </RoundedButton>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,10 +1,10 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import Project from './components/project';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import RoundedButton from '@/components/common/ui/RoundedButton';
+import ListView from './views/ListView';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -123,12 +123,12 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="mt-[300px] flex flex-col items-center"
+      className="flex flex-col items-center"
     >
       <div className="container mb-[100px] flex w-full flex-col items-center justify-center">
         {projects.map((project, index) => {
           return (
-            <Project
+            <ListView
               index={index}
               title={project.title}
               manageModal={manageModal}

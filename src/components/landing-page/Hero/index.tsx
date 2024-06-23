@@ -77,10 +77,10 @@ const Hero: React.FC<HeroProps> = ({}) => {
         fill={true}
         alt="background"
       />
-      <div className="flex h-screen w-[70vw] flex-col justify-center pl-[8vw]">
+      <div className="flex h-screen flex-col justify-center lg:max-w-7xl lg:pl-[8vw]">
         <h1
           ref={heroText}
-          className="relative m-0 text-[8rem] font-medium leading-[1.2] text-white"
+          className="relative m-0 text-9xl font-medium leading-[1.2] text-white"
         >
           Brand + Digital Design Studio
         </h1>

@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Projects from '@/components/landing-page/Projects';
 import Preloader from '@/components/common/Preloader';
+import Hero from '@/components/work-page/Hero';
+import Projects from '@/components/work-page/Projects';
 
 interface WorkProps {}
 const Work: React.FC<WorkProps> = () => {
@@ -26,7 +27,7 @@ const Work: React.FC<WorkProps> = () => {
       <AnimatePresence mode="wait">
         {isLoading && <Preloader pageName="Work" />}
       </AnimatePresence>
-
+      <Hero />
       <Projects />
     </main>
   );

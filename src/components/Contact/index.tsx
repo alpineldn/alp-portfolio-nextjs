@@ -21,8 +21,8 @@ const Contact: React.FC<ContactProps> = () => {
       ref={container}
       className="relative flex flex-col items-center justify-center bg-[#141516] text-white"
     >
-      <div className="w-full max-w-[1800px] bg-[#141516] pt-[200px]">
-        <div className="relative mx-[200px] border-b border-solid border-b-[rgb(134,134,134)] pb-[100px]">
+      <div className="container w-full bg-[#141516] pt-[200px]">
+        <div className="relative border-b border-solid border-b-[rgb(134,134,134)] pb-[100px]">
           <span className="flex items-center">
             {/* <div className="relative h-[100px] w-[100px] overflow-hidden rounded-[50%]">
               <Image className="object-cover" fill={true} alt={'image'} src={`/images/background.jpg`} />

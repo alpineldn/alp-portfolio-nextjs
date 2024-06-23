@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import styles from './style.module.scss';
 import gsap from 'gsap';
 import Magnetic from '../Magnetic';
-import cn from '../../utils/cn';
 
 interface RoundedButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   backgroundColor?: string;

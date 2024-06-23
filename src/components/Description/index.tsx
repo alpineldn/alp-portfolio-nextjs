@@ -10,6 +10,7 @@ const Description: React.FC<DescriptionProps> = () => {
     'Helping brands to stand out in the digital era. Together we will set the new status quo. No nonsense, always on the cutting edge.';
   const description = useRef(null);
   const isInView = useInView(description);
+
   return (
     <div
       ref={description}

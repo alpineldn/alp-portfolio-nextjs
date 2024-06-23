@@ -140,6 +140,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
       <Rounded>
         <p>More work</p>
       </Rounded>
+
       <>
         <motion.div
           ref={modalContainer}

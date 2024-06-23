@@ -71,12 +71,12 @@ const Hero: React.FC<HeroProps> = ({}) => {
       >
         <source src="/images/mountains_video.mp4" type="video/mp4" />
       </video> */}
-      {/* <Image
+      <Image
         className="object-cover"
         src="/images/background.jpg"
         fill={true}
         alt="background"
-      /> */}
+      />
       <div className="flex h-screen w-[70vw] flex-col justify-center pl-[8vw]">
         <h1
           ref={heroText}

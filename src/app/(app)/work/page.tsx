@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Projects from '@/components/Projects';
-import Preloader from '@/components/Preloader';
+import Projects from '@/components/landing-page/Projects';
+import Preloader from '@/components/common/Preloader';
 
 interface WorkProps {}
 const Work: React.FC<WorkProps> = () => {

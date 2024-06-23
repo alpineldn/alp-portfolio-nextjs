@@ -1,7 +1,7 @@
 import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { slideUp, opacity } from './animation';
-import RoundedButton from '@/common/RoundedButton';
+import RoundedButton from '@/components/common/ui/RoundedButton';
 
 interface DescriptionProps {}
 

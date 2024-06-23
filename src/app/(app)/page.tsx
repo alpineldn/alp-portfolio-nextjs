@@ -1,12 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Preloader from '@/components/Preloader';
-import Hero from '@/components/Hero';
-import Description from '@/components/Description';
-import Projects from '@/components/Projects';
-import SlidingImages from '@/components/SlidingImages';
-import Contact from '@/components/Contact';
+import Preloader from '@/components/common/Preloader';
+import Hero from '@/components/landing-page/Hero';
+// import Description from '@/components/landing-page/Description';
+import Projects from '@/components/landing-page/Projects';
+import SlidingImages from '@/components/landing-page/SlidingImages';
+import Description from '@/components/landing-page/Description';
 
 interface HomeProps {}
 const Home: React.FC<HomeProps> = () => {
@@ -34,7 +34,6 @@ const Home: React.FC<HomeProps> = () => {
       <Description />
       <Projects />
       <SlidingImages />
-      <Contact />
     </main>
   );
 };

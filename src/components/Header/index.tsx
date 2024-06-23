@@ -5,13 +5,14 @@ import { AnimatePresence } from 'framer-motion';
 import Nav from './nav';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import RoundedButton from '../../common/RoundedButton';
-import Magnetic from '../../common/Magnetic';
-import cn from '../../utils/cn';
+import RoundedButton from '@/components/common/ui/RoundedButton';
+import cn from '@/utils/cn';
+import Magnetic from '@/components/common/ui/Magnetic';
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
+  const pathName = usePathname();
   const header = useRef(null);
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
@@ -52,7 +53,10 @@ const Header: React.FC<HeaderProps> = ({}) => {
     <>
       <div
         ref={header}
-        className="absolute top-0 z-[1] box-border flex w-full items-center justify-between p-[35px] font-light text-white"
+        className={cn(
+          'absolute top-0 z-[1] box-border flex w-full items-center justify-between p-[35px] font-light',
+          pathName === '/' ? 'text-white' : 'text-[#1c1d20]',
+        )}
       >
         <div className="group flex cursor-pointer">
           <p className="m-0 transition-all duration-500 ease-smooth-curve group-hover:rotate-[360deg]">

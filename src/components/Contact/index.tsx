@@ -1,8 +1,9 @@
+'use client';
 import Image from 'next/image';
 import { useRef } from 'react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
-import RoundedButton from '@/common/RoundedButton';
-import Magnetic from '@/common/Magnetic';
+import RoundedButton from '@/components/common/ui/RoundedButton';
+import Magnetic from '@/components/common/ui/Magnetic';
 
 interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {

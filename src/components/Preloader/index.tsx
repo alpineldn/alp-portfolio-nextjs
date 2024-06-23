@@ -1,24 +1,24 @@
-import styles from "./style.module.scss";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { opacity, slideUp } from "./anim";
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { opacity, slideUp } from './anim';
+import cn from '../../utils/cn';
 
 const words: string[] = [
-  "Hello",
-  "Bonjour",
-  "Ciao",
-  "Olà",
-  "やあ",
-  "Hallå",
-  "Guten tag",
-  "Hallo",
+  'Hello',
+  'Bonjour',
+  'Ciao',
+  'Olà',
+  'やあ',
+  'Hallå',
+  'Guten tag',
+  'Hallo',
 ];
 
 interface PreloaderProps {}
 const Preloader: React.FC<PreloaderProps> = () => {
   const [index, setIndex] = useState<number>(0);
   const [dimension, setDimension] = useState<{ width: number; height: number }>(
-    { width: 0, height: 0 }
+    { width: 0, height: 0 },
   );
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Preloader: React.FC<PreloaderProps> = () => {
       () => {
         setIndex(index + 1);
       },
-      index === 0 ? 1000 : 150
+      index === 0 ? 1000 : 150,
     );
   }, [index]);
 
@@ -60,16 +60,22 @@ const Preloader: React.FC<PreloaderProps> = () => {
       variants={slideUp}
       initial="initial"
       exit="exit"
-      className={styles.introduction}
+      className="fixed z-[99] flex h-screen w-screen items-center justify-center bg-[#141516]"
     >
       {dimension.width > 0 && (
         <>
-          <motion.p variants={opacity} initial="initial" animate="enter">
-            <span></span>
+          <motion.p
+            className="absolute z-[1] flex items-center text-[42px] text-white"
+            variants={opacity}
+            initial="initial"
+            animate="enter"
+          >
+            <span className="mr-[10px] block h-[10px] w-[10px] rounded-[50%] bg-white"></span>
             {words[index]}
           </motion.p>
-          <svg>
+          <svg className="absolute top-0 h-[calc(100%+300px)] w-full">
             <motion.path
+              className="fill-[#141516]"
               variants={curve}
               initial="initial"
               exit="exit"

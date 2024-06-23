@@ -1,13 +1,13 @@
-"use client";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import styles from "./style.module.scss";
-import { usePathname } from "next/navigation";
-import { AnimatePresence } from "framer-motion";
-import Nav from "./nav";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Rounded from "../../common/RoundedButton";
-import Magnetic from "../../common/Magnetic";
+'use client';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { AnimatePresence } from 'framer-motion';
+import Nav from './nav';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import RoundedButton from '../../common/RoundedButton';
+import Magnetic from '../../common/Magnetic';
+import cn from '../../utils/cn';
 
 interface HeaderProps {}
 
@@ -32,68 +32,85 @@ const Header: React.FC<HeaderProps> = ({}) => {
           gsap.to(button.current, {
             scale: 1,
             duration: 0.25,
-            ease: "power1.out",
+            ease: 'power1.out',
           });
         },
         onEnterBack: () => {
           gsap.to(button.current, {
             scale: 0,
             duration: 0.25,
-            ease: "power1.out",
+            ease: 'power1.out',
           });
 
           setIsActive(false);
         },
       },
     });
-  }, []);
+  }, [button?.current]);
 
   return (
     <>
-      <div ref={header} className={styles.header}>
-        <div className={styles.logo}>
-          <p className={styles.copyright}>©</p>
-          <div className={styles.name}>
-            <p className={styles.codeBy}>Code by</p>
-            <p className={styles.dennis}>Dennis</p>
-            <p className={styles.snellenberg}>Snellenberg</p>
+      <div
+        ref={header}
+        className="absolute top-0 z-[1] box-border flex w-full items-center justify-between p-[35px] font-light text-white"
+      >
+        <div className="group flex cursor-pointer">
+          <p className="m-0 transition-all duration-500 ease-smooth-curve group-hover:rotate-[360deg]">
+            ©
+          </p>
+          <div className="relative ml-[5px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve group-hover:pr-[30px]">
+            <p className="relative transition-all duration-500 ease-smooth-curve group-hover:-translate-x-full">
+              Code by
+            </p>
+            <p className="relative pl-[0.3em] transition-all duration-500 ease-smooth-curve group-hover:translate-x-[-65px]">
+              Dennis
+            </p>
+            <p className="absolute left-[120px] pl-[0.3em] transition-all duration-500 ease-smooth-curve group-hover:translate-x-[-65px]">
+              Snellenberg
+            </p>
           </div>
         </div>
-        <div className={styles.nav}>
+        <div className="flex items-center">
           <Magnetic>
-            <div className={styles.el}>
+            <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
               <a>Work</a>
-              <div className={styles.indicator}></div>
+              <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>
             </div>
           </Magnetic>
           <Magnetic>
-            <div className={styles.el}>
+            <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
               <a>About</a>
-              <div className={styles.indicator}></div>
+              <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>
             </div>
           </Magnetic>
           <Magnetic>
-            <div className={styles.el}>
+            <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
               <a>Contact</a>
-              <div className={styles.indicator}></div>
+              <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>
             </div>
           </Magnetic>
         </div>
       </div>
-      <div ref={button} className={styles.headerButtonContainer}>
-        <Rounded
+
+      <div ref={button} className="fixed right-0 z-[4] scale-0">
+        <RoundedButton
           onClick={() => {
             setIsActive(!isActive);
           }}
-          className={`${styles.button}`}
+          className="relative m-[20px] flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] bg-[#1c1d20]"
         >
           <div
-            className={`${styles.burger} ${
-              isActive ? styles.burgerActive : ""
-            }`}
+            className={cn(
+              "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[40%] before:bg-white before:transition-transform before:duration-300 before:content-[''] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[40%] after:bg-white after:transition-transform after:duration-300 after:content-['']",
+              {
+                'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
+                  isActive,
+              },
+            )}
           ></div>
-        </Rounded>
+        </RoundedButton>
       </div>
+
       <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
     </>
   );

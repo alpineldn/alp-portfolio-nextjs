@@ -1,6 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
-import styles from "./styles.module.scss";
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface CurveProps {}
 
@@ -27,7 +26,7 @@ const Curve: React.FC<CurveProps> = ({}) => {
   };
 
   return (
-    <svg className={styles.svgCurve}>
+    <svg className="absolute left-[-99px] top-0 h-full w-[100px] fill-[rgb(41,41,41)] stroke-none">
       <motion.path
         variants={curve}
         initial="initial"

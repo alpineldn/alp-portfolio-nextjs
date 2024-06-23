@@ -1,11 +1,11 @@
-import Image from "next/image";
-import styles from "../../app/styles/hero.module.scss";
-import { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import { SplitText } from "gsap/SplitText";
-import { slideUp } from "./animation";
-import { motion } from "framer-motion";
+import Image from 'next/image';
+import { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { SplitText } from 'gsap/SplitText';
+import { slideUp } from './animation';
+import { motion } from 'framer-motion';
+import cn from '../../utils/cn';
 
 interface HeroProps {}
 
@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         end: window.innerHeight,
         onUpdate: (e) => (direction = e.direction * -1),
       },
-      x: "-500px",
+      x: '-500px',
     });
     requestAnimationFrame(animate);
   }, []);
@@ -58,37 +58,72 @@ const Hero: React.FC<HeroProps> = ({}) => {
   };
 
   return (
-    <motion.main
+    <motion.div
       variants={slideUp}
       initial="initial"
       animate="enter"
-      className={styles.hero}
+      className="relative flex h-screen overflow-hidden"
     >
-      <video autoPlay loop muted className={styles.hero__video}>
+      {/* <video
+        autoPlay
+        loop
+        muted
+        className="absolute h-full w-full object-cover"
+      >
         <source src="/images/mountains_video.mp4" type="video/mp4" />
-      </video>
+      </video> */}
       {/* <Image
+        className="object-cover"
         src="/images/background.jpg"
         fill={true}
         alt="background"
       /> */}
-      <div className={styles.hero__text}>
-        <h1 ref={heroText}>Brand + Digital Design Studio</h1>
+      <div className="flex h-screen w-[70vw] flex-col justify-center pl-[8vw]">
+        <h1
+          ref={heroText}
+          className="relative m-0 text-[8rem] font-medium leading-[1.2] text-white"
+        >
+          Brand + Digital Design Studio
+        </h1>
       </div>
-      <div className={styles.sliderContainer}>
-        <div ref={slider} className={styles.slider}>
-          <p ref={firstText}>Brand + Digital Design Studio</p>
-          <p ref={secondText}>Brand + Digital Design Studio</p>
+      <div className="absolute top-[calc(100vh-350px)]">
+        <div ref={slider} className="relative whitespace-nowrap">
+          <p
+            ref={firstText}
+            className="relative m-0 p-[50px] text-[230px] font-medium text-white"
+          >
+            Brand + Digital Design Studio
+          </p>
+          <p
+            ref={secondText}
+            className="absolute left-full top-0 m-0 p-[50px] text-[230px] font-medium text-white"
+          >
+            Brand + Digital Design Studio
+          </p>
         </div>
       </div>
-      <div data-scroll data-scroll-speed={0.1} className={styles.description}>
-        {/* <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 8.5C8.27614 8.5 8.5 8.27614 8.5 8L8.5 3.5C8.5 3.22386 8.27614 3 8 3C7.72386 3 7.5 3.22386 7.5 3.5V7.5H3.5C3.22386 7.5 3 7.72386 3 8C3 8.27614 3.22386 8.5 3.5 8.5L8 8.5ZM0.646447 1.35355L7.64645 8.35355L8.35355 7.64645L1.35355 0.646447L0.646447 1.35355Z" fill="white"/>
+      <div
+        data-scroll
+        data-scroll-speed={0.1}
+        className="absolute left-[65%] top-[35%] text-[24px] font-light text-white"
+      >
+        {/* <svg
+          className="mb-[100px] scale-[2]"
+          width="9"
+          height="9"
+          viewBox="0 0 9 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 8.5C8.27614 8.5 8.5 8.27614 8.5 8L8.5 3.5C8.5 3.22386 8.27614 3 8 3C7.72386 3 7.5 3.22386 7.5 3.5V7.5H3.5C3.22386 7.5 3 7.72386 3 8C3 8.27614 3.22386 8.5 3.5 8.5L8 8.5ZM0.646447 1.35355L7.64645 8.35355L8.35355 7.64645L1.35355 0.646447L0.646447 1.35355Z"
+            fill="white"
+          />
         </svg> */}
-        <p>Born in London, working Globally</p>
-        {/* <p>Designer & Developer</p> */}
+        <p className="m-0 mb-[10px]">Born in London, working Globally</p>
+        {/* <p className="m-0 mb-[10px]">Designer & Developer</p> */}
       </div>
-    </motion.main>
+    </motion.div>
   );
 };
 

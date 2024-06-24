@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import RoundedButton from '@/components/common/ui/RoundedButton';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface GridViewProps {}
@@ -78,7 +79,7 @@ const GridView: React.FC<GridViewProps> = ({}) => {
         moveItems(e.clientX, e.clientY);
       }}
     >
-      <div className="grid grid-cols-2 gap-x-10 gap-y-48">
+      <div className="mb-[100px] grid grid-cols-2 gap-x-10 gap-y-48">
         {projects.map(({ src, title, service, year, color }, index) => (
           <Link
             href={`/work/${index}`}
@@ -114,6 +115,11 @@ const GridView: React.FC<GridViewProps> = ({}) => {
             </div>
           </Link>
         ))}
+      </div>
+      <div className="flex items-center justify-center">
+        <RoundedButton>
+          <p>More work</p>
+        </RoundedButton>
       </div>
 
       <>

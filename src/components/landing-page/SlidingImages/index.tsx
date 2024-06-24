@@ -53,7 +53,7 @@ const SlidingImages: React.FC<SlidingImagesProps> = ({}) => {
   const height = useTransform(scrollYProgress, [0, 0.9], [50, 0]);
 
   return (
-    <div
+    <section
       ref={container}
       className="relative z-[1] mt-[200px] flex flex-col gap-[3vw] bg-white"
     >
@@ -106,7 +106,7 @@ const SlidingImages: React.FC<SlidingImagesProps> = ({}) => {
       <motion.div style={{ height }} className="relative mt-[100px]">
         <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

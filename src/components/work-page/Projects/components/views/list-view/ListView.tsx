@@ -6,7 +6,8 @@ import Image from 'next/image';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import Project from './Project';
 import { fadeInAndSlideUp } from '../anim';
-import { projects } from '@/utils/constants';
+import { Project as ProjectType } from '@/app/(app)/work/page';
+import SanityImage from '@/components/common/SanityImage/SanityImage';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -30,8 +31,10 @@ const scaleAnimation = {
   },
 };
 
-interface ListViewProps {}
-const ListView: React.FC<ListViewProps> = ({}) => {
+interface ListViewProps {
+  projects: ProjectType[];
+}
+const ListView: React.FC<ListViewProps> = ({ projects }) => {
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
@@ -157,19 +160,18 @@ const ListView: React.FC<ListViewProps> = ({}) => {
             className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
           >
             {projects.map((project, index) => {
-              const { src, color } = project;
+              const { mainImage, title } = project;
               return (
                 <div
                   className="flex h-full w-full items-center justify-center"
-                  style={{ backgroundColor: color }}
+                  style={{ backgroundColor: 'gray' }}
                   key={`modal_${index}`}
                 >
-                  <Image
-                    className="h-auto"
-                    src={`/images/${src}`}
-                    width={300}
-                    height={0}
-                    alt="image"
+                  <SanityImage
+                    sizes="33vw"
+                    src={mainImage}
+                    alt={title}
+                    className="aspect-auto h-auto w-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
                   />
                 </div>
               );

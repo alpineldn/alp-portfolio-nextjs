@@ -1,12 +1,17 @@
+'use client';
 import { useEffect, useRef, useState } from 'react';
 import ViewControl from './components/ViewControl';
 import ListView from './components/views/list-view/ListView';
 import { AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import GridView from './components/views/grid-view/GridView';
 import { motion } from 'framer-motion';
+import type { Project } from '@/app/(app)/work/page';
 
-interface ProjectsProps {}
-const Projects: React.FC<ProjectsProps> = ({}) => {
+interface ProjectsProps {
+  projects: Project[];
+}
+
+const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -25,8 +30,8 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
         <ViewControl viewMode={viewMode} setViewMode={setViewMode} />
 
         <AnimatePresence mode="wait">
-          {viewMode === 'list' && <ListView />}
-          {viewMode === 'grid' && <GridView />}
+          {viewMode === 'list' && <ListView projects={projects} />}
+          {viewMode === 'grid' && <GridView projects={projects} />}
         </AnimatePresence>
         {/*  */}
         {/*  */}

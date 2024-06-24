@@ -1,13 +1,8 @@
+import { Project as ProjectTypes } from '@/app/(app)/work/page';
 import React from 'react';
 
-interface ProjectProps {
+interface ProjectProps extends ProjectTypes {
   index: number;
-  title: string;
-  src: string;
-  color: string;
-  year: string;
-  location: string;
-  service: string;
   manageModal: (state: boolean, index: number, x: number, y: number) => void;
 }
 
@@ -15,11 +10,9 @@ const Project: React.FC<ProjectProps> = ({
   index,
   manageModal,
   title,
-  color,
-  service,
-  src,
-  year,
-  location,
+  agency,
+  categories,
+  client,
 }) => {
   return (
     <tr
@@ -35,13 +28,13 @@ const Project: React.FC<ProjectProps> = ({
         {title}
       </td>
       <td className="py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]">
-        {location}
+        {categories.map((category) => category.title).join(', ')}
       </td>
       <td className="py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]">
-        {service}
+        {agency}
       </td>
       <td className="py-[50px] pr-[100px] text-lg transition-all duration-300 group-hover:translate-x-[10px]">
-        {year}
+        {client}
       </td>
     </tr>
   );

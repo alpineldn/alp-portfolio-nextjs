@@ -1,14 +1,17 @@
 import { motion } from 'framer-motion';
 import { fadeInAndSlideUp } from '../anim';
-import { projects } from '@/utils/constants';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import RoundedButton from '@/components/common/ui/RoundedButton';
+import { Project } from '@/app/(app)/work/page';
+import SanityImage from '@/components/common/SanityImage/SanityImage';
 
 type MoveRef = gsap.QuickToFunc | null;
-interface GridViewProps {}
+interface GridViewProps {
+  projects: Project[];
+}
 
 const scaleAnimation = {
   initial: { scale: 0, x: '-50%', y: '-50%' },
@@ -26,7 +29,7 @@ const scaleAnimation = {
   },
 };
 
-const GridView: React.FC<GridViewProps> = ({}) => {
+const GridView: React.FC<GridViewProps> = ({ projects }) => {
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
   const [active, setActive] = useState(false);
@@ -80,41 +83,53 @@ const GridView: React.FC<GridViewProps> = ({}) => {
       }}
     >
       <div className="mb-[100px] grid grid-cols-2 gap-x-10 gap-y-48">
-        {projects.map(({ src, title, service, year, color }, index) => (
-          <Link
-            href={`/work/${index}`}
-            onMouseEnter={(e) => {
-              manageModal(true, e.clientX, e.clientY);
-            }}
-            onMouseLeave={(e) => {
-              manageModal(false, e.clientX, e.clientY);
-            }}
-          >
-            <div className="relative w-full">
-              <figure
-                style={{ backgroundColor: color }}
-                className="flex aspect-square h-full w-full items-center justify-center overflow-hidden"
-              >
-                <Image
-                  src={`/images/${src}`}
-                  width={600}
-                  height={600}
-                  alt={title}
-                  className="aspect-auto h-auto w-auto object-cover"
-                />
-              </figure>
-              <div className="w-full py-4">
-                <h3 className="border-b-2 py-6 text-5xl text-[#1c1d20]">
-                  {title}
-                </h3>
-                <div className="flex justify-between py-5">
-                  <p className="text-lg">{service}</p>
-                  <p className="text-lg">{year}</p>
+        {projects.map(
+          (
+            {
+              agency,
+              categories,
+              mainImage,
+              slug,
+              title,
+              client,
+              selectedWorks,
+            },
+            index,
+          ) => (
+            <Link
+              href={`/work/${slug.current}`}
+              onMouseEnter={(e) => {
+                manageModal(true, e.clientX, e.clientY);
+              }}
+              onMouseLeave={(e) => {
+                manageModal(false, e.clientX, e.clientY);
+              }}
+            >
+              <div className="relative w-full">
+                <figure
+                  style={{ backgroundColor: 'gray' }}
+                  className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden"
+                >
+                  <SanityImage
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    src={mainImage}
+                    alt={title}
+                    className="aspect-auto h-auto w-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
+                  />
+                </figure>
+                <div className="w-full py-4">
+                  <h3 className="border-b-2 py-6 text-5xl text-[#1c1d20]">
+                    {title}
+                  </h3>
+                  <div className="flex justify-between py-5">
+                    <p className="text-lg">{agency}</p>
+                    <p className="text-lg">{client}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ),
+        )}
       </div>
       <div className="flex items-center justify-center">
         <RoundedButton>

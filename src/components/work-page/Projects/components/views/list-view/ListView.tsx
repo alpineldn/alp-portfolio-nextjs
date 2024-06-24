@@ -4,36 +4,15 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import RoundedButton from '@/components/common/ui/RoundedButton';
-import ListView from './views/ListView';
+import Project from './Project';
+import { fadeInAndSlideUp } from '../anim';
+import { projects } from '@/utils/constants';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
   active: boolean;
   index: number;
 }
-
-const projects = [
-  {
-    title: 'C2 Montreal',
-    src: 'c2montreal.png',
-    color: '#000000',
-  },
-  {
-    title: 'Office Studio',
-    src: 'officestudio.png',
-    color: '#8C8C8C',
-  },
-  {
-    title: 'Locomotive',
-    src: 'locomotive.png',
-    color: '#EFE8D3',
-  },
-  {
-    title: 'Silencio',
-    src: 'silencio.png',
-    color: '#706D63',
-  },
-];
 
 const scaleAnimation = {
   initial: { scale: 0, x: '-50%', y: '-50%' },
@@ -51,8 +30,8 @@ const scaleAnimation = {
   },
 };
 
-interface ProjectsProps {}
-const Projects: React.FC<ProjectsProps> = ({}) => {
+interface ListViewProps {}
+const ListView: React.FC<ListViewProps> = ({}) => {
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
@@ -119,23 +98,47 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
   };
 
   return (
-    <section
+    <motion.section
+      variants={fadeInAndSlideUp}
+      initial="initial"
+      animate="enter"
+      exit="exit"
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
       className="flex flex-col items-center"
     >
-      <div className="container mb-[100px] flex w-full flex-col items-center justify-center">
-        {projects.map((project, index) => {
-          return (
-            <ListView
-              index={index}
-              title={project.title}
-              manageModal={manageModal}
-              key={index}
-            />
-          );
-        })}
+      <div className="mb-[100px] flex w-full flex-col items-center justify-center">
+        <table className="w-full table-auto">
+          <thead>
+            <tr>
+              <th className="pb-10 pl-[100px] text-left text-xs font-light uppercase text-[#1c1d20]">
+                Client
+              </th>
+              <th className="pb-10 text-left text-xs font-light uppercase text-[#1c1d20]">
+                Location
+              </th>
+              <th className="pb-10 text-left text-xs font-light uppercase text-[#1c1d20]">
+                Services
+              </th>
+              <th className="pb-10 pr-[100px] text-left text-xs font-light uppercase text-[#1c1d20]">
+                Year
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {projects.map((project, index) => {
+              return (
+                <Project
+                  index={index}
+                  manageModal={manageModal}
+                  key={index}
+                  {...project}
+                />
+              );
+            })}
+          </tbody>
+        </table>
       </div>
       <RoundedButton>
         <p>More work</p>
@@ -190,8 +193,8 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
           View
         </motion.div>
       </>
-    </section>
+    </motion.section>
   );
 };
 
-export default Projects;
+export default ListView;

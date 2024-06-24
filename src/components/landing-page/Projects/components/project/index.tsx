@@ -16,7 +16,7 @@ const Project: React.FC<ProjectProps> = ({ index, manageModal, title }) => {
       onMouseLeave={(e) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
-      className="px-[100px group flex w-full cursor-pointer items-center justify-between border-t border-solid border-t-[rgb(201,201,201)] py-[50px] transition-all duration-200 last:border-b last:border-b-[rgb(201,201,201)] hover:opacity-50"
+      className="group flex w-full cursor-pointer items-center justify-between border-t border-solid border-t-[rgb(201,201,201)] py-[50px] transition-all duration-200 last:border-b last:border-b-[rgb(201,201,201)] hover:opacity-50"
     >
       <h2 className="m-0 text-[60px] font-normal transition-all duration-[0.4s] group-hover:translate-x-[-10px]">
         {title}

@@ -13,7 +13,7 @@ const ViewControl: React.FC<ViewControlProps> = ({ viewMode, setViewMode }) => {
   const gridViewActive = viewMode === 'grid';
 
   return (
-    <div className="flex justify-end gap-4">
+    <div className="flex justify-end gap-4 pr-[200px]">
       <RoundedButton
         backgroundColor={listViewActive ? '#1c1d20' : '#334BD3'}
         onClick={() => setViewMode('list')}

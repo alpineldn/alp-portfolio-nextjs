@@ -11,6 +11,21 @@ import Magnetic from '@/components/common/ui/Magnetic';
 
 interface HeaderProps {}
 
+const navItems = [
+  {
+    title: 'Work',
+    href: '/work',
+  },
+  {
+    title: 'About',
+    href: '/about',
+  },
+  {
+    title: 'Contact',
+    href: '/contact',
+  },
+];
+
 const Header: React.FC<HeaderProps> = ({}) => {
   const pathName = usePathname();
   const header = useRef(null);
@@ -75,24 +90,14 @@ const Header: React.FC<HeaderProps> = ({}) => {
           </div>
         </div>
         <div className="flex items-center">
-          <Magnetic>
-            <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
-              <a>Work</a>
-              <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>
-            </div>
-          </Magnetic>
-          <Magnetic>
-            <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
-              <a>About</a>
-              <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>
-            </div>
-          </Magnetic>
-          <Magnetic>
-            <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
-              <a>Contact</a>
-              <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>
-            </div>
-          </Magnetic>
+          {navItems.map(({ href, title }) => (
+            <Magnetic>
+              <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
+                <a href={href}>{title}</a>
+                <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>
+              </div>
+            </Magnetic>
+          ))}
         </div>
       </div>
 

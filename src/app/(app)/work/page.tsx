@@ -27,6 +27,7 @@ const Work: React.FC<WorkProps> = () => {
       <AnimatePresence mode="wait">
         {isLoading && <Preloader pageName="Work" />}
       </AnimatePresence>
+
       <Hero />
       <Projects />
     </main>

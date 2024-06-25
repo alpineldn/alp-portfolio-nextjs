@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Slug } from 'sanity';
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
-import { fadeInAndSlideUp, scaleAnimation } from './anim';
+import { fadeInAndSlideUp, scaleAnimation } from '../../common/anim';
 import Link from 'next/link';
 
 type MoveRef = gsap.QuickToFunc | null;

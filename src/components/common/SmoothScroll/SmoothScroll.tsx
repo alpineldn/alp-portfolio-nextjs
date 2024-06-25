@@ -29,7 +29,7 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children, pageName }) => {
   }, []);
 
   return (
-    <main>
+    <main className="max-w-screen overflow-hidden">
       <AnimatePresence mode="wait">
         {isLoading && <Preloader pageName={pageName} />}
       </AnimatePresence>

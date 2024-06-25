@@ -7,7 +7,7 @@ interface ProjectProps extends ProjectTypes {
   manageModal: (state: boolean, index: number, x: number, y: number) => void;
 }
 
-const Project: React.FC<ProjectProps> = ({
+const ProjectList: React.FC<ProjectProps> = ({
   index,
   manageModal,
   title,
@@ -27,7 +27,7 @@ const Project: React.FC<ProjectProps> = ({
     >
       <td>
         <Link
-          className="block py-[50px] pl-[100px] text-5xl font-normal transition-all duration-[0.4s] group-hover:translate-x-[-10px]"
+          className="block py-7 pl-5 text-2xl font-normal transition-all duration-[0.4s] group-hover:translate-x-[-10px] sm:pl-10 md:text-3xl lg:text-4xl 2xl:py-[50px] 2xl:pl-[100px] 2xl:text-6xl"
           href={`work/${slug.current}`}
         >
           {title}
@@ -35,7 +35,7 @@ const Project: React.FC<ProjectProps> = ({
       </td>
       <td>
         <Link
-          className="block py-[50px] pr-[100px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
+          className="block py-7 pr-5 text-lg transition-all duration-300 group-hover:translate-x-[10px] sm:pr-10 2xl:py-[50px] 2xl:pr-[100px]"
           href={`work/${slug.current}`}
         >
           {client}
@@ -43,7 +43,7 @@ const Project: React.FC<ProjectProps> = ({
       </td>
       <td>
         <Link
-          className="block py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
+          className="block py-7 text-lg transition-all duration-300 group-hover:translate-x-[10px] 2xl:py-[50px]"
           href={`work/${slug.current}`}
         >
           {categories.map((category, index) => (
@@ -58,4 +58,4 @@ const Project: React.FC<ProjectProps> = ({
   );
 };
 
-export default Project;
+export default ProjectList;

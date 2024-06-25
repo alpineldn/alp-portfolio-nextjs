@@ -8,7 +8,10 @@ interface ViewControlProps {
   setViewMode: React.Dispatch<React.SetStateAction<'list' | 'grid'>>;
 }
 
-const ViewControl: React.FC<ViewControlProps> = ({ viewMode, setViewMode }) => {
+const ProjectLayoutControl: React.FC<ViewControlProps> = ({
+  viewMode,
+  setViewMode,
+}) => {
   const listViewActive = viewMode === 'list';
   const gridViewActive = viewMode === 'grid';
 
@@ -37,4 +40,4 @@ const ViewControl: React.FC<ViewControlProps> = ({ viewMode, setViewMode }) => {
     </div>
   );
 };
-export default ViewControl;
+export default ProjectLayoutControl;

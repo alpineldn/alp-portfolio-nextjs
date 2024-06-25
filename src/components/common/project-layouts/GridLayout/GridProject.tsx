@@ -2,31 +2,33 @@ import Link from 'next/link';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import { getRandomColor } from '@/utils/create-random-color';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 interface ProjectProps extends ProjectType {
-  manageModal: (active: boolean, x: number, y: number) => void;
+  index: number;
+  manageModal: (active: boolean, index: number, x: number, y: number) => void;
 }
 
-const Project: React.FC<ProjectProps> = ({
+const ProjectCard: React.FC<ProjectProps> = ({
   slug,
   mainImage,
   title,
   categories,
   client,
   manageModal,
+  index,
 }) => {
   const color = useMemo(() => getRandomColor(), []);
 
   return (
     <Link
-      className="even:translate-y-[20%]"
+      className="2xl:even:translate-y-[30%]"
       href={`/work/${slug.current}`}
       onMouseEnter={(e) => {
-        manageModal(true, e.clientX, e.clientY);
+        manageModal(true, index, e.clientX, e.clientY);
       }}
       onMouseLeave={(e) => {
-        manageModal(false, e.clientX, e.clientY);
+        manageModal(false, index, e.clientX, e.clientY);
       }}
     >
       <div className="relative w-full">
@@ -60,4 +62,4 @@ const Project: React.FC<ProjectProps> = ({
     </Link>
   );
 };
-export default Project;
+export default ProjectCard;

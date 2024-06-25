@@ -3,31 +3,15 @@ import RoundedButton from '@/components/common/ui/RoundedButton';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
-import { fadeInAndSlideUp } from '../anim';
-import Project from './Project';
+import ProjectCard from './GridProject';
+import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface GridViewProps {
   projects: ProjectType[];
 }
 
-const scaleAnimation = {
-  initial: { scale: 0, x: '-50%', y: '-50%' },
-  enter: {
-    scale: 1,
-    x: '-50%',
-    y: '-50%',
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
-  },
-  closed: {
-    scale: 0,
-    x: '-50%',
-    y: '-50%',
-    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
-  },
-};
-
-const GridView: React.FC<GridViewProps> = ({ projects }) => {
+const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
   const [active, setActive] = useState(false);
@@ -82,7 +66,11 @@ const GridView: React.FC<GridViewProps> = ({ projects }) => {
     >
       <div className="mb-[300px] grid grid-cols-2 gap-x-10 gap-y-48">
         {projects.map((project) => (
-          <Project key={project._id} manageModal={manageModal} {...project} />
+          <ProjectCard
+            key={project._id}
+            manageModal={manageModal}
+            {...project}
+          />
         ))}
       </div>
       <div className="flex items-center justify-center">
@@ -113,4 +101,4 @@ const GridView: React.FC<GridViewProps> = ({ projects }) => {
   );
 };
 
-export default GridView;
+export default GridLayout;

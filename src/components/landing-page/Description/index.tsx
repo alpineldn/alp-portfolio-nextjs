@@ -14,9 +14,12 @@ const Description: React.FC<DescriptionProps> = () => {
   const isInView = useInView(description);
 
   return (
-    <section ref={description} className="mt-[200px] flex justify-center">
-      <div className="container relative flex gap-[50px]">
-        <p className="m-0 gap-[8px] text-[36px] leading-[1.3]">
+    <section
+      ref={description}
+      className="mt-[100px] flex justify-center lg:mt-[200px]"
+    >
+      <div className="container relative flex flex-col gap-12 md:flex-row">
+        <p className="m-0 gap-3 text-3xl leading-[1.3] lg:text-4xl">
           {phrase.split(' ').map((word, index) => {
             return (
               <span
@@ -36,7 +39,7 @@ const Description: React.FC<DescriptionProps> = () => {
           })}
         </p>
         <motion.p
-          className="m-0"
+          className="m-0 max-w-64 text-sm md:max-w-full lg:text-base"
           variants={opacity}
           animate={isInView ? 'open' : 'closed'}
         >

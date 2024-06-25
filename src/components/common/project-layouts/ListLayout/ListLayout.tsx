@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import RoundedButton from '@/components/common/ui/RoundedButton';
-import Project from './Project';
-import { fadeInAndSlideUp } from '../anim';
+import ProjectList from './Project';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import { getRandomColor } from '@/utils/create-random-color';
+import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -16,26 +16,10 @@ interface Model {
   index: number;
 }
 
-const scaleAnimation = {
-  initial: { scale: 0, x: '-50%', y: '-50%' },
-  enter: {
-    scale: 1,
-    x: '-50%',
-    y: '-50%',
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
-  },
-  closed: {
-    scale: 0,
-    x: '-50%',
-    y: '-50%',
-    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
-  },
-};
-
 interface ListViewProps {
   projects: ProjectType[];
 }
-const ListView: React.FC<ListViewProps> = ({ projects }) => {
+const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
@@ -130,7 +114,7 @@ const ListView: React.FC<ListViewProps> = ({ projects }) => {
           <tbody>
             {projects.map((project, index) => {
               return (
-                <Project
+                <ProjectList
                   key={project._id}
                   index={index}
                   manageModal={manageModal}
@@ -196,4 +180,4 @@ const ListView: React.FC<ListViewProps> = ({ projects }) => {
   );
 };
 
-export default ListView;
+export default ListLayout;

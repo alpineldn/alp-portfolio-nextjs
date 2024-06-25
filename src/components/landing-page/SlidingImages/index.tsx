@@ -27,7 +27,7 @@ const SlidingImages: React.FC<SlidingImagesProps> = ({ projects }) => {
   return (
     <section
       ref={container}
-      className="relative z-[1] mt-[200px] flex flex-col gap-[3vw] bg-white"
+      className="relative z-[1] flex flex-col gap-[3vw] bg-white pt-[100px] lg:pt-[200px]"
     >
       <motion.div
         style={{ x: x1 }}

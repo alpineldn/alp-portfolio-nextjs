@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import cn from '@/utils/cn';
 import Magnetic from '@/components/common/ui/Magnetic';
+import Link from 'next/link';
 
 interface HeaderProps {}
 
@@ -27,15 +28,14 @@ const navItems = [
 ];
 
 const Header: React.FC<HeaderProps> = ({}) => {
-  const pathName = usePathname();
   const header = useRef(null);
   const [isActive, setIsActive] = useState(false);
-  const pathname = usePathname();
+  const pathName = usePathname();
   const button = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isActive) setIsActive(false);
-  }, [pathname]);
+  }, [pathName]);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
           pathName === '/' ? 'text-white' : 'text-[#1c1d20]',
         )}
       >
-        <div className="group flex cursor-pointer">
+        <Link href="/" className="group flex cursor-pointer">
           <p className="m-0 transition-all duration-500 ease-smooth-curve group-hover:rotate-[360deg]">
             ©
           </p>
@@ -88,13 +88,18 @@ const Header: React.FC<HeaderProps> = ({}) => {
               Snellenberg
             </p>
           </div>
-        </div>
+        </Link>
         <div className="flex items-center">
           {navItems.map(({ href, title }) => (
             <Magnetic key={title}>
               <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
-                <a href={href}>{title}</a>
-                <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>
+                <Link href={href}>{title}</Link>
+                <div
+                  className={cn(
+                    'absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] transition-transform duration-200 ease-smooth-curve group-hover:scale-100',
+                    pathName === '/' ? 'bg-white' : 'bg-[#1c1d20]',
+                  )}
+                ></div>
               </div>
             </Magnetic>
           ))}

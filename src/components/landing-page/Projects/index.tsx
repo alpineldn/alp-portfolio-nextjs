@@ -1,35 +1,21 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import Project from './components/project';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import Image from 'next/image';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import { getRandomColor } from '@/utils/create-random-color';
+import Link from 'next/link';
+import { scaleAnimation } from '@/components/common/anim';
+import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
+import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProject';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
   active: boolean;
   index: number;
 }
-
-const scaleAnimation = {
-  initial: { scale: 0, x: '-50%', y: '-50%' },
-  enter: {
-    scale: 1,
-    x: '-50%',
-    y: '-50%',
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
-  },
-  closed: {
-    scale: 0,
-    x: '-50%',
-    y: '-50%',
-    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
-  },
-};
 
 interface ProjectsProps {
   projects: ProjectType[];
@@ -105,28 +91,43 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="mt-[300px] flex flex-col items-center"
+      className="mt-[200px] flex flex-col items-center lg:mt-[300px]"
     >
-      <table className="container mb-[100px] w-full table-auto">
-        <tbody>
-          {projects.map(({ _id, title, client, categories, slug }, index) => {
+      <>
+        <table className="container mb-[100px] w-full table-auto max-lg:hidden">
+          <tbody>
+            {projects.map((project, index) => {
+              return (
+                <ProjectList
+                  {...project}
+                  key={project._id}
+                  index={index}
+                  manageModal={manageModal}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+
+        <div className="grid grid-cols-1 gap-x-8 gap-y-20 px-5 sm:px-10 md:grid-cols-2 lg:hidden">
+          {projects.slice(0, 4).map((project, index) => {
             return (
-              <Project
+              <ProjectCard
+                {...project}
+                key={project._id}
                 index={index}
-                title={title}
-                client={client}
-                categories={categories}
-                slug={slug}
                 manageModal={manageModal}
-                key={_id}
               />
             );
           })}
-        </tbody>
-      </table>
-      <RoundedButton>
-        <p>More work</p>
-      </RoundedButton>
+        </div>
+      </>
+
+      <Link href="/work">
+        <RoundedButton>
+          <p>More work</p>
+        </RoundedButton>
+      </Link>
 
       <>
         <motion.div

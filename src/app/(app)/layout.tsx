@@ -20,7 +20,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
       <body className={inter.className}>
         <Header />
         {children}
-        <Contact />
+        {/* <Contact /> */}
       </body>
     </html>
   );

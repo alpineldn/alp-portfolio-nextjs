@@ -17,7 +17,7 @@ export interface ProjectFull extends Project {
   body: PortableTextBlock[];
 }
 
-async function getPageData(slug: string): Promise<Project[]> {
+async function getPageData(slug: string): Promise<ProjectFull> {
   try {
     return await sanityClient.fetch(WORK_SLUGS_QUERY(slug));
   } catch (error) {
@@ -26,11 +26,19 @@ async function getPageData(slug: string): Promise<Project[]> {
 }
 
 const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
-  const project = await getPageData(params.slug);
+  const { title, agency, client, categories, mainImage } = await getPageData(
+    params.slug,
+  );
 
   return (
-    <SmoothScroll pageName="Work">
-      <Hero project={project} />
+    <SmoothScroll pageName={title}>
+      <Hero
+        title={title}
+        client={client}
+        agency={agency}
+        categories={categories}
+        mainImage={mainImage}
+      />
     </SmoothScroll>
   );
 };

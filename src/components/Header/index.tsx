@@ -91,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
         </div>
         <div className="flex items-center">
           {navItems.map(({ href, title }) => (
-            <Magnetic>
+            <Magnetic key={title}>
               <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
                 <a href={href}>{title}</a>
                 <div className="absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] bg-white transition-transform duration-200 ease-smooth-curve group-hover:scale-100"></div>

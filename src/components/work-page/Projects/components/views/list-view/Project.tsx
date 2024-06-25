@@ -1,4 +1,5 @@
 import { Project as ProjectTypes } from '@/app/(app)/work/page';
+import Link from 'next/link';
 import React from 'react';
 
 interface ProjectProps extends ProjectTypes {
@@ -13,6 +14,7 @@ const Project: React.FC<ProjectProps> = ({
   agency,
   categories,
   client,
+  slug,
 }) => {
   return (
     <tr
@@ -24,17 +26,39 @@ const Project: React.FC<ProjectProps> = ({
       }}
       className="group w-full cursor-pointer border-t border-solid border-t-[rgb(201,201,201)] transition-all duration-200 last:border-b last:border-b-[rgb(201,201,201)] hover:opacity-50"
     >
-      <td className="py-[50px] pl-[100px] text-5xl font-normal transition-all duration-[0.4s] group-hover:translate-x-[-10px]">
-        {title}
+      <td>
+        <Link
+          className="block py-[50px] pl-[100px] text-5xl font-normal transition-all duration-[0.4s] group-hover:translate-x-[-10px]"
+          href={`work/${slug.current}`}
+        >
+          {title}
+        </Link>
       </td>
-      <td className="py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]">
-        {categories.map((category) => category.title).join(', ')}
+      <td>
+        <Link
+          className="block py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
+          href={`work/${slug.current}`}
+        >
+          {categories.map((category) => (
+            <span key={category._id}>{category.title}</span>
+          ))}
+        </Link>
       </td>
-      <td className="py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]">
-        {agency}
+      <td>
+        <Link
+          className="block py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
+          href={`work/${slug.current}`}
+        >
+          {agency}
+        </Link>
       </td>
-      <td className="py-[50px] pr-[100px] text-lg transition-all duration-300 group-hover:translate-x-[10px]">
-        {client}
+      <td>
+        <Link
+          className="block py-[50px] pr-[100px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
+          href={`work/${slug.current}`}
+        >
+          {client}
+        </Link>
       </td>
     </tr>
   );

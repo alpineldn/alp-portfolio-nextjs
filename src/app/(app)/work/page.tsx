@@ -12,6 +12,7 @@ export interface Category {
   title: string;
 }
 export interface Project {
+  _id: string;
   agency: string;
   mainImage: SanityImageObject;
   categories: Category[];

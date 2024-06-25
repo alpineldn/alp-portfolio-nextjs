@@ -133,9 +133,9 @@ const ListView: React.FC<ListViewProps> = ({ projects }) => {
             {projects.map((project, index) => {
               return (
                 <Project
+                  key={project._id}
                   index={index}
                   manageModal={manageModal}
-                  key={index}
                   {...project}
                 />
               );
@@ -159,13 +159,13 @@ const ListView: React.FC<ListViewProps> = ({ projects }) => {
             style={{ top: index * -100 + '%' }}
             className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
           >
-            {projects.map((project, index) => {
+            {projects.map((project) => {
               const { mainImage, title } = project;
               return (
                 <div
                   className="flex h-full w-full items-center justify-center"
                   style={{ backgroundColor: 'gray' }}
-                  key={`modal_${index}`}
+                  key={`modal_${project._id}`}
                 >
                   <SanityImage
                     sizes="33vw"

@@ -15,6 +15,7 @@ export const asset = (attr: string, opts?: { as: string }) => groq`'${
 
 export const WORK_QUERY = groq`
 	*[_type == "project"][]{
+      _id,
 	    agency,
         ${asset('mainImage')},
         categories[]->{

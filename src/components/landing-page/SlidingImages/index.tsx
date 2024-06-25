@@ -2,48 +2,18 @@
 
 import { useRef } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
-import Image from 'next/image';
+import { Project } from '@/app/(app)/work/page';
+import SanityImage from '@/components/common/SanityImage/SanityImage';
+import { getRandomColor } from '@/utils/create-random-color';
 
-const slider1 = [
-  {
-    color: '#e3e5e7',
-    src: 'c2.jpg',
-  },
-  {
-    color: '#d6d7dc',
-    src: 'decimal.jpg',
-  },
-  {
-    color: '#e3e3e3',
-    src: 'funny.jpg',
-  },
-  {
-    color: '#21242b',
-    src: 'google.jpg',
-  },
-];
+interface SlidingImagesProps {
+  projects: Project[];
+}
+const SlidingImages: React.FC<SlidingImagesProps> = ({ projects }) => {
+  const midpoint = Math.ceil(projects.length / 2);
+  const firstHalf = projects.slice(0, midpoint);
+  const secondHalf = projects.slice(midpoint);
 
-const slider2 = [
-  {
-    color: '#d4e3ec',
-    src: 'maven.jpg',
-  },
-  {
-    color: '#e5e0e1',
-    src: 'panda.jpg',
-  },
-  {
-    color: '#d7d4cf',
-    src: 'powell.jpg',
-  },
-  {
-    color: '#e1dad6',
-    src: 'wix.jpg',
-  },
-];
-
-interface SlidingImagesProps {}
-const SlidingImages: React.FC<SlidingImagesProps> = ({}) => {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -63,47 +33,17 @@ const SlidingImages: React.FC<SlidingImagesProps> = ({}) => {
         style={{ x: x1 }}
         className="relative left-[-10vw] flex w-[120vw] gap-[3vw]"
       >
-        {slider1.map((project, index) => {
-          return (
-            <div
-              key={index}
-              className="flex h-[20vw] w-3/12 items-center justify-center"
-              style={{ backgroundColor: project.color }}
-            >
-              <div className="relative h-4/5 w-4/5">
-                <Image
-                  className="object-cover"
-                  fill={true}
-                  alt={'image'}
-                  src={`/images/${project.src}`}
-                />
-              </div>
-            </div>
-          );
-        })}
+        {firstHalf.map((project) => (
+          <Image key={project._id} {...project} />
+        ))}
       </motion.div>
       <motion.div
         style={{ x: x2 }}
         className="relative left-[-10vw] flex w-[120vw] gap-[3vw]"
       >
-        {slider2.map((project, index) => {
-          return (
-            <div
-              key={index}
-              className="flex h-[20vw] w-3/12 items-center justify-center"
-              style={{ backgroundColor: project.color }}
-            >
-              <div key={index} className="relative h-4/5 w-4/5">
-                <Image
-                  className="object-cover"
-                  fill={true}
-                  alt={'image'}
-                  src={`/images/${project.src}`}
-                />
-              </div>
-            </div>
-          );
-        })}
+        {secondHalf.map((project) => (
+          <Image key={project._id} {...project} />
+        ))}
       </motion.div>
       <motion.div style={{ height }} className="relative mt-[100px]">
         <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
@@ -113,3 +53,22 @@ const SlidingImages: React.FC<SlidingImagesProps> = ({}) => {
 };
 
 export default SlidingImages;
+
+const Image: React.FC<Project> = ({ _id, title, mainImage }) => {
+  return (
+    <div
+      key={_id}
+      className="flex h-[20vw] w-3/12 items-center justify-center"
+      style={{ backgroundColor: getRandomColor() }}
+    >
+      <div className="relative h-4/5 w-4/5">
+        <SanityImage
+          sizes="33vw"
+          className="h-full w-full object-cover"
+          alt={title}
+          src={mainImage}
+        />
+      </div>
+    </div>
+  );
+};

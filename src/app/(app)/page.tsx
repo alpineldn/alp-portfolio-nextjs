@@ -1,12 +1,12 @@
+import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
+import Contact from '@/components/Contact';
+import Description from '@/components/landing-page/Description';
 import Hero from '@/components/landing-page/Hero';
 import Projects from '@/components/landing-page/Projects';
 import SlidingImages from '@/components/landing-page/SlidingImages';
-import Description from '@/components/landing-page/Description';
-import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
-import type { Project } from './work/page';
 import sanityClient from '@/utils/sanity/client';
 import { WORK_QUERY } from '@/utils/sanity/queries';
-import Contact from '@/components/Contact';
+import type { Project } from './work/page';
 
 interface HomeProps {}
 
@@ -25,8 +25,13 @@ const Home: React.FC<HomeProps> = async () => {
     <SmoothScroll>
       <Hero />
       <Description />
-      {!!projects?.length && <Projects projects={projects} />}
-      <SlidingImages />
+      {!!projects?.length && (
+        <>
+          {/* <Projects projects={projects} /> */}
+          <SlidingImages projects={projects} />
+        </>
+      )}
+
       <Contact />
     </SmoothScroll>
   );

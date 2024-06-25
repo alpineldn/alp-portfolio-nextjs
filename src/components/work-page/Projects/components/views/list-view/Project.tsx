@@ -11,7 +11,6 @@ const Project: React.FC<ProjectProps> = ({
   index,
   manageModal,
   title,
-  agency,
   categories,
   client,
   slug,
@@ -36,28 +35,23 @@ const Project: React.FC<ProjectProps> = ({
       </td>
       <td>
         <Link
-          className="block py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
-          href={`work/${slug.current}`}
-        >
-          {categories.map((category) => (
-            <span key={category._id}>{category.title}</span>
-          ))}
-        </Link>
-      </td>
-      <td>
-        <Link
-          className="block py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
-          href={`work/${slug.current}`}
-        >
-          {agency}
-        </Link>
-      </td>
-      <td>
-        <Link
           className="block py-[50px] pr-[100px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
           href={`work/${slug.current}`}
         >
           {client}
+        </Link>
+      </td>
+      <td>
+        <Link
+          className="block py-[50px] text-lg transition-all duration-300 group-hover:translate-x-[10px]"
+          href={`work/${slug.current}`}
+        >
+          {categories.map((category, index) => (
+            <span key={category._id}>
+              {category.title}
+              {index !== categories.length - 1 && ', '}
+            </span>
+          ))}
         </Link>
       </td>
     </tr>

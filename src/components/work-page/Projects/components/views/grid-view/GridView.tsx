@@ -1,16 +1,14 @@
-import { motion } from 'framer-motion';
-import { fadeInAndSlideUp } from '../anim';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
+import { Project as ProjectType } from '@/app/(app)/work/page';
 import RoundedButton from '@/components/common/ui/RoundedButton';
-import { Project } from '@/app/(app)/work/page';
-import SanityImage from '@/components/common/SanityImage/SanityImage';
+import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { useEffect, useRef, useState } from 'react';
+import { fadeInAndSlideUp } from '../anim';
+import Project from './Project';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface GridViewProps {
-  projects: Project[];
+  projects: ProjectType[];
 }
 
 const scaleAnimation = {
@@ -82,41 +80,9 @@ const GridView: React.FC<GridViewProps> = ({ projects }) => {
         moveItems(e.clientX, e.clientY);
       }}
     >
-      <div className="mb-[100px] grid grid-cols-2 gap-x-10 gap-y-48">
-        {projects.map(({ _id, agency, mainImage, slug, title, client }) => (
-          <Link
-            key={_id}
-            href={`/work/${slug.current}`}
-            onMouseEnter={(e) => {
-              manageModal(true, e.clientX, e.clientY);
-            }}
-            onMouseLeave={(e) => {
-              manageModal(false, e.clientX, e.clientY);
-            }}
-          >
-            <div className="relative w-full">
-              <figure
-                style={{ backgroundColor: 'gray' }}
-                className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden"
-              >
-                <SanityImage
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  src={mainImage}
-                  alt={title}
-                  className="aspect-auto h-auto w-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
-                />
-              </figure>
-              <div className="w-full py-4">
-                <h3 className="border-b-2 py-6 text-5xl text-[#1c1d20]">
-                  {title}
-                </h3>
-                <div className="flex justify-between py-5">
-                  <p className="text-lg">{agency}</p>
-                  <p className="text-lg">{client}</p>
-                </div>
-              </div>
-            </div>
-          </Link>
+      <div className="mb-[300px] grid grid-cols-2 gap-x-10 gap-y-48">
+        {projects.map((project) => (
+          <Project key={project._id} manageModal={manageModal} {...project} />
         ))}
       </div>
       <div className="flex items-center justify-center">

@@ -116,16 +116,13 @@ const ListView: React.FC<ListViewProps> = ({ projects }) => {
           <thead>
             <tr>
               <th className="pb-10 pl-[100px] text-left text-xs font-light uppercase text-[#1c1d20]">
+                Title
+              </th>
+              <th className="pb-10 text-left text-xs font-light uppercase text-[#1c1d20]">
                 Client
               </th>
               <th className="pb-10 text-left text-xs font-light uppercase text-[#1c1d20]">
-                Location
-              </th>
-              <th className="pb-10 text-left text-xs font-light uppercase text-[#1c1d20]">
-                Services
-              </th>
-              <th className="pb-10 pr-[100px] text-left text-xs font-light uppercase text-[#1c1d20]">
-                Year
+                Categories
               </th>
             </tr>
           </thead>

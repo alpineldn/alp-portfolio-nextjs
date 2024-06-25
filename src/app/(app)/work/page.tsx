@@ -36,7 +36,7 @@ const Work: React.FC<{}> = async () => {
   return (
     <SmoothScroll pageName="Work">
       <Hero />
-      <Projects projects={projects} />
+      {!!projects?.length && <Projects projects={projects} />}
     </SmoothScroll>
   );
 };

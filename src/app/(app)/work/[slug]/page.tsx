@@ -5,6 +5,8 @@ import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { Project } from '../page';
 import Hero from '@/components/work-detail-page/Hero';
 import { PortableTextBlock } from 'next-sanity';
+import { Slug } from 'sanity';
+import { notFound } from 'next/navigation';
 
 interface WorkDetailProps {
   params: { slug: string };
@@ -15,6 +17,7 @@ export interface ProjectFull extends Project {
   _updatedAt: string;
   images: SanityImageObject[];
   body: PortableTextBlock[];
+  previewURL?: Slug;
 }
 
 async function getPageData(slug: string): Promise<ProjectFull> {
@@ -26,9 +29,10 @@ async function getPageData(slug: string): Promise<ProjectFull> {
 }
 
 const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
-  const { title, agency, client, categories, mainImage } = await getPageData(
-    params.slug,
-  );
+  const project = await getPageData(params.slug);
+  if (!project) notFound();
+
+  const { title, agency, client, categories, mainImage, previewURL } = project;
 
   return (
     <SmoothScroll pageName={title}>
@@ -38,6 +42,7 @@ const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
         agency={agency}
         categories={categories}
         mainImage={mainImage}
+        previewURL={previewURL}
       />
     </SmoothScroll>
   );

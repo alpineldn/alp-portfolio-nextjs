@@ -9,9 +9,17 @@ import { Slug } from 'sanity';
 import { notFound } from 'next/navigation';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import Images from '@/components/work-detail-page/Images/Images';
+import MoreWorks from '@/components/work-detail-page/MoreWorks/MoreWorks';
 
 interface WorkDetailProps {
   params: { slug: string };
+}
+
+export interface NextProject {
+  _id: string;
+  title: string;
+  slug: Slug;
+  mainImage: SanityImageObject;
 }
 
 export interface ProjectFull extends Project {
@@ -20,6 +28,7 @@ export interface ProjectFull extends Project {
   images: SanityImageObject[];
   body: PortableTextBlock[];
   previewURL?: Slug;
+  nextProject: NextProject;
 }
 
 async function getPageData(slug: string): Promise<ProjectFull> {
@@ -34,8 +43,16 @@ const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
   const project = await getPageData(params.slug);
   if (!project) notFound();
 
-  const { title, agency, client, categories, mainImage, previewURL, images } =
-    project;
+  const {
+    title,
+    agency,
+    client,
+    categories,
+    mainImage,
+    previewURL,
+    images,
+    nextProject,
+  } = project;
 
   return (
     <SmoothScroll pageName={title}>
@@ -48,6 +65,7 @@ const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
         previewURL={previewURL}
       />
       {!!images?.length && <Images images={images} />}
+      <MoreWorks {...nextProject} />
     </SmoothScroll>
   );
 };

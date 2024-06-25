@@ -15,7 +15,7 @@ const Images: React.FC<ImagesProps> = ({ images }) => {
     target: container,
     offset: ['start end', 'end start'],
   });
-  const height = useTransform(scrollYProgress, [0, 1], [50, 0]);
+  const height = useTransform(scrollYProgress, [0, 1], [200, 0]);
 
   return (
     <section ref={container} className="relative z-[1] bg-[#DDDDDD]">

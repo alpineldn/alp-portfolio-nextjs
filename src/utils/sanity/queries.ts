@@ -14,7 +14,7 @@ export const asset = (attr: string, opts?: { as: string }) => groq`'${
 }`;
 
 export const WORK_QUERY = groq`
-	*[_type == "project"][]{
+	*[_type == "project"] | order(_createdAt asc)[]{
       _id,
 	    agency,
         ${asset('mainImage')},
@@ -35,7 +35,15 @@ export const WORK_SLUGS_QUERY = (slug: string) =>
     ${asset('mainImage')},
     ${asset('images[]', { as: 'images' })},
     categories[]->{
-        _id,
-        title
+      _id,
+      title
     },
+    "nextProject": select(
+    defined(*[_type == "project" && _createdAt > ^._createdAt] | order(_createdAt asc)[0]) =>
+      *[_type == "project" && _createdAt > ^._createdAt] | order(_createdAt asc)[0],
+    *[_type == "project"] | order(_createdAt asc)[0]){
+        title,
+        slug,
+        ${asset('mainImage')},
+      }
   }`;

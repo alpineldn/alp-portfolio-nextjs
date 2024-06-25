@@ -1,12 +1,12 @@
 'use client';
 import { useRef } from 'react';
-import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
+import { useScroll, motion, useTransform } from 'framer-motion';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import Magnetic from '@/components/common/ui/Magnetic';
 
 interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {
-  const container = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start end', 'end end'],
@@ -16,7 +16,7 @@ const Contact: React.FC<ContactProps> = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
 
   return (
-    <motion.div
+    <motion.section
       style={{ y }}
       ref={container}
       className="relative flex flex-col items-center justify-center bg-[#141516] text-white"
@@ -118,7 +118,7 @@ const Contact: React.FC<ContactProps> = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

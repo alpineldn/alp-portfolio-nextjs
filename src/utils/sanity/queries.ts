@@ -28,3 +28,14 @@ export const WORK_QUERY = groq`
         title
 	}
 `;
+
+export const WORK_SLUGS_QUERY = (slug: string) =>
+  groq`*[_type == "project" && slug.current == "${slug}"][0]{
+    ...,
+    ${asset('mainImage')},
+    ${asset('images[]', { as: 'images' })},
+    categories[]->{
+        _id,
+        title
+    },
+  }`;

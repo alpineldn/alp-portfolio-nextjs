@@ -1,4 +1,3 @@
-import Preloader from '@/components/common/Preloader';
 import Hero from '@/components/work-page/Hero';
 import Projects from '@/components/work-page/Projects';
 import sanityClient from '@/utils/sanity/client';
@@ -11,6 +10,7 @@ export interface Category {
   _id: string;
   title: string;
 }
+
 export interface Project {
   _id: string;
   agency: string;
@@ -21,7 +21,6 @@ export interface Project {
   slug: Slug;
   title: string;
 }
-interface WorkProps {}
 
 async function getPageData(): Promise<Project[]> {
   try {
@@ -31,7 +30,7 @@ async function getPageData(): Promise<Project[]> {
   }
 }
 
-const Work: React.FC<WorkProps> = async () => {
+const Work: React.FC<{}> = async () => {
   const projects = await getPageData();
 
   return (

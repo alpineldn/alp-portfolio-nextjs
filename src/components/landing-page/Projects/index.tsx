@@ -108,18 +108,21 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       className="mt-[300px] flex flex-col items-center"
     >
       <table className="container mb-[100px] w-full table-auto">
-        {projects.map(({ _id, title, client, categories }, index) => {
-          return (
-            <Project
-              index={index}
-              title={title}
-              client={client}
-              categories={categories}
-              manageModal={manageModal}
-              key={_id}
-            />
-          );
-        })}
+        <tbody>
+          {projects.map(({ _id, title, client, categories, slug }, index) => {
+            return (
+              <Project
+                index={index}
+                title={title}
+                client={client}
+                categories={categories}
+                slug={slug}
+                manageModal={manageModal}
+                key={_id}
+              />
+            );
+          })}
+        </tbody>
       </table>
       <RoundedButton>
         <p>More work</p>

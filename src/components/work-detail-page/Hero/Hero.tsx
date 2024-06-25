@@ -4,8 +4,8 @@ import { Category } from '@/app/(app)/work/page';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import Link from 'next/link';
 import { Slug } from 'sanity';
-import SanityImage from '../common/SanityImage/SanityImage';
-import RoundedButton from '../common/ui/RoundedButton';
+import SanityImage from '../../common/SanityImage/SanityImage';
+import RoundedButton from '../../common/ui/RoundedButton';
 import { useRef } from 'react';
 import { useRect } from '@/hooks/useRect';
 
@@ -26,44 +26,35 @@ const Hero: React.FC<HeroProps> = ({
   mainImage,
   previewURL,
 }) => {
-  const imageContainerRef = useRef<HTMLDivElement>(null);
-  const imageContainerRect = useRect(imageContainerRef);
-
-  console.log({ imageContainerRect });
-
   return (
     <section>
       <div className="relative h-full w-full pt-[277px]">
-        <div data-scroll data-scroll-speed={0.1}>
-          <RoundedButton
-            style={{
-              top: imageContainerRect.top - 300,
-              left: imageContainerRect.right - 300,
-              overflow: 'hidden',
-            }}
-            className="absolute flex h-[200px] w-[200px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white"
-          >
-            <p className="relative z-[1] m-0 font-light">Visit Site</p>
-          </RoundedButton>
-        </div>
-
         <div className="container mx-auto">
           <h1 className="max-w-5xl text-[117px] font-normal leading-[1.2] tracking-tighter text-black">
             {title}
           </h1>
 
-          <Details
-            client={client}
-            agency={agency}
-            categories={categories}
-            previewURL={previewURL}
-          />
+          <div className="relative">
+            <Details
+              client={client}
+              agency={agency}
+              categories={categories}
+              previewURL={previewURL}
+            />
+
+            {!!previewURL?.current && (
+              <div data-scroll data-scroll-speed={0.1}>
+                <Link href={previewURL.current}>
+                  <RoundedButton className="absolute right-0 top-0 flex h-[200px] w-[200px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white">
+                    <p className="relative z-[1] m-0 font-light">Visit Site</p>
+                  </RoundedButton>
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
 
-        <div
-          ref={imageContainerRef}
-          className="relative z-[-1] mx-auto max-w-[1536px] !overflow-hidden py-[100px]"
-        >
+        <div className="relative z-[-1] mx-auto max-w-[1536px] !overflow-hidden py-[100px]">
           <div className="overflow-hidden">
             <div
               data-scroll
@@ -74,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({
                 sizes="100vw"
                 src={mainImage}
                 alt={title}
-                className="aspect-auto h-full w-full scale-110 object-cover"
+                className="aspect-auto h-full w-full scale-105 object-cover"
               />
             </div>
           </div>

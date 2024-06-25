@@ -5,6 +5,7 @@ import { WORK_QUERY } from '@/utils/sanity/queries';
 import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import type { Slug } from 'sanity';
+import Contact from '@/components/Contact';
 
 export interface Category {
   _id: string;
@@ -37,6 +38,7 @@ const Work: React.FC<{}> = async () => {
     <SmoothScroll pageName="Work">
       <Hero />
       {!!projects?.length && <Projects projects={projects} />}
+      <Contact />
     </SmoothScroll>
   );
 };

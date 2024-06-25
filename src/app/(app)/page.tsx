@@ -6,6 +6,7 @@ import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
 import type { Project } from './work/page';
 import sanityClient from '@/utils/sanity/client';
 import { WORK_QUERY } from '@/utils/sanity/queries';
+import Contact from '@/components/Contact';
 
 interface HomeProps {}
 
@@ -26,6 +27,7 @@ const Home: React.FC<HomeProps> = async () => {
       <Description />
       {!!projects?.length && <Projects projects={projects} />}
       <SlidingImages />
+      <Contact />
     </SmoothScroll>
   );
 };

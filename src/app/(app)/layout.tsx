@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import './globals.css';
 import { Inter } from 'next/font/google';
-import Contact from '@/components/Contact';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +19,6 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
       <body className={inter.className}>
         <Header />
         {children}
-        {/* <Contact /> */}
       </body>
     </html>
   );

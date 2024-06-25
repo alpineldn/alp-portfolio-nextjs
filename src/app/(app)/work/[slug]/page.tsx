@@ -3,10 +3,12 @@ import { WORK_SLUGS_QUERY } from '@/utils/sanity/queries';
 import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { Project } from '../page';
-import Hero from '@/components/work-detail-page/Hero';
+import Hero from '@/components/work-detail-page/Hero/Hero';
 import { PortableTextBlock } from 'next-sanity';
 import { Slug } from 'sanity';
 import { notFound } from 'next/navigation';
+import SanityImage from '@/components/common/SanityImage/SanityImage';
+import Images from '@/components/work-detail-page/Images/Images';
 
 interface WorkDetailProps {
   params: { slug: string };
@@ -32,7 +34,8 @@ const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
   const project = await getPageData(params.slug);
   if (!project) notFound();
 
-  const { title, agency, client, categories, mainImage, previewURL } = project;
+  const { title, agency, client, categories, mainImage, previewURL, images } =
+    project;
 
   return (
     <SmoothScroll pageName={title}>
@@ -44,6 +47,7 @@ const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
         mainImage={mainImage}
         previewURL={previewURL}
       />
+      {!!images?.length && <Images images={images} />}
     </SmoothScroll>
   );
 };

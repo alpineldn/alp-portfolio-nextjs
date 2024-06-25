@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { useRef } from 'react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
 import RoundedButton from '@/components/common/ui/RoundedButton';
@@ -15,6 +14,7 @@ const Contact: React.FC<ContactProps> = () => {
   const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
+
   return (
     <motion.div
       style={{ y }}

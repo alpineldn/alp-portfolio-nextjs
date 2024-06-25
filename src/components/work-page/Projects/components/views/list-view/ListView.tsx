@@ -8,6 +8,7 @@ import Project from './Project';
 import { fadeInAndSlideUp } from '../anim';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
+import { getRandomColor } from '@/utils/create-random-color';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -156,13 +157,12 @@ const ListView: React.FC<ListViewProps> = ({ projects }) => {
             style={{ top: index * -100 + '%' }}
             className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
           >
-            {projects.map((project) => {
-              const { mainImage, title } = project;
+            {projects.map(({ mainImage, title, _id }) => {
               return (
                 <div
                   className="flex h-full w-full items-center justify-center"
-                  style={{ backgroundColor: 'gray' }}
-                  key={`modal_${project._id}`}
+                  style={{ backgroundColor: getRandomColor() }}
+                  key={`modal_${_id}`}
                 >
                   <SanityImage
                     sizes="33vw"

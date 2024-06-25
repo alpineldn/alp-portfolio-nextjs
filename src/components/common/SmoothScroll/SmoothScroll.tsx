@@ -3,6 +3,7 @@
 import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Preloader from '../Preloader';
+import { usePathname } from 'next/navigation';
 
 interface SmoothScrollProps {
   children: React.ReactNode;
@@ -11,6 +12,8 @@ interface SmoothScrollProps {
 
 const SmoothScroll: React.FC<SmoothScrollProps> = ({ children, pageName }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const pathName = usePathname();
+  const time = pathName === '/' ? 2000 : 1000;
 
   useEffect(() => {
     (async () => {
@@ -21,7 +24,7 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children, pageName }) => {
         setIsLoading(false);
         document.body.style.cursor = 'default';
         window.scrollTo(0, 0);
-      }, 1000);
+      }, time);
     })();
   }, []);
 

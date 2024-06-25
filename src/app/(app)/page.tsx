@@ -1,40 +1,32 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import Preloader from '@/components/common/Preloader';
 import Hero from '@/components/landing-page/Hero';
-// import Description from '@/components/landing-page/Description';
 import Projects from '@/components/landing-page/Projects';
 import SlidingImages from '@/components/landing-page/SlidingImages';
 import Description from '@/components/landing-page/Description';
+import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
+import type { Project } from './work/page';
+import sanityClient from '@/utils/sanity/client';
+import { WORK_QUERY } from '@/utils/sanity/queries';
 
 interface HomeProps {}
-const Home: React.FC<HomeProps> = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import('locomotive-scroll')).default;
-      new LocomotiveScroll();
+async function getPageData(): Promise<Project[]> {
+  try {
+    return await sanityClient.fetch(WORK_QUERY);
+  } catch (error) {
+    throw new Error(error as string);
+  }
+}
 
-      setTimeout(() => {
-        setIsLoading(false);
-        document.body.style.cursor = 'default';
-        window.scrollTo(0, 0);
-      }, 2000);
-    })();
-  }, []);
+const Home: React.FC<HomeProps> = async () => {
+  const projects = await getPageData();
 
   return (
-    <main>
-      <AnimatePresence mode="wait">
-        {isLoading && <Preloader />}
-      </AnimatePresence>
+    <SmoothScroll>
       <Hero />
       <Description />
-      <Projects />
+      {!!projects?.length && <Projects projects={projects} />}
       <SlidingImages />
-    </main>
+    </SmoothScroll>
   );
 };
 

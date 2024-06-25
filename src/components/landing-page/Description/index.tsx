@@ -1,3 +1,5 @@
+'use client';
+
 import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { slideUp, opacity } from './animation';

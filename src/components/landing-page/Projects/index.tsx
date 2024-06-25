@@ -5,35 +5,15 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import RoundedButton from '@/components/common/ui/RoundedButton';
+import { Project as ProjectType } from '@/app/(app)/work/page';
+import SanityImage from '@/components/common/SanityImage/SanityImage';
+import { getRandomColor } from '@/utils/create-random-color';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
   active: boolean;
   index: number;
 }
-
-const projects = [
-  {
-    title: 'C2 Montreal',
-    src: 'c2montreal.png',
-    color: '#000000',
-  },
-  {
-    title: 'Office Studio',
-    src: 'officestudio.png',
-    color: '#8C8C8C',
-  },
-  {
-    title: 'Locomotive',
-    src: 'locomotive.png',
-    color: '#EFE8D3',
-  },
-  {
-    title: 'Silencio',
-    src: 'silencio.png',
-    color: '#706D63',
-  },
-];
 
 const scaleAnimation = {
   initial: { scale: 0, x: '-50%', y: '-50%' },
@@ -51,8 +31,10 @@ const scaleAnimation = {
   },
 };
 
-interface ProjectsProps {}
-const Projects: React.FC<ProjectsProps> = ({}) => {
+interface ProjectsProps {
+  projects: ProjectType[];
+}
+const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
@@ -125,18 +107,20 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
       }}
       className="mt-[300px] flex flex-col items-center"
     >
-      <div className="container mb-[100px] flex w-full flex-col items-center justify-center">
-        {projects.map((project, index) => {
+      <table className="container mb-[100px] w-full table-auto">
+        {projects.map(({ _id, title, client, categories }, index) => {
           return (
             <Project
               index={index}
-              title={project.title}
+              title={title}
+              client={client}
+              categories={categories}
               manageModal={manageModal}
-              key={index}
+              key={_id}
             />
           );
         })}
-      </div>
+      </table>
       <RoundedButton>
         <p>More work</p>
       </RoundedButton>
@@ -153,20 +137,18 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
             style={{ top: index * -100 + '%' }}
             className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
           >
-            {projects.map((project, index) => {
-              const { src, color } = project;
+            {projects.map(({ mainImage, title, _id }) => {
               return (
                 <div
                   className="flex h-full w-full items-center justify-center"
-                  style={{ backgroundColor: color }}
-                  key={`modal_${index}`}
+                  style={{ backgroundColor: getRandomColor() }}
+                  key={`modal_${_id}`}
                 >
-                  <Image
-                    className="h-auto"
-                    src={`/images/${src}`}
-                    width={300}
-                    height={0}
-                    alt="image"
+                  <SanityImage
+                    sizes="33vw"
+                    src={mainImage}
+                    alt={title}
+                    className="aspect-auto h-auto w-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
                   />
                 </div>
               );

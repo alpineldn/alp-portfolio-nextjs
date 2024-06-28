@@ -24,13 +24,13 @@ const Images: React.FC<ImagesProps> = ({ images }) => {
           <div className="overflow-hidden">
             <div
               data-scroll
-              data-scroll-speed={0.2}
+              data-scroll-speed={0.05}
               className="overflow-hidden"
             >
               <SanityImage
                 sizes="80vw"
                 src={img}
-                className="aspect-auto h-full w-full scale-110 object-cover"
+                className="aspect-auto h-full w-full scale-105 object-cover"
               />
             </div>
           </div>

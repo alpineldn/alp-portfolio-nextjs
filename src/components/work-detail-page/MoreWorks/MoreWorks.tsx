@@ -3,10 +3,9 @@
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import { useScroll, motion, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import Magnetic from '@/components/common/ui/Magnetic';
 import Link from 'next/link';
 import { NextProject } from '@/app/(app)/work/[slug]/page';
-import ContactInfo from './ContactInfo';
+import ContactInfo from '../../common/ContactInfoLinks/ContactInfo';
 import NextCase from './NextCase';
 
 interface MoreWorksProps extends NextProject {}
@@ -25,7 +24,7 @@ const MoreWorks: React.FC<MoreWorksProps> = ({ mainImage, slug, title }) => {
       ref={container}
       className="relative flex flex-col items-center justify-center bg-[#141516] text-white"
     >
-      <div className="container w-full bg-[#141516] pt-[200px]">
+      <div className="container w-full bg-[#141516] pt-[400px] md:pt-[200px]">
         <NextCase title={title} mainImage={mainImage} slug={slug} />
 
         <div className="mt-20 flex items-center justify-center">

@@ -2,8 +2,7 @@
 import { useRef } from 'react';
 import { useScroll, motion, useTransform } from 'framer-motion';
 import RoundedButton from '@/components/common/ui/RoundedButton';
-import Magnetic from '@/components/common/ui/Magnetic';
-import { getLondonTimeFormatted } from '@/utils/time-conversion';
+import ContactInfo from '../common/ContactInfoLinks/ContactInfo';
 
 interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {
@@ -22,7 +21,7 @@ const Contact: React.FC<ContactProps> = () => {
       ref={container}
       className="relative flex flex-col items-center justify-center bg-[#141516] text-white"
     >
-      <div className="container w-full bg-[#141516] pt-[200px]">
+      <div className="container w-full bg-[#141516] pt-[400px] sm:pt-[200px]">
         <div className="relative border-b border-solid border-b-[rgb(134,134,134)]/50 pb-[100px]">
           <span className="flex items-center">
             {/* <div className="relative h-[100px] w-[100px] overflow-hidden rounded-[50%]">
@@ -65,7 +64,7 @@ const Contact: React.FC<ContactProps> = () => {
         </div>
 
         <CTAs />
-        <Links />
+        <ContactInfo />
       </div>
     </motion.section>
   );
@@ -86,58 +85,6 @@ const CTAs = () => {
           +31 6 27 84 74 30
         </p>
       </RoundedButton>
-    </div>
-  );
-};
-
-const Links = () => {
-  return (
-    <div className="mt-[80px] flex flex-col-reverse justify-between p-5 md:flex-row lg:mt-[200px]">
-      <div className="flex items-end gap-2.5 max-md:pt-8">
-        <span className="flex flex-col gap-[15px]">
-          <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
-            Version
-          </h3>
-          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-            2024 © Edition
-          </p>
-        </span>
-        <span className="flex flex-col gap-[15px]">
-          <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
-            Local Time
-          </h3>
-          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-            {getLondonTimeFormatted()}
-          </p>
-        </span>
-      </div>
-      <div className="flex items-end gap-2.5 border-b-[rgb(134,134,134)]/50 max-md:border-b max-md:pb-8">
-        <span className="flex flex-col gap-[15px]">
-          <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
-            Socials
-          </h3>
-          <Magnetic>
-            <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-              Awwwards
-            </p>
-          </Magnetic>
-        </span>
-        <Magnetic>
-          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-            Instagram
-          </p>
-        </Magnetic>
-        <Magnetic>
-          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-            Dribbble
-          </p>
-        </Magnetic>
-        <Magnetic>
-          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-            Linkedin
-          </p>
-        </Magnetic>
-      </div>
     </div>
   );
 };

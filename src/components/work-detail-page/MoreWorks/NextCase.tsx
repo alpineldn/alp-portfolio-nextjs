@@ -75,19 +75,19 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
         onMouseLeave={(e) => {
           manageModal(false, e.clientX, e.clientY);
         }}
-        className="group relative flex flex-col items-center justify-center gap-16 overflow-hidden"
+        className="group relative flex flex-col items-center justify-center gap-7 overflow-hidden md:gap-16"
       >
         <span className="text-lg">Next Case</span>
-        <h2 className="w-full border-b-2 border-b-gray-600/50 pb-[150px] text-center text-8xl transition-all duration-500 ease-smooth-curve group-hover:opacity-40">
+        <h2 className="w-full border-b-2 border-b-gray-600/50 pb-[150px] text-center text-[clamp(3.5rem,5vw+1rem,6.5rem)] transition-all duration-500 ease-smooth-curve group-hover:opacity-40">
           {title}
         </h2>
 
-        <div className="absolute bottom-0 left-1/2 max-w-[450px] -translate-x-1/2 translate-y-[70%] transition-transform duration-500 ease-smooth-curve group-hover:translate-y-[40%]">
+        <div className="absolute bottom-0 left-1/2 w-full max-w-[300px] -translate-x-1/2 translate-y-[50%] transition-transform duration-500 ease-smooth-curve sm:max-w-[450px] md:translate-y-[70%] md:group-hover:translate-y-[40%]">
           <div className="overflow-hidden" style={{ backgroundColor: color }}>
             <SanityImage
-              className="rounded px-6 py-14"
+              className="w-full rounded object-cover px-3 py-7 md:px-6 md:py-14"
               src={mainImage}
-              sizes="33vw"
+              sizes="(min-width: 1024px) 450px, (min-width: 640px) 350px, 300px"
               alt={title}
             />
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { smoothCurve } from '@/components/common/anim';
 
 interface CurveProps {}
 
@@ -17,11 +18,11 @@ const Curve: React.FC<CurveProps> = ({}) => {
     },
     enter: {
       d: targetPath,
-      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 1, ease: smoothCurve },
     },
     exit: {
       d: initialPath,
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 0.8, ease: smoothCurve },
     },
   };
 

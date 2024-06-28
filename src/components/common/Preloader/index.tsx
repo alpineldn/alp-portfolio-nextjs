@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { opacity, slideUp } from './anim';
 import { usePathname } from 'next/navigation';
+import { smoothCurve } from '../anim';
 
 const words: string[] = [
   'Hello',
@@ -50,11 +51,11 @@ const Preloader: React.FC<PreloaderProps> = ({ pageName }) => {
   const curve = {
     initial: {
       d: initialPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 0.7, ease: smoothCurve },
     },
     exit: {
       d: targetPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
+      transition: { duration: 0.7, ease: smoothCurve, delay: 0.3 },
     },
   };
 

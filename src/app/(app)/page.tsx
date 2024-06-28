@@ -31,7 +31,6 @@ const Home: React.FC<HomeProps> = async () => {
           <SlidingImages projects={projects} />
         </>
       )}
-
       <Contact />
     </SmoothScroll>
   );

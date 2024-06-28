@@ -16,7 +16,7 @@ const Description: React.FC<DescriptionProps> = () => {
   return (
     <section
       ref={description}
-      className="mt-[100px] flex justify-center lg:mt-[200px]"
+      className="relative z-10 flex justify-center pt-[100px] lg:pt-[200px]"
     >
       <div className="container relative flex flex-col gap-12 md:flex-row">
         <p className="m-0 gap-3 text-3xl leading-[1.3] lg:text-4xl">

@@ -91,10 +91,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="mt-[200px] flex flex-col items-center lg:mt-[300px]"
+      className="relative z-[1] flex flex-col items-center bg-white pt-[200px] lg:pt-[300px]"
     >
       <>
-        <table className="container mb-[100px] w-full table-auto max-lg:hidden">
+        <table className="container w-full table-auto pb-[100px] max-lg:hidden">
           <tbody>
             {projects.map((project, index) => {
               return (

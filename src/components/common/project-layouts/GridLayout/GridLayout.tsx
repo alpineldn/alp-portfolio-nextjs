@@ -64,19 +64,15 @@ const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
         moveItems(e.clientX, e.clientY);
       }}
     >
-      <div className="mb-[300px] grid grid-cols-2 gap-x-10 gap-y-48">
-        {projects.map((project) => (
+      <div className="mb-[200px] grid grid-cols-1 gap-y-20 md:mb-[300px] md:grid-cols-2 md:gap-x-10 md:gap-y-48">
+        {projects.map((project, index) => (
           <ProjectCard
+            index={index}
             key={project._id}
             manageModal={manageModal}
             {...project}
           />
         ))}
-      </div>
-      <div className="flex items-center justify-center">
-        <RoundedButton>
-          <p>More work</p>
-        </RoundedButton>
       </div>
 
       <>

@@ -25,7 +25,7 @@ export interface Project {
 
 async function getPageData(): Promise<Project[]> {
   try {
-    return await sanityClient.fetch(WORK_QUERY);
+    return await sanityClient.fetch(WORK_QUERY, { start: 0, end: 8 });
   } catch (error) {
     throw new Error(error as string);
   }

@@ -16,7 +16,7 @@ const ProjectLayoutControl: React.FC<ViewControlProps> = ({
   const gridViewActive = viewMode === 'grid';
 
   return (
-    <div className="flex justify-end gap-4 pr-[200px]">
+    <div className="flex justify-end gap-4 max-lg:hidden md:pr-[100px] 2xl:pr-[200px]">
       <RoundedButton
         backgroundColor={listViewActive ? '#1c1d20' : '#334BD3'}
         onClick={() => setViewMode('list')}

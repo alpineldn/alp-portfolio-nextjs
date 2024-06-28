@@ -151,6 +151,7 @@ const NavLinks: React.FC<{
                 className={cn(
                   'absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] transition-transform duration-200 ease-smooth-curve group-hover:scale-100',
                   pathName === '/' ? 'bg-white' : 'bg-[#1c1d20]',
+                  { 'scale-100': pathName === href },
                 )}
               ></div>
             </div>

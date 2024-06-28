@@ -123,7 +123,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </div>
       </>
 
-      <Link href="/work">
+      <Link className="mt-20 block md:mt-52 lg:mt-20" href="/work">
         <RoundedButton>
           <p>More work</p>
         </RoundedButton>

@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
 
   return (
     <Link
-      className="2xl:even:translate-y-[30%]"
+      className="md:even:translate-y-[30%]"
       href={`/work/${slug.current}`}
       onMouseEnter={(e) => {
         manageModal(true, index, e.clientX, e.clientY);

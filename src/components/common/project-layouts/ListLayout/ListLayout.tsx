@@ -125,9 +125,6 @@ const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
           </tbody>
         </table>
       </div>
-      <RoundedButton>
-        <p>More work</p>
-      </RoundedButton>
 
       <>
         <motion.div

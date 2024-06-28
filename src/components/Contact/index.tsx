@@ -27,16 +27,20 @@ const Contact: React.FC<ContactProps> = () => {
             {/* <div className="relative h-[100px] w-[100px] overflow-hidden rounded-[50%]">
               <Image className="object-cover" fill={true} alt={'image'} src={`/images/background.jpg`} />
             </div> */}
-            <h2 className="m-0 text-[5vw] font-light">Let's work</h2>
+            <h2 className="m-0 text-[clamp(3.5rem,5vw+1rem,6.5rem)] leading-tight">
+              Let's work
+            </h2>
           </span>
-          <h2 className="m-0 text-[5vw] font-light">together</h2>
+          <h2 className="m-0 text-[clamp(3.5rem,5vw+1rem,6.5rem)] leading-tight">
+            together
+          </h2>
           <motion.div
             style={{ x }}
-            className="absolute left-[calc(100%-400px)] top-[calc(100%-75px)]"
+            className="absolute left-[calc(100%-240px)] top-[calc(100%-75px)] lg:left-[calc(100%-300px)] 2xl:left-[calc(100%-400px)]"
           >
             <RoundedButton
               backgroundColor={'#334BD3'}
-              className="absolute flex h-[180px] w-[180px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white"
+              className="absolute flex h-[140px] w-[140px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white lg:h-[180px] lg:w-[180px]"
             >
               <p className="relative z-[2] m-0 text-base font-light">
                 Get in touch
@@ -58,7 +62,7 @@ const Contact: React.FC<ContactProps> = () => {
             />
           </motion.svg>
         </div>
-        <div className="mx-[200px] mt-[100px] flex gap-5">
+        <div className="mt-[100px] flex gap-5">
           <RoundedButton>
             <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
               info@dennissnellenberg.com

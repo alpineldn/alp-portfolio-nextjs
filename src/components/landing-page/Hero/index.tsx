@@ -78,10 +78,11 @@ const Hero: React.FC<HeroProps> = ({}) => {
         fill={true}
         alt="background"
       />
-      <div className="flex h-screen flex-col justify-center lg:max-w-7xl lg:pl-[8vw]">
+
+      <div className="flex h-screen flex-col justify-center max-lg:px-5 lg:max-w-7xl lg:pl-[8vw]">
         <h1
           ref={heroText}
-          className="relative m-0 text-9xl font-medium leading-[1.2] text-white"
+          className="relative m-0 text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-medium leading-[1.2] text-white"
         >
           Brand + Digital Design Studio
         </h1>
@@ -90,13 +91,13 @@ const Hero: React.FC<HeroProps> = ({}) => {
         <div ref={slider} className="relative whitespace-nowrap">
           <p
             ref={firstText}
-            className="relative m-0 p-[50px] text-[230px] font-medium text-white"
+            className="relative m-0 p-[50px] text-[clamp(6.5rem,11vw+1rem,13rem)] font-medium text-white"
           >
             Brand + Digital Design Studio
           </p>
           <p
             ref={secondText}
-            className="absolute left-full top-0 m-0 p-[50px] text-[230px] font-medium text-white"
+            className="absolute left-full top-0 m-0 p-[50px] text-[clamp(6.5rem,11vw+1rem,13rem)] font-medium text-white"
           >
             Brand + Digital Design Studio
           </p>

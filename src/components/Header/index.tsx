@@ -72,23 +72,6 @@ const Header: React.FC<HeaderProps> = ({}) => {
     });
   }, []);
 
-  // useLayoutEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   gsap.to(button.current, {
-  //     scrollTrigger: {
-  //       trigger: document.documentElement,
-  //       start: 0,
-  //       end: window.innerHeight / 3,
-  //       onLeave: () => {
-  //         setIsQuarterScreenScrolled(true);
-  //       },
-  //       onEnterBack: () => {
-  //         setIsQuarterScreenScrolled(false);
-  //       },
-  //     },
-  //   });
-  // }, [button?.current]);
-
   return (
     <>
       <div
@@ -196,7 +179,7 @@ const HamburgerMenuBtn = forwardRef<
       >
         <div
           className={cn(
-            "relative z-[1] w-full before:relative before:top-[3px] before:m-auto before:block before:h-[1px] before:w-[30%] before:bg-white before:transition-transform before:duration-300 before:content-[''] after:relative after:top-[-3px] after:m-auto after:block after:h-[1px] after:w-[30%] after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:before:top-[5px] sm:before:w-[40%] sm:after:top-[-5px] sm:after:w-[40%]",
+            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[30%] before:bg-white before:transition-transform before:duration-300 before:content-[''] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[30%] after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
             {
               'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
                 isActive,

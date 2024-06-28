@@ -23,7 +23,7 @@ const LinkEl: React.FC<LinkProps> = ({
   const { title, href, index } = data;
 
   return (
-    <motion.div
+    <motion.li
       className={cn('relative flex items-center', className)}
       onMouseEnter={() => {
         setSelectedIndicator(href);
@@ -39,8 +39,10 @@ const LinkEl: React.FC<LinkProps> = ({
         animate={isActive ? 'open' : 'closed'}
         className="absolute left-[-30px] h-2.5 w-2.5 rounded-[50%] bg-[white]"
       ></motion.div>
-      <Link href={href}>{title}</Link>
-    </motion.div>
+      <Link className="text-5xl lg:text-6xl lg:!leading-snug" href={href}>
+        {title}
+      </Link>
+    </motion.li>
   );
 };
 

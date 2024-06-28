@@ -1,13 +1,12 @@
-import Image from 'next/image';
-import Rounded from '../../common/RoundedButton';
+'use client';
 import { useRef } from 'react';
-import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
-import Magnetic from '../../common/Magnetic';
+import { useScroll, motion, useTransform } from 'framer-motion';
+import RoundedButton from '@/components/common/ui/RoundedButton';
+import ContactInfo from '../common/ContactInfoLinks/ContactInfo';
 
 interface ContactProps {}
-
 const Contact: React.FC<ContactProps> = () => {
-  const container = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start end', 'end end'],
@@ -15,33 +14,38 @@ const Contact: React.FC<ContactProps> = () => {
   const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
+
   return (
-    <motion.div
+    <motion.section
       style={{ y }}
       ref={container}
       className="relative flex flex-col items-center justify-center bg-[#141516] text-white"
     >
-      <div className="w-full max-w-[1800px] bg-[#141516] pt-[200px]">
-        <div className="relative mx-[200px] border-b border-solid border-b-[rgb(134,134,134)] pb-[100px]">
+      <div className="container w-full bg-[#141516] pt-[400px] sm:pt-[200px]">
+        <div className="relative border-b border-solid border-b-[rgb(134,134,134)]/50 pb-[100px]">
           <span className="flex items-center">
             {/* <div className="relative h-[100px] w-[100px] overflow-hidden rounded-[50%]">
               <Image className="object-cover" fill={true} alt={'image'} src={`/images/background.jpg`} />
             </div> */}
-            <h2 className="m-0 text-[5vw] font-light">Let's work</h2>
+            <h2 className="m-0 text-[clamp(3.5rem,5vw+1rem,6.5rem)] leading-tight">
+              Let's work
+            </h2>
           </span>
-          <h2 className="m-0 text-[5vw] font-light">together</h2>
+          <h2 className="m-0 text-[clamp(3.5rem,5vw+1rem,6.5rem)] leading-tight">
+            together
+          </h2>
           <motion.div
             style={{ x }}
-            className="absolute left-[calc(100%-400px)] top-[calc(100%-75px)]"
+            className="absolute left-[calc(100%-240px)] top-[calc(100%-75px)] lg:left-[calc(100%-300px)] 2xl:left-[calc(100%-400px)]"
           >
-            <Rounded
+            <RoundedButton
               backgroundColor={'#334BD3'}
-              className="absolute flex h-[180px] w-[180px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white"
+              className="absolute flex h-[140px] w-[140px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white lg:h-[180px] lg:w-[180px]"
             >
               <p className="relative z-[2] m-0 text-base font-light">
                 Get in touch
               </p>
-            </Rounded>
+            </RoundedButton>
           </motion.div>
           <motion.svg
             className="absolute left-full top-[30%]"
@@ -58,68 +62,29 @@ const Contact: React.FC<ContactProps> = () => {
             />
           </motion.svg>
         </div>
-        <div className="mx-[200px] mt-[100px] flex gap-5">
-          <Rounded>
-            <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-              info@dennissnellenberg.com
-            </p>
-          </Rounded>
-          <Rounded>
-            <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-              +31 6 27 84 74 30
-            </p>
-          </Rounded>
-        </div>
-        <div className="mt-[200px] flex justify-between p-5">
-          <div className="flex items-end gap-2.5">
-            <span className="flex flex-col gap-[15px]">
-              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
-                Version
-              </h3>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                2022 © Edition
-              </p>
-            </span>
-            <span className="flex flex-col gap-[15px]">
-              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
-                Version
-              </h3>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                11:49 PM GMT+2
-              </p>
-            </span>
-          </div>
-          <div className="flex items-end gap-2.5">
-            <span className="flex flex-col gap-[15px]">
-              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
-                socials
-              </h3>
-              <Magnetic>
-                <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                  Awwwards
-                </p>
-              </Magnetic>
-            </span>
-            <Magnetic>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                Instagram
-              </p>
-            </Magnetic>
-            <Magnetic>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                Dribbble
-              </p>
-            </Magnetic>
-            <Magnetic>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                Linkedin
-              </p>
-            </Magnetic>
-          </div>
-        </div>
+
+        <CTAs />
+        <ContactInfo />
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 
 export default Contact;
+
+const CTAs = () => {
+  return (
+    <div className="mt-[120px] flex gap-5 max-lg:flex max-lg:flex-col md:mt-[100px]">
+      <RoundedButton>
+        <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+          info@dennissnellenberg.com
+        </p>
+      </RoundedButton>
+      <RoundedButton>
+        <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+          +31 6 27 84 74 30
+        </p>
+      </RoundedButton>
+    </div>
+  );
+};

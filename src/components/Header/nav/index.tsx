@@ -37,28 +37,30 @@ const Nav: React.FC<NavProps> = () => {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="fixed right-0 top-0 z-[3] h-screen bg-[rgb(41,41,41)] text-white"
+      className="fixed right-0 top-0 z-[15] h-screen bg-[rgb(41,41,41)] text-white max-sm:w-screen"
     >
-      <div className="box-border flex h-full flex-col justify-between p-[100px]">
+      <div className="box-border flex h-full flex-col justify-between p-5 sm:p-[100px]">
         <div
           onMouseLeave={() => {
             setSelectedIndicator(pathname);
           }}
-          className="mt-[80px] flex flex-col gap-[12px] text-[56px]"
+          className="flex flex-col pt-24 text-[56px] sm:pt-[80px]"
         >
-          <div className="mb-[40px] border-b border-b-[rgb(153,153,153)] text-[11px] uppercase text-[rgb(153,153,153)]">
+          <div className="border-b border-b-[rgb(153,153,153)] pb-10 text-[11px] uppercase text-[rgb(153,153,153)] sm:pb-[40px]">
             <p>Navigation</p>
           </div>
-          {navItems.map((data, index) => {
-            return (
-              <LinkEl
-                key={index}
-                data={{ ...data, index }}
-                isActive={selectedIndicator == data.href}
-                setSelectedIndicator={setSelectedIndicator}
-              ></LinkEl>
-            );
-          })}
+          <ul className="space-y-6 pt-10">
+            {navItems.map((data, index) => {
+              return (
+                <LinkEl
+                  key={index}
+                  data={{ ...data, index }}
+                  isActive={selectedIndicator == data.href}
+                  setSelectedIndicator={setSelectedIndicator}
+                ></LinkEl>
+              );
+            })}
+          </ul>
         </div>
         <Footer />
       </div>

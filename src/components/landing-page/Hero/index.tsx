@@ -82,12 +82,12 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <div className="flex h-screen flex-col justify-center max-lg:px-5 lg:max-w-7xl lg:pl-[8vw]">
         <h1
           ref={heroText}
-          className="relative m-0 text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-medium leading-[1.2] text-white"
+          className="relative m-0 hidden text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-medium leading-[1.2] text-white sm:block"
         >
           Brand + Digital Design Studio
         </h1>
       </div>
-      <div className="absolute top-[calc(100vh-350px)]">
+      <div className="absolute top-[calc(100vh-500px)] sm:top-[calc(100vh-350px)]">
         <div ref={slider} className="relative whitespace-nowrap">
           <p
             ref={firstText}
@@ -106,7 +106,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <div
         data-scroll
         data-scroll-speed={0.1}
-        className="absolute left-[65%] top-[35%] text-[24px] font-light text-white"
+        className="absolute bottom-[10%] text-lg font-light text-white max-sm:px-5 sm:left-[65%] sm:top-[35%]"
       >
         {/* <svg
           className="mb-[100px] scale-[2]"
@@ -121,6 +121,12 @@ const Hero: React.FC<HeroProps> = ({}) => {
             fill="white"
           />
         </svg> */}
+        <h1
+          ref={heroText}
+          className="relative m-0 pb-5 text-4xl font-medium leading-[1.2] text-white sm:hidden"
+        >
+          Brand + Digital Design Studio
+        </h1>
         <p className="m-0 mb-[10px]">Born in London, working Globally</p>
         {/* <p className="m-0 mb-[10px]">Designer & Developer</p> */}
       </div>

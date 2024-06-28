@@ -6,8 +6,6 @@ import Link from 'next/link';
 import { Slug } from 'sanity';
 import SanityImage from '../../common/SanityImage/SanityImage';
 import RoundedButton from '../../common/ui/RoundedButton';
-import { useRef } from 'react';
-import { useRect } from '@/hooks/useRect';
 
 interface HeroProps {
   title: string;

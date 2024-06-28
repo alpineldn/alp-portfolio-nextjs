@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { useScroll, motion, useTransform } from 'framer-motion';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import Magnetic from '@/components/common/ui/Magnetic';
+import { getLondonTimeFormatted } from '@/utils/time-conversion';
 
 interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {
@@ -22,7 +23,7 @@ const Contact: React.FC<ContactProps> = () => {
       className="relative flex flex-col items-center justify-center bg-[#141516] text-white"
     >
       <div className="container w-full bg-[#141516] pt-[200px]">
-        <div className="relative border-b border-solid border-b-[rgb(134,134,134)] pb-[100px]">
+        <div className="relative border-b border-solid border-b-[rgb(134,134,134)]/50 pb-[100px]">
           <span className="flex items-center">
             {/* <div className="relative h-[100px] w-[100px] overflow-hidden rounded-[50%]">
               <Image className="object-cover" fill={true} alt={'image'} src={`/images/background.jpg`} />
@@ -62,68 +63,81 @@ const Contact: React.FC<ContactProps> = () => {
             />
           </motion.svg>
         </div>
-        <div className="mt-[100px] flex gap-5">
-          <RoundedButton>
-            <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-              info@dennissnellenberg.com
-            </p>
-          </RoundedButton>
-          <RoundedButton>
-            <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-              +31 6 27 84 74 30
-            </p>
-          </RoundedButton>
-        </div>
-        <div className="mt-[200px] flex justify-between p-5">
-          <div className="flex items-end gap-2.5">
-            <span className="flex flex-col gap-[15px]">
-              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
-                Version
-              </h3>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                2022 © Edition
-              </p>
-            </span>
-            <span className="flex flex-col gap-[15px]">
-              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
-                Version
-              </h3>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                11:49 PM GMT+2
-              </p>
-            </span>
-          </div>
-          <div className="flex items-end gap-2.5">
-            <span className="flex flex-col gap-[15px]">
-              <h3 className="m-0 cursor-default p-[2.5px] text-[1em] font-light text-[grey]">
-                socials
-              </h3>
-              <Magnetic>
-                <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                  Awwwards
-                </p>
-              </Magnetic>
-            </span>
-            <Magnetic>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                Instagram
-              </p>
-            </Magnetic>
-            <Magnetic>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                Dribbble
-              </p>
-            </Magnetic>
-            <Magnetic>
-              <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-                Linkedin
-              </p>
-            </Magnetic>
-          </div>
-        </div>
+
+        <CTAs />
+        <Links />
       </div>
     </motion.section>
   );
 };
 
 export default Contact;
+
+const CTAs = () => {
+  return (
+    <div className="mt-[120px] flex gap-5 max-lg:flex max-lg:flex-col md:mt-[100px]">
+      <RoundedButton>
+        <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+          info@dennissnellenberg.com
+        </p>
+      </RoundedButton>
+      <RoundedButton>
+        <p className='m-0 cursor-pointer p-[2.5px] after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+          +31 6 27 84 74 30
+        </p>
+      </RoundedButton>
+    </div>
+  );
+};
+
+const Links = () => {
+  return (
+    <div className="mt-[80px] flex flex-col-reverse justify-between p-5 md:flex-row lg:mt-[200px]">
+      <div className="flex items-end gap-2.5 max-md:pt-8">
+        <span className="flex flex-col gap-[15px]">
+          <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
+            Version
+          </h3>
+          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+            2024 © Edition
+          </p>
+        </span>
+        <span className="flex flex-col gap-[15px]">
+          <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
+            Local Time
+          </h3>
+          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+            {getLondonTimeFormatted()}
+          </p>
+        </span>
+      </div>
+      <div className="flex items-end gap-2.5 border-b-[rgb(134,134,134)]/50 max-md:border-b max-md:pb-8">
+        <span className="flex flex-col gap-[15px]">
+          <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
+            Socials
+          </h3>
+          <Magnetic>
+            <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+              Awwwards
+            </p>
+          </Magnetic>
+        </span>
+        <Magnetic>
+          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+            Instagram
+          </p>
+        </Magnetic>
+        <Magnetic>
+          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+            Dribbble
+          </p>
+        </Magnetic>
+        <Magnetic>
+          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+            Linkedin
+          </p>
+        </Magnetic>
+      </div>
+    </div>
+  );
+};

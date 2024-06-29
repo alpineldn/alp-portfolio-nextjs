@@ -1,5 +1,4 @@
 import { Project as ProjectType } from '@/app/(app)/work/page';
-import RoundedButton from '@/components/common/ui/RoundedButton';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
@@ -7,6 +6,10 @@ import ProjectCard from './GridProject';
 import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
 
 type MoveRef = gsap.QuickToFunc | null;
+interface Model {
+  active: boolean;
+  index: number;
+}
 interface GridViewProps {
   projects: ProjectType[];
 }
@@ -14,7 +17,11 @@ interface GridViewProps {
 const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
-  const [active, setActive] = useState(false);
+  const [modal, setModal] = useState<Model>({
+    active: false,
+    index: 0,
+  });
+  const { active } = modal;
 
   let xMoveCursor = useRef<MoveRef>(null);
   let yMoveCursor = useRef<MoveRef>(null);
@@ -49,9 +56,14 @@ const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
     !!yMoveCursorLabel?.current && yMoveCursorLabel.current(y);
   };
 
-  const manageModal = (active: boolean, x: number, y: number) => {
+  const manageModal = (
+    active: boolean,
+    index: number,
+    x: number,
+    y: number,
+  ) => {
     moveItems(x, y);
-    setActive(active);
+    setModal({ active, index });
   };
 
   return (

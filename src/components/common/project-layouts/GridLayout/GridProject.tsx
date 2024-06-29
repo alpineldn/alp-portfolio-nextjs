@@ -36,14 +36,12 @@ const ProjectCard: React.FC<ProjectProps> = ({
           style={{ backgroundColor: color }}
           className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden"
         >
-          <figure className="max-w-[85%]">
-            <SanityImage
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              src={mainImage}
-              alt={title}
-              className="aspect-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
-            />
-          </figure>
+          <SanityImage
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            src={mainImage}
+            alt={title}
+            className="aspect-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
+          />
         </div>
         <div className="w-full py-4">
           <h3 className="border-b-2 py-6 text-5xl text-[#1c1d20]">{title}</h3>

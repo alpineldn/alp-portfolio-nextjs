@@ -18,22 +18,17 @@ const Images: React.FC<ImagesProps> = ({ images }) => {
   const height = useTransform(scrollYProgress, [0, 1], [200, 0]);
 
   return (
-    <section ref={container} className="relative z-[1] bg-[#DDDDDD]">
+    <section
+      ref={container}
+      className="relative z-[1] space-y-16 bg-[#DDDDDD] lg:space-y-20"
+    >
       {images.map((img) => (
         <div className="container relative z-10 mx-auto !overflow-hidden first:pt-[100px]">
-          <div className="overflow-hidden">
-            <div
-              data-scroll
-              data-scroll-speed={0.05}
-              className="overflow-hidden"
-            >
-              <SanityImage
-                sizes="80vw"
-                src={img}
-                className="aspect-auto h-full w-full scale-105 object-cover"
-              />
-            </div>
-          </div>
+          <SanityImage
+            sizes="80vw"
+            src={img}
+            className="aspect-auto h-full w-full object-cover"
+          />
         </div>
       ))}
 

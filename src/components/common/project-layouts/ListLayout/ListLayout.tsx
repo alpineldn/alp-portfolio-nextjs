@@ -2,12 +2,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import Image from 'next/image';
-import RoundedButton from '@/components/common/ui/RoundedButton';
 import ProjectList from './Project';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
-import { getRandomColor } from '@/utils/create-random-color';
 import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
 
 type MoveRef = gsap.QuickToFunc | null;
@@ -142,7 +139,6 @@ const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
               return (
                 <div
                   className="flex h-full w-full items-center justify-center"
-                  style={{ backgroundColor: getRandomColor() }}
                   key={`modal_${_id}`}
                 >
                   <SanityImage

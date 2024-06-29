@@ -14,9 +14,9 @@ const ListIcon: React.FC<ListIconProps> = ({ className }) => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="1"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <line x1="3" x2="21" y1="6" y2="6" />
       <line x1="3" x2="21" y1="12" y2="12" />

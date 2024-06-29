@@ -62,7 +62,10 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({
         <div
           ref={circle}
           style={{ backgroundColor }}
-          className={cn(styles.circle, "transition-colors duration-300 ease-smooth-curve")}
+          className={cn(
+            styles.circle,
+            'transition-colors duration-300 ease-smooth-curve',
+          )}
         ></div>
       </div>
     </Magnetic>

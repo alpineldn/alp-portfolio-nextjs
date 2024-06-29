@@ -18,8 +18,6 @@ const ProjectCard: React.FC<ProjectProps> = ({
   manageModal,
   index,
 }) => {
-  const color = useMemo(() => getRandomColor(), []);
-
   return (
     <Link
       className="md:even:translate-y-[30%]"
@@ -32,10 +30,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
       }}
     >
       <div className="relative w-full">
-        <div
-          style={{ backgroundColor: color }}
-          className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden"
-        >
+        <div className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden">
           <SanityImage
             sizes="(min-width: 1024px) 50vw, 100vw"
             src={mainImage}

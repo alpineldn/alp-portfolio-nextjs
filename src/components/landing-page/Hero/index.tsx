@@ -73,6 +73,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         <source src="/images/mountains_video.mp4" type="video/mp4" />
       </video> */}
       <Image
+        priority
         className="object-cover"
         src="/images/background.jpg"
         fill={true}

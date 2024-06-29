@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
-import { getRandomColor } from '@/utils/create-random-color';
 import Link from 'next/link';
 import { scaleAnimation } from '@/components/common/anim';
 import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
@@ -145,7 +144,6 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               return (
                 <div
                   className="flex h-full w-full items-center justify-center"
-                  style={{ backgroundColor: getRandomColor() }}
                   key={`modal_${_id}`}
                 >
                   <SanityImage

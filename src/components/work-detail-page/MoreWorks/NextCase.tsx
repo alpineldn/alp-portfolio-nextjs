@@ -19,7 +19,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
   const [active, setActive] = useState(false);
-  const color = useMemo(() => getRandomColor(), []);
+  const [color, setColor] = useState<string>('');
 
   let xMoveCursor = useRef<MoveRef>(null);
   let yMoveCursor = useRef<MoveRef>(null);
@@ -58,6 +58,10 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
     moveItems(x, y);
     setActive(active);
   };
+
+  useEffect(() => {
+    setColor(getRandomColor());
+  }, []);
 
   return (
     <Link className="block" href={`/work/${slug.current}`}>

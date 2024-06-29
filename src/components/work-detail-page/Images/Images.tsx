@@ -22,8 +22,11 @@ const Images: React.FC<ImagesProps> = ({ images }) => {
       ref={container}
       className="relative z-[1] space-y-16 bg-[#DDDDDD] lg:space-y-20"
     >
-      {images.map((img) => (
-        <div className="container relative z-10 mx-auto !overflow-hidden first:pt-[100px]">
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className="container relative z-10 mx-auto !overflow-hidden first:pt-[100px]"
+        >
           <SanityImage
             sizes="80vw"
             src={img}

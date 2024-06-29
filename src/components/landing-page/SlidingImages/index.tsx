@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { Project } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
@@ -55,11 +55,17 @@ const SlidingImages: React.FC<SlidingImagesProps> = ({ projects }) => {
 export default SlidingImages;
 
 const Image: React.FC<Project> = ({ _id, title, mainImage }) => {
+  const [color, setColor] = useState<string>('');
+
+  useEffect(() => {
+    setColor(getRandomColor());
+  }, []);
+
   return (
     <div
       key={_id}
       className="flex h-[20vw] w-3/12 items-center justify-center"
-      style={{ backgroundColor: getRandomColor() }}
+      style={{ backgroundColor: color }}
     >
       <div className="relative h-4/5 w-4/5">
         <SanityImage

@@ -1,14 +1,61 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { slideUp } from './animation';
 import { motion } from 'framer-motion';
+import SplitType from 'split-type';
+import gsap from 'gsap';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
-  const heroText = useRef<HTMLHeadingElement>(null);
+  const heroTextRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const heroTextRefSm = useRef<HTMLHeadingElement>(null);
+
+  const createAnimation = (ref: React.RefObject<HTMLHeadingElement>) => {
+    if (!ref?.current || !descriptionRef?.current) return;
+
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.inOut' },
+    });
+
+    const header = new SplitType(ref.current, {
+      types: 'lines,words',
+      lineClass: 'overflow-hidden',
+    });
+    const description = new SplitType(descriptionRef.current, {
+      types: 'lines,words',
+      lineClass: 'overflow-hidden',
+    });
+
+    gsap.set([header.words, description.words], { y: '100%' });
+
+    tl.to(header.words, {
+      y: '0%',
+      duration: 1.5,
+      stagger: 0.05,
+      delay: 2.7,
+    }).to(
+      description.words,
+      {
+        y: '0%',
+        stagger: 0.05,
+      },
+      '-=.5',
+    );
+  };
+
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      let mm = gsap.matchMedia();
+      mm.add('(min-width: 640px)', () => createAnimation(heroTextRef));
+      mm.add('(max-width: 639px)', () => createAnimation(heroTextRefSm));
+    });
+
+    return () => context.revert();
+  }, [heroTextRef, heroTextRefSm, descriptionRef]);
 
   return (
     <motion.div
@@ -35,7 +82,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
       <div className="flex h-screen flex-col justify-center max-lg:px-5 lg:max-w-7xl lg:pl-[8vw]">
         <h1
-          ref={heroText}
+          ref={heroTextRef}
           className="relative m-0 hidden text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-medium leading-[1.2] text-white sm:block"
         >
           Brand + Digital Design Studio
@@ -61,12 +108,14 @@ const Hero: React.FC<HeroProps> = ({}) => {
           />
         </svg> */}
         <h1
-          ref={heroText}
+          ref={heroTextRefSm}
           className="relative m-0 pb-5 text-4xl font-medium leading-[1.2] text-white sm:hidden"
         >
           Brand + Digital Design Studio
         </h1>
-        <p className="m-0 mb-[10px]">Born in London, working Globally</p>
+        <p ref={descriptionRef} className="m-0 mb-[10px]">
+          Born in London, working Globally
+        </p>
         {/* <p className="m-0 mb-[10px]">Designer & Developer</p> */}
       </div>
     </motion.div>

@@ -1,61 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useLayoutEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { useRef } from 'react';
 import { slideUp } from './animation';
 import { motion } from 'framer-motion';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
-  const firstText = useRef<HTMLParagraphElement>(null);
-  const secondText = useRef<HTMLParagraphElement>(null);
   const heroText = useRef<HTMLHeadingElement>(null);
-  const slider = useRef<HTMLDivElement>(null);
-  let xPercent = 0;
-  let yPercent = 0;
-  let direction = -1;
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(slider.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        scrub: 0.25,
-        start: 0,
-        end: window.innerHeight,
-        onUpdate: (e) => (direction = e.direction * -1),
-      },
-      x: '-500px',
-    });
-    requestAnimationFrame(animate);
-  }, []);
-
-  const animate = () => {
-    if (xPercent < -100) {
-      xPercent = 0;
-    } else if (xPercent > 0) {
-      xPercent = -100;
-    }
-    gsap.set(firstText.current, { xPercent: xPercent });
-    gsap.set(secondText.current, { xPercent: xPercent });
-    requestAnimationFrame(animate);
-    xPercent += 0.1 * direction;
-  };
-
-  const animateHeroText = () => {
-    if (yPercent < -100) {
-      yPercent = 0;
-    } else if (yPercent > 0) {
-      yPercent = -100;
-    }
-    gsap.set(heroText.current, { yPercent: yPercent });
-    gsap.set(heroText.current, { yPercent: yPercent });
-    requestAnimationFrame(animate);
-    xPercent += 0.1 * direction;
-  };
 
   return (
     <motion.div
@@ -88,22 +41,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
           Brand + Digital Design Studio
         </h1>
       </div>
-      <div className="absolute top-[calc(100vh-500px)] sm:top-[calc(100vh-350px)]">
-        <div ref={slider} className="relative whitespace-nowrap">
-          <p
-            ref={firstText}
-            className="relative m-0 p-[50px] text-[clamp(6.5rem,11vw+1rem,13rem)] font-medium text-white"
-          >
-            Brand + Digital Design Studio
-          </p>
-          <p
-            ref={secondText}
-            className="absolute left-full top-0 m-0 p-[50px] text-[clamp(6.5rem,11vw+1rem,13rem)] font-medium text-white"
-          >
-            Brand + Digital Design Studio
-          </p>
-        </div>
-      </div>
+
       <div
         data-scroll
         data-scroll-speed={0.1}

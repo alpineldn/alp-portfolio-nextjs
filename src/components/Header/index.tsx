@@ -144,18 +144,12 @@ const NavLinks: React.FC<{
 
       <div className="hidden items-center sm:flex">
         {navItems.map(({ href, title }) => (
-          <Magnetic key={title}>
-            <div className="group relative z-[1] flex cursor-pointer flex-col p-[15px]">
-              <Link href={href}>{title}</Link>
-              <div
-                className={cn(
-                  'absolute left-[50%] top-[45px] h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-[50%] transition-transform duration-200 ease-smooth-curve group-hover:scale-100',
-                  pathName === '/' ? 'bg-white' : 'bg-[#1c1d20]',
-                  { 'scale-100': pathName === href },
-                )}
-              ></div>
-            </div>
-          </Magnetic>
+          <div
+            key={title}
+            className="group relative z-[1] flex cursor-pointer flex-col p-[15px]"
+          >
+            <Link href={href}>{title}</Link>
+          </div>
         ))}
       </div>
     </>

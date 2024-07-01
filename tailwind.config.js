@@ -12,6 +12,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        ppneuemontreal: ['var(--font-ppneuemontreal)'],
+      },
       transitionTimingFunction: {
         'smooth-curve': 'cubic-bezier(0.76, 0, 0.24, 1)',
       },

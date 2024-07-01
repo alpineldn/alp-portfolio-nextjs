@@ -24,7 +24,7 @@ const Description: React.FC<DescriptionProps> = () => {
             return (
               <span
                 key={index}
-                className="relative mr-[3px] inline-flex overflow-hidden"
+                className="relative mr-[7px] inline-flex overflow-hidden"
               >
                 <motion.span
                   variants={slideUp}

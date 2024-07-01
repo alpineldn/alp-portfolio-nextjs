@@ -1,4 +1,5 @@
 'use client';
+
 import {
   forwardRef,
   useEffect,
@@ -44,32 +45,42 @@ const Header: React.FC<HeaderProps> = ({}) => {
     if (showBtn) setShowBtn(false);
   }, [pathName]);
 
-  useEffect(() => {
-    if (!button?.current) return;
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      if (!button?.current) return;
 
-    const scaleValue =
-      isQuarterScreenScrolled || (!isQuarterScreenScrolled && showBtn) ? 1 : 0;
+      const scaleValue =
+        isQuarterScreenScrolled || (!isQuarterScreenScrolled && showBtn)
+          ? 1
+          : 0;
 
-    gsap.to(button.current, {
-      scale: scaleValue,
-      duration: 0.25,
-      ease: 'power1.out',
+      gsap.to(button.current, {
+        scale: scaleValue,
+        duration: 0.25,
+        ease: 'power1.out',
+      });
     });
+
+    return () => context.revert();
   }, [showBtn, isQuarterScreenScrolled, button?.current]);
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.create({
-      trigger: document.documentElement,
-      start: 'top top',
-      end: window.innerHeight / 3,
-      onLeave: () => {
-        setIsQuarterScreenScrolled(true);
-      },
-      onEnterBack: () => {
-        setIsQuarterScreenScrolled(false);
-      },
+    const context = gsap.context(() => {
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: 'top top',
+        end: window.innerHeight / 3,
+        onLeave: () => {
+          setIsQuarterScreenScrolled(true);
+        },
+        onEnterBack: () => {
+          setIsQuarterScreenScrolled(false);
+        },
+      });
     });
+
+    return () => context.revert();
   }, []);
 
   return (
@@ -125,28 +136,20 @@ const NavLinks: React.FC<{
   const pathName = usePathname();
   return (
     <>
-      <Magnetic>
-        <button
-          onClick={() => {
-            setIsActive((prev) => !prev);
-          }}
-          className="relative z-[1] flex cursor-pointer p-[15px] sm:hidden"
-        >
-          <span>Menu</span>
-          <div
-            className={cn(
-              'absolute left-0 top-1/2 h-[5px] w-[5px] -translate-y-1/2 rounded-[50%] transition-transform duration-200 ease-smooth-curve',
-              pathName === '/' ? 'bg-white' : 'bg-[#1c1d20]',
-            )}
-          ></div>
-        </button>
-      </Magnetic>
+      <button
+        onClick={() => {
+          setIsActive((prev) => !prev);
+        }}
+        className="relative z-[1] flex cursor-pointer p-[15px] sm:hidden"
+      >
+        <span>Menu</span>
+      </button>
 
-      <div className="hidden items-center sm:flex">
+      <div className="hidden items-center gap-[16px] overflow-hidden sm:flex">
         {navItems.map(({ href, title }) => (
           <div
             key={title}
-            className="group relative z-[1] flex cursor-pointer flex-col p-[15px]"
+            className="group relative z-[1] inline-block cursor-pointer flex-col overflow-hidden bg-transparent py-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:bg-white after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:bg-white hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]"
           >
             <Link href={href}>{title}</Link>
           </div>
@@ -174,7 +177,7 @@ const HamburgerMenuBtn = forwardRef<
       >
         <div
           className={cn(
-            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[30%] before:bg-white before:transition-transform before:duration-300 before:content-[''] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[30%] after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
+            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[30%] before:bg-white before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[30%] after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
             {
               'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
                 isActive,

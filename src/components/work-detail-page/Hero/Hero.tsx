@@ -28,9 +28,9 @@ const Hero: React.FC<HeroProps> = ({
   mainImage,
   previewURL,
 }) => {
+  const { width = 0 } = useWindowSize();
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const detailContainerRef = useRef<HTMLDivElement>(null);
-  const { width = 0 } = useWindowSize();
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {

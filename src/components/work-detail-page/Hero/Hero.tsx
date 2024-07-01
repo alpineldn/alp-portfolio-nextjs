@@ -7,6 +7,9 @@ import { Slug } from 'sanity';
 import SanityImage from '../../common/SanityImage/SanityImage';
 import RoundedButton from '../../common/ui/RoundedButton';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import { useLayoutEffect, useRef } from 'react';
+import SplitType from 'split-type';
+import gsap from 'gsap';
 
 interface HeroProps {
   title: string;
@@ -25,17 +28,60 @@ const Hero: React.FC<HeroProps> = ({
   mainImage,
   previewURL,
 }) => {
+  const heroTextRef = useRef<HTMLHeadingElement>(null);
+  const detailContainerRef = useRef<HTMLDivElement>(null);
   const { width = 0 } = useWindowSize();
+
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      if (!heroTextRef?.current || !detailContainerRef?.current) return;
+
+      const projectInfoEls =
+        detailContainerRef.current.querySelectorAll('ul > li');
+
+      const tl = gsap.timeline({
+        defaults: { ease: 'power2.inOut' },
+      });
+
+      const header = new SplitType(heroTextRef.current, {
+        types: 'lines,words',
+        lineClass: 'overflow-hidden',
+      });
+
+      gsap.set([header.words, projectInfoEls], { y: '100%' });
+
+      tl.to(header.words, {
+        y: '0%',
+        duration: 1.5,
+        stagger: 0.05,
+        delay: 1.5,
+      }).to(
+        projectInfoEls,
+        {
+          y: '0%',
+          opacity: 1,
+          stagger: 0.05,
+          duration: 0.9,
+        },
+        '-=.5',
+      );
+    });
+
+    return () => context.revert();
+  }, [heroTextRef]);
 
   return (
     <section>
       <div className="relative h-full w-full pt-[277px]">
         <div className="container mx-auto">
-          <h1 className="max-w-5xl text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-normal leading-[1.2] tracking-tighter text-black">
+          <h1
+            ref={heroTextRef}
+            className="max-w-5xl text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-normal leading-[1.2] tracking-tighter text-black"
+          >
             {title}
           </h1>
 
-          <div className="relative">
+          <div ref={detailContainerRef} className="relative">
             <Details
               client={client}
               agency={agency}
@@ -84,15 +130,15 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
   previewURL,
 }) => {
   return (
-    <ul className="grid gap-10 pt-14 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
-      <li>
+    <ul className="grid gap-10 overflow-hidden pt-14 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
+      <li className="opacity-0">
         <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
           Client
         </div>
         <div className="pt-4 text-lg lg:pt-8">{client}</div>
       </li>
       {!!agency && (
-        <li>
+        <li className="opacity-0">
           <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
             AGENCY
           </div>
@@ -100,7 +146,7 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
         </li>
       )}
 
-      <li>
+      <li className="opacity-0">
         <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
           CATEGORIES
         </div>
@@ -114,7 +160,7 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
       </li>
 
       {!!previewURL?.current && (
-        <li>
+        <li className="opacity-0">
           <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
             PREVIEW URL
           </div>

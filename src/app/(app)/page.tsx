@@ -33,7 +33,7 @@ const Home: React.FC<HomeProps> = async () => {
       {!!projects?.length && (
         <>
           <Projects projects={projects} />
-          <SlidingImages projects={projects} />
+          {/* <SlidingImages projects={projects} /> */}
         </>
       )}
       <Contact />

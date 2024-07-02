@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import { Project as ProjectType } from '@/app/(app)/work/page';
@@ -21,14 +21,20 @@ interface ProjectsProps {
   projects: ProjectType[];
 }
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const container = useRef<HTMLDivElement>(null);
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
+  });
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'end start'],
   });
   const { active, index } = modal;
   const modalContainer = useRef(null);
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
+  const height = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   let xMoveContainer = useRef<MoveRef>(null);
   let yMoveContainer = useRef<MoveRef>(null);
@@ -88,6 +94,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
   return (
     <section
+      ref={container}
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
@@ -178,6 +185,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           View
         </motion.div>
       </>
+
+      <motion.div style={{ height }} className="relative mt-[100px]">
+        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
+      </motion.div>
     </section>
   );
 };

@@ -64,21 +64,21 @@ const Hero: React.FC<HeroProps> = ({}) => {
       animate="enter"
       className="relative flex h-screen overflow-hidden"
     >
-      {/* <video
+      <video
         autoPlay
         loop
         muted
         className="absolute h-full w-full object-cover"
       >
-        <source src="/images/mountains_video.mp4" type="video/mp4" />
-      </video> */}
-      <Image
+        <source src="/mountains_video_looped_optimized.mp4" type="video/mp4" />
+      </video>
+      {/* <Image
         priority
         className="object-cover"
         src="/images/background.jpg"
         fill={true}
         alt="background"
-      />
+      /> */}
 
       <div className="flex h-screen flex-col justify-center max-lg:px-5 lg:max-w-7xl lg:pl-[8vw]">
         <h1

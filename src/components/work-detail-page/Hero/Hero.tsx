@@ -2,10 +2,8 @@
 
 import { Category } from '@/app/(app)/work/page';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import Link from 'next/link';
 import { Slug } from 'sanity';
 import SanityImage from '../../common/SanityImage/SanityImage';
-import RoundedButton from '../../common/ui/RoundedButton';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
@@ -90,16 +88,6 @@ const Hero: React.FC<HeroProps> = ({
               categories={categories}
               previewURL={previewURL}
             />
-
-            {!!previewURL?.current && (
-              <div data-scroll data-scroll-speed={0.1}>
-                <PageTransitionLink href={previewURL.current}>
-                  <RoundedButton className="absolute right-0 top-0 flex h-[130px] w-[130px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white lg:h-[200px] lg:w-[200px]">
-                    <p className="relative z-[1] m-0 font-light">Live Site</p>
-                  </RoundedButton>
-                </PageTransitionLink>
-              </div>
-            )}
           </div>
         </div>
 

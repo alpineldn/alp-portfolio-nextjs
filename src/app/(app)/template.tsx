@@ -51,16 +51,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       >
         {firstVisit ? (
           <>
-            <AnimatedLogo className="max-w-[120px]" />
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5, duration: 1 }}
-              id="logo-name"
-              className="ml-3 text-xl font-medium text-white"
-            >
-              Alpineldn
-            </motion.p>
+            <AnimatedLogo className="max-w-[100px] xl:max-w-[200px]" />
           </>
         ) : (
           <p

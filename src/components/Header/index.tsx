@@ -172,11 +172,10 @@ const HamburgerMenuBtn = forwardRef<
   return (
     <div ref={ref} className="fixed right-0 z-20 scale-0">
       <RoundedButton
-        backgroundColor="#334BD3"
         onClick={() => {
           setIsActive((prev) => !prev);
         }}
-        className="relative m-[20px] flex h-[65px] w-[65px] cursor-pointer items-center justify-center rounded-[50%] bg-[#334BD3] sm:h-[80px] sm:w-[80px]"
+        className="relative m-[20px] flex h-[65px] w-[65px] cursor-pointer items-center justify-center rounded-[50%] bg-[#1C1D20] sm:h-[80px] sm:w-[80px]"
       >
         <div
           className={cn(

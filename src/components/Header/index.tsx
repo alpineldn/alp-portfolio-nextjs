@@ -14,8 +14,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import cn from '@/utils/cn';
-import Magnetic from '@/components/common/ui/Magnetic';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface HeaderProps {}
 
@@ -111,19 +111,21 @@ export default Header;
 
 const Logo = () => {
   return (
-    <Link href="/" className="group flex cursor-pointer">
-      <p className="m-0 transition-all duration-500 ease-smooth-curve group-hover:rotate-[360deg]">
-        ©
-      </p>
-      <div className="relative ml-[5px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve group-hover:pr-[30px]">
-        <p className="relative transition-all duration-500 ease-smooth-curve group-hover:-translate-x-full">
-          Code by
-        </p>
-        <p className="relative pl-[0.3em] transition-all duration-500 ease-smooth-curve group-hover:translate-x-[-65px]">
-          Dennis
-        </p>
-        <p className="absolute left-[120px] pl-[0.3em] transition-all duration-500 ease-smooth-curve group-hover:translate-x-[-65px]">
-          Snellenberg
+    <Link
+      href="/"
+      className="group relative flex cursor-pointer items-center overflow-hidden bg-transparent pb-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:bg-white after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:bg-white hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]"
+    >
+      <Image
+        className="h-fit w-[30px] object-contain"
+        width={30}
+        height={30}
+        src="/alpine_icon.svg"
+        alt="Alpine Icon"
+      />
+
+      <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
+        <p className="relative transition-all duration-500 ease-smooth-curve">
+          ALPINE
         </p>
       </div>
     </Link>

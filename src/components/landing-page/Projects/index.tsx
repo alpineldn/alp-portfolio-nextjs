@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
-import Link from 'next/link';
 import { scaleAnimation } from '@/components/common/anim';
 import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
 import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProject';

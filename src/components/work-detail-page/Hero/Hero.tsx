@@ -11,6 +11,7 @@ import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import { AnimatedLogo } from '@/app/(app)/template';
 
 interface HeroProps {
   title: string;
@@ -131,49 +132,52 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
   previewURL,
 }) => {
   return (
-    <ul className="grid gap-10 overflow-hidden pt-14 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
-      <li className="opacity-0">
-        <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
-          Client
-        </div>
-        <div className="pt-4 text-lg lg:pt-8">{client}</div>
-      </li>
-      {!!agency && (
+    <>
+      <ul className="grid gap-10 overflow-hidden pt-14 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
         <li className="opacity-0">
           <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
-            AGENCY
+            Client
           </div>
-          <div className="pt-4 text-lg lg:pt-8">{agency}</div>
+          <div className="pt-4 text-lg lg:pt-8">{client}</div>
         </li>
-      )}
+        {!!agency && (
+          <li className="opacity-0">
+            <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
+              AGENCY
+            </div>
+            <div className="pt-4 text-lg lg:pt-8">{agency}</div>
+          </li>
+        )}
 
-      <li className="opacity-0">
-        <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
-          CATEGORIES
-        </div>
-        <div className="pt-4 text-lg lg:pt-8">
-          {categories.map(({ title, _id }, index) => (
-            <span key={_id}>
-              {title} {index !== categories.length - 1 && ', '}
-            </span>
-          ))}
-        </div>
-      </li>
-
-      {!!previewURL?.current && (
         <li className="opacity-0">
           <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
-            PREVIEW URL
+            CATEGORIES
           </div>
-
-          <PageTransitionLink
-            className="block pt-4 text-lg lg:pt-8"
-            href={previewURL.current}
-          >
-            {previewURL.current}
-          </PageTransitionLink>
+          <div className="pt-4 text-lg lg:pt-8">
+            {categories.map(({ title, _id }, index) => (
+              <span key={_id}>
+                {title} {index !== categories.length - 1 && ', '}
+              </span>
+            ))}
+          </div>
         </li>
-      )}
-    </ul>
+
+        {!!previewURL?.current && (
+          <li className="opacity-0">
+            <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
+              PREVIEW URL
+            </div>
+
+            <PageTransitionLink
+              className="block pt-4 text-lg lg:pt-8"
+              href={previewURL.current}
+            >
+              {previewURL.current}
+            </PageTransitionLink>
+          </li>
+        )}
+      </ul>
+      <AnimatedLogo />
+    </>
   );
 };

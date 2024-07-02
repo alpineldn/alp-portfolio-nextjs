@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { motion } from 'framer-motion';
 import { fadeInAndSlideUp, scaleAnimation } from '../../common/anim';
 import Link from 'next/link';
+import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface NextCaseProps {
@@ -64,7 +65,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
   }, []);
 
   return (
-    <Link className="block" href={`/work/${slug.current}`}>
+    <PageTransitionLink className="block" href={`/work/${slug.current}`}>
       <motion.div
         variants={fadeInAndSlideUp}
         initial="initial"
@@ -116,7 +117,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
           Next Case
         </motion.div>
       </>
-    </Link>
+    </PageTransitionLink>
   );
 };
 export default NextCase;

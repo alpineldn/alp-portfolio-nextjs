@@ -14,6 +14,10 @@ export const slideUp = {
   initial: {
     top: 0,
   },
+  enter: {
+    top: 0,
+    transition: { duration: 1, ease: smoothCurve },
+  },
   exit: {
     top: '-100vh',
     transition: { duration: 0.8, ease: smoothCurve, delay: 0.2 },

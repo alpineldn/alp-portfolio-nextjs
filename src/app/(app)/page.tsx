@@ -1,4 +1,3 @@
-import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
 import Contact from '@/components/Contact';
 import Description from '@/components/landing-page/Description';
 import Hero from '@/components/landing-page/Hero';
@@ -7,6 +6,7 @@ import SlidingImages from '@/components/landing-page/SlidingImages';
 import sanityClient from '@/utils/sanity/client';
 import { WORK_QUERY } from '@/utils/sanity/queries';
 import type { Project } from './work/page';
+import Page from '@/components/common/Page';
 
 interface HomeProps {}
 
@@ -27,7 +27,7 @@ const Home: React.FC<HomeProps> = async () => {
   const projects = await getPageData();
 
   return (
-    <SmoothScroll>
+    <Page pageName="Home">
       <Hero />
       <Description />
       {!!projects?.length && (
@@ -37,7 +37,7 @@ const Home: React.FC<HomeProps> = async () => {
         </>
       )}
       <Contact />
-    </SmoothScroll>
+    </Page>
   );
 };
 

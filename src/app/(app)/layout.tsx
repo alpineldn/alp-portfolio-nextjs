@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import './globals.css';
 import localFont from '@next/font/local';
 import cn from '@/utils/cn';
+import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -26,8 +27,10 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <body className={cn(ppNeueMontreal.variable, 'font-ppneuemontreal')}>
-        <Header />
-        {children}
+        <SmoothScroll>
+          <Header />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

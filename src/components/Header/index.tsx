@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 import Nav from './nav';
 import gsap from 'gsap';
@@ -16,6 +16,8 @@ import RoundedButton from '@/components/common/ui/RoundedButton';
 import cn from '@/utils/cn';
 import Link from 'next/link';
 import Image from 'next/image';
+import { animatePageOut } from '@/utils/animations';
+import PageTransitionLink from '../common/ui/PageTransitionLink';
 
 interface HeaderProps {}
 
@@ -111,7 +113,7 @@ export default Header;
 
 const Logo = () => {
   return (
-    <Link
+    <PageTransitionLink
       href="/"
       className="group relative flex cursor-pointer items-center overflow-hidden bg-transparent pb-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:bg-white after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:bg-white hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]"
     >
@@ -128,14 +130,13 @@ const Logo = () => {
           ALPINE
         </p>
       </div>
-    </Link>
+    </PageTransitionLink>
   );
 };
 
 const NavLinks: React.FC<{
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setIsActive }) => {
-  const pathName = usePathname();
   return (
     <>
       <button
@@ -153,7 +154,7 @@ const NavLinks: React.FC<{
             key={title}
             className="group relative z-[1] inline-block cursor-pointer flex-col overflow-hidden bg-transparent py-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:bg-white after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:bg-white hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]"
           >
-            <Link href={href}>{title}</Link>
+            <PageTransitionLink href={href}>{title}</PageTransitionLink>
           </div>
         ))}
       </div>

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { NextProject } from '@/app/(app)/work/[slug]/page';
 import ContactInfo from '../../common/ContactInfoLinks/ContactInfo';
 import NextCase from './NextCase';
+import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 
 interface MoreWorksProps extends NextProject {}
 
@@ -28,11 +29,11 @@ const MoreWorks: React.FC<MoreWorksProps> = ({ mainImage, slug, title }) => {
         <NextCase title={title} mainImage={mainImage} slug={slug} />
 
         <div className="mt-20 flex items-center justify-center">
-          <Link href="/work">
+          <PageTransitionLink href="/work">
             <RoundedButton backgroundColor="#334BD3">
               <p>All Work</p>
             </RoundedButton>
-          </Link>
+          </PageTransitionLink>
         </div>
 
         <ContactInfo />

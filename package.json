@@ -29,7 +29,8 @@
     "sanity": "^3.48.1",
     "sass": "^1.77.6",
     "split-type": "^0.3.4",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",

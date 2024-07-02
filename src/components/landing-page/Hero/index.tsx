@@ -59,7 +59,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
   return (
     <motion.div
-      variants={slideUp}
+      // variants={slideUp}
       initial="initial"
       animate="enter"
       className="relative flex h-screen overflow-hidden"

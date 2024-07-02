@@ -10,6 +10,7 @@ import { useWindowSize } from '@/hooks/useWindowSize';
 import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
+import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 
 interface HeroProps {
   title: string;
@@ -91,11 +92,11 @@ const Hero: React.FC<HeroProps> = ({
 
             {!!previewURL?.current && (
               <div data-scroll data-scroll-speed={0.1}>
-                <Link href={previewURL.current}>
+                <PageTransitionLink href={previewURL.current}>
                   <RoundedButton className="absolute right-0 top-0 flex h-[130px] w-[130px] cursor-pointer items-center justify-center rounded-[50%] bg-[#455CE9] text-white lg:h-[200px] lg:w-[200px]">
                     <p className="relative z-[1] m-0 font-light">Live Site</p>
                   </RoundedButton>
-                </Link>
+                </PageTransitionLink>
               </div>
             )}
           </div>
@@ -165,12 +166,12 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
             PREVIEW URL
           </div>
 
-          <Link
+          <PageTransitionLink
             className="block pt-4 text-lg lg:pt-8"
             href={previewURL.current}
           >
             {previewURL.current}
-          </Link>
+          </PageTransitionLink>
         </li>
       )}
     </ul>

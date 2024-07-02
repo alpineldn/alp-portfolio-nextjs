@@ -3,6 +3,7 @@ import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import { getRandomColor } from '@/utils/create-random-color';
 import { useMemo } from 'react';
+import PageTransitionLink from '../../ui/PageTransitionLink';
 
 interface ProjectProps extends ProjectType {
   index: number;
@@ -19,7 +20,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
   index,
 }) => {
   return (
-    <Link
+    <PageTransitionLink
       className="md:even:translate-y-[30%]"
       href={`/work/${slug.current}`}
       onMouseEnter={(e) => {
@@ -52,7 +53,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
           </div>
         </div>
       </div>
-    </Link>
+    </PageTransitionLink>
   );
 };
 export default ProjectCard;

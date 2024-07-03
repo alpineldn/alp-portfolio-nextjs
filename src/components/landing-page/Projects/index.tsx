@@ -11,6 +11,7 @@ import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProj
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import ArrowIcon from '@/components/common/icons/ArrowIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -104,7 +105,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="relative z-[1] flex flex-col items-center bg-white pt-[200px] lg:pt-[300px]"
+      className="relative z-[1] flex flex-col items-center bg-dark pt-[200px] text-light lg:pt-[300px]"
     >
       <>
         <table className="container w-full table-auto pb-[100px] max-lg:hidden">
@@ -176,24 +177,24 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </motion.div>
         <motion.div
           ref={cursor}
-          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-[#455CE9] text-[14px] font-light text-white"
+          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-light text-[14px] font-light text-dark"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
         ></motion.div>
         <motion.div
           ref={cursorLabel}
-          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-[#455CE9] bg-transparent text-[14px] font-light text-white"
+          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] !bg-light bg-transparent text-[14px] font-light text-dark"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
         >
-          View
+          <ArrowIcon className="size-5" />
         </motion.div>
       </>
 
       <motion.div style={{ height }} className="relative mt-[100px]">
-        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
+        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-dark shadow-[0px_60px_50px_rgba(0,0,0,0.2)]"></div>
       </motion.div>
     </section>
   );

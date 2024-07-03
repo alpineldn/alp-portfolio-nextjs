@@ -7,6 +7,7 @@ import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import ArrowIcon from '../../icons/ArrowIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -103,13 +104,13 @@ const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
         <table className="w-full table-auto">
           <thead>
             <tr>
-              <th className="pb-10 pl-[100px] text-left text-xs font-light uppercase text-[#1c1d20]">
+              <th className="pb-10 pl-[100px] text-left text-xs font-light uppercase text-light">
                 Title
               </th>
-              <th className="pb-10 text-left text-xs font-light uppercase text-[#1c1d20]">
+              <th className="pb-10 text-left text-xs font-light uppercase text-light">
                 Client
               </th>
-              <th className="pb-10 text-left text-xs font-light uppercase text-[#1c1d20]">
+              <th className="pb-10 text-left text-xs font-light uppercase text-light">
                 Categories
               </th>
             </tr>
@@ -135,7 +136,7 @@ const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
-          className="pointer-events-none fixed left-2/4 top-2/4 z-[3] h-[350px] w-[400px] overflow-hidden bg-[white]"
+          className="pointer-events-none fixed left-2/4 top-2/4 z-[3] h-[350px] w-[400px] overflow-hidden bg-dark"
         >
           <div
             style={{ top: index * -100 + '%' }}
@@ -160,19 +161,19 @@ const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
         </motion.div>
         <motion.div
           ref={cursor}
-          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-[#455CE9] text-[14px] font-light text-white"
+          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-light text-[14px] font-light text-dark"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
         ></motion.div>
         <motion.div
           ref={cursorLabel}
-          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-[#455CE9] bg-transparent text-[14px] font-light text-white"
+          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-light bg-transparent text-[14px] font-light text-dark"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
         >
-          View
+          <ArrowIcon className="size-5" />
         </motion.div>
       </>
     </motion.section>

@@ -24,7 +24,7 @@ const ProjectList: React.FC<ProjectProps> = ({
       onMouseLeave={(e) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
-      className="group w-full cursor-pointer border-t border-solid border-t-[rgb(201,201,201)] transition-all duration-200 last:border-b last:border-b-[rgb(201,201,201)] hover:opacity-50"
+      className="border-t-light/50 last:border-b-light/50 text-light group w-full cursor-pointer border-t border-solid transition-all duration-200 last:border-b hover:opacity-50"
     >
       <td>
         <PageTransitionLink

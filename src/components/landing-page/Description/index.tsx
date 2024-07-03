@@ -3,7 +3,6 @@
 import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { slideUp, opacity } from './animation';
-import RoundedButton from '@/components/common/ui/RoundedButton';
 
 interface DescriptionProps {}
 
@@ -16,7 +15,7 @@ const Description: React.FC<DescriptionProps> = () => {
   return (
     <section
       ref={description}
-      className="relative z-10 flex justify-center pt-[100px] lg:pt-[200px]"
+      className="text-light relative z-10 flex justify-center bg-dark pt-[100px] lg:pt-[200px]"
     >
       <div className="container relative flex flex-col gap-12 md:flex-row">
         <p className="m-0 gap-3 text-3xl leading-[1.3] lg:text-4xl">

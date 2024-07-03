@@ -38,7 +38,7 @@ const MarqueeText: React.FC<MarqueeProps> = ({ children, className }) => {
 
   return (
     <div
-      className={cn('flex items-center uppercase', className)}
+      className={cn('text-light flex items-center uppercase', className)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

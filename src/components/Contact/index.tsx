@@ -17,9 +17,9 @@ const Contact: React.FC<ContactProps> = () => {
     <motion.section
       style={{ y }}
       ref={container}
-      className="relative flex flex-col items-center justify-center bg-[#141516] text-white"
+      className="bg-light relative flex flex-col items-center justify-center text-dark"
     >
-      <div className="container w-full bg-[#141516] pt-[400px] sm:pt-[200px]">
+      <div className="bg-light container w-full pt-[400px] sm:pt-[200px]">
         <div className="relative border-b border-solid border-b-[rgb(134,134,134)]/50 pb-[100px]">
           <span className="flex items-center">
             <h2 className="m-0 text-[clamp(3.5rem,5vw+1rem,6.5rem)] leading-tight">

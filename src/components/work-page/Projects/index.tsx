@@ -64,16 +64,15 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   }, [width]);
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: firstVisit ? 3.5 : 2, duration: 1.5 },
-      }}
-      className="relative z-[1] bg-white"
-      ref={container}
-    >
-      <div className="mx-auto max-w-[1536px] space-y-20 px-5 pt-[37px] sm:px-10">
+    <motion.section className="relative z-[1] bg-dark" ref={container}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { delay: firstVisit ? 3.5 : 2, duration: 1.5 },
+        }}
+        className="mx-auto max-w-[1536px] space-y-20 px-5 pt-[37px] sm:px-10"
+      >
         <ProjectLayoutControl viewMode={viewMode} setViewMode={setViewMode} />
         <AnimatePresence mode="wait">
           {viewMode === 'list' && <ListLayout projects={allProjects} />}
@@ -86,9 +85,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             </button>
           </div>
         )}
-      </div>
+      </motion.div>
       <motion.div style={{ height }} className="relative">
-        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
+        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-dark shadow-[0px_60px_50px_rgba(0,0,0,0.2)]"></div>
       </motion.div>
     </motion.section>
   );

@@ -12,6 +12,10 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        dark: '#141516',
+        light: '#f5f5f5',
+      },
       animation: {
         marquee: 'marquee 2s linear infinite',
       },

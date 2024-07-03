@@ -6,6 +6,8 @@ import gsap from 'gsap';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { scaleAnimation } from '../../common/anim';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import ArrowIcon from '@/components/common/icons/ArrowIcon';
+// import ArrowIcon from '@/components/common/icons/ArrowIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface NextCaseProps {
@@ -124,22 +126,3 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
   );
 };
 export default NextCase;
-
-const ArrowIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="size-6 text-[#141516]"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-      />
-    </svg>
-  );
-};

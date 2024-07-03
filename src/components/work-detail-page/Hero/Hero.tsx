@@ -95,11 +95,11 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <section>
-      <div className="relative h-full w-full pt-[277px]">
+      <div className="text-light relative h-full w-full bg-dark pt-[277px]">
         <div className="container mx-auto">
           <h1
             ref={heroTextRef}
-            className="max-w-5xl text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-normal leading-[1.2] tracking-tighter text-black"
+            className="max-w-5xl text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-normal leading-[1.2] tracking-tighter"
           >
             {title}
           </h1>
@@ -125,7 +125,7 @@ const Hero: React.FC<HeroProps> = ({
           </div>
         )}
 
-        <div className="relative z-[-1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px]">
+        <div className="relative z-[1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px]">
           <div
             ref={imgContainerRef}
             className="translate-y-[15px] overflow-hidden opacity-0"

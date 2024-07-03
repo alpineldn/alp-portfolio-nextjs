@@ -46,7 +46,7 @@ const SlidingImages: React.FC<SlidingImagesProps> = ({ projects }) => {
         ))}
       </motion.div>
       <motion.div style={{ height }} className="relative mt-[100px]">
-        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
+        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.2)]"></div>
       </motion.div>
     </section>
   );

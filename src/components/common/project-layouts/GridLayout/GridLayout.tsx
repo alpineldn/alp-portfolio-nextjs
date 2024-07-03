@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import ProjectCard from './GridProject';
 import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import ArrowIcon from '../../icons/ArrowIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -96,19 +97,19 @@ const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
       <>
         <motion.div
           ref={cursor}
-          className="pointer-events-none fixed z-[3] flex h-[150px] w-[150px] items-center justify-center rounded-[50%] bg-[#455CE9] text-[14px] font-light text-white"
+          className="pointer-events-none fixed z-[3] flex h-[120px] w-[120px] items-center justify-center rounded-[50%] bg-light text-[14px] font-light text-dark"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
         ></motion.div>
         <motion.div
           ref={cursorLabel}
-          className="pointer-events-none fixed z-[3] flex h-[150px] w-[150px] items-center justify-center rounded-[50%] bg-[#455CE9] bg-transparent font-light text-white"
+          className="pointer-events-none fixed z-[3] flex h-[120px] w-[120px] items-center justify-center rounded-[50%] !bg-light bg-transparent text-[14px] font-light text-dark"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
         >
-          View
+          <ArrowIcon className="size-5" />
         </motion.div>
       </>
     </motion.section>

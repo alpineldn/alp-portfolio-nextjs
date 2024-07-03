@@ -13,6 +13,8 @@ import { useEffect, useRef, useState } from 'react';
 import ProjectLayoutControl from './components/ProjectLayoutControl';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import { useStore } from '@/store/store';
+import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import MarqueeText from '@/components/common/ui/MarqueeText';
 
 interface ProjectsProps {
   projects: Project[];
@@ -80,10 +82,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           {viewMode === 'grid' && <GridLayout projects={allProjects} />}
         </AnimatePresence>
         {!hideMoreWorkBtn && (
-          <div className="flex items-center justify-center pb-10">
-            <RoundedButton onClick={fetchAllWorks}>
-              <p>More work</p>
-            </RoundedButton>
+          <div className="flex items-center pb-10">
+            <button onClick={fetchAllWorks}>
+              <MarqueeText>More Work</MarqueeText>
+            </button>
           </div>
         )}
       </div>

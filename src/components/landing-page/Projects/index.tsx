@@ -9,6 +9,7 @@ import { scaleAnimation } from '@/components/common/anim';
 import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
 import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProject';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import MarqueeText from '@/components/common/ui/MarqueeText';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -129,14 +130,14 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </div>
       </>
 
-      <PageTransitionLink
-        className="mt-20 block md:mt-52 lg:mt-20"
-        href="/work"
-      >
-        <RoundedButton>
-          <p>More work</p>
-        </RoundedButton>
-      </PageTransitionLink>
+      <div className="container mx-auto flex">
+        <PageTransitionLink
+          className="mt-20 block md:mt-52 lg:mt-20"
+          href="/work"
+        >
+          <MarqueeText>More Work ↗</MarqueeText>
+        </PageTransitionLink>
+      </div>
 
       <>
         <motion.div

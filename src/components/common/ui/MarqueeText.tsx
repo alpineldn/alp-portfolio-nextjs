@@ -43,15 +43,15 @@ const MarqueeText: React.FC<MarqueeProps> = ({ children, className }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <span className="pr-2">[</span>
-      <div className="w-min overflow-hidden">
+      <div className="w-[calc(100%-120px)] overflow-hidden">
         <div ref={marqueeRef} className="marquee flex h-full w-[200%]">
           <div className="flex h-full flex-1">
-            <div className="flex flex-1 items-center justify-center text-center tracking-wider">
+            <div className="flex flex-1 items-center justify-center text-center text-lg tracking-wider md:text-xl">
               {children}
             </div>
           </div>
           <div className="flex h-full flex-1">
-            <div className="flex flex-1 items-center justify-center text-center tracking-wider">
+            <div className="flex flex-1 items-center justify-center text-center text-lg tracking-wider md:text-xl">
               {children}
             </div>
           </div>

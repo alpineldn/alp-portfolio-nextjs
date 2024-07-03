@@ -1,8 +1,7 @@
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { slide, scale } from '../../animation';
-import cn from '../../../../utils/cn';
+import { slide } from '../../animation';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import cn from '@/utils/cn';
 
 interface LinkProps {
   data: {
@@ -17,7 +16,6 @@ interface LinkProps {
 
 const LinkEl: React.FC<LinkProps> = ({
   data,
-  isActive,
   setSelectedIndicator,
   className,
 }) => {
@@ -35,13 +33,11 @@ const LinkEl: React.FC<LinkProps> = ({
       animate="enter"
       exit="exit"
     >
-      <motion.div
-        variants={scale}
-        animate={isActive ? 'open' : 'closed'}
-        className="absolute left-[-30px] h-2.5 w-2.5 rounded-[50%] bg-[white]"
-      ></motion.div>
       <PageTransitionLink
-        className="text-5xl lg:text-6xl lg:!leading-snug"
+        className={cn(
+          'underline_link',
+          'text-5xl lg:text-6xl lg:!leading-snug',
+        )}
         href={href}
       >
         {title}

@@ -6,6 +6,7 @@ import { slideUp } from './animation';
 import { motion } from 'framer-motion';
 import SplitType from 'split-type';
 import gsap from 'gsap';
+import { useStore } from '@/store/store';
 
 interface HeroProps {}
 
@@ -13,12 +14,14 @@ const Hero: React.FC<HeroProps> = ({}) => {
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const heroTextRefSm = useRef<HTMLHeadingElement>(null);
+  const { firstVisit } = useStore((store) => store);
 
   const createAnimation = (ref: React.RefObject<HTMLHeadingElement>) => {
     if (!ref?.current || !descriptionRef?.current) return;
 
     const tl = gsap.timeline({
       defaults: { ease: 'power2.inOut' },
+      delay: firstVisit ? 2.7 : 1.5,
     });
 
     const header = new SplitType(ref.current, {
@@ -36,7 +39,6 @@ const Hero: React.FC<HeroProps> = ({}) => {
       y: '0%',
       duration: 1.5,
       stagger: 0.05,
-      delay: 2.7,
     }).to(
       description.words,
       {

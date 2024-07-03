@@ -20,11 +20,11 @@ export const animatePageIn = (
       yPercent: 0,
     }).to(loadingBanner, {
       delay: delay,
-      yPercent: 100,
+      yPercent: -100,
       duration: 1.5,
       onComplete: () => {
-        document.body.style.cursor = 'default';
         // window.scrollTo(0, 0);
+        document.body.style.cursor = 'default';
         setFirstVisit();
       },
     });

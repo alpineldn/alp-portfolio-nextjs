@@ -12,16 +12,18 @@ import {
 import { useEffect, useRef, useState } from 'react';
 import ProjectLayoutControl from './components/ProjectLayoutControl';
 import RoundedButton from '@/components/common/ui/RoundedButton';
+import { useStore } from '@/store/store';
 
 interface ProjectsProps {
   projects: Project[];
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const { width } = useWindowSize();
+  const { firstVisit } = useStore((store) => store);
   const [hideMoreWorkBtn, setHideMoreWorkBtn] = useState(false);
   const [allProjects, setAllProjects] = useState(projects);
   const [loading, setLoading] = useState(false);
-  const { width } = useWindowSize();
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('grid');
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -62,7 +64,15 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   }, [width]);
 
   return (
-    <section className="relative z-[1] bg-white" ref={container}>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: firstVisit ? 3.5 : 2, duration: 1.5 },
+      }}
+      className="relative z-[1] bg-white"
+      ref={container}
+    >
       <div className="mx-auto max-w-[1536px] space-y-20 px-5 pt-[37px] sm:px-10">
         <ProjectLayoutControl viewMode={viewMode} setViewMode={setViewMode} />
         <AnimatePresence mode="wait">
@@ -80,7 +90,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       <motion.div style={{ height }} className="relative">
         <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 export default Projects;

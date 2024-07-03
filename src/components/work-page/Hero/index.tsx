@@ -3,11 +3,13 @@
 import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
+import { useStore } from '@/store/store';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
   const heroTextRef = useRef<HTMLHeadingElement>(null);
+  const { firstVisit } = useStore((store) => store);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -24,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         y: '0%',
         duration: 1.5,
         stagger: 0.05,
-        delay: 1.5,
+        delay: firstVisit ? 2.7 : 1.5,
         ease: 'power2.inOut',
       });
     });

@@ -118,14 +118,15 @@ const Logo = () => {
     <PageTransitionLink
       href="/"
       className={cn(
-        "group relative flex cursor-pointer items-center overflow-hidden bg-transparent pb-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]",
+        'underline_link',
+        'md:text-lg text-base xl:text-xl',
         pathname === '/'
           ? 'after:bg-white hover:before:bg-white'
           : 'after:bg-[#1c1d20] hover:before:bg-[#1c1d20]',
       )}
     >
       <svg
-        className="h-fit w-[30px] object-contain"
+        className="h-fit w-[40px] object-contain"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 231.53 92.95"
@@ -171,7 +172,8 @@ const NavLinks: React.FC<{
           <div
             key={title}
             className={cn(
-              "group relative z-[1] inline-block cursor-pointer flex-col overflow-hidden bg-transparent py-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]",
+              'underline_link',
+              'text-base md:text-lg xl:text-xl',
               pathname === '/'
                 ? 'after:bg-white hover:before:bg-white'
                 : 'after:bg-[#1c1d20] hover:before:bg-[#1c1d20]',

@@ -9,6 +9,8 @@ import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import MarqueeText from '@/components/common/ui/MarqueeText';
+import Link from 'next/link';
 
 interface HeroProps {
   title: string;
@@ -90,7 +92,15 @@ const Hero: React.FC<HeroProps> = ({
           </div>
         </div>
 
-        <div className="relative z-[-1] mx-auto max-w-[1536px] !overflow-hidden py-[100px]">
+        {!!previewURL && (
+          <div className="container mx-auto py-20">
+            <Link className="block w-fit" href={previewURL.current}>
+              <MarqueeText>View Website ↗</MarqueeText>
+            </Link>
+          </div>
+        )}
+
+        <div className="relative z-[-1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px]">
           <div className="overflow-hidden">
             <div
               data-scroll
@@ -120,7 +130,7 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
 }) => {
   return (
     <>
-      <ul className="grid gap-10 overflow-hidden pt-14 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
+      <ul className="grid gap-10 overflow-hidden pt-20 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
         <li className="opacity-0">
           <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
             Client

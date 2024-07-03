@@ -12,6 +12,14 @@ module.exports = {
       },
     },
     extend: {
+      animation: {
+        marquee: 'marquee 2s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
       fontFamily: {
         ppneuemontreal: ['var(--font-ppneuemontreal)'],
       },

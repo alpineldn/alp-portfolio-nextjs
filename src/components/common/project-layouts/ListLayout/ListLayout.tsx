@@ -6,6 +6,7 @@ import ProjectList from './Project';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -17,6 +18,7 @@ interface ListViewProps {
   projects: ProjectType[];
 }
 const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
+  const { width = 0 } = useWindowSize();
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
@@ -34,6 +36,8 @@ const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
   let yMoveCursorLabel = useRef<MoveRef>(null);
 
   useEffect(() => {
+    if (width <= 640) return;
+
     //Move Container
     xMoveContainer.current = gsap.quickTo(modalContainer.current, 'left', {
       duration: 0.8,
@@ -61,7 +65,7 @@ const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
       duration: 0.45,
       ease: 'power3',
     });
-  }, []);
+  }, [width]);
 
   const moveItems = (x: number, y: number) => {
     !!xMoveContainer?.current && xMoveContainer.current(x);
@@ -78,6 +82,8 @@ const ListLayout: React.FC<ListViewProps> = ({ projects }) => {
     x: number,
     y: number,
   ) => {
+    if (width <= 640) return;
+
     moveItems(x, y);
     setModal({ active, index });
   };

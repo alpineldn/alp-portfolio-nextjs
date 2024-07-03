@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
 import ProjectCard from './GridProject';
 import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -15,6 +16,7 @@ interface GridViewProps {
 }
 
 const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
+  const { width = 0 } = useWindowSize();
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
   const [modal, setModal] = useState<Model>({
@@ -29,6 +31,8 @@ const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
   let yMoveCursorLabel = useRef<MoveRef>(null);
 
   useEffect(() => {
+    if (width <= 640) return;
+
     //Move cursor
     xMoveCursor.current = gsap.quickTo(cursor.current, 'left', {
       duration: 0.5,
@@ -47,7 +51,7 @@ const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
       duration: 0.45,
       ease: 'power3',
     });
-  }, []);
+  }, [width]);
 
   const moveItems = (x: number, y: number) => {
     !!xMoveCursor?.current && xMoveCursor.current(x);
@@ -62,6 +66,8 @@ const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
     x: number,
     y: number,
   ) => {
+    if (width <= 640) return;
+
     moveItems(x, y);
     setModal({ active, index });
   };

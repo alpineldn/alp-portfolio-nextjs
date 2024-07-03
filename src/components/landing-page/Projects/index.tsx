@@ -10,6 +10,7 @@ import ProjectList from '@/components/common/project-layouts/ListLayout/Project'
 import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProject';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -22,6 +23,7 @@ interface ProjectsProps {
 }
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const container = useRef<HTMLDivElement>(null);
+  const { width = 0 } = useWindowSize();
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
@@ -44,6 +46,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   let yMoveCursorLabel = useRef<MoveRef>(null);
 
   useEffect(() => {
+    if (width <= 640) return;
+
     //Move Container
     xMoveContainer.current = gsap.quickTo(modalContainer.current, 'left', {
       duration: 0.8,
@@ -71,7 +75,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       duration: 0.45,
       ease: 'power3',
     });
-  }, []);
+  }, [width]);
 
   const moveItems = (x: number, y: number) => {
     !!xMoveContainer?.current && xMoveContainer.current(x);
@@ -88,6 +92,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     x: number,
     y: number,
   ) => {
+    if (width <= 640) return;
+
     moveItems(x, y);
     setModal({ active, index });
   };

@@ -11,9 +11,7 @@ import {
 } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import ProjectLayoutControl from './components/ProjectLayoutControl';
-import RoundedButton from '@/components/common/ui/RoundedButton';
 import { useStore } from '@/store/store';
-import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 
 interface ProjectsProps {
@@ -21,7 +19,7 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-  const { width } = useWindowSize();
+  const { width = 0 } = useWindowSize();
   const { firstVisit } = useStore((store) => store);
   const [hideMoreWorkBtn, setHideMoreWorkBtn] = useState(false);
   const [allProjects, setAllProjects] = useState(projects);

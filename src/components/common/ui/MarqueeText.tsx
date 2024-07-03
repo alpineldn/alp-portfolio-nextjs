@@ -5,9 +5,14 @@ import cn from '@/utils/cn';
 interface MarqueeProps {
   children: React.ReactNode;
   className?: string;
+  innerClassName?: string;
 }
 
-const MarqueeText: React.FC<MarqueeProps> = ({ children, className }) => {
+const MarqueeText: React.FC<MarqueeProps> = ({
+  children,
+  className,
+  innerClassName,
+}) => {
   const marqueeRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -38,12 +43,12 @@ const MarqueeText: React.FC<MarqueeProps> = ({ children, className }) => {
 
   return (
     <div
-      className={cn('text-light flex items-center uppercase', className)}
+      className={cn('flex items-center uppercase text-light', className)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <span className="pr-2">[</span>
-      <div className="w-[calc(100%-120px)] overflow-hidden">
+      <div className={cn('w-min overflow-hidden', innerClassName)}>
         <div ref={marqueeRef} className="marquee flex h-full w-[200%]">
           <div className="flex h-full flex-1">
             <div className="flex flex-1 items-center justify-center text-center text-lg tracking-wider md:text-xl">

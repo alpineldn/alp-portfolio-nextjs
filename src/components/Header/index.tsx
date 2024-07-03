@@ -172,7 +172,7 @@ const Logo = () => {
       </svg>
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
-        <p className="relative transition-all duration-500 ease-smooth-curve">
+        <p className="body-1 relative transition-all duration-500 ease-smooth-curve">
           ALPINE
         </p>
       </div>
@@ -203,7 +203,7 @@ const NavLinks: React.FC<{
             className={cn(
               'site-nav-link sm:opacity-0',
               'underline_link',
-              'text-base md:text-lg xl:text-xl',
+              'body-1',
               'after:bg-white hover:before:bg-white',
             )}
           >
@@ -225,7 +225,7 @@ const HamburgerMenuBtn = forwardRef<
   return (
     <div ref={ref} className="fixed right-0 z-20 scale-0">
       <RoundedButton
-        backgroundColor='#dddddd'
+        backgroundColor="#dddddd"
         onClick={() => {
           setIsActive((prev) => !prev);
         }}

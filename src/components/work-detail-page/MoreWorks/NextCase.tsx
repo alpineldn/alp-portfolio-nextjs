@@ -94,12 +94,8 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
         </figure>
         <div className="absolute left-0 top-1/2 h-full w-full">
           <div className="container mx-auto">
-            <h2 className="text-3xl opacity-80 drop-shadow-lg">
-              Next Project_
-            </h2>
-            <h3 className="text-[clamp(3.5rem,5.5vw+1rem,7rem)] drop-shadow-lg">
-              {title}
-            </h3>
+            <h2 className="h4 opacity-80 drop-shadow-lg">Next Project_</h2>
+            <h3 className="h2 drop-shadow-lg">{title}</h3>
           </div>
         </div>
       </motion.div>

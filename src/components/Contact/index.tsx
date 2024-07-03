@@ -17,18 +17,14 @@ const Contact: React.FC<ContactProps> = () => {
     <motion.section
       style={{ y }}
       ref={container}
-      className="bg-light relative flex flex-col items-center justify-center text-dark"
+      className="relative flex flex-col items-center justify-center bg-light text-dark"
     >
-      <div className="bg-light container w-full pt-[400px] sm:pt-[200px]">
+      <div className="container w-full bg-light pt-[400px] sm:pt-[200px]">
         <div className="relative border-b border-solid border-b-[rgb(134,134,134)]/50 pb-[100px]">
           <span className="flex items-center">
-            <h2 className="m-0 text-[clamp(3.5rem,5vw+1rem,6.5rem)] leading-tight">
-              Let's work
-            </h2>
+            <h2 className="h2 m-0 leading-tight">Let's work</h2>
           </span>
-          <h2 className="m-0 text-[clamp(3.5rem,5vw+1rem,6.5rem)] leading-tight">
-            together
-          </h2>
+          <h2 className="h2 m-0 leading-tight">together</h2>
         </div>
 
         <CTAs />
@@ -44,7 +40,7 @@ const CTAs = () => {
   return (
     <div className="mt-[120px] flex gap-5 max-lg:flex max-lg:flex-col md:mt-[100px]">
       <UnderlineLink
-        className="text-2xl md:text-3xl xl:text-4xl"
+        className="h4 after:bg-dark hover:before:bg-dark"
         href="mailto:info@dennissnellenberg.com"
       >
         info@dennissnellenberg.com

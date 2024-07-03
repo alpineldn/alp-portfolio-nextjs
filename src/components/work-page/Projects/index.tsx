@@ -81,7 +81,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         {!hideMoreWorkBtn && (
           <div className="flex items-center pb-10">
             <button onClick={fetchAllWorks}>
-              <MarqueeText>More Work</MarqueeText>
+              <MarqueeText innerClassName="w-[calc(100%-120px)]">
+                More Work ↗
+              </MarqueeText>
             </button>
           </div>
         )}

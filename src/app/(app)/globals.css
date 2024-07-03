@@ -15,3 +15,33 @@
     @apply relative z-[1] m-0 flex cursor-pointer flex-row items-center overflow-hidden bg-transparent py-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:bg-white after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:bg-white hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s];
   }
 }
+
+@layer utilities {
+  .h1 {
+    @apply text-[clamp(3.5rem,5.5vw+1rem,7.5rem)];
+  }
+
+  .h2 {
+    @apply text-[clamp(3.5rem,5vw+1rem,6.5rem)];
+  }
+
+  .h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl;
+  }
+
+  .h4 {
+    @apply text-2xl md:text-3xl xl:text-4xl;
+  }
+
+  .body-1 {
+    @apply text-base md:text-lg xl:text-xl;
+  }
+
+  .body-2 {
+    @apply text-sm md:text-lg;
+  }
+
+  .body-3 {
+    @apply text-xs;
+  }
+}

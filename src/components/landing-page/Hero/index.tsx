@@ -85,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <div className="flex h-screen flex-col justify-center max-lg:px-5 lg:max-w-7xl lg:pl-[8vw]">
         <h1
           ref={heroTextRef}
-          className="relative m-0 hidden text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-medium leading-[1.2] text-white sm:block"
+          className="h1 relative m-0 hidden font-medium leading-[1.2] text-white sm:block"
         >
           Brand + Digital Design Studio
         </h1>

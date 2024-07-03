@@ -45,7 +45,7 @@ const Nav: React.FC<NavProps> = () => {
           }}
           className="flex flex-col pt-24 text-[56px] sm:pt-[40px]"
         >
-          <div className="border-b border-b-[rgb(153,153,153)] pb-10 text-[11px] uppercase text-[rgb(153,153,153)] sm:pb-[40px]">
+          <div className="body-3 border-b border-b-[rgb(153,153,153)] pb-10 uppercase text-[rgb(153,153,153)] sm:pb-[40px]">
             <p>Navigation</p>
           </div>
           <ul className="space-y-6 pt-10">

@@ -95,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <section>
-      <div className="text-light relative h-full w-full bg-dark pt-[277px]">
+      <div className="relative h-full w-full bg-dark pt-[277px] text-light">
         <div className="container mx-auto">
           <h1
             ref={heroTextRef}
@@ -160,25 +160,25 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
     <>
       <ul className="grid gap-10 pt-20 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
         <li className="translate-y-[50px] opacity-0">
-          <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
+          <div className="body-3 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
             Client
           </div>
-          <div className="pt-4 text-lg lg:pt-8">{client}</div>
+          <div className="body-2 pt-4 lg:pt-8">{client}</div>
         </li>
         {!!agency && (
           <li className="translate-y-[50px] opacity-0">
-            <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
+            <div className="body-3 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
               AGENCY
             </div>
-            <div className="pt-4 text-lg lg:pt-8">{agency}</div>
+            <div className="body-2 pt-4 lg:pt-8">{agency}</div>
           </li>
         )}
 
         <li className="translate-y-[50px] opacity-0">
-          <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
+          <div className="body-3 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
             CATEGORIES
           </div>
-          <div className="pt-4 text-lg lg:pt-8">
+          <div className="body-2 pt-4 lg:pt-8">
             {categories.map(({ title, _id }, index) => (
               <span key={_id}>
                 {title} {index !== categories.length - 1 && ', '}
@@ -189,12 +189,12 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
 
         {!!previewURL?.current && (
           <li className="translate-y-[50px] opacity-0">
-            <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
+            <div className="body-3 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
               PREVIEW URL
             </div>
 
             <PageTransitionLink
-              className="block pt-4 text-lg lg:pt-8"
+              className="body-2 block pt-4 lg:pt-8"
               href={previewURL.current}
             >
               {previewURL.current}

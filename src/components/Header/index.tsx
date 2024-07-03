@@ -18,6 +18,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { animatePageOut } from '@/utils/animations';
 import PageTransitionLink from '../common/ui/PageTransitionLink';
+import { useStore } from '@/store/store';
 
 interface HeaderProps {}
 
@@ -38,10 +39,11 @@ const navItems = [
 
 const Header: React.FC<HeaderProps> = ({}) => {
   const header = useRef(null);
-  const [showBtn, setShowBtn] = useState(false);
-  const [isQuarterScreenScrolled, setIsQuarterScreenScrolled] = useState(false);
   const pathName = usePathname();
   const button = useRef<HTMLDivElement>(null);
+  const { firstVisit } = useStore((store) => store);
+  const [showBtn, setShowBtn] = useState(false);
+  const [isQuarterScreenScrolled, setIsQuarterScreenScrolled] = useState(false);
 
   useEffect(() => {
     if (showBtn) setShowBtn(false);
@@ -85,6 +87,35 @@ const Header: React.FC<HeaderProps> = ({}) => {
     return () => context.revert();
   }, []);
 
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      let mm = gsap.matchMedia();
+      const tl = gsap.timeline({
+        defaults: { ease: 'power2.inOut' },
+        delay: firstVisit ? 2.5 : 1.5,
+      });
+
+      const logoEl = document.querySelector('#site-logo');
+      mm.add('(min-width: 640px)', () => {
+        const navLinks = document.querySelectorAll('.site-nav-link');
+        gsap.set([logoEl, navLinks], { opacity: 0 });
+
+        tl.to(logoEl, { opacity: 1 }).to(navLinks, {
+          opacity: 1,
+          stagger: 0.1,
+        });
+      });
+
+      mm.add('(max-width: 639px)', () => {
+        const navBtn = document.querySelector('#site-menu-btn');
+        gsap.set([navBtn, navBtn], { opacity: 0 });
+        tl.to(logoEl, { opacity: 1 }).to(navBtn, { opacity: 1 });
+      });
+    });
+
+    return () => context.revert();
+  }, []);
+
   return (
     <>
       <div
@@ -116,10 +147,11 @@ const Logo = () => {
 
   return (
     <PageTransitionLink
+      id="site-logo"
       href="/"
       className={cn(
         'underline_link',
-        'md:text-lg text-base xl:text-xl',
+        'text-base opacity-0 md:text-lg xl:text-xl',
         pathname === '/'
           ? 'after:bg-white hover:before:bg-white'
           : 'after:bg-[#1c1d20] hover:before:bg-[#1c1d20]',
@@ -159,10 +191,11 @@ const NavLinks: React.FC<{
   return (
     <>
       <button
+        id="site-menu-btn"
         onClick={() => {
           setIsActive((prev) => !prev);
         }}
-        className="relative z-[1] flex cursor-pointer p-[15px] sm:hidden"
+        className="relative z-[1] flex cursor-pointer p-[15px] opacity-0 sm:hidden"
       >
         <span>Menu</span>
       </button>
@@ -172,6 +205,7 @@ const NavLinks: React.FC<{
           <div
             key={title}
             className={cn(
+              'site-nav-link sm:opacity-0',
               'underline_link',
               'text-base md:text-lg xl:text-xl',
               pathname === '/'

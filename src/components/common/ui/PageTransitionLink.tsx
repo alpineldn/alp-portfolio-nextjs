@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { MouseEvent } from 'react';
 
 interface Props {
+  id?: string;
   href: string;
   className?: string;
   children: React.ReactNode;
@@ -19,6 +20,7 @@ interface Props {
 }
 
 const PageTransitionLink = ({
+  id,
   href,
   className,
   children,
@@ -29,9 +31,7 @@ const PageTransitionLink = ({
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleClick = (
-    e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
-  ) => {
+  const handleClick = () => {
     if (pathname !== href) {
       animatePageOut(href, router);
     }
@@ -39,13 +39,14 @@ const PageTransitionLink = ({
 
   return (
     <Link
+      id={id}
       href={href}
       onMouseEnter={onMouseEnter}
       className={className}
       onMouseLeave={onMouseLeave}
       onClick={(e) => {
         e.preventDefault();
-        handleClick(e);
+        handleClick();
         if (!!onClick) onClick(e);
       }}
     >

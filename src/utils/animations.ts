@@ -1,7 +1,11 @@
 import gsap from 'gsap';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
-export const animatePageIn = (delay: number, firstVisit: boolean) => {
+export const animatePageIn = (
+  delay: number,
+  firstVisit: boolean,
+  setFirstVisit: () => void,
+) => {
   const loadingBanner = document.getElementById('loading-banner-1');
   const pageNameText = loadingBanner?.querySelector('#page-name');
 
@@ -20,7 +24,8 @@ export const animatePageIn = (delay: number, firstVisit: boolean) => {
       duration: 1.5,
       onComplete: () => {
         document.body.style.cursor = 'default';
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
+        setFirstVisit();
       },
     });
 

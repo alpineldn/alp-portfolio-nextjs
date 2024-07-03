@@ -2,46 +2,16 @@
 
 import { useStore } from '@/store/store';
 import { animatePageIn } from '@/utils/animations';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const words: string[] = [
-  'Hello',
-  'Bonjour',
-  'Ciao',
-  'Olà',
-  'やあ',
-  'Hallå',
-  'Guten tag',
-  'Hallo',
-];
-
 export default function Template({ children }: { children: React.ReactNode }) {
-  const [index, setIndex] = useState<number>(0);
   const { pageName, firstVisit, setFirstVisit } = useStore((state) => state);
   const time = firstVisit ? 2 : 1;
 
   useEffect(() => {
-    if (index === words.length - 1 || !firstVisit) return;
-    setTimeout(
-      () => {
-        setIndex(index + 1);
-      },
-      index === 0 ? 1000 : 150,
-    );
-  }, [index]);
-
-  useEffect(() => {
-    animatePageIn(time, firstVisit);
+    animatePageIn(time, firstVisit, setFirstVisit);
   }, [pageName]);
-
-  useEffect(() => {
-    if (firstVisit) {
-      setTimeout(() => {
-        setFirstVisit();
-      }, 3000);
-    }
-  }, [firstVisit, setFirstVisit]);
 
   return (
     <div>

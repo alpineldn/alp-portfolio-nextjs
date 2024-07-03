@@ -117,7 +117,12 @@ const Logo = () => {
   return (
     <PageTransitionLink
       href="/"
-      className="group relative flex cursor-pointer items-center overflow-hidden bg-transparent pb-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:bg-white after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:bg-white hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]"
+      className={cn(
+        "group relative flex cursor-pointer items-center overflow-hidden bg-transparent pb-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]",
+        pathname === '/'
+          ? 'after:bg-white hover:before:bg-white'
+          : 'after:bg-[#1c1d20] hover:before:bg-[#1c1d20]',
+      )}
     >
       <svg
         className="h-fit w-[30px] object-contain"
@@ -149,6 +154,7 @@ const Logo = () => {
 const NavLinks: React.FC<{
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setIsActive }) => {
+  const pathname = usePathname();
   return (
     <>
       <button
@@ -164,7 +170,12 @@ const NavLinks: React.FC<{
         {navItems.map(({ href, title }) => (
           <div
             key={title}
-            className="group relative z-[1] inline-block cursor-pointer flex-col overflow-hidden bg-transparent py-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:bg-white after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:bg-white hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]"
+            className={cn(
+              "group relative z-[1] inline-block cursor-pointer flex-col overflow-hidden bg-transparent py-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]",
+              pathname === '/'
+                ? 'after:bg-white hover:before:bg-white'
+                : 'after:bg-[#1c1d20] hover:before:bg-[#1c1d20]',
+            )}
           >
             <PageTransitionLink href={href}>{title}</PageTransitionLink>
           </div>

@@ -112,18 +112,30 @@ const Header: React.FC<HeaderProps> = ({}) => {
 export default Header;
 
 const Logo = () => {
+  const pathname = usePathname();
+
   return (
     <PageTransitionLink
       href="/"
       className="group relative flex cursor-pointer items-center overflow-hidden bg-transparent pb-[5px] ease-smooth-curve before:absolute before:bottom-0 before:left-0 before:block before:h-[2px] before:w-0 before:content-[''] after:absolute after:bottom-0 after:right-0 after:block after:h-[2px] after:w-0 after:bg-white after:ease-smooth-curve after:content-[''] after:[transition:width_0.3s] hover:before:w-full hover:before:bg-white hover:before:ease-smooth-curve hover:before:[transition:width_0.3s] hover:after:w-full hover:after:bg-transparent hover:after:[transition:width_0.3s]"
     >
-      <Image
+      <svg
         className="h-fit w-[30px] object-contain"
-        width={30}
-        height={30}
-        src="/alpine_icon.svg"
-        alt="Alpine Icon"
-      />
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 231.53 92.95"
+      >
+        <path
+          style={{
+            fill: 'none',
+            stroke: pathname === '/' ? '#fff' : '#1c1d20',
+            strokeLinecap: 'square',
+            strokeMiterlimit: 10,
+            strokeWidth: '8px',
+          }}
+          d="m5.66 86.84 64.93-64.93 65.29 65.3H62.69l81.55-81.55 81.64 81.64"
+        />
+      </svg>
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
         <p className="relative transition-all duration-500 ease-smooth-curve">

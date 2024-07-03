@@ -9,7 +9,6 @@ import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
-import { AnimatedLogo } from '@/app/(app)/template';
 
 interface HeroProps {
   title: string;
@@ -165,7 +164,6 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
           </li>
         )}
       </ul>
-      <AnimatedLogo />
     </>
   );
 };

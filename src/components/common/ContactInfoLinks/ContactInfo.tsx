@@ -1,5 +1,3 @@
-import Magnetic from '@/components/common/ui/Magnetic';
-
 interface ContactInfoProps {}
 
 const ContactInfo: React.FC<ContactInfoProps> = ({}) => {

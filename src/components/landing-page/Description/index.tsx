@@ -46,13 +46,6 @@ const Description: React.FC<DescriptionProps> = () => {
           The combination of my passion for design, code & interaction positions
           me in a unique place in the web design world.
         </motion.p>
-        <div data-scroll data-scroll-speed={0.1}>
-          <RoundedButton className="absolute left-[calc(100%-200px)] top-[80%] flex h-[180px] w-[180px] cursor-pointer items-center justify-center rounded-[50%] bg-[#1C1D20] text-white">
-            <p className="relative z-[1] m-0 text-[16px] font-light">
-              About me
-            </p>
-          </RoundedButton>
-        </div>
       </div>
     </section>
   );

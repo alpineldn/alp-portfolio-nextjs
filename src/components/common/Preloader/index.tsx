@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { opacity, slideUp } from './anim';
-import { usePathname } from 'next/navigation';
 import { smoothCurve } from '../anim';
 
 const words: string[] = [

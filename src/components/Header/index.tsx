@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       let mm = gsap.matchMedia();
       const tl = gsap.timeline({
         defaults: { ease: 'power2.inOut' },
-        delay: firstVisit ? 2.5 : 1.5,
+        delay: firstVisit ? 2.7 : 1.5,
       });
 
       const logoEl = document.querySelector('#site-logo');

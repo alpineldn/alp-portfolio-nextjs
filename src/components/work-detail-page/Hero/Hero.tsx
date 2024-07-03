@@ -11,6 +11,7 @@ import gsap from 'gsap';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import Link from 'next/link';
+import { useStore } from '@/store/store';
 
 interface HeroProps {
   title: string;
@@ -31,7 +32,10 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const { width = 0 } = useWindowSize();
   const heroTextRef = useRef<HTMLHeadingElement>(null);
+  const previewURLMarqueeRef = useRef<HTMLDivElement>(null);
+  const imgContainerRef = useRef<HTMLDivElement>(null);
   const detailContainerRef = useRef<HTMLDivElement>(null);
+  const { firstVisit } = useStore((store) => store);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -41,7 +45,8 @@ const Hero: React.FC<HeroProps> = ({
         detailContainerRef.current.querySelectorAll('ul > li');
 
       const tl = gsap.timeline({
-        defaults: { ease: 'power2.inOut' },
+        defaults: { ease: 'power4.inOut', duration: 1.4 },
+        delay: firstVisit ? 2.7 : 1.5,
       });
 
       const header = new SplitType(heroTextRef.current, {
@@ -49,27 +54,44 @@ const Hero: React.FC<HeroProps> = ({
         lineClass: 'overflow-hidden',
       });
 
-      gsap.set([header.words, projectInfoEls], { y: '100%' });
+      gsap.set(header.words, { y: '100%' });
 
       tl.to(header.words, {
         y: '0%',
-        duration: 1.5,
         stagger: 0.05,
-        delay: 1.5,
       }).to(
         projectInfoEls,
         {
           y: '0%',
           opacity: 1,
           stagger: 0.05,
-          duration: 0.9,
         },
-        '-=.5',
+        0.2,
+      );
+
+      if (previewURLMarqueeRef?.current) {
+        tl.to(
+          previewURLMarqueeRef.current,
+          {
+            y: '0%',
+            opacity: 1,
+          },
+          0.4,
+        );
+      }
+
+      tl.to(
+        imgContainerRef.current,
+        {
+          y: '0%',
+          opacity: 1,
+        },
+        0.6,
       );
     });
 
     return () => context.revert();
-  }, [heroTextRef]);
+  }, [heroTextRef, imgContainerRef, detailContainerRef, previewURLMarqueeRef]);
 
   return (
     <section>
@@ -93,7 +115,10 @@ const Hero: React.FC<HeroProps> = ({
         </div>
 
         {!!previewURL && (
-          <div className="container mx-auto py-20">
+          <div
+            ref={previewURLMarqueeRef}
+            className="container mx-auto translate-y-[15px] py-20 opacity-0"
+          >
             <Link className="block w-fit" href={previewURL.current}>
               <MarqueeText>View Website ↗</MarqueeText>
             </Link>
@@ -101,7 +126,10 @@ const Hero: React.FC<HeroProps> = ({
         )}
 
         <div className="relative z-[-1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px]">
-          <div className="overflow-hidden">
+          <div
+            ref={imgContainerRef}
+            className="translate-y-[15px] overflow-hidden opacity-0"
+          >
             <div
               data-scroll
               data-scroll-speed={width >= 767 ? 0.2 : 0.05}
@@ -130,15 +158,15 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
 }) => {
   return (
     <>
-      <ul className="grid gap-10 overflow-hidden pt-20 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
-        <li className="opacity-0">
+      <ul className="grid gap-10 pt-20 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
+        <li className="translate-y-[50px] opacity-0">
           <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
             Client
           </div>
           <div className="pt-4 text-lg lg:pt-8">{client}</div>
         </li>
         {!!agency && (
-          <li className="opacity-0">
+          <li className="translate-y-[50px] opacity-0">
             <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
               AGENCY
             </div>
@@ -146,7 +174,7 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
           </li>
         )}
 
-        <li className="opacity-0">
+        <li className="translate-y-[50px] opacity-0">
           <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
             CATEGORIES
           </div>
@@ -160,7 +188,7 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
         </li>
 
         {!!previewURL?.current && (
-          <li className="opacity-0">
+          <li className="translate-y-[50px] opacity-0">
             <div className="border-b-2 pb-4 text-xs uppercase text-gray-400 lg:pb-8">
               PREVIEW URL
             </div>

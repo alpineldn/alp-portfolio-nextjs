@@ -119,7 +119,7 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section>
       <div className="relative h-full w-full bg-dark pt-[277px] text-light">
-        <div ref={sectionRef} className="container mx-auto">
+        <div ref={sectionRef} className="container mx-auto pb-10">
           <h1
             ref={heroTextRef}
             className="max-w-5xl text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-normal leading-[1.2] tracking-tighter"
@@ -137,18 +137,7 @@ const Hero: React.FC<HeroProps> = ({
           </div>
         </div>
 
-        {!!previewURL && (
-          <div
-            ref={previewURLMarqueeRef}
-            className="container mx-auto translate-y-[15px] py-20 opacity-0"
-          >
-            <Link className="block w-fit" href={previewURL.current}>
-              <MarqueeText>View Website ↗</MarqueeText>
-            </Link>
-          </div>
-        )}
-
-        <div className="relative z-[1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px]">
+        <div className="relative z-[1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px] pt-10">
           <div
             ref={imgContainerRef}
             className="translate-y-[15px] overflow-hidden opacity-0"

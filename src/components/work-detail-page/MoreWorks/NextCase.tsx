@@ -66,59 +66,63 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
   const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
 
   return (
-    <PageTransitionLink
-      className="block h-full w-full"
-      href={`/work/${slug.current}`}
-    >
-      <motion.div
-        ref={container}
-        style={{ y }}
-        onMouseMove={(e) => {
-          moveItems(e.clientX, e.clientY);
-        }}
-        onMouseEnter={(e) => {
-          manageModal(true, e.clientX, e.clientY);
-        }}
-        onMouseLeave={(e) => {
-          manageModal(false, e.clientX, e.clientY);
-        }}
-        className="h-full w-full pt-[50px] max-sm:aspect-square md:pt-[50px]"
+    <>
+      <PageTransitionLink
+        className="block h-full w-full"
+        href={`/work/${slug.current}`}
       >
-        <figure className="h-full w-full bg-red-500">
-          <SanityImage
-            className="h-full w-full rounded object-cover grayscale-[80%]"
-            src={mainImage}
-            sizes="100vw"
-            alt={title}
-          />
-        </figure>
-        <div className="absolute left-0 top-1/2 h-full w-full">
-          <div className="container mx-auto">
-            <h2 className="h4 opacity-80 drop-shadow-lg">Next Project_</h2>
-            <h3 className="h2 drop-shadow-lg">{title}</h3>
-          </div>
-        </div>
-      </motion.div>
-
-      <>
         <motion.div
-          ref={cursor}
-          className="pointer-events-none fixed z-30 flex h-[150px] w-[150px] items-center justify-center rounded-[50%] bg-white text-[14px] font-light text-[#141516]"
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? 'enter' : 'closed'}
-        ></motion.div>
-        <motion.div
-          ref={cursorLabel}
-          className="pointer-events-none fixed z-30 flex h-[150px] w-[150px] items-center justify-center rounded-[50%] bg-transparent bg-white font-light text-white"
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? 'enter' : 'closed'}
+          ref={container}
+          style={{ y }}
+          onMouseMove={(e) => {
+            moveItems(e.clientX, e.clientY);
+          }}
+          onMouseEnter={(e) => {
+            manageModal(true, e.clientX, e.clientY);
+          }}
+          onMouseLeave={(e) => {
+            manageModal(false, e.clientX, e.clientY);
+          }}
+          className="h-full w-full pt-[50px] max-sm:aspect-square md:pt-[50px]"
         >
-          <ArrowIcon />
+          <figure className="relative h-full w-full">
+            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
+            <SanityImage
+              className="h-full w-full rounded object-cover"
+              src={mainImage}
+              sizes="100vw"
+              alt={title}
+            />
+          </figure>
+          <div className="absolute left-0 top-1/2 h-full w-full">
+            <div className="container mx-auto">
+              <h2 className="h4 opacity-80 drop-shadow-lg">Next Project_</h2>
+              <h3 className="h2 drop-shadow-lg">{title}</h3>
+            </div>
+          </div>
         </motion.div>
-      </>
-    </PageTransitionLink>
+
+        <>
+          <motion.div
+            ref={cursor}
+            className="pointer-events-none fixed z-30 flex h-[150px] w-[150px] items-center justify-center rounded-[50%] bg-white text-[14px] font-light text-[#141516]"
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? 'enter' : 'closed'}
+          ></motion.div>
+          <motion.div
+            ref={cursorLabel}
+            className="pointer-events-none fixed z-30 flex h-[150px] w-[150px] items-center justify-center rounded-[50%] bg-transparent bg-white font-light text-white"
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? 'enter' : 'closed'}
+          >
+            <ArrowIcon />
+          </motion.div>
+        </>
+      </PageTransitionLink>
+    </>
   );
 };
 export default NextCase;

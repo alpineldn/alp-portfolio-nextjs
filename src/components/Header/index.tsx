@@ -11,7 +11,6 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 import Nav from './nav';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import cn from '@/utils/cn';
 import PageTransitionLink from '../common/ui/PageTransitionLink';
@@ -39,9 +38,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
   const header = useRef(null);
   const pathName = usePathname();
   const button = useRef<HTMLDivElement>(null);
-  const { firstVisit } = useStore((store) => store);
+  const { firstVisit, showMenuButton } = useStore((store) => store);
   const [showBtn, setShowBtn] = useState(false);
-  const [isQuarterScreenScrolled, setIsQuarterScreenScrolled] = useState(false);
 
   useEffect(() => {
     if (showBtn) setShowBtn(false);
@@ -51,10 +49,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
     const context = gsap.context(() => {
       if (!button?.current) return;
 
-      const scaleValue =
-        isQuarterScreenScrolled || (!isQuarterScreenScrolled && showBtn)
-          ? 1
-          : 0;
+      const scaleValue = showMenuButton || (!showMenuButton && showBtn) ? 1 : 0;
 
       gsap.to(button.current, {
         scale: scaleValue,
@@ -64,26 +59,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
     });
 
     return () => context.revert();
-  }, [showBtn, isQuarterScreenScrolled, button?.current]);
-
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.create({
-        trigger: document.documentElement,
-        start: 'top top',
-        end: window.innerHeight / 3,
-        onLeave: () => {
-          setIsQuarterScreenScrolled(true);
-        },
-        onEnterBack: () => {
-          setIsQuarterScreenScrolled(false);
-        },
-      });
-    });
-
-    return () => context.revert();
-  }, []);
+  }, [showBtn, showMenuButton, button?.current]);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {

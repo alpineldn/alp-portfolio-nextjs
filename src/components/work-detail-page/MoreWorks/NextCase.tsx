@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { scaleAnimation } from '../../common/anim';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import ArrowIcon from '@/components/common/icons/ArrowIcon';
+import MarqueeText from '@/components/common/ui/MarqueeText';
 // import ArrowIcon from '@/components/common/icons/ArrowIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
@@ -63,16 +64,15 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
     target: container,
     offset: ['start end', 'end end'],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
+  const y = useTransform(scrollYProgress, [0, 1.05], [-300, 0]);
 
   return (
-    <>
+    <div ref={container}>
       <PageTransitionLink
         className="block h-full w-full"
         href={`/work/${slug.current}`}
       >
         <motion.div
-          ref={container}
           style={{ y }}
           onMouseMove={(e) => {
             moveItems(e.clientX, e.clientY);
@@ -95,7 +95,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
               alt={title}
             />
           </figure>
-          <div className="absolute left-0 top-1/2 h-full w-full">
+          <div className="absolute left-0 top-1/2 h-fit w-full -translate-y-1/2">
             <div className="container mx-auto">
               <h2 className="h4 opacity-80 drop-shadow-lg">Next Project_</h2>
               <h3 className="h2 drop-shadow-lg">{title}</h3>
@@ -122,7 +122,55 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
           </motion.div>
         </>
       </PageTransitionLink>
-    </>
+      <motion.div style={{ y }}>
+        <ContactInfo />
+      </motion.div>
+    </div>
   );
 };
 export default NextCase;
+
+// className="mt-[80px] flex flex-col-reverse justify-between p-5 md:flex-row lg:mt-[200px]"
+const ContactInfo: React.FC = () => {
+  return (
+    <div className="">
+      <div className="flex w-full items-center justify-center py-10">
+        <PageTransitionLink href="/work">
+          <MarqueeText>All Work</MarqueeText>
+        </PageTransitionLink>
+      </div>
+
+      <div className="flex flex-col-reverse justify-between px-5 md:flex-row">
+        <div className="flex items-end gap-2.5 max-md:justify-between max-md:pt-8">
+          <span className="flex flex-col gap-[15px]">
+            <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
+              Version
+            </h3>
+            <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+              2024 © Edition
+            </p>
+          </span>
+        </div>
+        <div className="flex items-end gap-2.5 border-b-[rgb(134,134,134)]/50 max-md:border-b max-md:pb-8">
+          <span className="flex flex-col gap-[15px]">
+            <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
+              Socials
+            </h3>
+            <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+              Awwwards
+            </p>
+          </span>
+          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+            Instagram
+          </p>
+          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+            Dribbble
+          </p>
+          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
+            Linkedin
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};

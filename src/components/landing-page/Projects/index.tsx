@@ -1,14 +1,17 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
-import Link from 'next/link';
 import { scaleAnimation } from '@/components/common/anim';
 import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
 import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProject';
+import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import MarqueeText from '@/components/common/ui/MarqueeText';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import ArrowIcon from '@/components/common/icons/ArrowIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -20,14 +23,21 @@ interface ProjectsProps {
   projects: ProjectType[];
 }
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const container = useRef<HTMLDivElement>(null);
+  const { width = 0 } = useWindowSize();
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
+  });
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'end start'],
   });
   const { active, index } = modal;
   const modalContainer = useRef(null);
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
+  const height = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   let xMoveContainer = useRef<MoveRef>(null);
   let yMoveContainer = useRef<MoveRef>(null);
@@ -37,6 +47,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   let yMoveCursorLabel = useRef<MoveRef>(null);
 
   useEffect(() => {
+    if (width <= 640) return;
+
     //Move Container
     xMoveContainer.current = gsap.quickTo(modalContainer.current, 'left', {
       duration: 0.8,
@@ -64,7 +76,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       duration: 0.45,
       ease: 'power3',
     });
-  }, []);
+  }, [width]);
 
   const moveItems = (x: number, y: number) => {
     !!xMoveContainer?.current && xMoveContainer.current(x);
@@ -81,16 +93,19 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     x: number,
     y: number,
   ) => {
+    if (width <= 640) return;
+
     moveItems(x, y);
     setModal({ active, index });
   };
 
   return (
     <section
+      ref={container}
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="relative z-[1] flex flex-col items-center bg-white pt-[200px] lg:pt-[300px]"
+      className="relative z-[1] flex flex-col items-center bg-dark pt-[200px] text-light lg:pt-[300px]"
     >
       <>
         <table className="container w-full table-auto pb-[100px] max-lg:hidden">
@@ -122,11 +137,16 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </div>
       </>
 
-      <Link className="mt-20 block md:mt-52 lg:mt-20" href="/work">
-        <RoundedButton>
-          <p>More work</p>
-        </RoundedButton>
-      </Link>
+      <div className="container mx-auto flex">
+        <PageTransitionLink
+          className="mt-20 block md:mt-52 lg:mt-20"
+          href="/work"
+        >
+          <MarqueeText innerClassName="w-[calc(100%-120px)]">
+            More Work ↗
+          </MarqueeText>
+        </PageTransitionLink>
+      </div>
 
       <>
         <motion.div
@@ -159,21 +179,25 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </motion.div>
         <motion.div
           ref={cursor}
-          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-[#455CE9] text-[14px] font-light text-white"
+          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-light text-[14px] font-light text-dark"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
         ></motion.div>
         <motion.div
           ref={cursorLabel}
-          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-[#455CE9] bg-transparent text-[14px] font-light text-white"
+          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] !bg-light bg-transparent text-[14px] font-light text-dark"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
         >
-          View
+          <ArrowIcon className="size-5" />
         </motion.div>
       </>
+
+      <motion.div style={{ height }} className="relative mt-[100px]">
+        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-dark shadow-[0px_60px_50px_rgba(0,0,0,0.2)]"></div>
+      </motion.div>
     </section>
   );
 };

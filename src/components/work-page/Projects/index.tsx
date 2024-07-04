@@ -11,17 +11,19 @@ import {
 } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import ProjectLayoutControl from './components/ProjectLayoutControl';
-import RoundedButton from '@/components/common/ui/RoundedButton';
+import { useStore } from '@/store/store';
+import MarqueeText from '@/components/common/ui/MarqueeText';
 
 interface ProjectsProps {
   projects: Project[];
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const { width = 0 } = useWindowSize();
+  const { firstVisit } = useStore((store) => store);
   const [hideMoreWorkBtn, setHideMoreWorkBtn] = useState(false);
   const [allProjects, setAllProjects] = useState(projects);
   const [loading, setLoading] = useState(false);
-  const { width } = useWindowSize();
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('grid');
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -62,25 +64,34 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   }, [width]);
 
   return (
-    <section className="relative z-[1] bg-white" ref={container}>
-      <div className="mx-auto max-w-[1536px] space-y-20 px-5 pt-[37px] sm:px-10">
+    <motion.section className="relative z-[1] bg-dark" ref={container}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { delay: firstVisit ? 3.5 : 2, duration: 1.5 },
+        }}
+        className="mx-auto max-w-[1536px] space-y-20 px-5 pt-[37px] sm:px-10"
+      >
         <ProjectLayoutControl viewMode={viewMode} setViewMode={setViewMode} />
         <AnimatePresence mode="wait">
           {viewMode === 'list' && <ListLayout projects={allProjects} />}
           {viewMode === 'grid' && <GridLayout projects={allProjects} />}
         </AnimatePresence>
         {!hideMoreWorkBtn && (
-          <div className="flex items-center justify-center pb-10">
-            <RoundedButton onClick={fetchAllWorks}>
-              <p>More work</p>
-            </RoundedButton>
+          <div className="flex items-center pb-10">
+            <button onClick={fetchAllWorks}>
+              <MarqueeText innerClassName="w-[calc(100%-120px)]">
+                More Work ↗
+              </MarqueeText>
+            </button>
           </div>
         )}
-      </div>
-      <motion.div style={{ height }} className="relative">
-        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-white shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
       </motion.div>
-    </section>
+      <motion.div style={{ height }} className="relative">
+        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-dark shadow-[0px_60px_50px_rgba(0,0,0,0.2)]"></div>
+      </motion.div>
+    </motion.section>
   );
 };
 export default Projects;

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { opacity, slideUp } from './anim';
-import { usePathname } from 'next/navigation';
 import { smoothCurve } from '../anim';
 
 const words: string[] = [
@@ -17,9 +16,9 @@ const words: string[] = [
 
 interface PreloaderProps {
   pageName?: string;
+  pathName: string;
 }
-const Preloader: React.FC<PreloaderProps> = ({ pageName }) => {
-  const pathname = usePathname();
+const Preloader: React.FC<PreloaderProps> = ({ pageName, pathName }) => {
   const [index, setIndex] = useState<number>(0);
   const [dimension, setDimension] = useState<{ width: number; height: number }>(
     { width: 0, height: 0 },
@@ -30,7 +29,7 @@ const Preloader: React.FC<PreloaderProps> = ({ pageName }) => {
   }, []);
 
   useEffect(() => {
-    if (index === words.length - 1 || pathname !== '/') return;
+    if (index === words.length - 1 || pathName !== '/') return;
     setTimeout(
       () => {
         setIndex(index + 1);
@@ -61,6 +60,7 @@ const Preloader: React.FC<PreloaderProps> = ({ pageName }) => {
 
   return (
     <motion.div
+      key={pathName}
       variants={slideUp}
       initial="initial"
       exit="exit"
@@ -76,16 +76,8 @@ const Preloader: React.FC<PreloaderProps> = ({ pageName }) => {
           >
             <span className="mr-[10px] block h-[10px] w-[10px] rounded-[50%] bg-white"></span>
 
-            {pathname === '/' ? words[index] : pageName}
+            {pathName === '/' ? words[index] : pageName}
           </motion.p>
-          <svg className="absolute top-0 h-[calc(100%+300px)] w-full">
-            <motion.path
-              className="fill-[#141516]"
-              variants={curve}
-              initial="initial"
-              exit="exit"
-            ></motion.path>
-          </svg>
         </>
       )}
     </motion.div>

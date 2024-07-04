@@ -1,6 +1,5 @@
 import sanityClient from '@/utils/sanity/client';
 import { WORK_SLUGS_QUERY } from '@/utils/sanity/queries';
-import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { Project } from '../page';
 import Hero from '@/components/work-detail-page/Hero/Hero';
@@ -9,6 +8,7 @@ import { Slug } from 'sanity';
 import { notFound } from 'next/navigation';
 import Images from '@/components/work-detail-page/Images/Images';
 import MoreWorks from '@/components/work-detail-page/MoreWorks/MoreWorks';
+import Page from '@/components/common/Page';
 
 interface WorkDetailProps {
   params: { slug: string };
@@ -67,7 +67,7 @@ const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
   } = project;
 
   return (
-    <SmoothScroll pageName={title}>
+    <Page pageName={title}>
       <Hero
         title={title}
         client={client}
@@ -78,7 +78,7 @@ const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
       />
       {!!images?.length && <Images images={images} />}
       <MoreWorks {...nextProject} />
-    </SmoothScroll>
+    </Page>
   );
 };
 

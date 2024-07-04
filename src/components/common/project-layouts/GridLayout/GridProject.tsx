@@ -1,8 +1,6 @@
-import Link from 'next/link';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
-import { getRandomColor } from '@/utils/create-random-color';
-import { useMemo } from 'react';
+import PageTransitionLink from '../../ui/PageTransitionLink';
 
 interface ProjectProps extends ProjectType {
   index: number;
@@ -19,7 +17,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
   index,
 }) => {
   return (
-    <Link
+    <PageTransitionLink
       className="md:even:translate-y-[30%]"
       href={`/work/${slug.current}`}
       onMouseEnter={(e) => {
@@ -29,7 +27,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         manageModal(false, index, e.clientX, e.clientY);
       }}
     >
-      <div className="relative w-full">
+      <div className="relative w-full text-light">
         <div className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden">
           <SanityImage
             sizes="(min-width: 1024px) 50vw, 100vw"
@@ -39,10 +37,10 @@ const ProjectCard: React.FC<ProjectProps> = ({
           />
         </div>
         <div className="w-full py-4">
-          <h3 className="border-b-2 py-6 text-5xl text-[#1c1d20]">{title}</h3>
+          <h3 className="h3 border-b-2 py-6 text-light">{title}</h3>
           <div className="flex justify-between py-5">
-            <p className="text-lg">{client}</p>
-            <ul className="text-lg">
+            <p className="body-2">{client}</p>
+            <ul className="body-2 text-light">
               {categories.map(({ title, _id }, index) => (
                 <li key={_id}>
                   {title} {index !== categories.length - 1 && ', '}
@@ -52,7 +50,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
           </div>
         </div>
       </div>
-    </Link>
+    </PageTransitionLink>
   );
 };
 export default ProjectCard;

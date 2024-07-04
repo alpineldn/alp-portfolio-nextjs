@@ -18,24 +18,24 @@ const ProjectLayoutControl: React.FC<ViewControlProps> = ({
   return (
     <div className="flex justify-end gap-4 max-lg:hidden md:pr-[100px] 2xl:pr-[200px]">
       <RoundedButton
-        backgroundColor={listViewActive ? '#1c1d20' : '#334BD3'}
+        backgroundColor={listViewActive ? '#fff' : '#f5f5f5'}
         onClick={() => setViewMode('list')}
         className={cn(
-          'group relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] group-hover:!text-white',
-          listViewActive ? '!bg-[#1c1d20] text-white' : 'border text-black',
+          'group relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] group-hover:!text-dark',
+          listViewActive ? '!bg-light text-dark' : 'text-light border',
         )}
       >
-        <ListIcon className="relative z-10" />
+        <ListIcon className="relative z-10 transition-colors delay-150 group-hover:text-dark" />
       </RoundedButton>
       <RoundedButton
         onClick={() => setViewMode('grid')}
-        backgroundColor={gridViewActive ? '#1c1d20' : '#334BD3'}
+        backgroundColor={gridViewActive ? '#fff' : '#f5f5f5'}
         className={cn(
-          'relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] border text-black group-hover:!text-white',
-          gridViewActive ? '!bg-[#1c1d20] text-white' : 'border text-black',
+          'group relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] border text-black group-hover:!text-dark',
+          gridViewActive ? '!bg-light text-dark' : 'text-light border',
         )}
       >
-        <GridIcon className="relative z-10" />
+        <GridIcon className="relative z-10 transition-colors delay-150 group-hover:text-dark" />
       </RoundedButton>
     </div>
   );

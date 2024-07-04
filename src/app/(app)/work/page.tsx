@@ -2,10 +2,10 @@ import Hero from '@/components/work-page/Hero';
 import Projects from '@/components/work-page/Projects';
 import sanityClient from '@/utils/sanity/client';
 import { WORK_QUERY } from '@/utils/sanity/queries';
-import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import type { Slug } from 'sanity';
 import Contact from '@/components/Contact';
+import Page from '@/components/common/Page';
 
 export interface Category {
   _id: string;
@@ -40,11 +40,11 @@ const Work: React.FC<{}> = async () => {
   const projects = await getPageData();
 
   return (
-    <SmoothScroll pageName="Work">
+    <Page pageName="Work">
       <Hero />
       {!!projects?.length && <Projects projects={projects} />}
       <Contact />
-    </SmoothScroll>
+    </Page>
   );
 };
 

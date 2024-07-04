@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { menuSlide } from '../animation';
 import LinkEl from './Link';
-import Curve from './Curve';
 import Footer from './Footer';
 
 const navItems = [
@@ -37,16 +36,16 @@ const Nav: React.FC<NavProps> = () => {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="fixed right-0 top-0 z-[15] h-screen bg-[rgb(41,41,41)] text-white max-sm:w-screen"
+      className="fixed right-0 top-0 z-[15] h-screen w-screen bg-[rgb(41,41,41)] text-white"
     >
       <div className="box-border flex h-full flex-col justify-between p-5 sm:p-[100px]">
         <div
           onMouseLeave={() => {
             setSelectedIndicator(pathname);
           }}
-          className="flex flex-col pt-24 text-[56px] sm:pt-[80px]"
+          className="flex flex-col pt-24 text-[56px] sm:pt-[40px]"
         >
-          <div className="border-b border-b-[rgb(153,153,153)] pb-10 text-[11px] uppercase text-[rgb(153,153,153)] sm:pb-[40px]">
+          <div className="body-3 border-b border-b-[rgb(153,153,153)] pb-10 uppercase text-[rgb(153,153,153)] sm:pb-[40px]">
             <p>Navigation</p>
           </div>
           <ul className="space-y-6 pt-10">
@@ -64,7 +63,6 @@ const Nav: React.FC<NavProps> = () => {
         </div>
         <Footer />
       </div>
-      <Curve />
     </motion.div>
   );
 };

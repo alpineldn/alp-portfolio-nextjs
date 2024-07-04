@@ -142,15 +142,12 @@ const Header: React.FC<HeaderProps> = ({}) => {
 export default Header;
 
 const Logo = () => {
-  const pathname = usePathname();
-
   return (
     <PageTransitionLink
       id="site-logo"
       href="/"
       className={cn(
-        'underline_link',
-        'text-base opacity-0 after:bg-white hover:before:bg-white md:text-lg xl:text-xl',
+        'flex items-center justify-center text-base opacity-0 after:bg-white hover:before:bg-white md:text-lg xl:text-xl',
       )}
     >
       <svg
@@ -196,7 +193,7 @@ const NavLinks: React.FC<{
         <span>Menu</span>
       </button>
 
-      <div className="hidden items-center gap-[16px] overflow-hidden sm:flex">
+      <div className="hidden items-center gap-6 overflow-hidden sm:flex">
         {navItems.map(({ href, title }) => (
           <div
             key={title}

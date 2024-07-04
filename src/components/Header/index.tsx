@@ -7,18 +7,16 @@ import {
   useRef,
   useState,
 } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 import Nav from './nav';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import cn from '@/utils/cn';
-import Link from 'next/link';
-import Image from 'next/image';
-import { animatePageOut } from '@/utils/animations';
 import PageTransitionLink from '../common/ui/PageTransitionLink';
 import { useStore } from '@/store/store';
+import { motion } from 'framer-motion';
 
 interface HeaderProps {}
 
@@ -150,13 +148,22 @@ const Logo = () => {
         'flex items-center justify-center text-base opacity-0 after:bg-white hover:before:bg-white md:text-lg xl:text-xl',
       )}
     >
-      <svg
+      <motion.svg
         className="h-fit w-[40px] object-contain"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 231.53 92.95"
       >
-        <path
+        <motion.path
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'easeInOut',
+            repeatDelay: 1,
+          }}
           style={{
             fill: 'none',
             stroke: '#fff',
@@ -166,7 +173,7 @@ const Logo = () => {
           }}
           d="m5.66 86.84 64.93-64.93 65.29 65.3H62.69l81.55-81.55 81.64 81.64"
         />
-      </svg>
+      </motion.svg>
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
         <p className="body-1 relative transition-all duration-500 ease-smooth-curve">
@@ -180,7 +187,6 @@ const Logo = () => {
 const NavLinks: React.FC<{
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setIsActive }) => {
-  const pathname = usePathname();
   return (
     <>
       <button

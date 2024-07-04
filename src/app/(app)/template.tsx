@@ -1,7 +1,7 @@
 'use client';
 
 import { useStore } from '@/store/store';
-import { animatePageIn } from '@/utils/animations';
+import { animatePageIn, logo_animation } from '@/utils/animations';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -38,12 +38,6 @@ export default function Template({ children }: { children: React.ReactNode }) {
   );
 }
 
-const transition = {
-  duration: 2,
-  yoyo: Infinity,
-  ease: 'easeInOut',
-};
-
 export const AnimatedLogo = ({ className }: { className?: string }) => {
   return (
     <svg
@@ -55,7 +49,7 @@ export const AnimatedLogo = ({ className }: { className?: string }) => {
       <motion.path
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={transition}
+        transition={logo_animation}
         style={{
           fill: 'none',
           stroke: '#fff',

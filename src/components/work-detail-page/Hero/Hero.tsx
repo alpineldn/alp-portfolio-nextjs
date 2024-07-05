@@ -12,6 +12,7 @@ import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import Link from 'next/link';
 import { useStore } from '@/store/store';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface HeroProps {
   title: string;
@@ -31,11 +32,33 @@ const Hero: React.FC<HeroProps> = ({
   previewURL,
 }) => {
   const { width = 0 } = useWindowSize();
+  const sectionRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const previewURLMarqueeRef = useRef<HTMLDivElement>(null);
   const imgContainerRef = useRef<HTMLDivElement>(null);
   const detailContainerRef = useRef<HTMLDivElement>(null);
-  const { firstVisit } = useStore((store) => store);
+  const { firstVisit, setShowMenuButton } = useStore((store) => store);
+
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      if (!sectionRef?.current) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top top',
+        end: 'bottom top',
+        onLeave: () => {
+          setShowMenuButton(true);
+        },
+        onEnterBack: () => {
+          setShowMenuButton(false);
+        },
+      });
+    });
+
+    return () => context.revert();
+  }, [sectionRef]);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -96,7 +119,7 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section>
       <div className="relative h-full w-full bg-dark pt-[277px] text-light">
-        <div className="container mx-auto">
+        <div ref={sectionRef} className="container mx-auto pb-10">
           <h1
             ref={heroTextRef}
             className="max-w-5xl text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-normal leading-[1.2] tracking-tighter"
@@ -114,18 +137,7 @@ const Hero: React.FC<HeroProps> = ({
           </div>
         </div>
 
-        {!!previewURL && (
-          <div
-            ref={previewURLMarqueeRef}
-            className="container mx-auto translate-y-[15px] py-20 opacity-0"
-          >
-            <Link className="block w-fit" href={previewURL.current}>
-              <MarqueeText>View Website ↗</MarqueeText>
-            </Link>
-          </div>
-        )}
-
-        <div className="relative z-[1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px]">
+        <div className="relative z-[1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px] pt-10">
           <div
             ref={imgContainerRef}
             className="translate-y-[15px] overflow-hidden opacity-0"

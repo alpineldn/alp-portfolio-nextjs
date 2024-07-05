@@ -1,20 +1,20 @@
 'use client';
 
-import Image from 'next/image';
 import { useLayoutEffect, useRef } from 'react';
-import { slideUp } from './animation';
 import { motion } from 'framer-motion';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import { useStore } from '@/store/store';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const heroTextRefSm = useRef<HTMLHeadingElement>(null);
-  const { firstVisit } = useStore((store) => store);
+  const { firstVisit, setShowMenuButton } = useStore((store) => store);
 
   const createAnimation = (ref: React.RefObject<HTMLHeadingElement>) => {
     if (!ref?.current || !descriptionRef?.current) return;
@@ -59,8 +59,30 @@ const Hero: React.FC<HeroProps> = ({}) => {
     return () => context.revert();
   }, [heroTextRef, heroTextRefSm, descriptionRef]);
 
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      if (!containerRef?.current) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top top',
+        end: 'bottom top',
+        onLeave: () => {
+          setShowMenuButton(true);
+        },
+        onEnterBack: () => {
+          setShowMenuButton(false);
+        },
+      });
+    });
+
+    return () => context.revert();
+  }, [containerRef]);
+
   return (
     <motion.div
+      ref={containerRef}
       // variants={slideUp}
       initial="initial"
       animate="enter"

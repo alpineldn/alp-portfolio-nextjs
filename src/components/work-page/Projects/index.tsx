@@ -89,7 +89,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         )}
       </motion.div>
       <motion.div style={{ height }} className="relative">
-        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] rounded-[0_0_50%_50%] bg-dark shadow-[0px_60px_50px_rgba(0,0,0,0.2)]"></div>
+        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] bg-dark shadow-[0px_60px_50px_rgba(0,0,0,0.2)]"></div>
       </motion.div>
     </motion.section>
   );

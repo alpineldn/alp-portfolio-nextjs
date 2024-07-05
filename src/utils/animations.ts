@@ -62,3 +62,9 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
     });
   }
 };
+
+export const logo_animation = {
+  duration: 2,
+  yoyo: Infinity,
+  ease: 'easeInOut',
+};

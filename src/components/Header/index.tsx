@@ -7,18 +7,15 @@ import {
   useRef,
   useState,
 } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 import Nav from './nav';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RoundedButton from '@/components/common/ui/RoundedButton';
 import cn from '@/utils/cn';
-import Link from 'next/link';
-import Image from 'next/image';
-import { animatePageOut } from '@/utils/animations';
 import PageTransitionLink from '../common/ui/PageTransitionLink';
 import { useStore } from '@/store/store';
+import { motion } from 'framer-motion';
 
 interface HeaderProps {}
 
@@ -41,9 +38,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
   const header = useRef(null);
   const pathName = usePathname();
   const button = useRef<HTMLDivElement>(null);
-  const { firstVisit } = useStore((store) => store);
+  const { firstVisit, showMenuButton } = useStore((store) => store);
   const [showBtn, setShowBtn] = useState(false);
-  const [isQuarterScreenScrolled, setIsQuarterScreenScrolled] = useState(false);
 
   useEffect(() => {
     if (showBtn) setShowBtn(false);
@@ -53,10 +49,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
     const context = gsap.context(() => {
       if (!button?.current) return;
 
-      const scaleValue =
-        isQuarterScreenScrolled || (!isQuarterScreenScrolled && showBtn)
-          ? 1
-          : 0;
+      const scaleValue = showMenuButton || (!showMenuButton && showBtn) ? 1 : 0;
 
       gsap.to(button.current, {
         scale: scaleValue,
@@ -66,26 +59,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
     });
 
     return () => context.revert();
-  }, [showBtn, isQuarterScreenScrolled, button?.current]);
-
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.create({
-        trigger: document.documentElement,
-        start: 'top top',
-        end: window.innerHeight / 3,
-        onLeave: () => {
-          setIsQuarterScreenScrolled(true);
-        },
-        onEnterBack: () => {
-          setIsQuarterScreenScrolled(false);
-        },
-      });
-    });
-
-    return () => context.revert();
-  }, []);
+  }, [showBtn, showMenuButton, button?.current]);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -142,24 +116,30 @@ const Header: React.FC<HeaderProps> = ({}) => {
 export default Header;
 
 const Logo = () => {
-  const pathname = usePathname();
-
   return (
     <PageTransitionLink
       id="site-logo"
       href="/"
       className={cn(
-        'underline_link',
-        'text-base opacity-0 after:bg-white hover:before:bg-white md:text-lg xl:text-xl',
+        'flex items-center justify-center text-base opacity-0 after:bg-white hover:before:bg-white md:text-lg xl:text-xl',
       )}
     >
-      <svg
+      <motion.svg
         className="h-fit w-[40px] object-contain"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 231.53 92.95"
       >
-        <path
+        <motion.path
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'easeInOut',
+            repeatDelay: 1,
+          }}
           style={{
             fill: 'none',
             stroke: '#fff',
@@ -169,7 +149,7 @@ const Logo = () => {
           }}
           d="m5.66 86.84 64.93-64.93 65.29 65.3H62.69l81.55-81.55 81.64 81.64"
         />
-      </svg>
+      </motion.svg>
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
         <p className="body-1 relative transition-all duration-500 ease-smooth-curve">
@@ -183,7 +163,6 @@ const Logo = () => {
 const NavLinks: React.FC<{
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setIsActive }) => {
-  const pathname = usePathname();
   return (
     <>
       <button
@@ -196,7 +175,7 @@ const NavLinks: React.FC<{
         <span>Menu</span>
       </button>
 
-      <div className="hidden items-center gap-[16px] overflow-hidden sm:flex">
+      <div className="hidden items-center gap-6 overflow-hidden sm:flex">
         {navItems.map(({ href, title }) => (
           <div
             key={title}

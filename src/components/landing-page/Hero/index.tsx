@@ -109,7 +109,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
           ref={heroTextRef}
           className="h1 relative m-0 hidden font-medium leading-[1.2] text-white sm:block"
         >
-          Brand + Digital Design Studio
+          Brand + Digital <br /> Design Studio
         </h1>
       </div>
 
@@ -135,7 +135,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
           ref={heroTextRefSm}
           className="relative m-0 pb-5 text-4xl font-medium leading-[1.2] text-white sm:hidden"
         >
-          Brand + Digital Design Studio
+          Brand + Digital <br /> Design Studio
         </h1>
         <p ref={descriptionRef} className="m-0 mb-[10px]">
           Born in London, working Globally

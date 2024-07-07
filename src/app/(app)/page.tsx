@@ -10,7 +10,6 @@ import generateMeta from '@/utils/generate-meta';
 import { Metadata } from 'next';
 import { Slug } from 'sanity';
 import { SITE_URL } from '@/utils/constants';
-import { log } from 'console';
 
 interface HomeProps {}
 

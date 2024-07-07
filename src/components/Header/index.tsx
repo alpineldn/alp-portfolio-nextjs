@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       let mm = gsap.matchMedia();
       const tl = gsap.timeline({
         defaults: { ease: 'power2.inOut' },
-        delay: firstVisit ? 2.7 : 1.5,
+        delay: firstVisit ? 2.9 : 1.5,
       });
 
       const logoEl = document.querySelector('#site-logo');
@@ -116,6 +116,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
 export default Header;
 
 const Logo = () => {
+  const { firstVisit } = useStore((store) => store);
+
   return (
     <PageTransitionLink
       id="site-logo"
@@ -131,14 +133,13 @@ const Logo = () => {
         viewBox="0 0 231.53 92.95"
       >
         <motion.path
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
+          initial={{ pathLength: 1 }}
+          animate={{ pathLength: [0, 1] }}
           transition={{
             duration: 2,
-            repeat: Infinity,
             repeatType: 'reverse',
             ease: 'easeInOut',
-            repeatDelay: 1,
+            delay: firstVisit ? 3 : 2,
           }}
           style={{
             fill: 'none',

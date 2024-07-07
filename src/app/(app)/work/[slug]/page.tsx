@@ -10,6 +10,7 @@ import Images from '@/components/work-detail-page/Images/Images';
 import MoreWorks from '@/components/work-detail-page/MoreWorks/MoreWorks';
 import Page from '@/components/common/Page';
 import generateMeta from '@/utils/generate-meta';
+import { SITE_URL } from '@/utils/constants';
 
 interface WorkDetailProps {
   params: { slug: string };
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: WorkDetailProps) {
     description: metaData?.description ?? "Alpine's work page.",
     og: {
       type: 'article',
-      url: `https://alpineldn.com/work/${params.slug}`,
+      url: `${SITE_URL}/work/${params.slug}`,
       sanityImg: metaData?.mainImage,
     },
     keywords: ['design', 'development', 'creative', 'studio'],

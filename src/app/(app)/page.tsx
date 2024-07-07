@@ -2,27 +2,44 @@ import Contact from '@/components/Contact';
 import Description from '@/components/landing-page/Description';
 import Hero from '@/components/landing-page/Hero';
 import Projects from '@/components/landing-page/Projects';
-// import SlidingImages from '@/components/landing-page/SlidingImages';
 import sanityClient from '@/utils/sanity/client';
-import { WORK_QUERY } from '@/utils/sanity/queries';
+import { META_QUERY, WORK_QUERY } from '@/utils/sanity/queries';
 import type { Project } from './work/page';
 import Page from '@/components/common/Page';
 import generateMeta from '@/utils/generate-meta';
+import { Metadata } from 'next';
+import { Slug } from 'sanity';
+import { SITE_URL } from '@/utils/constants';
+import { log } from 'console';
 
 interface HomeProps {}
 
-export const metadata = generateMeta({
-  title: 'Home',
-  description: 'Alpine’s work page.',
-  og: {
-    type: 'website',
-    url: 'https://alpineldn.com',
-    localImg: {
-      showTitle: true,
+export interface Meta {
+  title: string;
+  body: string;
+  meta: {
+    description: string;
+    keywords: string[];
+  };
+  path: Slug;
+}
+
+export async function generateMetadata({}): Promise<Metadata> {
+  const metaData: Meta = await sanityClient.fetch(META_QUERY('/'));
+
+  return generateMeta({
+    title: metaData?.title ?? 'Alpine',
+    description: metaData?.meta.description ?? "Alpine's work page.",
+    og: {
+      type: 'website',
+      url: `${SITE_URL}/work`,
+      localImg: {
+        showTitle: true,
+      },
     },
-  },
-  keywords: ['design', 'development', 'creative', 'studio'],
-});
+    keywords: metaData?.meta?.keywords,
+  });
+}
 
 async function getPageData(): Promise<Project[]> {
   try {

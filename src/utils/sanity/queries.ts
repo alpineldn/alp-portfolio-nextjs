@@ -47,3 +47,12 @@ export const WORK_SLUGS_QUERY = (slug: string) =>
         ${asset('mainImage')},
       }
   }`;
+
+export const META_QUERY = (pageName: string) => groq`
+  *[_type == "meta" && path.current == "${pageName}"][0]{
+    title,
+    meta,
+    path,
+    body
+  }
+`;

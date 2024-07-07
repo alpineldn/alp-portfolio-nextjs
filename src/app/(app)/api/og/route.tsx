@@ -1,11 +1,10 @@
+import { SITE_URL } from '@/utils/constants';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
 export async function GET(request: Request) {
   try {
-    const siteURL = 'http://localhost:3000';
-
     const { searchParams } = new URL(request.url);
 
     const hasTitle = searchParams.has('title');
@@ -25,7 +24,7 @@ export async function GET(request: Request) {
 
     const backgroundStyle = localImgPath
       ? {
-          backgroundImage: `url("${siteURL}/${localImgPath}")`,
+          backgroundImage: `url("${SITE_URL}/${localImgPath}")`,
           backgroundSize: 'cover',
         }
       : {

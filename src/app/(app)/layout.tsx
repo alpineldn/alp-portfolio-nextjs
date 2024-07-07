@@ -31,6 +31,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
           <Header />
           {children}
         </SmoothScroll>
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600"></div>
       </body>
     </html>
   );

@@ -13,18 +13,22 @@ const Hero: React.FC<HeroProps> = ({}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const descriptionRefSm = useRef<HTMLParagraphElement>(null);
   const heroTextRefSm = useRef<HTMLHeadingElement>(null);
   const { firstVisit, setShowMenuButton } = useStore((store) => store);
 
-  const createAnimation = (ref: React.RefObject<HTMLHeadingElement>) => {
-    if (!ref?.current || !descriptionRef?.current) return;
+  const createAnimation = (
+    headerRef: React.RefObject<HTMLHeadingElement>,
+    descriptionRef: React.RefObject<HTMLParagraphElement>,
+  ) => {
+    if (!headerRef?.current || !descriptionRef?.current) return;
 
     const tl = gsap.timeline({
       defaults: { ease: 'power2.inOut' },
       delay: firstVisit ? 2.7 : 1.5,
     });
 
-    const header = new SplitType(ref.current, {
+    const header = new SplitType(headerRef.current, {
       types: 'lines,words',
       lineClass: 'overflow-hidden',
     });
@@ -52,12 +56,16 @@ const Hero: React.FC<HeroProps> = ({}) => {
   useLayoutEffect(() => {
     const context = gsap.context(() => {
       let mm = gsap.matchMedia();
-      mm.add('(min-width: 640px)', () => createAnimation(heroTextRef));
-      mm.add('(max-width: 639px)', () => createAnimation(heroTextRefSm));
+      mm.add('(min-width: 640px)', () =>
+        createAnimation(heroTextRef, descriptionRef),
+      );
+      mm.add('(max-width: 639px)', () =>
+        createAnimation(heroTextRefSm, descriptionRefSm),
+      );
     });
 
     return () => context.revert();
-  }, [heroTextRef, heroTextRefSm, descriptionRef]);
+  }, [heroTextRef, descriptionRef, heroTextRefSm, descriptionRefSm]);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -86,7 +94,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       // variants={slideUp}
       initial="initial"
       animate="enter"
-      className="relative flex h-screen overflow-hidden"
+      className="relative flex h-screen overflow-hidden text-light"
     >
       <video
         autoPlay
@@ -96,48 +104,34 @@ const Hero: React.FC<HeroProps> = ({}) => {
       >
         <source src="/mountains_video_looped_optimized.mp4" type="video/mp4" />
       </video>
-      {/* <Image
-        priority
-        className="object-cover"
-        src="/images/background.jpg"
-        fill={true}
-        alt="background"
-      /> */}
 
       <div className="flex h-screen flex-col justify-center max-lg:px-5 lg:max-w-7xl lg:pl-[8vw]">
         <h1
           ref={heroTextRef}
-          className="h1 relative m-0 hidden font-medium leading-[1.2] text-white sm:block"
+          className="h1 relative m-0 hidden font-medium leading-[1.2] sm:block"
         >
           Brand + Digital <br /> Design Studio
         </h1>
       </div>
+      <p
+        ref={descriptionRef}
+        className="absolute bottom-[15%] left-0 hidden w-full text-xl max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]"
+      >
+        Born in London, working Globally
+      </p>
 
       <div
         data-scroll
         data-scroll-speed={0.1}
-        className="absolute bottom-[10%] text-lg font-light text-white max-sm:px-5 sm:left-[65%] sm:top-[35%]"
+        className="absolute bottom-[10%] px-5 text-lg font-light sm:hidden"
       >
-        {/* <svg
-          className="mb-[100px] scale-[2]"
-          width="9"
-          height="9"
-          viewBox="0 0 9 9"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 8.5C8.27614 8.5 8.5 8.27614 8.5 8L8.5 3.5C8.5 3.22386 8.27614 3 8 3C7.72386 3 7.5 3.22386 7.5 3.5V7.5H3.5C3.22386 7.5 3 7.72386 3 8C3 8.27614 3.22386 8.5 3.5 8.5L8 8.5ZM0.646447 1.35355L7.64645 8.35355L8.35355 7.64645L1.35355 0.646447L0.646447 1.35355Z"
-            fill="white"
-          />
-        </svg> */}
         <h1
           ref={heroTextRefSm}
-          className="relative m-0 pb-5 text-4xl font-medium leading-[1.2] text-white sm:hidden"
+          className="relative m-0 pb-5 text-4xl font-medium leading-[1.2]"
         >
           Brand + Digital <br /> Design Studio
         </h1>
-        <p ref={descriptionRef} className="m-0 mb-[10px]">
+        <p ref={descriptionRefSm} className="m-0 mb-[10px]">
           Born in London, working Globally
         </p>
         {/* <p className="m-0 mb-[10px]">Designer & Developer</p> */}

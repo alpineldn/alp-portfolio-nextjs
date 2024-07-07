@@ -127,7 +127,7 @@ const Logo = () => {
       )}
     >
       <motion.svg
-        className="h-fit w-[40px] object-contain"
+        className="h-fit w-[40px] -translate-y-[2px] object-contain"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 231.53 92.95"

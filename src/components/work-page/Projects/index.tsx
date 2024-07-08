@@ -1,9 +1,8 @@
 'use client';
 import type { Project } from '@/app/(app)/work/page';
 import GridLayout from '@/components/common/project-layouts/GridLayout/GridLayout';
-import ListLayout from '@/components/common/project-layouts/ListLayout/ListLayout';
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { useStore } from '@/store/store';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 

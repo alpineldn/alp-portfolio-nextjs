@@ -1,10 +1,11 @@
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import PageTransitionLink from '../../ui/PageTransitionLink';
+import { motion } from 'framer-motion';
+import { fadeInAndSlideUp } from '../../anim';
 
 interface ProjectProps extends ProjectType {
   index: number;
-  manageModal: (active: boolean, index: number, x: number, y: number) => void;
 }
 
 const ProjectCard: React.FC<ProjectProps> = ({
@@ -13,21 +14,20 @@ const ProjectCard: React.FC<ProjectProps> = ({
   title,
   categories,
   client,
-  manageModal,
-  index,
 }) => {
   return (
     <PageTransitionLink
-      className="md:even:translate-y-[30%]"
+      className="interactable md:even:translate-y-[30%]"
       href={`/work/${slug.current}`}
-      onMouseEnter={(e) => {
-        manageModal(true, index, e.clientX, e.clientY);
-      }}
-      onMouseLeave={(e) => {
-        manageModal(false, index, e.clientX, e.clientY);
-      }}
     >
-      <div className="relative w-full text-light">
+      <motion.div
+        variants={fadeInAndSlideUp}
+        initial="initial"
+        whileInView="enter"
+        viewport={{ once: true }}
+        exit="exit"
+        className="relative w-full text-light"
+      >
         <div className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden">
           <SanityImage
             sizes="(min-width: 1024px) 50vw, 100vw"
@@ -49,7 +49,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
     </PageTransitionLink>
   );
 };

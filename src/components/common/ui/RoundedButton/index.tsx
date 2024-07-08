@@ -59,7 +59,7 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({
       {children}
       <div
         ref={circle}
-        style={{ backgroundColor }}
+        // style={{ backgroundColor }}
         className={cn(
           styles.circle,
           'transition-colors duration-300 ease-smooth-curve',

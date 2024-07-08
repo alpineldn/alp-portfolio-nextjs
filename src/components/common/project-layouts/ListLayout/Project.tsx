@@ -19,13 +19,14 @@ const ProjectList: React.FC<ProjectProps> = ({
 }) => {
   return (
     <tr
+      data-type="link"
       onMouseEnter={(e) => {
         manageModal(true, index, e.clientX, e.clientY);
       }}
       onMouseLeave={(e) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
-      className="group w-full cursor-pointer border-t border-solid border-t-light/50 text-light transition-all duration-200 last:border-b last:border-b-light/50 hover:opacity-50"
+      className="interactable group w-full cursor-pointer border-t border-solid border-t-light/50 text-light transition-all duration-200 last:border-b last:border-b-light/50 hover:opacity-50"
     >
       <td>
         <PageTransitionLink

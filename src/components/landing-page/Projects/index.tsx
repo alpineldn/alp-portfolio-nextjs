@@ -1,8 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import RoundedButton from '@/components/common/ui/RoundedButton';
 import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/SanityImage/SanityImage';
 import { scaleAnimation } from '@/components/common/anim';
@@ -11,7 +10,6 @@ import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProj
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import ArrowIcon from '@/components/common/icons/ArrowIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -29,22 +27,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     active: false,
     index: 0,
   });
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'end start'],
-  });
+
   const { active, index } = modal;
   const modalContainer = useRef(null);
-  const cursor = useRef(null);
-  const cursorLabel = useRef(null);
-  const height = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   let xMoveContainer = useRef<MoveRef>(null);
   let yMoveContainer = useRef<MoveRef>(null);
-  let xMoveCursor = useRef<MoveRef>(null);
-  let yMoveCursor = useRef<MoveRef>(null);
-  let xMoveCursorLabel = useRef<MoveRef>(null);
-  let yMoveCursorLabel = useRef<MoveRef>(null);
 
   useEffect(() => {
     if (width <= 640) return;
@@ -58,33 +46,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       duration: 0.8,
       ease: 'power3',
     });
-    //Move cursor
-    xMoveCursor.current = gsap.quickTo(cursor.current, 'left', {
-      duration: 0.5,
-      ease: 'power3',
-    });
-    yMoveCursor.current = gsap.quickTo(cursor.current, 'top', {
-      duration: 0.5,
-      ease: 'power3',
-    });
-    //Move cursor label
-    xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, 'left', {
-      duration: 0.45,
-      ease: 'power3',
-    });
-    yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, 'top', {
-      duration: 0.45,
-      ease: 'power3',
-    });
   }, [width]);
 
   const moveItems = (x: number, y: number) => {
     !!xMoveContainer?.current && xMoveContainer.current(x);
     !!yMoveContainer?.current && yMoveContainer.current(y);
-    !!xMoveCursor?.current && xMoveCursor.current(x);
-    !!yMoveCursor?.current && yMoveCursor.current(y);
-    !!xMoveCursorLabel?.current && xMoveCursorLabel.current(x);
-    !!yMoveCursorLabel?.current && yMoveCursorLabel.current(y);
   };
 
   const manageModal = (
@@ -105,7 +71,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="relative z-[1] flex flex-col items-center bg-dark pt-[200px] text-light lg:pt-[300px]"
+      className="relative z-[1] flex flex-col items-center bg-dark py-[200px] text-light lg:pt-[300px]"
     >
       <>
         <table className="container w-full table-auto pb-[100px] max-lg:hidden">
@@ -125,14 +91,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-20 px-5 sm:px-10 md:grid-cols-2 lg:hidden">
           {projects.slice(0, 4).map((project, index) => {
-            return (
-              <ProjectCard
-                {...project}
-                key={project._id}
-                index={index}
-                manageModal={manageModal}
-              />
-            );
+            return <ProjectCard {...project} key={project._id} index={index} />;
           })}
         </div>
       </>
@@ -177,27 +136,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             })}
           </div>
         </motion.div>
-        <motion.div
-          ref={cursor}
-          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] bg-light text-[14px] font-light text-dark"
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? 'enter' : 'closed'}
-        ></motion.div>
-        <motion.div
-          ref={cursorLabel}
-          className="pointer-events-none fixed z-[3] flex h-[80px] w-[80px] items-center justify-center rounded-[50%] !bg-light bg-transparent text-[14px] font-light text-dark"
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? 'enter' : 'closed'}
-        >
-          <ArrowIcon className="size-5" />
-        </motion.div>
       </>
-
-      <motion.div style={{ height }} className="relative mt-[100px]">
-        <div className="absolute left-[-10%] z-[1] h-[1550%] w-[120%] bg-dark shadow-[0px_60px_50px_rgba(0,0,0,0.2)]"></div>
-      </motion.div>
     </section>
   );
 };

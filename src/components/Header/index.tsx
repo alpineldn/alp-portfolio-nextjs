@@ -38,18 +38,22 @@ const Header: React.FC<HeaderProps> = ({}) => {
   const header = useRef(null);
   const pathName = usePathname();
   const button = useRef<HTMLDivElement>(null);
-  const { firstVisit, showMenuButton } = useStore((store) => store);
-  const [showBtn, setShowBtn] = useState(false);
+  const { firstVisit, showMenuButton, setShowMenuButton } = useStore(
+    (store) => store,
+  );
+  const [menuIconIsActive, setMenuIconIsActive] = useState(false);
 
   useEffect(() => {
-    if (showBtn) setShowBtn(false);
+    if (menuIconIsActive) setMenuIconIsActive(false);
+    if (showMenuButton) setShowMenuButton(false);
   }, [pathName]);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
       if (!button?.current) return;
 
-      const scaleValue = showMenuButton || (!showMenuButton && showBtn) ? 1 : 0;
+      const scaleValue =
+        showMenuButton || (!showMenuButton && menuIconIsActive) ? 1 : 0;
 
       gsap.to(button.current, {
         scale: scaleValue,
@@ -59,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
     });
 
     return () => context.revert();
-  }, [showBtn, showMenuButton, button?.current]);
+  }, [menuIconIsActive, showMenuButton, button?.current]);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -99,16 +103,18 @@ const Header: React.FC<HeaderProps> = ({}) => {
         )}
       >
         <Logo />
-        <NavLinks setIsActive={setShowBtn} />
+        <NavLinks setIsActive={setMenuIconIsActive} />
       </div>
 
       <HamburgerMenuBtn
         ref={button}
-        isActive={showBtn}
-        setIsActive={setShowBtn}
+        isActive={menuIconIsActive}
+        setIsActive={setMenuIconIsActive}
       />
 
-      <AnimatePresence mode="wait">{showBtn && <Nav />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {menuIconIsActive && <Nav />}
+      </AnimatePresence>
     </>
   );
 };
@@ -211,15 +217,12 @@ const HamburgerMenuBtn = forwardRef<
       className="interactable fixed right-0 z-20 scale-0"
     >
       <RoundedButton
-        backgroundColor="#dddddd"
-        onClick={() => {
-          setIsActive((prev) => !prev);
-        }}
-        className="relative m-[20px] flex h-[65px] w-[65px] cursor-pointer items-center justify-center rounded-[50%] bg-light sm:h-[80px] sm:w-[80px]"
+        onClick={() => setIsActive((prev) => !prev)}
+        className="relative m-[20px] flex h-[65px] w-[65px] cursor-pointer items-center justify-center rounded-[50%] sm:h-[80px] sm:w-[80px]"
       >
         <div
           className={cn(
-            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[30%] before:bg-dark before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[30%] after:bg-dark after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
+            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[30%] before:bg-light before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[30%] after:bg-light after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
             {
               'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
                 isActive,

@@ -15,6 +15,6 @@ const Page: React.FC<PageProps> = ({ children, pageName }) => {
     setPageName(pageName);
   }, []);
 
-  return <main>{children}</main>;
+  return <div>{children}</div>;
 };
 export default Page;

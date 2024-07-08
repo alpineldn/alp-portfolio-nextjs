@@ -1,5 +1,11 @@
 'use client';
 
+import RoundedButton from '@/components/common/ui/RoundedButton';
+import { useStore } from '@/store/store';
+import cn from '@/utils/cn';
+import { AnimatePresence, motion } from 'framer-motion';
+import gsap from 'gsap';
+import { usePathname } from 'next/navigation';
 import {
   forwardRef,
   useEffect,
@@ -7,15 +13,8 @@ import {
   useRef,
   useState,
 } from 'react';
-import { usePathname } from 'next/navigation';
-import { AnimatePresence } from 'framer-motion';
-import Nav from './nav';
-import gsap from 'gsap';
-import RoundedButton from '@/components/common/ui/RoundedButton';
-import cn from '@/utils/cn';
 import PageTransitionLink from '../common/ui/PageTransitionLink';
-import { useStore } from '@/store/store';
-import { motion } from 'framer-motion';
+import Nav from './nav';
 
 interface HeaderProps {}
 
@@ -218,7 +217,7 @@ const HamburgerMenuBtn = forwardRef<
     >
       <RoundedButton
         onClick={() => setIsActive((prev) => !prev)}
-        className="relative m-[20px] flex h-[65px] w-[65px] cursor-pointer items-center justify-center rounded-[50%] sm:h-[80px] sm:w-[80px]"
+        className="relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] sm:m-[20px]"
       >
         <div
           className={cn(

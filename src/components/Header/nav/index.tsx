@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation';
 import { menuSlide } from '../animation';
 import LinkEl from './Link';
 import Footer from './Footer';
+import UnderlineLink from '@/components/common/ui/UnderlineLink';
+import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 
 const navItems = [
   {
@@ -45,9 +47,9 @@ const Nav: React.FC<NavProps> = () => {
           }}
           className="flex flex-col pt-24 text-[56px] sm:pt-[40px]"
         >
-          <div className="body-3 border-b border-b-[rgb(153,153,153)] pb-10 uppercase text-[rgb(153,153,153)] sm:pb-[40px]">
+          {/* <div className="body-3 border-b border-b-[rgb(153,153,153)] pb-10 uppercase text-[rgb(153,153,153)] sm:pb-[40px]">
             <p>Navigation</p>
-          </div>
+          </div> */}
           <ul className="space-y-6 pt-10">
             {navItems.map((data, index) => {
               return (
@@ -61,7 +63,25 @@ const Nav: React.FC<NavProps> = () => {
             })}
           </ul>
         </div>
-        <Footer />
+        <div className="flex flex-col justify-between sm:flex-row sm:items-center">
+          <UnderlineLink
+            className="h4 interactable"
+            href="mailto:info@dennissnellenberg.com"
+          >
+            info@dennissnellenberg.com
+          </UnderlineLink>
+
+          <div>
+            <PageTransitionLink
+              className="underline_link interactable"
+              href="/privacy-policy"
+            >
+              Privacy Policy
+            </PageTransitionLink>
+          </div>
+        </div>
+
+        {/* <Footer /> */}
       </div>
     </motion.div>
   );

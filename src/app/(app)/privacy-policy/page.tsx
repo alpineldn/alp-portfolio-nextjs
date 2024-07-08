@@ -1,3 +1,4 @@
+import Page from '@/components/common/Page';
 import Contact from '@/components/Contact';
 import PrivacyPolicy from '@/components/privacy-policy/PrivacyPolicy';
 import { SITE_URL } from '@/utils/constants';
@@ -17,10 +18,12 @@ export const metadata = generateMeta({
 
 const PrivacyPolicyPage: React.FC<{}> = () => {
   return (
-    <main className="min-h-dark bg-black pt-32">
-      <PrivacyPolicy />
-      <Contact />
-    </main>
+    <Page pageName="Privacy Policy">
+      <div className="min-h-dark bg-black pt-32">
+        <PrivacyPolicy />
+        <Contact />
+      </div>
+    </Page>
   );
 };
 

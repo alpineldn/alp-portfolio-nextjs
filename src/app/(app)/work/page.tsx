@@ -1,15 +1,15 @@
+import Contact from '@/components/Contact';
+import Page from '@/components/common/Page';
 import Hero from '@/components/work-page/Hero';
 import Projects from '@/components/work-page/Projects';
+import { SITE_URL } from '@/utils/constants';
+import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';
 import { META_QUERY, WORK_QUERY } from '@/utils/sanity/queries';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import type { Slug } from 'sanity';
-import Contact from '@/components/Contact';
-import Page from '@/components/common/Page';
-import generateMeta from '@/utils/generate-meta';
-import { Meta } from '../page';
-import { SITE_URL } from '@/utils/constants';
 import { Metadata } from 'next';
+import type { Slug } from 'sanity';
+import { Meta } from '../page';
 
 export interface Category {
   _id: string;

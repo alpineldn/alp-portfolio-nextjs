@@ -2,8 +2,8 @@
 
 import { useStore } from '@/store/store';
 import { animatePageIn, logo_animation } from '@/utils/animations';
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const { pageName, firstVisit, setFirstVisit } = useStore((state) => state);

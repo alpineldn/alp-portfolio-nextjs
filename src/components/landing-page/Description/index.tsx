@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { slideUp, opacity } from './animation';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
+import ArrowIcon from '@/components/common/icons/ArrowIcon';
 
 interface DescriptionProps {}
 
@@ -55,7 +56,10 @@ const Description: React.FC<DescriptionProps> = () => {
             className="mt-12 block w-fit lg:mt-32"
             href="/about"
           >
-            <MarqueeText innerClassName="">About Us ↗</MarqueeText>
+            <MarqueeText>
+              About Us
+              <ArrowIcon className="size-4 text-white" />
+            </MarqueeText>
           </PageTransitionLink>
         </motion.div>
       </div>

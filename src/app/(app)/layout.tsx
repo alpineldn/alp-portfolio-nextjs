@@ -1,9 +1,9 @@
-import Header from '@/components/Header';
-import './globals.css';
-import localFont from '@next/font/local';
-import cn from '@/utils/cn';
 import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
+import Header from '@/components/Header';
 import MouseTrailer from '@/components/mouse-trailer/MouseTrailer';
+import cn from '@/utils/cn';
+import localFont from '@next/font/local';
+import './globals.css';
 
 interface RootLayoutProps {
   children: React.ReactNode;

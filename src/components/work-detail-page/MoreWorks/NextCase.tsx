@@ -1,14 +1,12 @@
 import SanityImage from '@/components/common/SanityImage/SanityImage';
-import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Slug } from 'sanity';
-import gsap from 'gsap';
-import { motion } from 'framer-motion';
-import { scaleAnimation } from '../../common/anim';
-import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
-import ArrowIcon from '@/components/common/icons/ArrowIcon';
 import MarqueeText from '@/components/common/ui/MarqueeText';
+import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import { SanityImageObject } from '@sanity/image-url/lib/types/types';
+import { motion } from 'framer-motion';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLayoutEffect, useRef } from 'react';
+import { Slug } from 'sanity';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface NextCaseProps {
@@ -22,48 +20,6 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
   const backdropRef = useRef<HTMLDivElement>(null);
   const header1Ref = useRef<HTMLHeadingElement>(null);
   const header2Ref = useRef<HTMLHeadingElement>(null);
-
-  // const cursor = useRef(null);
-  // const cursorLabel = useRef(null);
-  // const [active, setActive] = useState(false);
-
-  // let xMoveCursor = useRef<MoveRef>(null);
-  // let yMoveCursor = useRef<MoveRef>(null);
-  // let xMoveCursorLabel = useRef<MoveRef>(null);
-  // let yMoveCursorLabel = useRef<MoveRef>(null);
-
-  // useEffect(() => {
-  //   //Move cursor
-  //   xMoveCursor.current = gsap.quickTo(cursor.current, 'left', {
-  //     duration: 0.5,
-  //     ease: 'power3',
-  //   });
-  //   yMoveCursor.current = gsap.quickTo(cursor.current, 'top', {
-  //     duration: 0.5,
-  //     ease: 'power3',
-  //   });
-  //   //Move cursor label
-  //   xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, 'left', {
-  //     duration: 0.45,
-  //     ease: 'power3',
-  //   });
-  //   yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, 'top', {
-  //     duration: 0.45,
-  //     ease: 'power3',
-  //   });
-  // }, []);
-
-  // const moveItems = (x: number, y: number) => {
-  //   !!xMoveCursor?.current && xMoveCursor.current(x);
-  //   !!yMoveCursor?.current && yMoveCursor.current(y);
-  //   !!xMoveCursorLabel?.current && xMoveCursorLabel.current(x);
-  //   !!yMoveCursorLabel?.current && yMoveCursorLabel.current(y);
-  // };
-
-  // const manageModal = (active: boolean, x: number, y: number) => {
-  //   moveItems(x, y);
-  //   setActive(active);
-  // };
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

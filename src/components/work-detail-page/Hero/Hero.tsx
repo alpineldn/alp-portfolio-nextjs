@@ -1,18 +1,16 @@
 'use client';
 
 import { Category } from '@/app/(app)/work/page';
-import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import { Slug } from 'sanity';
-import SanityImage from '../../common/SanityImage/SanityImage';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { useLayoutEffect, useRef } from 'react';
-import SplitType from 'split-type';
-import gsap from 'gsap';
-import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
-import MarqueeText from '@/components/common/ui/MarqueeText';
-import Link from 'next/link';
 import { useStore } from '@/store/store';
+import { SanityImageObject } from '@sanity/image-url/lib/types/types';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
+import { useLayoutEffect, useRef } from 'react';
+import { Slug } from 'sanity';
+import SplitType from 'split-type';
+import SanityImage from '../../common/SanityImage/SanityImage';
 
 interface HeroProps {
   title: string;

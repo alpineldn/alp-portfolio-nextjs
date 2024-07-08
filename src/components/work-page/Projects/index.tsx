@@ -1,10 +1,12 @@
 'use client';
+
 import type { Project } from '@/app/(app)/work/page';
+import ArrowIcon from '@/components/common/icons/ArrowIcon';
 import GridLayout from '@/components/common/project-layouts/GridLayout/GridLayout';
+import MarqueeText from '@/components/common/ui/MarqueeText';
+import { useStore } from '@/store/store';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { useStore } from '@/store/store';
-import MarqueeText from '@/components/common/ui/MarqueeText';
 
 interface ProjectsProps {
   projects: Project[];
@@ -55,7 +57,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               onClick={fetchAllWorks}
             >
               <MarqueeText innerClassName="w-[calc(100%-120px)]">
-                More Work ↗
+                More Work
+                <ArrowIcon className="size-4 text-white" />
               </MarqueeText>
             </button>
           </div>

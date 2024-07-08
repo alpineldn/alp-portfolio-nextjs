@@ -1,15 +1,15 @@
+import Page from '@/components/common/Page';
 import Contact from '@/components/Contact';
 import Description from '@/components/landing-page/Description';
 import Hero from '@/components/landing-page/Hero';
 import Projects from '@/components/landing-page/Projects';
+import { SITE_URL } from '@/utils/constants';
+import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';
 import { META_QUERY, WORK_QUERY } from '@/utils/sanity/queries';
-import type { Project } from './work/page';
-import Page from '@/components/common/Page';
-import generateMeta from '@/utils/generate-meta';
 import { Metadata } from 'next';
 import { Slug } from 'sanity';
-import { SITE_URL } from '@/utils/constants';
+import type { Project } from './work/page';
 
 interface HomeProps {}
 

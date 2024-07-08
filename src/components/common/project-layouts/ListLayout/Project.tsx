@@ -1,5 +1,4 @@
 import { Project as ProjectTypes } from '@/app/(app)/work/page';
-import Link from 'next/link';
 import React from 'react';
 import PageTransitionLink from '../../ui/PageTransitionLink';
 import cn from '@/utils/cn';

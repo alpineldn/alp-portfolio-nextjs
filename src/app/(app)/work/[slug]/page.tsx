@@ -1,16 +1,16 @@
+import Page from '@/components/common/Page';
+import Hero from '@/components/work-detail-page/Hero/Hero';
+import Images from '@/components/work-detail-page/Images/Images';
+import MoreWorks from '@/components/work-detail-page/MoreWorks/MoreWorks';
+import { SITE_URL } from '@/utils/constants';
+import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';
 import { WORK_SLUGS_QUERY } from '@/utils/sanity/queries';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import { Project } from '../page';
-import Hero from '@/components/work-detail-page/Hero/Hero';
 import { PortableTextBlock } from 'next-sanity';
-import { Slug } from 'sanity';
 import { notFound } from 'next/navigation';
-import Images from '@/components/work-detail-page/Images/Images';
-import MoreWorks from '@/components/work-detail-page/MoreWorks/MoreWorks';
-import Page from '@/components/common/Page';
-import generateMeta from '@/utils/generate-meta';
-import { SITE_URL } from '@/utils/constants';
+import { Slug } from 'sanity';
+import { Project } from '../page';
 
 interface WorkDetailProps {
   params: { slug: string };

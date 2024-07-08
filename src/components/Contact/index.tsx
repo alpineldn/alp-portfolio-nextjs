@@ -26,45 +26,42 @@ const Contact: React.FC<ContactProps> = () => {
 
       const tl = gsap.timeline({
         defaults: {
-          ease: 'power3.inOut',
+          duration: 1,
+          ease: 'power4.inOut',
         },
       });
 
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: '20% bottom',
+        start: '25% bottom',
         onEnter: () => {
           tl.to(heroText1Ref.current, {
             y: 0,
             opacity: 1,
-            duration: 0.5,
           })
             .to(
               heroText2Ref.current,
               {
                 y: 0,
                 opacity: 1,
-                duration: 0.5,
               },
-              '-=0.25',
+              '-=0.6',
             )
             .to(
               emailEl,
               {
                 y: 0,
                 opacity: 1,
-                duration: 0.5,
               },
-              '-=0.25',
+              '-=0.6',
             )
             .to(
               infoEl,
               {
                 y: 0,
                 opacity: 1,
-                duration: 0.5,
               },
-              '-=0.25',
+              '-=0.6',
             );
         },
       });

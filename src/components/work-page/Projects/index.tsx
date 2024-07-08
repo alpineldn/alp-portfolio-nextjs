@@ -80,7 +80,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </AnimatePresence>
         {!hideMoreWorkBtn && (
           <div className="flex items-center pb-10">
-            <button onClick={fetchAllWorks}>
+            <button
+              className="interactable"
+              data-type="click"
+              onClick={fetchAllWorks}
+            >
               <MarqueeText innerClassName="w-[calc(100%-120px)]">
                 More Work ↗
               </MarqueeText>

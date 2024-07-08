@@ -205,12 +205,13 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
               PREVIEW URL
             </div>
 
-            <PageTransitionLink
-              className="body-2 block pt-4 lg:pt-8"
+            <Link
+              data-type="link"
+              className="body-2 interactable block pt-4 lg:pt-8"
               href={previewURL.current}
             >
               {previewURL.current}
-            </PageTransitionLink>
+            </Link>
           </li>
         )}
       </ul>

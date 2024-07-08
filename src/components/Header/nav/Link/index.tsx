@@ -35,7 +35,7 @@ const LinkEl: React.FC<LinkProps> = ({
     >
       <PageTransitionLink
         className={cn(
-          'underline_link',
+          'underline_link interactable',
           'text-5xl lg:text-6xl lg:!leading-snug',
         )}
         href={href}

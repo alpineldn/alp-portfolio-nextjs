@@ -205,7 +205,11 @@ const HamburgerMenuBtn = forwardRef<
   }
 >(({ setIsActive, isActive }, ref) => {
   return (
-    <div ref={ref} className="fixed right-0 z-20 scale-0">
+    <div
+      data-type="click"
+      ref={ref}
+      className="interactable fixed right-0 z-20 scale-0"
+    >
       <RoundedButton
         backgroundColor="#dddddd"
         onClick={() => {

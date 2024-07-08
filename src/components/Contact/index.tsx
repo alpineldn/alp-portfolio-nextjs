@@ -40,7 +40,7 @@ const CTAs = () => {
   return (
     <div className="mt-[120px] flex gap-5 max-lg:flex max-lg:flex-col md:mt-[100px]">
       <UnderlineLink
-        className="h4 after:bg-dark hover:before:bg-dark"
+        className="h4 interactable after:bg-dark hover:before:bg-dark"
         href="mailto:info@dennissnellenberg.com"
       >
         info@dennissnellenberg.com

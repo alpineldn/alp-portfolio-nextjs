@@ -55,12 +55,8 @@ const Home: React.FC<HomeProps> = async () => {
     <Page pageName="Home">
       <Hero />
       <Description />
-      {!!projects?.length && (
-        <>
-          <Projects projects={projects} />
-          {/* <SlidingImages projects={projects} /> */}
-        </>
-      )}
+      {!!projects?.length && <Projects projects={projects} />}
+      {/* <SlidingImages projects={projects} /> */}
       <Contact />
     </Page>
   );

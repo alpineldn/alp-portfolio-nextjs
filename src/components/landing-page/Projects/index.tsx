@@ -71,10 +71,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="relative z-[1] flex flex-col items-center bg-dark py-[200px] text-light lg:pt-[300px]"
+      className="relative z-[1] bg-dark py-[200px] text-light lg:pt-[300px]"
     >
-      <>
-        <table className="container w-full table-auto pb-[100px] max-lg:hidden">
+      <div className="container mx-auto">
+        <table className="w-full table-auto pb-[100px] max-lg:hidden">
           <tbody>
             {projects.map((project, index) => {
               return (
@@ -89,22 +89,22 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           </tbody>
         </table>
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-20 px-5 sm:px-10 md:grid-cols-2 lg:hidden">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2 lg:hidden">
           {projects.slice(0, 4).map((project, index) => {
             return <ProjectCard {...project} key={project._id} index={index} />;
           })}
         </div>
-      </>
 
-      <div className="container mx-auto flex">
-        <PageTransitionLink
-          className="mt-20 block md:mt-52 lg:mt-20"
-          href="/work"
-        >
-          <MarqueeText innerClassName="w-[calc(100%-120px)]">
-            More Work ↗
-          </MarqueeText>
-        </PageTransitionLink>
+        <div className="flex">
+          <PageTransitionLink
+            className="mt-20 block md:mt-52 lg:mt-20"
+            href="/work"
+          >
+            <MarqueeText innerClassName="w-[calc(100%-120px)]">
+              More Work ↗
+            </MarqueeText>
+          </PageTransitionLink>
+        </div>
       </div>
 
       <>

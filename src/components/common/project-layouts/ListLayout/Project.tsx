@@ -32,7 +32,7 @@ const ProjectList: React.FC<ProjectProps> = ({
         <PageTransitionLink
           className={cn(
             'h3',
-            'block py-7 pl-5 font-normal transition-all duration-[0.4s] group-hover:translate-x-[-10px] sm:pl-10 2xl:py-[50px] 2xl:pl-[100px]',
+            'block py-7 font-normal transition-all duration-[0.4s] 2xl:py-[50px]',
           )}
           href={`work/${slug.current}`}
         >
@@ -41,7 +41,7 @@ const ProjectList: React.FC<ProjectProps> = ({
       </td>
       <td>
         <PageTransitionLink
-          className="body-2 block py-7 pr-5 transition-all duration-300 group-hover:translate-x-[10px] sm:pr-10 2xl:py-[50px] 2xl:pr-[100px]"
+          className="body-2 block py-7 pr-5 transition-all duration-300 sm:pr-10 2xl:py-[50px] 2xl:pr-[100px]"
           href={`work/${slug.current}`}
         >
           {client}
@@ -49,7 +49,7 @@ const ProjectList: React.FC<ProjectProps> = ({
       </td>
       <td>
         <PageTransitionLink
-          className="body-2 block py-7 transition-all duration-300 group-hover:translate-x-[10px] 2xl:py-[50px]"
+          className="body-2 block py-7 transition-all duration-300 2xl:py-[50px]"
           href={`work/${slug.current}`}
         >
           {categories.map((category, index) => (

@@ -10,6 +10,7 @@ import { META_QUERY, WORK_QUERY } from '@/utils/sanity/queries';
 import { Metadata } from 'next';
 import { Slug } from 'sanity';
 import type { Project } from './work/page';
+import Clients from '@/components/pages/landing/clients/Clients';
 
 interface HomeProps {}
 
@@ -57,6 +58,7 @@ const Home: React.FC<HomeProps> = async () => {
       <Description />
       {!!projects?.length && <Projects projects={projects} />}
       {/* <SlidingImages projects={projects} /> */}
+      <Clients />
       <Contact />
     </Page>
   );

@@ -72,7 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="relative z-[1] bg-dark py-[200px] text-light lg:pt-[300px]"
+      className="relative z-[1] bg-dark py-[120px] text-light lg:pt-[300px]"
     >
       <div className="container mx-auto">
         <table className="w-full table-auto pb-[100px] max-lg:hidden">

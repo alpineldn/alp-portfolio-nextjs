@@ -187,7 +187,9 @@ const NavLinks: React.FC<{
               'after:bg-white hover:before:bg-white',
             )}
           >
-            <PageTransitionLink href={href}>{title}</PageTransitionLink>
+            <PageTransitionLink className="interactable" href={href}>
+              {title}
+            </PageTransitionLink>
           </div>
         ))}
       </div>

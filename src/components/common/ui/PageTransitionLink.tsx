@@ -41,6 +41,7 @@ const PageTransitionLink = ({
     <Link
       id={id}
       href={href}
+      data-type="link"
       onMouseEnter={onMouseEnter}
       className={className}
       onMouseLeave={onMouseLeave}

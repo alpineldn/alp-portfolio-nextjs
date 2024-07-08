@@ -4,6 +4,7 @@ import localFont from '@next/font/local';
 import cn from '@/utils/cn';
 import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
 import { Metadata } from 'next';
+import MouseTrailer from '@/components/mouse-trailer/MouseTrailer';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -37,6 +38,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
 
       <body className={cn(ppNeueMontreal.variable, 'font-ppneuemontreal')}>
         <SmoothScroll>
+          <MouseTrailer />
           <Header />
           {children}
         </SmoothScroll>

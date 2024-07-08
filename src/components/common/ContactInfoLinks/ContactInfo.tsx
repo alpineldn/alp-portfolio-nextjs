@@ -1,11 +1,20 @@
-import Link from 'next/link';
+import cn from '@/utils/cn';
 import PageTransitionLink from '../ui/PageTransitionLink';
 
-interface ContactInfoProps {}
+interface ContactInfoProps  {
+  id?: string;
+  className?: string;
+}
 
-const ContactInfo: React.FC<ContactInfoProps> = ({}) => {
+const ContactInfo: React.FC<ContactInfoProps> = ({id,className}) => {
   return (
-    <div className="mt-[80px] flex flex-col-reverse justify-between p-5 md:flex-row lg:mt-[200px]">
+    <div
+      id={id}
+      className={cn(
+        'mt-[80px] flex flex-col-reverse justify-between p-5 md:flex-row lg:mt-[200px]',
+        className,
+      )}
+    >
       <div className="flex items-end gap-2.5 max-md:justify-between max-md:pt-8">
         <span className="flex flex-col gap-[15px]">
           {/* <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">

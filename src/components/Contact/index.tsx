@@ -1,34 +1,103 @@
 'use client';
-import { useRef } from 'react';
-import { useScroll, motion, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ContactInfo from '../common/ContactInfoLinks/ContactInfo';
 import UnderlineLink from '../common/ui/UnderlineLink';
+import { useLayoutEffect, useRef } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 
 interface ContactProps {}
+
 const Contact: React.FC<ContactProps> = () => {
-  const container = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'end end'],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const heroText1Ref = useRef<HTMLHeadingElement>(null);
+  const heroText2Ref = useRef<HTMLHeadingElement>(null);
+
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      if (!containerRef?.current) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const emailEl =
+        containerRef.current.querySelector<HTMLDivElement>('#contact-cta');
+      const infoEl =
+        containerRef.current.querySelector<HTMLDivElement>('#info');
+
+      const tl = gsap.timeline({
+        defaults: {
+          ease: 'power3.inOut',
+        },
+      });
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: '20% bottom',
+        onEnter: () => {
+          tl.to(heroText1Ref.current, {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+          })
+            .to(
+              heroText2Ref.current,
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+              },
+              '-=0.25',
+            )
+            .to(
+              emailEl,
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+              },
+              '-=0.25',
+            )
+            .to(
+              infoEl,
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+              },
+              '-=0.25',
+            );
+        },
+      });
+    });
+
+    return () => context.revert();
+  }, [containerRef]);
 
   return (
     <motion.section
-      style={{ y }}
-      ref={container}
-      className="relative flex flex-col items-center justify-center bg-light text-dark"
+      ref={containerRef}
+      className="relative flex flex-col items-center justify-center overflow-hidden bg-light text-dark"
     >
-      <div className="container w-full bg-light pt-[400px] sm:pt-[200px]">
+      <div className="container w-full bg-light pt-[100px]">
         <div className="relative border-b border-solid border-b-[rgb(134,134,134)]/50 pb-[100px]">
           <span className="flex items-center">
-            <h2 className="h2 m-0 leading-tight">Let's work</h2>
+            <h2
+              ref={heroText1Ref}
+              className="h2 m-0 translate-y-[25px] leading-tight opacity-0"
+            >
+              Let's work
+            </h2>
           </span>
-          <h2 className="h2 m-0 leading-tight">together</h2>
+          <h2
+            ref={heroText2Ref}
+            className="h2 m-0 translate-y-[25px] leading-tight opacity-0"
+          >
+            together
+          </h2>
         </div>
 
         <CTAs />
-        <ContactInfo />
+        <ContactInfo id="info" className="translate-y-[25px] opacity-0" />
       </div>
     </motion.section>
   );
@@ -38,7 +107,10 @@ export default Contact;
 
 const CTAs = () => {
   return (
-    <div className="mt-[120px] flex gap-5 max-lg:flex max-lg:flex-col md:mt-[100px]">
+    <div
+      id="contact-cta"
+      className="mt-[120px] flex translate-y-[25px] gap-5 opacity-0 max-lg:flex max-lg:flex-col md:mt-[100px]"
+    >
       <UnderlineLink
         className="h4 interactable after:bg-dark hover:before:bg-dark"
         href="mailto:info@dennissnellenberg.com"

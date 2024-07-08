@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { menuSlide } from '../animation';
-import LinkEl from './Link';
-import Footer from './Footer';
+import LinkEl from './link';
+import Footer from './footer';
 import UnderlineLink from '@/components/common/ui/UnderlineLink';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 

@@ -1,4 +1,4 @@
-import SanityImage from '@/components/common/SanityImage/SanityImage';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';

@@ -1,5 +1,5 @@
-import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
-import Header from '@/components/Header';
+import SmoothScroll from '@/components/common/smooth-scrool/SmoothScroll';
+import Header from '@/components/header';
 import MouseTrailer from '@/components/mouse-trailer/MouseTrailer';
 import cn from '@/utils/cn';
 import localFont from '@next/font/local';

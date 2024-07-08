@@ -1,5 +1,5 @@
 import { Project as ProjectType } from '@/app/(app)/work/page';
-import SanityImage from '@/components/common/SanityImage/SanityImage';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
 import PageTransitionLink from '../../ui/PageTransitionLink';
 import { motion } from 'framer-motion';
 import { fadeInAndSlideUp } from '../../anim';

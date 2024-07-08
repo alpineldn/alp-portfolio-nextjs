@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { Project } from '@/app/(app)/work/page';
-import SanityImage from '@/components/common/SanityImage/SanityImage';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
 import { getRandomColor } from '@/utils/create-random-color';
 
 interface SlidingImagesProps {

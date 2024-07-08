@@ -1,4 +1,4 @@
-import RoundedButton from '@/components/common/ui/RoundedButton';
+import RoundedButton from '@/components/common/ui/rounded-button';
 import ListIcon from './icons/ListIcon';
 import GridIcon from './icons/GridIcon';
 import cn from '@/utils/cn';
@@ -22,7 +22,7 @@ const ProjectLayoutControl: React.FC<ViewControlProps> = ({
         onClick={() => setViewMode('list')}
         className={cn(
           'group relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] group-hover:!text-dark',
-          listViewActive ? '!bg-light text-dark' : 'text-light border',
+          listViewActive ? '!bg-light text-dark' : 'border text-light',
         )}
       >
         <ListIcon className="relative z-10 transition-colors delay-150 group-hover:text-dark" />
@@ -32,7 +32,7 @@ const ProjectLayoutControl: React.FC<ViewControlProps> = ({
         backgroundColor={gridViewActive ? '#fff' : '#f5f5f5'}
         className={cn(
           'group relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] border text-black group-hover:!text-dark',
-          gridViewActive ? '!bg-light text-dark' : 'text-light border',
+          gridViewActive ? '!bg-light text-dark' : 'border text-light',
         )}
       >
         <GridIcon className="relative z-10 transition-colors delay-150 group-hover:text-dark" />

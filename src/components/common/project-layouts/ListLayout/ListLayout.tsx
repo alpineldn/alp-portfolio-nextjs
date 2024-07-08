@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import ProjectList from './Project';
 import { Project as ProjectType } from '@/app/(app)/work/page';
-import SanityImage from '@/components/common/SanityImage/SanityImage';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
 import { fadeInAndSlideUp, scaleAnimation } from '@/components/common/anim';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import ArrowIcon from '../../icons/ArrowIcon';

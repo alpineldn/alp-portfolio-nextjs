@@ -1,7 +1,7 @@
 import Page from '@/components/common/Page';
-import Hero from '@/components/work-detail-page/Hero/Hero';
-import Images from '@/components/work-detail-page/Images/Images';
-import MoreWorks from '@/components/work-detail-page/MoreWorks/MoreWorks';
+import Hero from '@/components/pages/work-detail/hero/Hero';
+import Images from '@/components/pages/work-detail/images/Images';
+import MoreWorks from '@/components/pages/work-detail/more-works/MoreWorks';
 import { SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';

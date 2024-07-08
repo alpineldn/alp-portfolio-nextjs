@@ -1,6 +1,6 @@
 'use client';
 
-import RoundedButton from '@/components/common/ui/RoundedButton';
+import RoundedButton from '@/components/common/ui/rounded-button';
 import { useStore } from '@/store/store';
 import cn from '@/utils/cn';
 import { AnimatePresence, motion } from 'framer-motion';

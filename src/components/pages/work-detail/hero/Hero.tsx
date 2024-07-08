@@ -1,6 +1,7 @@
 'use client';
 
 import { Category } from '@/app/(app)/work/page';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { useStore } from '@/store/store';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
@@ -10,7 +11,6 @@ import Link from 'next/link';
 import { useLayoutEffect, useRef } from 'react';
 import { Slug } from 'sanity';
 import SplitType from 'split-type';
-import SanityImage from '../../common/SanityImage/SanityImage';
 
 interface HeroProps {
   title: string;

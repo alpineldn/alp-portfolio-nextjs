@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { Project as ProjectType } from '@/app/(app)/work/page';
-import SanityImage from '@/components/common/SanityImage/SanityImage';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
 import { scaleAnimation } from '@/components/common/anim';
 import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
 import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProject';

@@ -1,6 +1,6 @@
 import Page from '@/components/common/Page';
-import Contact from '@/components/Contact';
-import PrivacyPolicy from '@/components/privacy-policy/PrivacyPolicy';
+import Contact from '@/components/contact';
+import PrivacyPolicy from '@/components/pages/privacy-policy/PrivacyPolicy';
 import { SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 

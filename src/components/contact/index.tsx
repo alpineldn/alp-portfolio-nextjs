@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import ContactInfo from '../common/ContactInfoLinks/ContactInfo';
+import ContactInfo from '../common/contact-info-links/ContactInfo';
 import UnderlineLink from '../common/ui/UnderlineLink';
 import { useLayoutEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

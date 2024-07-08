@@ -1,6 +1,6 @@
 'use client';
 
-import SanityImage from '@/components/common/SanityImage/SanityImage';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 
 interface ImagesProps {

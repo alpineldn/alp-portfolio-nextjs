@@ -2,15 +2,8 @@
 import type { Project } from '@/app/(app)/work/page';
 import GridLayout from '@/components/common/project-layouts/GridLayout/GridLayout';
 import ListLayout from '@/components/common/project-layouts/ListLayout/ListLayout';
-import { useWindowSize } from '@/hooks/useWindowSize';
-import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useTransform,
-} from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import ProjectLayoutControl from './components/ProjectLayoutControl';
 import { useStore } from '@/store/store';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 
@@ -19,12 +12,10 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-  const { width = 0 } = useWindowSize();
   const { firstVisit } = useStore((store) => store);
   const [hideMoreWorkBtn, setHideMoreWorkBtn] = useState(false);
   const [allProjects, setAllProjects] = useState(projects);
   const [loading, setLoading] = useState(false);
-  const [viewMode, setViewMode] = useState<'list' | 'grid'>('grid');
 
   const fetchAllWorks = async () => {
     if (loading) return;
@@ -45,18 +36,6 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     }
   };
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [viewMode]);
-
-  useEffect(() => {
-    if (!width) return;
-
-    if (width <= 1024) {
-      setViewMode('grid');
-    }
-  }, [width]);
-
   return (
     <motion.section className="relative z-[1] bg-dark pb-[100px]">
       <motion.div
@@ -67,11 +46,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         }}
         className="mx-auto max-w-[1536px] space-y-20 px-5 pt-[37px] sm:px-10"
       >
-        <ProjectLayoutControl viewMode={viewMode} setViewMode={setViewMode} />
-        <AnimatePresence mode="wait">
-          {viewMode === 'list' && <ListLayout projects={allProjects} />}
-          {viewMode === 'grid' && <GridLayout projects={allProjects} />}
-        </AnimatePresence>
+        <GridLayout className="pt-12 md:pt-32" projects={allProjects} />
+
         {!hideMoreWorkBtn && (
           <div className="flex items-center pb-10">
             <button

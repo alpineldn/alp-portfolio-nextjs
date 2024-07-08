@@ -3,16 +3,11 @@ import './globals.css';
 import localFont from '@next/font/local';
 import cn from '@/utils/cn';
 import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
-import { Metadata } from 'next';
 import MouseTrailer from '@/components/mouse-trailer/MouseTrailer';
 
 interface RootLayoutProps {
   children: React.ReactNode;
 }
-
-// export const metadata: Metadata = {
-//   icons: {},
-// };
 
 const ppNeueMontreal = localFont({
   src: [
@@ -32,10 +27,6 @@ const ppNeueMontreal = localFont({
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      {/* <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon" />
-      </head> */}
-
       <body className={cn(ppNeueMontreal.variable, 'font-ppneuemontreal')}>
         <SmoothScroll>
           <MouseTrailer />

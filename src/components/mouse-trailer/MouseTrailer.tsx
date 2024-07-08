@@ -47,6 +47,8 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
     });
 
     const windowMouseMoveAction = (e: MouseEvent) => {
+      if (window.innerWidth <= 640) return;
+
       if (trailerRef.current && trailerIconRef.current) {
         const target = e.target as HTMLElement;
         const interactable = target.closest('.interactable');
@@ -94,7 +96,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
   }, [mode, trailerRef, trailerIconRef]);
 
   return (
-    <div>
+    <div className="hidden sm:block">
       <div
         ref={trailerRef}
         id="trailer"

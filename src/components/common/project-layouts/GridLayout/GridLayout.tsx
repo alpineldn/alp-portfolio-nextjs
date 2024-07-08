@@ -14,9 +14,10 @@ interface Model {
 }
 interface GridViewProps {
   projects: ProjectType[];
+  className?: string;
 }
 
-const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
+const GridLayout: React.FC<GridViewProps> = ({ projects, className }) => {
   const { width = 0 } = useWindowSize();
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
@@ -75,6 +76,7 @@ const GridLayout: React.FC<GridViewProps> = ({ projects }) => {
 
   return (
     <motion.section
+      className={className}
       variants={fadeInAndSlideUp}
       initial="initial"
       animate="enter"

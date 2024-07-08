@@ -1,11 +1,26 @@
+'use client';
+
+import { useStore } from '@/store/store';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 interface PrivacyPolicyProps {}
 
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
+  const { setShowMenuButton } = useStore((store) => store);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY >= 150) setShowMenuButton(true);
+      else setShowMenuButton(false);
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="prose-invert prose mx-auto max-w-screen-xl px-5">
+    <div className="prose-invert prose mx-auto max-w-screen-xl px-5 pb-[100px]">
       <div>
         <Image
           className="aspect-video max-h-[500px] rounded-lg object-cover"

@@ -19,7 +19,7 @@ const PrivacyPolicyPage: React.FC<{}> = () => {
   return (
     <main className="min-h-dark bg-black pt-32">
       <PrivacyPolicy />
-      {/* <Contact /> */}
+      <Contact />
     </main>
   );
 };

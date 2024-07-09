@@ -32,7 +32,7 @@ const MarqueeText: React.FC<MarqueeProps> = ({
 
   useEffect(() => {
     const marqueeAnimation = gsap.to(marqueeRef.current, {
-      xPercent: -100,
+      xPercent: -99,
       repeat: -1,
       duration: 2,
       ease: 'linear',

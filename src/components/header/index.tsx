@@ -27,10 +27,10 @@ const navItems = [
     title: 'About',
     href: '/about',
   },
-  {
-    title: 'Contact',
-    href: '/contact',
-  },
+  // {
+  //   title: 'Contact',
+  //   href: '/contact',
+  // },
 ];
 
 const Header: React.FC<HeaderProps> = ({}) => {

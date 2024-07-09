@@ -13,12 +13,26 @@ const MarqueeText: React.FC<MarqueeProps> = ({
   className,
   innerClassName,
 }) => {
-  const marqueeRef = useRef(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+    function setSize() {
+      if (!contentRef?.current || !marqueeRef?.current) return;
+
+      const contentWidth = contentRef.current.getBoundingClientRect().width;
+      marqueeRef.current.style.width = `${contentWidth}px`;
+    }
+
+    setSize();
+    window.addEventListener('resize', setSize);
+    return () => window.removeEventListener('resize', setSize);
+  }, [marqueeRef, contentRef]);
+
+  useEffect(() => {
     const marqueeAnimation = gsap.to(marqueeRef.current, {
-      xPercent: -50,
+      xPercent: -100,
       repeat: -1,
       duration: 2,
       ease: 'linear',
@@ -47,22 +61,22 @@ const MarqueeText: React.FC<MarqueeProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <span className="pr-2">[</span>
+      <span className="flex-shrink-0">[</span>
       <div className={cn('w-min overflow-hidden', innerClassName)}>
-        <div ref={marqueeRef} className="marquee flex h-full w-[200%]">
-          <div className="flex h-full flex-1">
-            <div className="link-1 flex flex-1 items-center justify-center gap-x-2 text-center tracking-wider">
+        <div ref={marqueeRef} className="marquee flex h-full">
+          <div ref={contentRef} className="flex h-full w-full flex-1">
+            <div className="link-1 flex flex-1 items-center justify-center gap-x-2 whitespace-nowrap pl-3 pr-1.5 text-center tracking-wider">
               {children}
             </div>
           </div>
           <div className="flex h-full flex-1">
-            <div className="link-1 flex flex-1 items-center justify-center gap-x-2 text-center tracking-wider">
+            <div className="link-1 flex flex-1 items-center justify-center gap-x-2 whitespace-nowrap pl-1.5 pr-3 text-center tracking-wider">
               {children}
             </div>
           </div>
         </div>
       </div>
-      <span className="pl-2">]</span>
+      <span className="flex-shrink-0">]</span>
     </div>
   );
 };

@@ -101,7 +101,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             className="mt-20 block md:mt-52 lg:mt-20"
             href="/work"
           >
-            <MarqueeText innerClassName="w-[calc(100%-120px)]">
+            <MarqueeText>
               More Work
               <ArrowIcon className="size-4 text-white" />
             </MarqueeText>

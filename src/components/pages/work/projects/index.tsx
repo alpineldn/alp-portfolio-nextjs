@@ -56,7 +56,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               data-type="click"
               onClick={fetchAllWorks}
             >
-              <MarqueeText innerClassName="w-[calc(100%-120px)]">
+              <MarqueeText>
                 More Work
                 <ArrowIcon className="size-4 text-white" />
               </MarqueeText>

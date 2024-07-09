@@ -19,7 +19,7 @@ export const metadata = generateMeta({
 const PrivacyPolicyPage: React.FC<{}> = () => {
   return (
     <Page pageName="Privacy Policy">
-      <div className="min-h-dark bg-black pt-32">
+      <div className="min-h-dark bg-dark pt-32">
         <PrivacyPolicy />
         <Contact />
       </div>

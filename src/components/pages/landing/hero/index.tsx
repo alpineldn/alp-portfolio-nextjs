@@ -106,16 +106,13 @@ const Hero: React.FC<HeroProps> = ({}) => {
       </video>
 
       <div className="flex h-screen flex-col justify-center max-lg:px-5 lg:max-w-7xl lg:pl-[8vw]">
-        <h1
-          ref={heroTextRef}
-          className="h1 relative m-0 hidden font-medium leading-[1.2] sm:block"
-        >
+        <h1 ref={heroTextRef} className="h1 hidden sm:block">
           Brand + Digital <br /> Design Studio
         </h1>
       </div>
       <p
         ref={descriptionRef}
-        className="absolute bottom-[15%] left-0 hidden w-full text-xl max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]"
+        className="body-1 absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]"
       >
         Born in London, working Globally
       </p>
@@ -123,15 +120,12 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <div
         data-scroll
         data-scroll-speed={0.1}
-        className="absolute bottom-[10%] px-5 text-lg font-light sm:hidden"
+        className="absolute bottom-[10%] px-5 font-light sm:hidden"
       >
-        <h1
-          ref={heroTextRefSm}
-          className="relative m-0 pb-5 text-4xl font-medium leading-[1.2]"
-        >
+        <h1 ref={heroTextRefSm} className="h1 relative m-0 pb-5">
           Brand + Digital <br /> Design Studio
         </h1>
-        <p ref={descriptionRefSm} className="m-0 mb-[10px]">
+        <p ref={descriptionRefSm} className="body-1">
           Born in London, working Globally
         </p>
         {/* <p className="m-0 mb-[10px]">Designer & Developer</p> */}

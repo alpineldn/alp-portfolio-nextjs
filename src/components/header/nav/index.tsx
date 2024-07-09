@@ -7,22 +7,10 @@ import UnderlineLink from '@/components/common/ui/UnderlineLink';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 
 const navItems = [
-  {
-    title: 'Home',
-    href: '/',
-  },
-  {
-    title: 'Work',
-    href: '/work',
-  },
-  {
-    title: 'About',
-    href: '/about',
-  },
-  {
-    title: 'Contact',
-    href: '/contact',
-  },
+  { title: 'Home', href: '/' },
+  { title: 'Work', href: '/work' },
+  { title: 'About', href: '/about' },
+  { title: 'Contact', href: '/contact' },
 ];
 
 interface NavProps {}
@@ -44,11 +32,8 @@ const Nav: React.FC<NavProps> = () => {
           onMouseLeave={() => {
             setSelectedIndicator(pathname);
           }}
-          className="flex flex-col pt-24 text-[56px] sm:pt-[40px]"
+          className="flex flex-col pt-24 sm:pt-[40px]"
         >
-          {/* <div className="body-3 border-b border-b-[rgb(153,153,153)] pb-10 uppercase text-[rgb(153,153,153)] sm:pb-[40px]">
-            <p>Navigation</p>
-          </div> */}
           <ul className="space-y-6 pt-10">
             {navItems.map((data, index) => {
               return (
@@ -57,7 +42,7 @@ const Nav: React.FC<NavProps> = () => {
                   data={{ ...data, index }}
                   isActive={selectedIndicator == data.href}
                   setSelectedIndicator={setSelectedIndicator}
-                ></LinkEl>
+                />
               );
             })}
           </ul>
@@ -72,15 +57,13 @@ const Nav: React.FC<NavProps> = () => {
 
           <div>
             <PageTransitionLink
-              className="underline_link interactable"
+              className="underline_link interactable body-1"
               href="/privacy-policy"
             >
               Privacy Policy
             </PageTransitionLink>
           </div>
         </div>
-
-        {/* <Footer /> */}
       </div>
     </motion.div>
   );

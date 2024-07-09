@@ -39,8 +39,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
         <div className="w-full py-4">
           <h3 className="h3 border-b-2 py-6 text-light">{title}</h3>
           <div className="flex justify-between py-5">
-            <p className="body-2">{client}</p>
-            <ul className="body-2 text-light">
+            <p className="body-1">{client}</p>
+            <ul className="body-1">
               {categories.map(({ title, _id }, index) => (
                 <li key={_id}>
                   {title} {index !== categories.length - 1 && ', '}

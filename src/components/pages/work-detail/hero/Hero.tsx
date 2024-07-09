@@ -118,10 +118,7 @@ const Hero: React.FC<HeroProps> = ({
     <section>
       <div className="relative h-full w-full bg-dark pt-[277px] text-light">
         <div ref={sectionRef} className="container mx-auto pb-10">
-          <h1
-            ref={heroTextRef}
-            className="max-w-5xl text-[clamp(3.5rem,5.5vw+1rem,7.5rem)] font-normal leading-[1.2] tracking-tighter"
-          >
+          <h1 ref={heroTextRef} className="h1 max-w-5xl">
             {title}
           </h1>
 
@@ -135,7 +132,7 @@ const Hero: React.FC<HeroProps> = ({
           </div>
         </div>
 
-        <div className="relative z-[1] mx-auto max-w-[1536px] !overflow-hidden pb-[100px] pt-10">
+        <div className="relative z-[1] mx-auto max-w-screen-2xl !overflow-hidden pb-[100px] pt-10">
           <div
             ref={imgContainerRef}
             className="translate-y-[15px] overflow-hidden opacity-0"
@@ -170,25 +167,25 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
     <>
       <ul className="grid gap-10 pt-20 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
         <li className="translate-y-[50px] opacity-0">
-          <div className="body-3 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
+          <div className="body-2 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
             Client
           </div>
-          <div className="body-2 pt-4 lg:pt-8">{client}</div>
+          <div className="body-1 pt-4 lg:pt-8">{client}</div>
         </li>
         {!!agency && (
           <li className="translate-y-[50px] opacity-0">
-            <div className="body-3 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
+            <div className="body-2 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
               AGENCY
             </div>
-            <div className="body-2 pt-4 lg:pt-8">{agency}</div>
+            <div className="body-1 pt-4 lg:pt-8">{agency}</div>
           </li>
         )}
 
         <li className="translate-y-[50px] opacity-0">
-          <div className="body-3 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
+          <div className="body-2 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
             CATEGORIES
           </div>
-          <div className="body-2 pt-4 lg:pt-8">
+          <div className="body-1 pt-4 lg:pt-8">
             {categories.map(({ title, _id }, index) => (
               <span key={_id}>
                 {title} {index !== categories.length - 1 && ', '}
@@ -199,13 +196,13 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
 
         {!!previewURL?.current && (
           <li className="translate-y-[50px] opacity-0">
-            <div className="body-3 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
+            <div className="body-2 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
               PREVIEW URL
             </div>
 
             <Link
               data-type="link"
-              className="body-2 interactable block pt-4 lg:pt-8"
+              className="body-1 interactable block pt-4 lg:pt-8"
               href={previewURL.current}
             >
               {previewURL.current}

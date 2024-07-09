@@ -24,9 +24,7 @@ const LinkEl: React.FC<LinkProps> = ({
   return (
     <motion.li
       className={cn('relative flex items-center', className)}
-      onMouseEnter={() => {
-        setSelectedIndicator(href);
-      }}
+      onMouseEnter={() => setSelectedIndicator(href)}
       custom={index}
       variants={slide}
       initial="initial"
@@ -34,10 +32,7 @@ const LinkEl: React.FC<LinkProps> = ({
       exit="exit"
     >
       <PageTransitionLink
-        className={cn(
-          'underline_link interactable',
-          'text-5xl lg:text-6xl lg:!leading-snug',
-        )}
+        className={cn('underline_link interactable', 'nav-1')}
         href={href}
       >
         {title}

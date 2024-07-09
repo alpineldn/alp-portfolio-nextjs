@@ -18,30 +18,34 @@
 
 @layer utilities {
   .h1 {
-    @apply text-[clamp(3.5rem,5.5vw+1rem,7.5rem)];
+    @apply text-h1 font-medium;
   }
 
   .h2 {
-    @apply text-[clamp(3.5rem,5vw+1rem,6.5rem)];
+    @apply text-h2;
   }
 
   .h3 {
-    @apply text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl;
+    @apply text-h3 font-normal sm:text-h3-sm lg:text-h3-lg 2xl:text-h3-2xl;
   }
 
   .h4 {
-    @apply text-2xl md:text-3xl xl:text-4xl;
+    @apply text-h4 sm:text-h4-sm lg:text-h4-lg 2xl:text-h4-2xl;
   }
 
   .body-1 {
-    @apply text-base md:text-lg xl:text-xl;
+    @apply text-body1 md:text-body1-md xl:text-body1-xl;
   }
 
   .body-2 {
-    @apply text-sm md:text-lg;
+    @apply text-body2 md:text-body2-md;
   }
 
-  .body-3 {
-    @apply text-xs;
+  .nav-1 {
+    @apply text-nav1 md:text-nav1-md xl:text-nav1-xl;
+  }
+
+  .link-1 {
+    @apply text-link1 md:text-link1-md xl:text-link1-xl;
   }
 }

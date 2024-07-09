@@ -128,7 +128,7 @@ const Logo = () => {
       id="site-logo"
       href="/"
       className={cn(
-        'flex items-center justify-center text-base opacity-0 after:bg-white hover:before:bg-white md:text-lg xl:text-xl',
+        'flex items-center justify-center text-base opacity-0 after:bg-white hover:before:bg-white',
       )}
     >
       <motion.svg
@@ -158,7 +158,7 @@ const Logo = () => {
       </motion.svg>
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
-        <p className="body-1 relative transition-all duration-500 ease-smooth-curve">
+        <p className="link-1 relative transition-all duration-500 ease-smooth-curve">
           ALPINE
         </p>
       </div>
@@ -176,7 +176,7 @@ const NavLinks: React.FC<{
         onClick={() => {
           setIsActive((prev) => !prev);
         }}
-        className="relative z-[1] flex cursor-pointer p-[15px] opacity-0 sm:hidden"
+        className="link-1 relative z-[1] flex cursor-pointer opacity-0 sm:hidden"
       >
         <span>Menu</span>
       </button>
@@ -188,7 +188,7 @@ const NavLinks: React.FC<{
             className={cn(
               'site-nav-link sm:opacity-0',
               'underline_link',
-              'body-1',
+              'link-1',
               'after:bg-white hover:before:bg-white',
             )}
           >

@@ -73,22 +73,16 @@ const Contact: React.FC<ContactProps> = () => {
   return (
     <motion.section
       ref={containerRef}
-      className="relative flex flex-col items-center justify-center overflow-hidden bg-light text-dark"
+      className="relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-dark to-black/90 text-light"
     >
-      <div className="container w-full bg-light pt-[100px]">
+      <div className="container w-full pt-[100px]">
         <div className="relative border-b border-solid border-b-[rgb(134,134,134)]/50 pb-[100px]">
           <span className="flex items-center">
-            <h2
-              ref={heroText1Ref}
-              className="h2 m-0 translate-y-[25px] leading-tight opacity-0"
-            >
+            <h2 ref={heroText1Ref} className="h2 translate-y-[25px] opacity-0">
               Let's work
             </h2>
           </span>
-          <h2
-            ref={heroText2Ref}
-            className="h2 m-0 translate-y-[25px] leading-tight opacity-0"
-          >
+          <h2 ref={heroText2Ref} className="h2 translate-y-[25px] opacity-0">
             together
           </h2>
         </div>
@@ -109,7 +103,7 @@ const CTAs = () => {
       className="mt-[120px] flex translate-y-[25px] gap-5 opacity-0 max-lg:flex max-lg:flex-col md:mt-[100px]"
     >
       <UnderlineLink
-        className="h4 interactable after:bg-dark hover:before:bg-dark"
+        className="h4 interactable"
         href="mailto:info@dennissnellenberg.com"
       >
         info@dennissnellenberg.com

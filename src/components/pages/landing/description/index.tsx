@@ -6,6 +6,7 @@ import { slideUp, opacity } from './animation';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import ArrowIcon from '@/components/common/icons/ArrowIcon';
+import cn from '@/utils/cn';
 
 interface DescriptionProps {}
 
@@ -22,7 +23,7 @@ const Description: React.FC<DescriptionProps> = () => {
     >
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-12 md:flex-row">
-          <p className="m-0 gap-3 text-3xl leading-[1.3] lg:text-4xl">
+          <p className={cn('h4 gap-3', '!leading-normal')}>
             {phrase.split(' ').map((word, index) => {
               return (
                 <span
@@ -42,7 +43,7 @@ const Description: React.FC<DescriptionProps> = () => {
             })}
           </p>
           <motion.p
-            className="m-0 max-w-64 text-sm md:max-w-full lg:text-base"
+            className="body-1 max-w-64 md:max-w-full"
             variants={opacity}
             animate={isInView ? 'open' : 'closed'}
           >

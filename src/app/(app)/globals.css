@@ -4,9 +4,7 @@
 
 @layer base {
   body {
-    margin: 0px;
-    overflow: hidden;
-    cursor: wait;
+    @apply m-0 cursor-wait overflow-hidden bg-dark text-white;
   }
 }
 

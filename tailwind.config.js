@@ -22,9 +22,9 @@ module.exports = {
         'h3-2xl': ['3.75rem', { lineHeight: '1' }],
 
         h4: ['1.25rem', { lineHeight: '1.5' }],
-        'h4-sm': ['1.5rem', { lineHeight: '2' }],
-        'h4-lg': ['1.875rem', { lineHeight: '2.25' }],
-        'h4-2xl': ['2.25rem', { lineHeight: '2.5' }],
+        'h4-sm': ['1.5rem', { lineHeight: '1.5' }],
+        'h4-lg': ['1.875rem', { lineHeight: '1.5' }],
+        'h4-2xl': ['2.25rem', { lineHeight: '1.5' }],
 
         body1: ['1rem', { lineHeight: '1.5' }],
         'body1-md': ['1.125rem', { lineHeight: '1.75' }],

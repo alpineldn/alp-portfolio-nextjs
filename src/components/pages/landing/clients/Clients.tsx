@@ -86,8 +86,10 @@ const Clients: React.FC<ClientsProps> = ({}) => {
   );
 
   return (
-    <div className="overflow-hidden bg-dark">
-      <div>
+    <div className="relative overflow-hidden bg-dark">
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[20%] bg-gradient-to-r from-dark via-dark/95 to-transparent"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[20%] bg-gradient-to-l from-dark via-dark/95 to-transparent"></div>
         <div
           className="relative cursor-grab border-y-[0.5px] border-[#D9D9D9]/20 active:cursor-grabbing"
           ref={emblaRef}
@@ -98,6 +100,7 @@ const Clients: React.FC<ClientsProps> = ({}) => {
 
               return (
                 <Element
+                  key={name}
                   href={url}
                   title={name}
                   target="_blank"
@@ -118,9 +121,6 @@ const Clients: React.FC<ClientsProps> = ({}) => {
                 </Element>
               );
             })}
-            {/* <div className="embla__slide">Slide 1</div>
-            <div className="embla__slide">Slide 2</div>
-            <div className="embla__slide">Slide 3</div> */}
           </div>
         </div>
       </div>

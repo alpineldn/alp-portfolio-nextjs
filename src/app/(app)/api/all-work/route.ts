@@ -1,6 +1,5 @@
 import sanityClient from '@/utils/sanity/client';
 import { WORK_QUERY } from '@/utils/sanity/queries';
-import { NextApiRequest } from 'next';
 
 export async function GET() {
   try {

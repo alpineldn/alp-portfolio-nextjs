@@ -63,7 +63,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
         quickSetX(x);
         quickSetY(y);
         gsap.to(trailerElement, {
-          scale: interacting ? 2.5 : 1,
+          scale: interacting ? 3.5 : 1,
           ease: 'power2.out',
         });
         quickSetOpacity(x > 0 && y > 0 ? 1 : 0);

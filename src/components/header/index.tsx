@@ -128,6 +128,7 @@ const Logo = () => {
       id="site-logo"
       href="/"
       className={cn(
+        'interactable',
         'flex items-center justify-center text-base opacity-0 after:bg-white hover:before:bg-white',
       )}
     >

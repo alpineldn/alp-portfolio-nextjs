@@ -21,7 +21,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
               id asperiores velit eius enim aspernatur?
             </h4>
 
-            <div className="hidden xl:block">
+            <div data-type="link" className="interactable hidden xl:block">
               <MarqueeText>Lorem, ipsum.</MarqueeText>
             </div>
           </div>
@@ -41,7 +41,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
               ))}
             </ul>
 
-            <div className="block xl:hidden">
+            <div data-type="link" className="interactable block xl:hidden">
               <MarqueeText>Lorem, ipsum.</MarqueeText>
             </div>
           </div>

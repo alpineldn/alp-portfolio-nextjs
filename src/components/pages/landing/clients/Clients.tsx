@@ -100,6 +100,7 @@ const Clients: React.FC<ClientsProps> = ({}) => {
 
               return (
                 <Element
+                  data-type="link"
                   key={name}
                   href={url}
                   title={name}

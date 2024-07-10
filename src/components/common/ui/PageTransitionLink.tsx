@@ -4,6 +4,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { animatePageOut } from '@/utils/animations';
 import Link from 'next/link';
 import { MouseEvent } from 'react';
+import cn from '@/utils/cn';
 
 interface Props {
   id?: string;
@@ -41,8 +42,9 @@ const PageTransitionLink = ({
     <Link
       id={id}
       href={href}
+      data-type="link"
       onMouseEnter={onMouseEnter}
-      className={className}
+      className={cn('interactable', className)}
       onMouseLeave={onMouseLeave}
       onClick={(e) => {
         e.preventDefault();

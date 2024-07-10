@@ -12,9 +12,14 @@ const Typography: React.FC<{}> = async () => {
         <h3 className="h3">This is a h3</h3>
         <h4 className="h4">This is a h4</h4>
 
-        <p className="body-1">Body 1</p>
-        <p className="body-2">Body 2</p>
-        <p className="body-3">Body 3</p>
+        <p className="body-1">
+          body 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+        </p>
+        <p className="body-2">
+          body 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+        </p>
+
+        <p className="link-1 underline_link w-fit">link1</p>
       </div>
     </main>
   );

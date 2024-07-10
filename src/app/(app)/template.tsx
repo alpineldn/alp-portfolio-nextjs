@@ -2,8 +2,8 @@
 
 import { useStore } from '@/store/store';
 import { animatePageIn, logo_animation } from '@/utils/animations';
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const { pageName, firstVisit, setFirstVisit } = useStore((state) => state);
@@ -26,7 +26,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         ) : (
           <p
             id="page-name"
-            className="absolute z-[1] flex items-center text-[42px] text-white opacity-0"
+            className="h3 absolute z-[1] flex items-center text-white opacity-0"
           >
             {pageName}
           </p>

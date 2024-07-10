@@ -1,8 +1,9 @@
-import Header from '@/components/Header';
-import './globals.css';
-import localFont from '@next/font/local';
+import SmoothScroll from '@/components/common/smooth-scrool/SmoothScroll';
+import Header from '@/components/header';
+import MouseTrailer from '@/components/mouse-trailer/MouseTrailer';
 import cn from '@/utils/cn';
-import SmoothScroll from '@/components/common/SmoothScroll/SmoothScroll';
+import localFont from '@next/font/local';
+import './globals.css';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -28,9 +29,11 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     <html lang="en">
       <body className={cn(ppNeueMontreal.variable, 'font-ppneuemontreal')}>
         <SmoothScroll>
+          <MouseTrailer />
           <Header />
           {children}
         </SmoothScroll>
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600"></div>
       </body>
     </html>
   );

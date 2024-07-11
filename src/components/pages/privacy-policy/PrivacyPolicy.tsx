@@ -20,7 +20,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
   }, []);
 
   return (
-    <div className="prose-invert prose mx-auto max-w-screen-xl px-5 pb-[100px]">
+    <div className="prose prose-invert mx-auto max-w-screen-xl px-5 pb-[100px]">
       <div>
         <Image
           className="aspect-video max-h-[500px] rounded-lg object-cover"
@@ -30,106 +30,107 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
           src="/images/flowers.jpg"
         />
       </div>
-      <section>
+      <div>
         <h1>Privacy policy</h1>
-        <div>Last updated on November 2, 2021</div>
-      </section>
+        <p>Effective Date: 04.07.2024</p>
+      </div>
       <section>
-        This privacy policy ("Policy") describes how Tailwind Labs Inc.
-        ("Tailwind", "we", "us" or "our") collects, protects and uses the
-        personally identifiable information ("Personal Information") you
-        ("User", "you" or "your") may provide through the Tailwind UI website
-        (tailwindui.com) or in the course of purchasing any Tailwind UI products
-        (collectively, "Website"). The Policy also describes the choices
-        available to you regarding our use of your Personal Information and how
-        you can access and update this information. This Policy does not apply
-        to the practices of companies that we do not own or control, or to
-        individuals that we do not employ or manage.
+        This Privacy Policy explains how Alpine collects, uses, and discloses
+        information about you when you visit our website alpineldn.com (the
+        "Site"). We are committed to protecting your privacy and complying with
+        the General Data Protection Regulation (GDPR).
         <div>
-          <h2>Collection of personal information</h2>
+          <h2>Information We Collect</h2>
           <p>
-            We receive and store any information you knowingly provide to us
-            when you make a purchase through the Website. Currently this is
-            limited to your email address, which is required for you to be able
-            to login to the Website and access any purchased Tailwind UI
-            products.
-          </p>
-        </div>
-        <div>
-          <h2>Collection of non-personal information</h2>
-          <p>
-            When you visit the Website our servers automatically record
-            information that your browser sends. This data may include
-            information such as your device's IP address, browser type and
-            version, operating system type and version, language preferences or
-            the webpage you were visiting before you came to our Website, pages
-            of our Website that you visit, the time spent on those pages,
-            information you search for on our Website, access times and dates,
-            and other statistics.
-          </p>
-        </div>
-        <div>
-          <h2>Purchases</h2>
-          <p>
-            All purchases made through the Website are processed by a third
-            party payment processor, Paddle <Link href="/">(paddle.com)</Link>.
-            Paddle may ask you for personal and/or non-personal information,
-            such as your name, address, email address, credit card information,
-            or other Personal Information. Paddle has a privacy policy
-            <Link href="/">(paddle.com/legal-buyers/)</Link> that describes
-            their collection and use of personal information. Tailwind does not
-            control Paddle or its collection or use of information. Any
-            questions or concerns about Paddle’s practices should be directed to
-            Paddle. Paddle provides us with certain non-personal information
-            relating to purchases made by visitors to the Website. The
-            non-personal information may include details of the purchase such as
-            the date, amount paid, and product purchased. The non-personal
-            purchase information may be linked to the Personal Information you
-            provide to us (typically limited to your email address, as stated
-            above). Paddle does not supply us with any of your other Personal
-            Information such as your name, street address, or credit card
-            information.
-          </p>
-        </div>{' '}
-        <div>
-          <h2>Managing personal information</h2>
-          <p>
-            You are able to update your Personal Information in your "Account
-            Settings" on the Website. Currently this is limited to just your
-            email address, as described above. You may also request that we
-            delete your email address, but this will prevent you from accessing
-            the products you have purchased from Tailwind. When you update
-            information, we may maintain a copy of the unrevised information in
-            our records. Some information may remain in our private records
-            after deletion of such information from your account for a retention
-            period. Once the retention period expires, Personal Information
-            shall be deleted. Therefore, the right to access, the right to
-            erasure, your rights to access, add to, and update your information
-            cannot be enforced after the expiration of the retention period. We
-            will retain and use your information as necessary to comply with our
-            legal obligations, resolve disputes, and enforce our agreements. We
-            may use any aggregated data derived from or incorporating your
-            Personal Information after you update or delete it, but not in a
-            manner that would identify you personally.
-          </p>
-        </div>
-        <div>
-          <h2>Collection of personal information</h2>
-          <p>
-            We receive and store any information you knowingly provide to us
-            when you make a purchase through the Website. Currently this is
-            limited to your email address, which is required for you to be able
-            to login to the Website and access any purchased Tailwind UI
-            products.
+            We may collect the following types of information about you when you
+            visit the Site:
           </p>
           <ul>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
+            <li>
+              Personal Information: This includes information that can identify
+              you, such as your name, email address, and any other information
+              you voluntarily provide to us.
+            </li>
+            <li>
+              Usage Data: This includes information about how you use the Site,
+              such as the pages you visit, the links you click, and the time you
+              spend on each page.
+            </li>
+            <li>
+              Technical Data: This includes information about your device,
+              browser, and internet connection, such as your IP address,
+              operating system, and device type.
+            </li>
           </ul>
+        </div>
+        <div>
+          <h2> How We Use Your Information</h2>
+          <p>We may use your information for the following purposes:</p>
+          <ul>
+            <li>To provide and maintain the Site.</li>
+            <li>
+              To analyze your use of the Site and improve its content and
+              functionality.
+            </li>
+            <li>To personalize your experience on the Site.</li>
+            <li>
+              To communicate with you, such as to respond to your inquiries or
+              send you newsletters.
+            </li>
+            <li>To comply with legal obligations.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Google Analytics</h2>
+          <p>
+            We use Google Analytics, a web analytics service provided by Google,
+            to collect information about how you use the Site. Google Analytics
+            uses cookies, which are small text files placed on your device, to
+            help us analyze how visitors use the Site. The information generated
+            by the cookie about your use of the Site (including your IP address)
+            will be transmitted to and stored by Google on servers in the United
+            States. Google will use this information for the purpose of
+            evaluating your use of the Site, compiling reports on website
+            activity for us, and providing other services relating to website
+            activity and internet usage.
+          </p>
+        </div>
+        <div>
+          <h2>Your Rights</h2>
+          <p>You have the following rights under the GDPR:</p>
+          <ul>
+            <li>The right to access your personal information.</li>
+            <li>The right to rectify inaccurate personal information.</li>
+            <li>The right to erase your personal information.</li>
+            <li>
+              The right to restrict the processing of your personal information.
+            </li>
+            <li>The right to data portability.</li>
+            <li>
+              The right to object to the processing of your personal
+              information.
+            </li>
+            <li>The right to withdraw your consent at any time.</li>
+          </ul>
+          <p>
+            To exercise your rights, please contact us at studio@alpineldn.com.
+          </p>
+        </div>
+        <div>
+          <h2> Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. We will notify
+            you of any changes by posting the new Privacy Policy on the Site.
+            You are advised to review this Privacy Policy periodically for any
+            changes.
+          </p>
+        </div>
+        <div>
+          <h2>Contact Us</h2>
+          <p>
+            If you have any questions about this Privacy Policy, please contact
+            us at studio@alpineldn.com.
+          </p>
         </div>
       </section>
     </div>

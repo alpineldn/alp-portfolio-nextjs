@@ -32,10 +32,8 @@ export async function generateMetadata({}): Promise<Metadata> {
     description: metaData?.meta.description ?? "Alpine's work page.",
     og: {
       type: 'website',
-      url: `${SITE_URL}/work`,
-      localImg: {
-        showTitle: true,
-      },
+      url: `${SITE_URL}`,
+      localImg: '/images/flowers.jpg',
     },
     keywords: metaData?.meta?.keywords,
   });

@@ -36,9 +36,7 @@ export async function generateMetadata({}): Promise<Metadata> {
     og: {
       type: 'website',
       url: SITE_URL,
-      localImg: {
-        showTitle: true,
-      },
+      localImg: '/images/flowers.jpg',
     },
     keywords: metaData?.meta?.keywords,
   });

@@ -7,10 +7,8 @@ interface MetaData {
     type?: string;
     url?: string;
     sanityImg?: any;
-    localImg?: {
-      showTitle?: boolean;
-      localImgPath?: string;
-    };
+    showTitle?: boolean;
+    localImg?: string;
   };
   keywords?: string[];
 }
@@ -18,10 +16,20 @@ interface MetaData {
 export default function generateMeta({
   title,
   description,
-  og: { type = 'website', url = 'https://alpineldn.com', localImg, sanityImg },
+  og: {
+    type = 'website',
+    url = 'https://alpineldn.com',
+    localImg,
+    sanityImg,
+    showTitle = true,
+  },
   keywords,
 }: MetaData) {
-  const openGraphImages = makeOpenGraphImages({ sanityImg, localImg }, title);
+  const openGraphImages = makeOpenGraphImages(
+    { sanityImg, localImg },
+    title,
+    showTitle,
+  );
 
   return {
     title: title,
@@ -51,31 +59,28 @@ export default function generateMeta({
 export const makeOpenGraphImages = (
   { sanityImg, localImg }: Omit<MetaData['og'], 'type' | 'url'>,
   metaTitle: string | undefined,
+  showTitle?: boolean,
 ) => {
-  const sizes = [
-    { w: 800, h: 600 },
-    { w: 1200, h: 630 },
-    { w: 600, h: 600 },
-    { w: 256, h: 256 },
-  ];
+  const baseUrl = `/api/og?title=${metaTitle}`;
 
   if (localImg) {
-    const { localImgPath, showTitle = false } = localImg;
-    const url = `/api/og?title=${metaTitle}&showTitle=${showTitle}`;
+    const url = `${baseUrl}&showTitle=${showTitle}&source=local`;
 
-    if (!!localImgPath) {
-      return [{ url: url + `&img=${localImgPath}` }];
-    }
-
-    return [{ url: url }];
-  } else if (sanityImg) {
-    return sizes.map(({ w, h }) => ({
-      url: `${imageBuilder.image(sanityImg).width(w).height(h).url()}`,
-      width: w,
-      height: h,
-      alt: `${metaTitle ?? 'og image'}`,
-    }));
-  } else {
-    return [];
+    return [{ url: url + (localImg ? `&img=${localImg}` : '') }];
   }
+
+  if (sanityImg) {
+    const sanityImgUrl = imageBuilder
+      .image(sanityImg)
+      .width(1200)
+      .height(630)
+      .url();
+    return [
+      {
+        url: `${baseUrl}&showTitle=${showTitle}&img=${sanityImgUrl}&source=sanity`,
+      },
+    ];
+  }
+
+  return [];
 };

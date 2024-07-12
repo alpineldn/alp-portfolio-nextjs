@@ -190,7 +190,7 @@ const ContactInfo: React.FC = () => {
               href="/privacy-policy"
               className="underline_link body-2"
             >
-              Privacy Policy
+              Privacy
             </PageTransitionLink>
           </span>
           {/* <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>

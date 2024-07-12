@@ -13,7 +13,17 @@ export async function GET(request: Request) {
       ? searchParams.get('title')?.slice(0, 100)
       : 'My website';
 
-    const localImgPath = searchParams.get('img');
+    const imgPath = searchParams.get('img');
+    const source = searchParams.get('source');
+
+    let backgroundImageUrl = '';
+
+    if (source === 'local') {
+      backgroundImageUrl = `${SITE_URL}${imgPath}`;
+    } else if (source === 'sanity' && imgPath) {
+      backgroundImageUrl = imgPath;
+    }
+    console.log(backgroundImageUrl);
 
     const fontData = await fetch(
       new URL(
@@ -22,15 +32,17 @@ export async function GET(request: Request) {
       ),
     ).then((res) => res.arrayBuffer());
 
-    const backgroundStyle = localImgPath
+    const backgroundStyle = backgroundImageUrl
       ? {
-          backgroundImage: `url("${SITE_URL}/${localImgPath}")`,
+          backgroundImage: `url("${backgroundImageUrl}")`,
           backgroundSize: 'cover',
         }
       : {
           background:
             'linear-gradient(135deg, #0a192f, #172a45, #0a192f, #0a192f, #1c2b4b, #0a192f)',
         };
+
+    console.log({ backgroundStyle });
 
     return new ImageResponse(
       (
@@ -39,13 +51,32 @@ export async function GET(request: Request) {
             ...backgroundStyle,
             fontFamily: '"ppneuemontreal"',
           }}
-          tw="text-white w-full h-full flex items-center justify-center"
+          tw="text-white w-full h-full flex justify-between flex-col py-16 px-8 gap-5"
         >
-          {!!showTitle && (
-            <div tw="rounded-lg bg-white bg-opacity-20 p-8 text-center shadow-lg text-6xl">
-              {title}
-            </div>
-          )}
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 115.76 46.48"
+            width="115.76"
+            height="46.48"
+          >
+            <path
+              style={{
+                fill: 'none',
+                stroke: '#fff',
+                strokeLinecap: 'square',
+                strokeMiterlimit: 10,
+                strokeWidth: '4px',
+              }}
+              d="m2.83 43.42 32.46-32.46 32.64 32.65H31.35l40.77-40.77 40.82 40.82"
+            />
+          </svg>
+
+          {!!showTitle && <div tw="text-left text-6xl">{title}</div>}
+
+          <a className="text-2xl" href="/">
+            alpineldn.com
+          </a>
         </div>
       ),
       {

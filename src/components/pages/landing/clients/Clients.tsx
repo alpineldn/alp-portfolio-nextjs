@@ -9,11 +9,10 @@ const clients = [
   {
     name: 'Google',
     logo: '/images/clients/google.png',
-    url: 'https://www.google.com/',
   },
   {
-    name: 'Facebook',
     logo: '/images/clients/facebook.png',
+    name: 'Facebook',
   },
   {
     name: 'Twitter',
@@ -22,7 +21,6 @@ const clients = [
   {
     name: 'Microsoft',
     logo: '/images/clients/microsoft.png',
-    url: 'https://www.microsoft.com/',
   },
   {
     name: 'Apple',
@@ -31,11 +29,10 @@ const clients = [
   {
     name: 'Google',
     logo: '/images/clients/google.png',
-    url: 'https://www.google.com/',
   },
   {
-    name: 'Facebook',
     logo: '/images/clients/facebook.png',
+    name: 'Facebook',
   },
   {
     name: 'Twitter',
@@ -44,7 +41,6 @@ const clients = [
   {
     name: 'Microsoft',
     logo: '/images/clients/microsoft.png',
-    url: 'https://www.microsoft.com/',
   },
   {
     name: 'Apple',
@@ -53,7 +49,6 @@ const clients = [
   {
     name: 'Google',
     logo: '/images/clients/google.png',
-    url: 'https://www.google.com/',
   },
   {
     name: 'Facebook',
@@ -66,7 +61,6 @@ const clients = [
   {
     name: 'Microsoft',
     logo: '/images/clients/microsoft.png',
-    url: 'https://www.microsoft.com/',
   },
   {
     name: 'Apple',
@@ -95,33 +89,23 @@ const Clients: React.FC<ClientsProps> = ({}) => {
           ref={emblaRef}
         >
           <div className="flex items-center">
-            {clients.map(({ logo, name, url }) => {
-              const Element = url ? 'a' : 'div';
-
-              return (
-                <Element
-                  data-type="link"
-                  key={name}
-                  href={url}
-                  title={name}
-                  target="_blank"
-                  className={cn(
-                    !!url && 'interactable',
-                    'flex-[0_0_auto] px-[3rem] py-[1.66rem]',
-                  )}
-                >
-                  <div className="flex h-full w-full items-center justify-center">
-                    <Image
-                      className="h-fit max-h-[2.8rem] w-fit object-contain"
-                      src={logo}
-                      alt={name}
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                </Element>
-              );
-            })}
+            {clients.map(({ logo, name }) => (
+              <div
+                key={name}
+                title={name}
+                className={cn('flex-[0_0_auto] px-[3rem] py-[1.66rem]')}
+              >
+                <div className="flex h-full w-full items-center justify-center">
+                  <Image
+                    className="h-fit max-h-[2.8rem] w-fit object-contain"
+                    src={logo}
+                    alt={name}
+                    width={200}
+                    height={200}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

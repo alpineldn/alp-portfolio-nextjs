@@ -1,12 +1,13 @@
 'use client';
 
 import Play from './PlayIcon';
-import Link from './LinkIcon';
+// import Link from './LinkIcon';
 import Click from './ClickIcon';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import ChevronIcon from '../common/icons/ChevronIcon';
 
 type TrailerOption = 'video' | 'link' | 'click';
 
@@ -17,9 +18,9 @@ const getTrailerIcon = (type: TrailerOption) => {
     case 'click':
       return <Click />;
     case 'link':
-      return <Link />;
+      return <ChevronIcon className="size-2 rotate-45" />;
     default:
-      return <Link />;
+      return <ChevronIcon className="size-2 rotate-45" />;
   }
 };
 

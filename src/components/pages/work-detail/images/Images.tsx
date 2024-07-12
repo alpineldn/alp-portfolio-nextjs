@@ -9,7 +9,7 @@ interface ImagesProps {
 
 const Images: React.FC<ImagesProps> = ({ images }) => {
   return (
-    <section className="relative z-[1] space-y-16 bg-light pb-[100px] lg:space-y-20">
+    <section className="relative z-[1] space-y-16 pb-[100px] lg:space-y-20">
       {images.map((img, index) => (
         <div
           key={index}

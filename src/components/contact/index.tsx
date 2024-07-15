@@ -33,7 +33,7 @@ const Contact: React.FC<ContactProps> = () => {
 
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: '25% bottom',
+        start: '12.5% bottom',
         onEnter: () => {
           tl.to(heroText1Ref.current, {
             y: 0,

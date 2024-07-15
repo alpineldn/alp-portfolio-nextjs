@@ -1,3 +1,4 @@
+import ChevronIcon from '@/components/common/icons/ChevronIcon';
 import SanityImage from '@/components/common/sanity-image/SanityImage';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
@@ -134,7 +135,10 @@ const ContactInfo: React.FC = () => {
         className="flex w-full items-center justify-center py-10"
       >
         <PageTransitionLink className="interactable" href="/work">
-          <MarqueeText>All Work</MarqueeText>
+          <MarqueeText>
+            All Work
+            <ChevronIcon className="size-5 rotate-45 text-white" />
+          </MarqueeText>
         </PageTransitionLink>
       </div>
 

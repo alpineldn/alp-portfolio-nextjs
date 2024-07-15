@@ -65,12 +65,12 @@ const MarqueeText: React.FC<MarqueeProps> = ({
       <div className={cn('w-min overflow-hidden', innerClassName)}>
         <div ref={marqueeRef} className="marquee flex h-full">
           <div ref={contentRef} className="flex h-full w-full flex-1">
-            <div className="link-1 flex flex-1 items-center justify-center gap-x-2 whitespace-nowrap pl-3 pr-1.5 text-center tracking-wider">
+            <div className="link-1 flex flex-1 items-start justify-center gap-x-2 whitespace-nowrap pl-3 pr-1.5 text-center tracking-wider">
               {children}
             </div>
           </div>
           <div className="flex h-full flex-1">
-            <div className="link-1 flex flex-1 items-center justify-center gap-x-2 whitespace-nowrap pl-1.5 pr-3 text-center tracking-wider">
+            <div className="link-1 flex flex-1 items-start justify-center gap-x-2 whitespace-nowrap pl-1.5 pr-3 text-center tracking-wider">
               {children}
             </div>
           </div>

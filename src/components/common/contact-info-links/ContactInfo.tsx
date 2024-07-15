@@ -11,7 +11,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
     <div
       id={id}
       className={cn(
-        'mt-[80px] flex flex-col-reverse justify-between p-5 md:flex-row lg:mt-[200px]',
+        'mt-[80px] flex flex-col-reverse justify-between p-5 md:flex-row lg:mt-[130px]',
         className,
       )}
     >

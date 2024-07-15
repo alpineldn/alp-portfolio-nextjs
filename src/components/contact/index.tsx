@@ -35,34 +35,10 @@ const Contact: React.FC<ContactProps> = () => {
         trigger: containerRef.current,
         start: '12.5% bottom',
         onEnter: () => {
-          tl.to(heroText1Ref.current, {
-            y: 0,
-            opacity: 1,
-          })
-            .to(
-              heroText2Ref.current,
-              {
-                y: 0,
-                opacity: 1,
-              },
-              '-=0.6',
-            )
-            .to(
-              emailEl,
-              {
-                y: 0,
-                opacity: 1,
-              },
-              '-=0.6',
-            )
-            .to(
-              infoEl,
-              {
-                y: 0,
-                opacity: 1,
-              },
-              '-=0.6',
-            );
+          tl.to(heroText1Ref.current, { y: 0, opacity: 1 })
+            .to(heroText2Ref.current, { y: 0, opacity: 1 }, '-=0.8')
+            .to(emailEl, { y: 0, opacity: 1 }, '-=0.8')
+            .to(infoEl, { y: 0, opacity: 1 }, '-=0.8');
         },
       });
     });
@@ -75,8 +51,8 @@ const Contact: React.FC<ContactProps> = () => {
       ref={containerRef}
       className="relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-dark to-black/90 text-light"
     >
-      <div className="container w-full pt-[100px]">
-        <div className="relative border-b border-solid border-b-[rgb(134,134,134)]/50 pb-[100px]">
+      <div className="container w-full lg:pt-[50px]">
+        <div className="relative">
           <span className="flex items-center">
             <h2 ref={heroText1Ref} className="h2 translate-y-[25px] opacity-0">
               Let's work
@@ -100,7 +76,7 @@ const CTAs = () => {
   return (
     <div
       id="contact-cta"
-      className="mt-[120px] flex translate-y-[25px] gap-5 opacity-0 max-lg:flex max-lg:flex-col md:mt-[100px]"
+      className="mt-[50px] flex translate-y-[25px] gap-5 opacity-0 max-lg:flex max-lg:flex-col lg:mt-[100px]"
     >
       <UnderlineLink
         className="h4 interactable"

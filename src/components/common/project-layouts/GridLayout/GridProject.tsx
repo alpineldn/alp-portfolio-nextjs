@@ -17,6 +17,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
 }) => {
   return (
     <PageTransitionLink
+      dataType="link"
       className="interactable md:even:translate-y-[30%]"
       href={`/work/${slug.current}`}
     >

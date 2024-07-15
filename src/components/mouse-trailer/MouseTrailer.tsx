@@ -1,7 +1,6 @@
 'use client';
 
 import Play from './PlayIcon';
-// import Link from './LinkIcon';
 import Click from './ClickIcon';
 import { useRef } from 'react';
 import { useState } from 'react';
@@ -20,7 +19,7 @@ const getTrailerIcon = (type: TrailerOption) => {
     case 'link':
       return <ChevronIcon className="size-2 rotate-45" />;
     default:
-      return <ChevronIcon className="size-2 rotate-45" />;
+      return null;
   }
 };
 

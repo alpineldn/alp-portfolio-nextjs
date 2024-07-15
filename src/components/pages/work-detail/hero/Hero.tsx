@@ -201,7 +201,6 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
             </div>
 
             <Link
-              data-type="link"
               className="body-1 interactable block pt-4 lg:pt-8"
               href={previewURL.current}
             >

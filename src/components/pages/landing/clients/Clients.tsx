@@ -89,9 +89,9 @@ const Clients: React.FC<ClientsProps> = ({}) => {
           ref={emblaRef}
         >
           <div className="flex items-center">
-            {clients.map(({ logo, name }) => (
+            {clients.map(({ logo, name }, index) => (
               <div
-                key={name}
+                key={name + index}
                 title={name}
                 className={cn('flex-[0_0_auto] px-[3rem] py-[1.66rem]')}
               >

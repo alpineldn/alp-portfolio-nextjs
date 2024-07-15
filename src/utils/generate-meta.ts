@@ -1,3 +1,4 @@
+import { SITE_URL } from './constants';
 import { imageBuilder } from './sanity/client';
 
 interface MetaData {
@@ -32,6 +33,7 @@ export default function generateMeta({
   );
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: title,
     description: description,
     keywords,

@@ -77,15 +77,15 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
           trailerRef.current.dataset.type !== '' ? '1' : '0';
 
         if (interacting) {
-          trailerRef.current.style.background = 'white';
+          // trailerRef.current.style.background = 'white';
           setTrailerIcon(
             getTrailerIcon(
               (interactable as HTMLElement).dataset.type as TrailerOption,
             ),
           );
         } else {
-          trailerRef.current.style.background =
-            mode === 'dark' ? 'black' : 'white';
+          // trailerRef.current.style.background =
+          //   mode === 'dark' ? 'black' : 'white';
         }
       }
     };
@@ -101,7 +101,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
       <div
         ref={trailerRef}
         id="trailer"
-        className="pointer-events-none fixed left-0 top-0 z-50 grid h-5 w-5 place-items-center rounded-full bg-white opacity-0 shadow-md transition-opacity duration-500"
+        className="pointer-events-none fixed left-0 top-0 z-50 grid h-4 w-4 place-items-center rounded-full bg-white opacity-0 mix-blend-difference shadow-md transition-opacity duration-500"
       >
         <div
           ref={trailerIconRef}

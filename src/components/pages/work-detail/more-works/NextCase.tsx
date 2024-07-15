@@ -8,7 +8,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef } from 'react';
 import { Slug } from 'sanity';
 
-type MoveRef = gsap.QuickToFunc | null;
 interface NextCaseProps {
   title: string;
   mainImage: SanityImageObject;
@@ -49,7 +48,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
                 y: 0,
                 opacity: 0.8,
               },
-              '-=0.6',
+              '-=0.7',
             )
             .to(
               header2Ref.current,
@@ -57,7 +56,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
                 y: 0,
                 opacity: 1,
               },
-              '-=0.6',
+              '-=0.7',
             )
             .to(
               allWorkCtaEl,
@@ -65,7 +64,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
                 y: 0,
                 opacity: 1,
               },
-              '-=0.6',
+              '-=0.7',
             )
             .to(
               infoEl,
@@ -73,7 +72,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
                 y: 0,
                 opacity: 1,
               },
-              '-=0.6',
+              '-=0.7',
             );
         },
       });
@@ -85,31 +84,20 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
   return (
     <div ref={containerRef}>
       <PageTransitionLink
-        className="interactable relative block h-full w-full"
+        className="interactable group relative block h-[35vh] w-full overflow-hidden"
         href={`/work/${slug.current}`}
       >
-        <motion.div
-          // onMouseMove={(e) => {
-          //   moveItems(e.clientX, e.clientY);
-          // }}
-          // onMouseEnter={(e) => {
-          //   manageModal(true, e.clientX, e.clientY);
-          // }}
-          // onMouseLeave={(e) => {
-          //   manageModal(false, e.clientX, e.clientY);
-          // }}
-          className="relative h-full w-full max-sm:aspect-square"
-        >
-          <figure className="relative h-full w-full">
-            <div
-              ref={backdropRef}
-              className="absolute inset-0 h-full w-full bg-black opacity-0"
-            />
+        <motion.div className="relative h-full w-full max-sm:aspect-square">
+          <figure className="relative h-full w-full overflow-hidden">
             <SanityImage
-              className="h-full w-full rounded object-cover"
+              className="h-full w-full rounded object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
               src={mainImage}
               sizes="100vw"
               alt={title}
+            />
+            <div
+              ref={backdropRef}
+              className="absolute inset-0 h-full w-full bg-black opacity-0"
             />
           </figure>
           <div className="absolute left-0 top-1/2 h-fit w-full -translate-y-1/2">
@@ -129,25 +117,6 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
             </div>
           </div>
         </motion.div>
-
-        <>
-          {/* <motion.div
-            ref={cursor}
-            className="pointer-events-none fixed z-30 flex h-[150px] w-[150px] items-center justify-center rounded-[50%] bg-white text-[14px] font-light text-[#141516]"
-            variants={scaleAnimation}
-            initial="initial"
-            animate={active ? 'enter' : 'closed'}
-          ></motion.div>
-          <motion.div
-            ref={cursorLabel}
-            className="pointer-events-none fixed z-30 flex h-[150px] w-[150px] items-center justify-center rounded-[50%] bg-transparent bg-white font-light text-white"
-            variants={scaleAnimation}
-            initial="initial"
-            animate={active ? 'enter' : 'closed'}
-          >
-            <ArrowIcon />
-          </motion.div> */}
-        </>
       </PageTransitionLink>
       <motion.div>
         <ContactInfo />

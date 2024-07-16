@@ -79,7 +79,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
           if (linkType === 'simple-hover') {
             gsap.to(trailerRef.current, { backgroundColor: '#A9A9A9' });
           } else {
-            trailerElement.style.mixBlendMode = 'difference';
+            trailerElement.style.mixBlendMode = 'normal';
             gsap.to(trailerElement, {
               scale: interacting ? 3.5 : 1,
               ease: 'power2.out',
@@ -89,7 +89,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
 
           setTrailerIcon(getTrailerIcon(linkType));
         } else {
-          trailerElement.style.mixBlendMode = 'normal';
+          trailerElement.style.mixBlendMode = 'difference';
           gsap.to(trailerElement, { scale: 1, ease: 'power2.out' });
           gsap.to(trailerRef.current, { backgroundColor: 'white' });
         }
@@ -107,7 +107,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
       <div
         ref={trailerRef}
         id="trailer"
-        className="pointer-events-none fixed left-0 top-0 z-50 grid h-4 w-4 place-items-center rounded-full bg-white opacity-0 shadow-md transition-opacity duration-500"
+        className="pointer-events-none fixed left-0 top-0 z-50 grid h-4 w-4 place-items-center rounded-full bg-white opacity-0 mix-blend-difference shadow-md transition-opacity duration-500"
       >
         <div
           ref={trailerIconRef}

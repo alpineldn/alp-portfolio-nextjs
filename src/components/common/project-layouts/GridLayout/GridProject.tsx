@@ -27,7 +27,6 @@ const ProjectCard: React.FC<ProjectProps> = ({
         initial="initial"
         whileInView="enter"
         viewport={{ once: true }}
-        exit="exit"
         className="relative w-full text-light"
       >
         <div className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden">

@@ -77,38 +77,17 @@ const Hero: React.FC<HeroProps> = ({
 
       gsap.set(header.words, { y: '100%' });
 
-      tl.to(header.words, {
-        y: '0%',
-        stagger: 0.05,
-      }).to(
+      tl.to(header.words, { y: '0%', stagger: 0.05 }).to(
         projectInfoEls,
-        {
-          y: '0%',
-          opacity: 1,
-          stagger: 0.05,
-        },
+        { y: '0%', opacity: 1, stagger: 0.05 },
         0.2,
       );
 
       if (previewURLMarqueeRef?.current) {
-        tl.to(
-          previewURLMarqueeRef.current,
-          {
-            y: '0%',
-            opacity: 1,
-          },
-          0.4,
-        );
+        tl.to(previewURLMarqueeRef.current, { y: '0%', opacity: 1 }, 0.4);
       }
 
-      tl.to(
-        imgContainerRef.current,
-        {
-          y: '0%',
-          opacity: 1,
-        },
-        0.6,
-      );
+      tl.to(imgContainerRef.current, { y: '0%', opacity: 1 }, 0.6);
     });
 
     return () => context.revert();
@@ -116,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <section>
-      <div className="relative h-full w-full bg-dark pt-[277px] text-light">
+      <div className="relative h-full w-full bg-dark pt-[130px] text-light lg:pt-[277px]">
         <div ref={sectionRef} className="container mx-auto pb-10">
           <h1 ref={heroTextRef} className="h1 max-w-5xl">
             {title}

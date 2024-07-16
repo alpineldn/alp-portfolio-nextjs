@@ -1,75 +1,21 @@
 'use client';
 
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
 import cn from '@/utils/cn';
-import Image from 'next/image';
+import { SanityImageObject } from '@sanity/image-url/lib/types/types';
+import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from 'embla-carousel-react';
 
-const clients = [
-  {
-    name: 'Google',
-    logo: '/images/clients/google.png',
-  },
-  {
-    logo: '/images/clients/facebook.png',
-    name: 'Facebook',
-  },
-  {
-    name: 'Twitter',
-    logo: '/images/clients/twitter.png',
-  },
-  {
-    name: 'Microsoft',
-    logo: '/images/clients/microsoft.png',
-  },
-  {
-    name: 'Apple',
-    logo: '/images/clients/apple.png',
-  },
-  {
-    name: 'Google',
-    logo: '/images/clients/google.png',
-  },
-  {
-    logo: '/images/clients/facebook.png',
-    name: 'Facebook',
-  },
-  {
-    name: 'Twitter',
-    logo: '/images/clients/twitter.png',
-  },
-  {
-    name: 'Microsoft',
-    logo: '/images/clients/microsoft.png',
-  },
-  {
-    name: 'Apple',
-    logo: '/images/clients/apple.png',
-  },
-  {
-    name: 'Google',
-    logo: '/images/clients/google.png',
-  },
-  {
-    name: 'Facebook',
-    logo: '/images/clients/facebook.png',
-  },
-  {
-    name: 'Twitter',
-    logo: '/images/clients/twitter.png',
-  },
-  {
-    name: 'Microsoft',
-    logo: '/images/clients/microsoft.png',
-  },
-  {
-    name: 'Apple',
-    logo: '/images/clients/apple.png',
-  },
-];
+export interface Client {
+  _id: string;
+  name: string;
+  image: SanityImageObject;
+}
 
-interface ClientsProps {}
-const Clients: React.FC<ClientsProps> = ({}) => {
+interface ClientsProps {
+  clients: Client[];
+}
+const Clients: React.FC<ClientsProps> = ({ clients }) => {
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
@@ -89,19 +35,18 @@ const Clients: React.FC<ClientsProps> = ({}) => {
           ref={emblaRef}
         >
           <div className="flex items-center">
-            {clients.map(({ logo, name }, index) => (
+            {[...clients, ...clients].map(({ image, name, _id }, index) => (
               <div
-                key={name + index}
+                key={_id + index}
                 title={name}
                 className={cn('flex-[0_0_auto] px-[3rem] py-[1.66rem]')}
               >
                 <div className="flex h-full w-full items-center justify-center">
-                  <Image
+                  <SanityImage
                     className="h-fit max-h-[2.8rem] w-fit object-contain"
-                    src={logo}
+                    src={image}
                     alt={name}
-                    width={200}
-                    height={200}
+                    sizes="200px"
                   />
                 </div>
               </div>

@@ -13,6 +13,12 @@ export const asset = (attr: string, opts?: { as: string }) => groq`'${
   }
 }`;
 
+export const CLIENTS_QUERY = groq`*[_type == "client"][]{
+  _id,
+  name,
+  ${asset('image')},
+
+}`;
 export const WORK_QUERY = groq`
 	*[_type == "project"] | order(_createdAt asc)[$start...$end]{
       _id,

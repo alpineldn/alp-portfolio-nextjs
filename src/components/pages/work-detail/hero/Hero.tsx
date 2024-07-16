@@ -180,6 +180,7 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
             </div>
 
             <Link
+              data-type="simple-hover"
               className="body-1 interactable block pt-4 lg:pt-8"
               href={previewURL.current}
             >

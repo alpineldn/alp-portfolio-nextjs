@@ -101,7 +101,10 @@ const MarqueeText: React.FC<MarqueeProps> = ({ children, className }) => {
       <span className="flex-shrink-0 transition-[padding-right] duration-500 group-hover:pr-2">
         [
       </span>
-      <div className={cn('w-min overflow-hidden')}>
+      <div
+        data-type="simple-hover"
+        className={cn('interactable w-min overflow-hidden')}
+      >
         <div className="flex h-full w-full flex-1">
           <div className="link-1 flex flex-1 items-start justify-center gap-x-2 whitespace-nowrap pl-3 pr-1.5 text-center tracking-wider transition-[letter-spacing] duration-500 group-hover:tracking-[0.2em]">
             {children}

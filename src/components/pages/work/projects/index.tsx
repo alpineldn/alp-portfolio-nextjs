@@ -54,7 +54,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           <div className="flex items-center pb-10">
             <button
               className="interactable"
-              data-type="click"
+              data-type="simple-hover"
               onClick={fetchAllWorks}
             >
               <MarqueeText>

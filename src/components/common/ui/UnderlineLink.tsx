@@ -18,6 +18,7 @@ const UnderlineLink: React.FC<UnderlineLinkProps> = ({
   if (el === 'a') {
     return (
       <Link
+        data-type="simple-hover"
         href={href as string}
         className={cn('underline_link', className)}
         {...rest}
@@ -29,7 +30,11 @@ const UnderlineLink: React.FC<UnderlineLinkProps> = ({
 
   if (el === 'button') {
     return (
-      <button className={cn('underline_link', className)} {...rest}>
+      <button
+        data-type="simple-hover"
+        className={cn('underline_link', className)}
+        {...rest}
+      >
         {children}
       </button>
     );

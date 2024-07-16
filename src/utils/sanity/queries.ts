@@ -53,6 +53,7 @@ export const META_QUERY = (pageName: string) => groq`
     title,
     meta,
     path,
-    body
+    body,
+    ogImage
   }
 `;

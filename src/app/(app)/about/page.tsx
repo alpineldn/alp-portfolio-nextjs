@@ -18,7 +18,7 @@ export async function generateMetadata({}): Promise<Metadata> {
     og: {
       type: 'website',
       url: `${SITE_URL}/about`,
-      localImg: '/images/flowers.jpg',
+      sanityImg: metaData?.ogImage,
     },
     keywords: metaData?.meta?.keywords,
   });

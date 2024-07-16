@@ -11,6 +11,7 @@ import { Metadata } from 'next';
 import { Slug } from 'sanity';
 import type { Project } from './work/page';
 import Clients from '@/components/pages/landing/clients/Clients';
+import { SanityAsset } from '@sanity/image-url/lib/types/types';
 
 interface HomeProps {}
 
@@ -22,6 +23,7 @@ export interface Meta {
     keywords: string[];
   };
   path: Slug;
+  ogImage: SanityAsset;
 }
 
 export async function generateMetadata({}): Promise<Metadata> {
@@ -33,7 +35,7 @@ export async function generateMetadata({}): Promise<Metadata> {
     og: {
       type: 'website',
       url: `${SITE_URL}`,
-      localImg: '/images/flowers.jpg',
+      sanityImg: metaData?.ogImage,
     },
     keywords: metaData?.meta?.keywords,
   });

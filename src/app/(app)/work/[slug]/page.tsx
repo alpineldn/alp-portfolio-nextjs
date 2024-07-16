@@ -5,7 +5,7 @@ import MoreWorks from '@/components/pages/work-detail/more-works/MoreWorks';
 import { SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';
-import { WORK_SLUGS_QUERY } from '@/utils/sanity/queries';
+import { META_QUERY, WORK_SLUGS_QUERY } from '@/utils/sanity/queries';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { PortableTextBlock } from 'next-sanity';
 import { notFound } from 'next/navigation';
@@ -14,6 +14,13 @@ import { Project } from '../page';
 
 interface WorkDetailProps {
   params: { slug: string };
+}
+
+interface Meta {
+  title: string;
+  description: string;
+  ogImage: SanityImageObject;
+  keywords: string[];
 }
 
 export interface NextProject {
@@ -33,23 +40,24 @@ export interface ProjectFull extends Project {
 }
 
 export async function generateMetadata({ params }: WorkDetailProps) {
-  const metaData = await sanityClient.fetch(
+  const metaData: Meta = await sanityClient.fetch(
     `*[_type == "project" && slug.current == "${params.slug}"][0]{
-      title,
-      mainImage,
-      "description": pt::text(body),
+        ...meta
     }`,
+  );
+  const fallbackMeta: Meta = await sanityClient.fetch(
+    META_QUERY('/fallback-meta'),
   );
 
   return generateMeta({
-    title: metaData?.title ?? 'Alpine',
-    description: metaData?.description ?? "Alpine's work page.",
+    title: metaData?.title ?? fallbackMeta?.title,
+    description: metaData?.description ?? fallbackMeta?.description,
     og: {
-      type: 'article',
-      url: `${SITE_URL}/work/${params.slug}`,
-      sanityImg: metaData?.mainImage,
+      type: 'website',
+      url: SITE_URL,
+      sanityImg: metaData?.ogImage ?? fallbackMeta?.ogImage,
     },
-    keywords: ['design', 'development', 'creative', 'studio'],
+    keywords: metaData?.keywords ?? fallbackMeta?.keywords,
   });
 }
 

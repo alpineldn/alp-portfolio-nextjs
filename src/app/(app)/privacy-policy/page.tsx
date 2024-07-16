@@ -12,16 +12,19 @@ export async function generateMetadata({}): Promise<Metadata> {
   const metaData: Meta = await sanityClient.fetch(
     META_QUERY('/privacy-policy'),
   );
+  const fallbackMeta: Meta = await sanityClient.fetch(
+    META_QUERY('/fallback-meta'),
+  );
 
   return generateMeta({
-    title: metaData?.title ?? 'Alpine',
-    description: metaData?.meta.description ?? "Alpine's work page.",
+    title: metaData?.title ?? fallbackMeta?.title,
+    description: metaData?.meta.description ?? fallbackMeta?.meta.description,
     og: {
       type: 'website',
-      url: `${SITE_URL}/privacy-policy`,
-      sanityImg: metaData?.ogImage,
+      url: SITE_URL,
+      sanityImg: metaData?.ogImage ?? fallbackMeta?.ogImage,
     },
-    keywords: metaData?.meta?.keywords,
+    keywords: metaData?.meta?.keywords ?? fallbackMeta?.meta?.keywords,
   });
 }
 

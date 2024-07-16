@@ -4,6 +4,12 @@ import MouseTrailer from '@/components/mouse-trailer/MouseTrailer';
 import cn from '@/utils/cn';
 import localFont from '@next/font/local';
 import './globals.css';
+import { Metadata } from 'next';
+import { META_QUERY } from '@/utils/sanity/queries';
+import sanityClient from '@/utils/sanity/client';
+import { Meta } from './page';
+import generateMeta from '@/utils/generate-meta';
+import { SITE_URL } from '@/utils/constants';
 
 interface RootLayoutProps {
   children: React.ReactNode;

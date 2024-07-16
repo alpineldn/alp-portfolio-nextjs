@@ -11,6 +11,7 @@ interface Props {
   href: string;
   className?: string;
   children: React.ReactNode;
+  dataType?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => void;
   onMouseEnter?: (
     e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
@@ -25,6 +26,7 @@ const PageTransitionLink = ({
   href,
   className,
   children,
+  dataType,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -42,7 +44,7 @@ const PageTransitionLink = ({
     <Link
       id={id}
       href={href}
-      data-type="link"
+      data-type={dataType}
       onMouseEnter={onMouseEnter}
       className={cn('interactable', className)}
       onMouseLeave={onMouseLeave}

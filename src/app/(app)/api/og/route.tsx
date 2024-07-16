@@ -23,7 +23,6 @@ export async function GET(request: Request) {
     } else if (source === 'sanity' && imgPath) {
       backgroundImageUrl = imgPath;
     }
-    console.log(backgroundImageUrl);
 
     const fontData = await fetch(
       new URL(
@@ -34,7 +33,7 @@ export async function GET(request: Request) {
 
     const backgroundStyle = backgroundImageUrl
       ? {
-          backgroundImage: `url("${backgroundImageUrl}")`,
+          backgroundImage: `url("${decodeURIComponent(backgroundImageUrl)}")`,
           backgroundSize: 'cover',
         }
       : {
@@ -42,7 +41,7 @@ export async function GET(request: Request) {
             'linear-gradient(135deg, #0a192f, #172a45, #0a192f, #0a192f, #1c2b4b, #0a192f)',
         };
 
-    console.log({ backgroundStyle });
+    console.log({ backgroundImageUrl });
 
     return new ImageResponse(
       (

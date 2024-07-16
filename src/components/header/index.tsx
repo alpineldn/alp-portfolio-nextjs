@@ -152,14 +152,19 @@ const Logo = () => {
             stroke: '#fff',
             strokeLinecap: 'square',
             strokeMiterlimit: 10,
-            strokeWidth: '8px',
+            strokeWidth: '10px',
           }}
           d="m5.66 86.84 64.93-64.93 65.29 65.3H62.69l81.55-81.55 81.64 81.64"
         />
       </motion.svg>
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
-        <p className="link-1 relative transition-all duration-500 ease-smooth-curve">
+        <p
+          className={cn(
+            'link-1 relative transition-all duration-500 ease-smooth-curve',
+            'font-medium tracking-[0.12em]',
+          )}
+        >
           ALPINE
         </p>
       </div>
@@ -222,7 +227,7 @@ const HamburgerMenuBtn = forwardRef<
       >
         <div
           className={cn(
-            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[30%] before:bg-light before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[30%] after:bg-light after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
+            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[2px] before:w-[30%] before:bg-light before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[2px] after:w-[30%] after:bg-light after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
             {
               'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
                 isActive,

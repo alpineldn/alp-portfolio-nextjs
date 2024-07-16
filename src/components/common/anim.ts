@@ -25,7 +25,7 @@ export const fadeInAndSlideUp = {
   enter: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: smoothCurve, delay: 0.2 },
+    transition: { duration: 1.5, ease: smoothCurve, delay: 0.2 },
   },
 
   exit: {

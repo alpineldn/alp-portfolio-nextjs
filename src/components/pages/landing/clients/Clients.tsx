@@ -74,7 +74,7 @@ const Clients: React.FC<ClientsProps> = ({}) => {
     {
       loop: true,
       duration: 8000,
-      dragFree: true,
+      watchDrag: false,
     },
     [Autoplay({ delay: 0 })],
   );
@@ -85,13 +85,13 @@ const Clients: React.FC<ClientsProps> = ({}) => {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[20%] bg-gradient-to-r from-dark via-dark/95 to-transparent"></div>
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[20%] bg-gradient-to-l from-dark via-dark/95 to-transparent"></div>
         <div
-          className="relative cursor-grab border-y-[0.5px] border-[#D9D9D9]/20 active:cursor-grabbing"
+          className="relative border-y-[0.5px] border-[#D9D9D9]/20"
           ref={emblaRef}
         >
           <div className="flex items-center">
-            {clients.map(({ logo, name }) => (
+            {clients.map(({ logo, name }, index) => (
               <div
-                key={name}
+                key={name + index}
                 title={name}
                 className={cn('flex-[0_0_auto] px-[3rem] py-[1.66rem]')}
               >

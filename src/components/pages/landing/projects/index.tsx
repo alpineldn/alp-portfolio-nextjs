@@ -10,7 +10,7 @@ import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProj
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import ArrowIcon from '@/components/common/icons/ArrowIcon';
+import ChevronIcon from '@/components/common/icons/ChevronIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -103,7 +103,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           >
             <MarqueeText>
               More Work
-              <ArrowIcon className="size-4 text-white" />
+              <ChevronIcon className="size-5 rotate-45 text-white" />
             </MarqueeText>
           </PageTransitionLink>
         </div>

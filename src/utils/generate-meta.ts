@@ -77,9 +77,10 @@ export const makeOpenGraphImages = (
       .width(1200)
       .height(630)
       .url();
+
     return [
       {
-        url: `${baseUrl}&showTitle=${showTitle}&img=${sanityImgUrl}&source=sanity`,
+        url: `${baseUrl}&showTitle=${showTitle}&img=${encodeURIComponent(sanityImgUrl)}&source=sanity`,
       },
     ];
   }

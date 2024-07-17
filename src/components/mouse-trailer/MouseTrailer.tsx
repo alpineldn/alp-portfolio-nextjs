@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import ChevronIcon from '../common/icons/ChevronIcon';
 
-type TrailerOption = 'video' | 'link' | 'click';
+type TrailerOption = 'video' | 'link' | 'click' | 'simple-hover';
 
 const getTrailerIcon = (type: TrailerOption) => {
   switch (type) {
@@ -62,10 +62,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
 
         quickSetX(x);
         quickSetY(y);
-        gsap.to(trailerElement, {
-          scale: interacting ? 3.5 : 1,
-          ease: 'power2.out',
-        });
+
         quickSetOpacity(x > 0 && y > 0 ? 1 : 0);
 
         trailerRef.current.dataset.type = interacting
@@ -76,15 +73,25 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
           trailerRef.current.dataset.type !== '' ? '1' : '0';
 
         if (interacting) {
-          // trailerRef.current.style.background = 'white';
-          setTrailerIcon(
-            getTrailerIcon(
-              (interactable as HTMLElement).dataset.type as TrailerOption,
-            ),
-          );
+          const linkType = (interactable as HTMLElement).dataset
+            .type as TrailerOption;
+
+          if (linkType === 'simple-hover') {
+            gsap.to(trailerRef.current, { backgroundColor: '#A9A9A9' });
+          } else {
+            trailerElement.style.mixBlendMode = 'normal';
+            gsap.to(trailerElement, {
+              scale: interacting ? 3.5 : 1,
+              ease: 'power2.out',
+            });
+            gsap.to(trailerRef.current, { backgroundColor: 'white' });
+          }
+
+          setTrailerIcon(getTrailerIcon(linkType));
         } else {
-          // trailerRef.current.style.background =
-          //   mode === 'dark' ? 'black' : 'white';
+          trailerElement.style.mixBlendMode = 'difference';
+          gsap.to(trailerElement, { scale: 1, ease: 'power2.out' });
+          gsap.to(trailerRef.current, { backgroundColor: 'white' });
         }
       }
     };
@@ -94,7 +101,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
       window.removeEventListener('mousemove', windowMouseMoveAction);
     };
   }, [mode, trailerRef, trailerIconRef]);
-
+  //
   return (
     <div className="hidden sm:block">
       <div

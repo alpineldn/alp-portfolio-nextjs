@@ -43,38 +43,10 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
         start: '35% bottom',
         onEnter: () => {
           tl.to(backdropRef.current, { opacity: 0.7 })
-            .to(
-              header1Ref.current,
-              {
-                y: 0,
-                opacity: 0.8,
-              },
-              '-=0.7',
-            )
-            .to(
-              header2Ref.current,
-              {
-                y: 0,
-                opacity: 1,
-              },
-              '-=0.7',
-            )
-            .to(
-              allWorkCtaEl,
-              {
-                y: 0,
-                opacity: 1,
-              },
-              '-=0.7',
-            )
-            .to(
-              infoEl,
-              {
-                y: 0,
-                opacity: 1,
-              },
-              '-=0.7',
-            );
+            .to(header1Ref.current, { y: 0, opacity: 0.8 }, '-=0.7')
+            .to(header2Ref.current, { y: 0, opacity: 1 }, '-=0.7')
+            .to(allWorkCtaEl, { y: 0, opacity: 1 }, '-=0.7')
+            .to(infoEl, { y: 0, opacity: 1 }, '-=0.7');
         },
       });
     });
@@ -85,6 +57,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
   return (
     <div ref={containerRef}>
       <PageTransitionLink
+        dataType="link"
         className="interactable group relative block h-[35vh] w-full overflow-hidden"
         href={`/work/${slug.current}`}
       >
@@ -134,7 +107,11 @@ const ContactInfo: React.FC = () => {
         data-type="click"
         className="flex w-full items-center justify-center py-10"
       >
-        <PageTransitionLink className="interactable" href="/work">
+        <PageTransitionLink
+          dataType="simple-hover"
+          className="interactable"
+          href="/work"
+        >
           <MarqueeText>
             All Work
             <ChevronIcon className="size-5 rotate-45 text-white" />
@@ -151,7 +128,12 @@ const ContactInfo: React.FC = () => {
             {/* <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
               Version
             </h3> */}
-            <p className="underline_link body-2">©2024 ALPINE</p>
+            <p
+              data-type="simple-hover"
+              className="underline_link interactable body-2"
+            >
+              ©2024 ALPINE
+            </p>
           </span>
         </div>
         <div className="flex items-end gap-2.5 border-b-[rgb(134,134,134)]/50 max-md:border-b max-md:pb-8">
@@ -160,6 +142,7 @@ const ContactInfo: React.FC = () => {
               Socials
             </h3> */}
             <PageTransitionLink
+              dataType="interactable"
               href="/privacy-policy"
               className="underline_link body-2"
             >

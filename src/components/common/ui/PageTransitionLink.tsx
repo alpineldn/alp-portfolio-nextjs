@@ -46,7 +46,7 @@ const PageTransitionLink = ({
       href={href}
       data-type={dataType}
       onMouseEnter={onMouseEnter}
-      className={cn('interactable', className)}
+      className={cn('', className)}
       onMouseLeave={onMouseLeave}
       onClick={(e) => {
         e.preventDefault();

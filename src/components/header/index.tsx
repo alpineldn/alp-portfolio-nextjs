@@ -125,6 +125,7 @@ const Logo = () => {
 
   return (
     <PageTransitionLink
+      dataType="simple-hover"
       id="site-logo"
       href="/"
       className={cn(
@@ -198,7 +199,11 @@ const NavLinks: React.FC<{
               'after:bg-white hover:before:bg-white',
             )}
           >
-            <PageTransitionLink className="interactable" href={href}>
+            <PageTransitionLink
+              className="interactable"
+              dataType="simple-hover"
+              href={href}
+            >
               {title}
             </PageTransitionLink>
           </div>
@@ -216,7 +221,11 @@ const HamburgerMenuBtn = forwardRef<
   }
 >(({ setIsActive, isActive }, ref) => {
   return (
-    <div ref={ref} className="interactable fixed right-0 z-20 scale-0">
+    <div
+      ref={ref}
+      data-type="simple-hover"
+      className="interactable fixed right-0 z-20 scale-0"
+    >
       <RoundedButton
         onClick={() => setIsActive((prev) => !prev)}
         className="relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-[50%] sm:m-[20px]"

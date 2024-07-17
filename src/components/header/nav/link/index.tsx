@@ -31,7 +31,11 @@ const LinkEl: React.FC<LinkProps> = ({
       animate="enter"
       exit="exit"
     >
-      <PageTransitionLink className={cn('underline_link', 'nav-1')} href={href}>
+      <PageTransitionLink
+        dataType="simple-hover"
+        className={cn('underline_link interactable', 'nav-1')}
+        href={href}
+      >
         {title}
       </PageTransitionLink>
     </motion.li>

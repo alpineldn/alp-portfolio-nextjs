@@ -2,6 +2,7 @@
 
 import type { Project } from '@/app/(app)/work/page';
 import ArrowIcon from '@/components/common/icons/ArrowIcon';
+import ChevronIcon from '@/components/common/icons/ChevronIcon';
 import GridLayout from '@/components/common/project-layouts/GridLayout/GridLayout';
 import MarqueeText from '@/components/common/ui/MarqueeText';
 import { useStore } from '@/store/store';
@@ -53,12 +54,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           <div className="flex items-center pb-10">
             <button
               className="interactable"
-              data-type="click"
+              data-type="simple-hover"
               onClick={fetchAllWorks}
             >
               <MarqueeText>
                 More Work
-                <ArrowIcon className="size-4 text-white" />
+                <ChevronIcon className="size-5 rotate-45 text-white" />
               </MarqueeText>
             </button>
           </div>

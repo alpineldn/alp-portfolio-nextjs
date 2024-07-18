@@ -7,9 +7,35 @@ const Typography: React.FC<{}> = async () => {
   return (
     <main className="min-h-screen bg-dark pt-32 text-light">
       <div className="container mx-auto space-y-6">
-        <h1 className="h1">This is a h1 (Fluid)</h1>
-        <h2 className="h2">This is a h2 (Fluid)</h2>
-        <h3 className="h3">This is a h3</h3>
+        <h1 className="h1">XXL H1 - Brand &amp; Digital Design Agency (Fluid)</h1>
+        <p className="body-1">
+          body 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+        </p>
+        <h2 className="h2">XL H2 - This is an h2 (Fluid)</h2>
+
+        <p className="body-1">
+          Body 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas leo enim, scelerisque vitae est vel, aliquam varius arcu.</p>
+        <p className="body-1">
+        Body 1 - Donec elementum sapien in rhoncus rhoncus. Vestibulum urna ipsum, elementum et egestas a, faucibus eu tellus. Vestibulum lacinia nisl luctus consectetur commodo. Fusce tincidunt risus felis, blandit lacinia tellus vulputate aliquam. Ut luctus lorem at iaculis fringilla. Aliquam tempus purus vel lacus posuere finibus.
+          </p>
+
+        <p className="link-1 underline_link w-fit">[  LINK TO CTA  ]</p>
+
+        <h3 className="h3">L - This is an h3</h3>
+
+        <p className="body-1">Maecenas sapien magna, varius non pretium et, hendrerit eu nisi. Donec vel vestibulum arcu, eu consectetur metus. Sed dapibus massa ac quam mattis, eget semper diam posuere.</p>
+        <p className="body-1">In ut ullamcorper velit. Proin eget sapien vulputate, elementum neque ac, dictum erat. Ut volutpat, dolor et iaculis volutpat, enim libero blandit eros, nec tincidunt ligula enim non orci. In id aliquet diam, quis ornare lorem. Etiam lobortis velit et odio dapibus venenatis.</p>
+        <ul>
+          <li>In ut ullamcorper velit</li>
+          <li>In ut ullamcorper velit</li>
+          <li>In ut ullamcorper velit</li>
+          <li>In ut ullamcorper velit</li>
+          <li>In ut ullamcorper velit</li>
+          <li>In ut ullamcorper velit</li>
+          <li>In ut ullamcorper velit</li>
+          <li>In ut ullamcorper velit</li>
+        </ul>
+        
         <h4 className="h4">This is a h4</h4>
 
         <p className="body-1">

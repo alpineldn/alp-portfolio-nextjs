@@ -51,7 +51,7 @@ const Contact: React.FC<ContactProps> = () => {
       ref={containerRef}
       className="relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-dark to-black/90 text-light"
     >
-      <div className="container w-full lg:pt-[50px]">
+      <div className="container w-full pt-[60px] lg:pt-[120px]">
         <div className="relative">
           <span className="flex items-center">
             <h2 ref={heroText1Ref} className="h2 translate-y-[25px] opacity-0">
@@ -76,13 +76,13 @@ const CTAs = () => {
   return (
     <div
       id="contact-cta"
-      className="mt-[50px] flex translate-y-[25px] gap-5 opacity-0 max-lg:flex max-lg:flex-col lg:mt-[100px]"
+      className="mt-[50px] flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col lg:mt-[110px]"
     >
       <UnderlineLink
-        className="h4 interactable"
-        href="mailto:info@dennissnellenberg.com"
+        className="h4 interactable font-medium"
+        href="mailto:studio@alpineldn.com"
       >
-        info@dennissnellenberg.com
+        studio@alpineldn.com
       </UnderlineLink>
     </div>
   );

@@ -17,7 +17,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
 
         <div className="grid grid-cols-12">
           <div className="col-span-12 flex flex-col xl:col-span-8">
-            <h4 className="h4 xl:pb-[3.5rem] xl:pr-[7rem] 2xl:pr-[10rem]">
+            <h4 className="h5 xl:pb-[3.5rem] xl:pr-[7rem] 2xl:pr-[10rem]">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis
               id asperiores velit eius enim aspernatur?
             </h4>

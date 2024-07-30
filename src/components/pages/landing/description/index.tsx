@@ -24,7 +24,7 @@ const Description: React.FC<DescriptionProps> = () => {
     >
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-12 md:flex-row">
-          <p className={cn('h4 gap-3', '!leading-normal')}>
+          <p className={cn('h5 gap-3', '!leading-normal')}>
             {phrase.split(' ').map((word, index) => {
               return (
                 <span

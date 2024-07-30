@@ -21,10 +21,15 @@ module.exports = {
         'h3-lg': ['2.25rem', { lineHeight: '2.5' }],
         'h3-2xl': ['3.75rem', { lineHeight: '1' }],
 
-        h4: ['1.25rem', { lineHeight: '1.5' }],
-        'h4-sm': ['1.5rem', { lineHeight: '1.5' }],
-        'h4-lg': ['1.875rem', { lineHeight: '1.5' }],
-        'h4-2xl': ['2.25rem', { lineHeight: '1.5' }],
+        h4: ['1.375rem', { lineHeight: '1.35' }],
+        'h4-sm': ['1.625rem', { lineHeight: '1.75' }],
+        'h4-lg': ['2rem', { lineHeight: '2' }],
+        'h4-2xl': ['2.875rem', { lineHeight: '1.25' }],
+
+        h5: ['1.25rem', { lineHeight: '1.5' }],
+        'h5-sm': ['1.5rem', { lineHeight: '1.5' }],
+        'h5-lg': ['1.875rem', { lineHeight: '1.5' }],
+        'h5-2xl': ['2.25rem', { lineHeight: '1.5' }],
 
         body1: ['1rem', { lineHeight: '1.5' }],
         'body1-md': ['1.125rem', { lineHeight: '1.75' }],

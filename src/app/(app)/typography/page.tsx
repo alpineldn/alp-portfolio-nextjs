@@ -11,6 +11,7 @@ const Typography: React.FC<{}> = async () => {
         <h2 className="h2">This is a h2 (Fluid)</h2>
         <h3 className="h3">This is a h3</h3>
         <h4 className="h4">This is a h4</h4>
+        <h5 className="h5">This is a h5</h5>
 
         <p className="body-1">
           body 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla

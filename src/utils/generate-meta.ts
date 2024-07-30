@@ -29,6 +29,7 @@ export default function generateMeta({
   const openGraphImages = makeOpenGraphImages(
     { sanityImg, localImg },
     title,
+    url,
     showTitle,
   );
 
@@ -61,6 +62,7 @@ export default function generateMeta({
 export const makeOpenGraphImages = (
   { sanityImg, localImg }: Omit<MetaData['og'], 'type' | 'url'>,
   metaTitle: string | undefined,
+  url: string,
   showTitle?: boolean,
 ) => {
   const baseUrl = `/api/og?title=${metaTitle}`;
@@ -80,7 +82,7 @@ export const makeOpenGraphImages = (
 
     return [
       {
-        url: `${baseUrl}&showTitle=${showTitle}&img=${encodeURIComponent(sanityImgUrl)}&source=sanity`,
+        url: `${baseUrl}&showTitle=${showTitle}&img=${encodeURIComponent(sanityImgUrl)}&source=sanity&pageUrl=${encodeURIComponent(url)}`,
       },
     ];
   }

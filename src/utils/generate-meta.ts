@@ -34,26 +34,26 @@ export default function generateMeta({
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: title,
-    description: description,
+    title,
+    description,
     keywords,
     openGraph: {
-      url: url,
-      type: type,
-      title: title,
-      description: description,
+      url,
+      type,
+      title,
+      description,
       images: openGraphImages,
     },
     twitter: {
       card: 'summary_large_image',
-      title: title,
-      description: description,
+      title,
+      description,
       creator: '@alpineldn',
       site: '@alpineldn',
       images: openGraphImages,
     },
     alternates: {
-      canonical: 'https://alpineldn.com',
+      canonical: url,
     },
   };
 }

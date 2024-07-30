@@ -20,7 +20,7 @@ export async function generateMetadata({}): Promise<Metadata> {
     description: metaData?.meta.description ?? fallbackMeta?.meta.description,
     og: {
       type: 'website',
-      url: SITE_URL,
+      url: `${SITE_URL}/about`,
       sanityImg: metaData?.ogImage ?? fallbackMeta?.ogImage,
     },
     keywords: metaData?.meta?.keywords ?? fallbackMeta?.meta?.keywords,

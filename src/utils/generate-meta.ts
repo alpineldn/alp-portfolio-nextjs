@@ -29,31 +29,32 @@ export default function generateMeta({
   const openGraphImages = makeOpenGraphImages(
     { sanityImg, localImg },
     title,
+    url,
     showTitle,
   );
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: title,
-    description: description,
+    title,
+    description,
     keywords,
     openGraph: {
-      url: url,
-      type: type,
-      title: title,
-      description: description,
+      url,
+      type,
+      title,
+      description,
       images: openGraphImages,
     },
     twitter: {
       card: 'summary_large_image',
-      title: title,
-      description: description,
+      title,
+      description,
       creator: '@alpineldn',
       site: '@alpineldn',
       images: openGraphImages,
     },
     alternates: {
-      canonical: 'https://alpineldn.com',
+      canonical: url,
     },
   };
 }
@@ -61,6 +62,7 @@ export default function generateMeta({
 export const makeOpenGraphImages = (
   { sanityImg, localImg }: Omit<MetaData['og'], 'type' | 'url'>,
   metaTitle: string | undefined,
+  url: string,
   showTitle?: boolean,
 ) => {
   const baseUrl = `/api/og?title=${metaTitle}`;
@@ -80,7 +82,7 @@ export const makeOpenGraphImages = (
 
     return [
       {
-        url: `${baseUrl}&showTitle=${showTitle}&img=${encodeURIComponent(sanityImgUrl)}&source=sanity`,
+        url: `${baseUrl}&showTitle=${showTitle}&img=${encodeURIComponent(sanityImgUrl)}&source=sanity&pageUrl=${encodeURIComponent(url)}`,
       },
     ];
   }

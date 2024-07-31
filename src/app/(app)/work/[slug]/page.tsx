@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: WorkDetailProps) {
     description: metaData?.description ?? fallbackMeta?.description,
     og: {
       type: 'website',
-      url: SITE_URL,
+      url: `${SITE_URL}/work/${params.slug}`,
       sanityImg: metaData?.ogImage ?? fallbackMeta?.ogImage,
     },
     keywords: metaData?.keywords ?? fallbackMeta?.keywords,

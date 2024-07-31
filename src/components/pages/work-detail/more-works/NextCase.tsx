@@ -78,7 +78,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
             <div className="container mx-auto">
               <h2
                 ref={header1Ref}
-                className="h4 translate-y-[25px] opacity-0 drop-shadow-lg"
+                className="h5 translate-y-[25px] opacity-0 drop-shadow-lg"
               >
                 Next Project_
               </h2>

@@ -49,10 +49,10 @@ const Nav: React.FC<NavProps> = () => {
         </div>
         <div className="flex flex-col justify-between sm:flex-row sm:items-center">
           <UnderlineLink
-            className="h4 interactable"
-            href="mailto:info@dennissnellenberg.com"
+            className="h5 interactable"
+            href="mailto:studio@alpineldn.com"
           >
-            info@dennissnellenberg.com
+            studio@alpineldn.com
           </UnderlineLink>
 
           <div>

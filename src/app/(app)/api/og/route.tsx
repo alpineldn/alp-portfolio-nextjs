@@ -9,6 +9,10 @@ export async function GET(request: Request) {
 
     const hasTitle = searchParams.has('title');
     const showTitle = searchParams.get('showTitle');
+    const pageUrl = new URL(
+      decodeURIComponent(searchParams.get('pageUrl') as string),
+    );
+
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, 100)
       : 'My website';
@@ -50,14 +54,15 @@ export async function GET(request: Request) {
             ...backgroundStyle,
             fontFamily: '"ppneuemontreal"',
           }}
-          tw="text-white w-full h-full flex justify-between flex-col py-16 px-8 gap-5"
+          tw="text-white w-full h-full flex flex-col py-16 px-12 gap-5 relative"
         >
+          <div tw="absolute z-10 absolute bg-black/70 inset-0" />
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 115.76 46.48"
-            width="115.76"
-            height="46.48"
+            width="81.03"
+            height="32.54"
           >
             <path
               style={{
@@ -71,11 +76,18 @@ export async function GET(request: Request) {
             />
           </svg>
 
-          {!!showTitle && <div tw="text-left text-6xl">{title}</div>}
+          <span tw="mt-auto flex flex-col">
+            {!!showTitle && (
+              <span tw="text-left font-medium max-w-[700px] text-6xl mb-14">
+                {title}
+              </span>
+            )}
 
-          <a className="text-2xl" href="/">
-            alpineldn.com
-          </a>
+            <a tw="text-2xl font-medium" href="/">
+              {pageUrl.hostname}{' '}
+              {pageUrl.pathname !== '/' && `(${pageUrl.pathname})`}
+            </a>
+          </span>
         </div>
       ),
       {

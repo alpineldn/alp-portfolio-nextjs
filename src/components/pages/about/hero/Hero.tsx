@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
           Lorem ipsum dolor sit amet consectetur.
         </h1>
 
-        <h3 className="h4 ml-auto max-w-[45rem]">
+        <h3 className="h5 ml-auto max-w-[45rem]">
           Focusing on core areas, we combine our creative and technical skills
           to uncover brand’s essences.
         </h3>

@@ -11,7 +11,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
     <div
       id={id}
       className={cn(
-        'mt-[80px] flex flex-col-reverse justify-between p-5 md:flex-row lg:mt-[130px]',
+        'mt-[80px] flex flex-col-reverse justify-between pb-5 md:flex-row lg:mt-[130px]',
         className,
       )}
     >
@@ -21,8 +21,8 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
             Version
           </h3> */}
           <p
-            data-type="simple-hover"
-            className="underline_link body-2 interactable"
+            // data-type="simple-hover"
+            className="body-2"
           >
             ©2024 ALPINE
           </p>
@@ -38,7 +38,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
             href="/privacy-policy"
             className="underline_link body-2 interactable"
           >
-            Privacy
+            PRIVACY
           </PageTransitionLink>
         </span>
         {/* <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>

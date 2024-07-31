@@ -53,6 +53,7 @@ const Contact: React.FC<ContactProps> = () => {
     >
       <div className="container w-full lg:pt-[50px]">
         <div className="relative">
+         {/* this is not semantic  */}
           <span className="flex items-center">
             <h2 ref={heroText1Ref} className="h2 translate-y-[25px] opacity-0">
               Let's work
@@ -80,9 +81,9 @@ const CTAs = () => {
     >
       <UnderlineLink
         className="h4 interactable"
-        href="mailto:info@dennissnellenberg.com"
+        href="mailto:studio@alpineldn.com"
       >
-        info@dennissnellenberg.com
+        studio@alpineldn.com
       </UnderlineLink>
     </div>
   );

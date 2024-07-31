@@ -5,6 +5,7 @@ import cn from '@/utils/cn';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
+import { useEffect, useState } from 'react';
 
 export interface Client {
   _id: string;
@@ -16,6 +17,22 @@ interface ClientsProps {
   clients: Client[];
 }
 const Clients: React.FC<ClientsProps> = ({ clients }) => {
+  const [allClient, setClients] = useState(clients);
+
+  const checkAndRepeatClients = () => {
+    if (clients.length < 10) {
+      const repeatedClients = [...clients];
+      while (repeatedClients.length < 10) {
+        repeatedClients.push(...clients.slice(0, 10 - repeatedClients.length));
+      }
+      setClients(repeatedClients);
+    }
+  };
+
+  useEffect(() => {
+    checkAndRepeatClients();
+  }, [clients]);
+
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
@@ -35,7 +52,7 @@ const Clients: React.FC<ClientsProps> = ({ clients }) => {
           ref={emblaRef}
         >
           <div className="flex items-center">
-            {[...clients, ...clients].map(({ image, name, _id }, index) => (
+            {allClient.map(({ image, name, _id }, index) => (
               <div
                 key={_id + index}
                 title={name}

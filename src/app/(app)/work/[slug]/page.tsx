@@ -21,6 +21,7 @@ interface Meta {
   description: string;
   ogImage: SanityImageObject;
   keywords: string[];
+  projectName: string;
 }
 
 export interface NextProject {
@@ -42,7 +43,8 @@ export interface ProjectFull extends Project {
 export async function generateMetadata({ params }: WorkDetailProps) {
   const metaData: Meta = await sanityClient.fetch(
     `*[_type == "project" && slug.current == "${params.slug}"][0]{
-        ...meta
+        ...meta,
+        "projectName": title,
     }`,
   );
   const fallbackMeta: Meta = await sanityClient.fetch(
@@ -50,7 +52,10 @@ export async function generateMetadata({ params }: WorkDetailProps) {
   );
 
   return generateMeta({
-    title: metaData?.title ?? fallbackMeta?.title,
+    title:
+      metaData?.title ??
+      `${metaData?.projectName} - Alpine Design` ??
+      fallbackMeta?.title,
     description: metaData?.description ?? fallbackMeta?.description,
     og: {
       type: 'website',

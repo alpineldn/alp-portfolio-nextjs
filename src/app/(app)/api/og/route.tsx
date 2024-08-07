@@ -9,9 +9,7 @@ export async function GET(request: Request) {
 
     const hasTitle = searchParams.has('title');
     const showTitle = searchParams.get('showTitle');
-    const pageUrl = new URL(
-      decodeURIComponent(searchParams.get('pageUrl') as string),
-    );
+    const pageUrl = decodeURIComponent(searchParams.get('pageUrl') as string);
 
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, 100)
@@ -44,8 +42,6 @@ export async function GET(request: Request) {
           background:
             'linear-gradient(135deg, #0a192f, #172a45, #0a192f, #0a192f, #1c2b4b, #0a192f)',
         };
-
-    console.log({ backgroundImageUrl });
 
     return new ImageResponse(
       (
@@ -84,8 +80,7 @@ export async function GET(request: Request) {
             )}
 
             <a tw="text-2xl font-medium" href="/">
-              {pageUrl.hostname}{' '}
-              {pageUrl.pathname !== '/' && `(${pageUrl.pathname})`}
+              {pageUrl}
             </a>
           </span>
         </div>

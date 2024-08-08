@@ -48,7 +48,7 @@ export async function generateMetadata({}): Promise<Metadata> {
 
 async function getPageData(): Promise<Project[]> {
   try {
-    return await sanityClient.fetch(WORK_QUERY, { start: 0, end: 8 });
+    return await sanityClient.fetch(WORK_QUERY);
   } catch (error) {
     throw new Error(error as string);
   }

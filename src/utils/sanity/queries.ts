@@ -20,7 +20,7 @@ export const CLIENTS_QUERY = groq`*[_type == "client"][]{
 
 }`;
 export const WORK_QUERY = groq`
-	*[_type == "project"] | order(_createdAt asc)[$start...$end]{
+	*[_type == "project"] | order(_createdAt asc)[]{
       _id,
 	    agency,
         ${asset('mainImage')},

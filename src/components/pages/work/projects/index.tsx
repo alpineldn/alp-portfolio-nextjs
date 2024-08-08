@@ -1,7 +1,6 @@
 'use client';
 
 import type { Project } from '@/app/(app)/work/page';
-import ArrowIcon from '@/components/common/icons/ArrowIcon';
 import ChevronIcon from '@/components/common/icons/ChevronIcon';
 import GridLayout from '@/components/common/project-layouts/GridLayout/GridLayout';
 import MarqueeText from '@/components/common/ui/MarqueeText';
@@ -16,26 +15,11 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const { firstVisit } = useStore((store) => store);
   const [hideMoreWorkBtn, setHideMoreWorkBtn] = useState(false);
-  const [allProjects, setAllProjects] = useState(projects);
-  const [loading, setLoading] = useState(false);
+  const [allProjects, setAllProjects] = useState(() => projects.slice(0, 8));
 
-  const fetchAllWorks = async () => {
-    if (loading) return;
-
-    try {
-      setLoading(true);
-
-      fetch('/api/all-work')
-        .then((res) => res.json())
-        .then((data: { projects: Project[] }) => {
-          setAllProjects((prev) => [...prev, ...data.projects]);
-          setHideMoreWorkBtn(true);
-        });
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
+  const showAllWorks = () => {
+    setHideMoreWorkBtn(true);
+    setAllProjects(projects);
   };
 
   return (
@@ -55,7 +39,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             <button
               className="interactable"
               data-type="simple-hover"
-              onClick={fetchAllWorks}
+              onClick={showAllWorks}
             >
               <MarqueeText>
                 More Work

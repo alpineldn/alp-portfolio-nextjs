@@ -16,14 +16,19 @@ export interface Client {
 interface ClientsProps {
   clients: Client[];
 }
+
+const DESIRED_LENGTH = 12;
+
 const Clients: React.FC<ClientsProps> = ({ clients }) => {
   const [allClient, setClients] = useState(clients);
 
   const checkAndRepeatClients = () => {
-    if (clients.length < 10) {
+    if (clients.length < DESIRED_LENGTH) {
       const repeatedClients = [...clients];
-      while (repeatedClients.length < 10) {
-        repeatedClients.push(...clients.slice(0, 10 - repeatedClients.length));
+      while (repeatedClients.length < DESIRED_LENGTH) {
+        repeatedClients.push(
+          ...clients.slice(0, DESIRED_LENGTH - repeatedClients.length),
+        );
       }
       setClients(repeatedClients);
     }
@@ -60,7 +65,7 @@ const Clients: React.FC<ClientsProps> = ({ clients }) => {
               >
                 <div className="flex h-full w-full items-center justify-center">
                   <SanityImage
-                    className="h-fit max-h-[2.8rem] w-fit object-contain"
+                    className="h-fit max-h-[2.8rem] w-fit max-w-[200px] object-contain"
                     src={image}
                     alt={name}
                     sizes="200px"

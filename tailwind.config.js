@@ -51,14 +51,13 @@ module.exports = {
         { letterSpacing: '1%', fontWeight: 400, lineHeight: '50px' },
       ],
     },
-    letterSpacing: {
-      tight: '1%',
-      wide: '2%',
-      wider: '3%',
-      widest: '10%',
-    },
 
     extend: {
+      spacing: {
+        'section-xl': '216px',
+        'section-md': '144px',
+        section: '96px',
+      },
       fontSize: {
         // h1: ['clamp(3.5rem, 5.5vw + 1rem, 7.5rem)', { lineHeight: '1.2' }],
         // h2: ['clamp(3rem, 5vw + 1rem, 6.5rem)', { lineHeight: '1.25' }],

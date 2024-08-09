@@ -22,7 +22,7 @@ const Description: React.FC<DescriptionProps> = () => {
     >
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-12 md:flex-row">
-          <p className={cn('h5 gap-3', '!leading-normal')}>
+          <p className={cn('heading-l')}>
             {phrase.split(' ').map((word, index) => {
               return (
                 <span
@@ -42,7 +42,7 @@ const Description: React.FC<DescriptionProps> = () => {
             })}
           </p>
           <motion.p
-            className="body-1 max-w-64 md:max-w-full"
+            className="heading-m max-w-64 md:max-w-full"
             variants={opacity}
             animate={isInView ? 'open' : 'closed'}
           >

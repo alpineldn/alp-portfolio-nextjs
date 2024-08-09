@@ -54,11 +54,17 @@ const Contact: React.FC<ContactProps> = () => {
       <div className="container w-full pt-[60px] lg:pt-[120px]">
         <div className="relative">
           <span className="flex items-center">
-            <h2 ref={heroText1Ref} className="h2 translate-y-[25px] opacity-0">
+            <h2
+              ref={heroText1Ref}
+              className="heading-xl translate-y-[25px] opacity-0"
+            >
               Let's work
             </h2>
           </span>
-          <h2 ref={heroText2Ref} className="h2 translate-y-[25px] opacity-0">
+          <h2
+            ref={heroText2Ref}
+            className="heading-xl translate-y-[25px] opacity-0"
+          >
             together
           </h2>
         </div>
@@ -79,7 +85,7 @@ const CTAs = () => {
       className="mt-[50px] flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col lg:mt-[110px]"
     >
       <UnderlineLink
-        className="h4 interactable font-medium"
+        className="heading-l interactable font-medium"
         href="mailto:studio@alpineldn.com"
       >
         studio@alpineldn.com

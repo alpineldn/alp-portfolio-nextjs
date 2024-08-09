@@ -97,24 +97,16 @@ const LinkEl: React.FC<MarqueeProps> = ({
   children,
   className,
   icon,
-  iconClassName = 'size-4 text-white',
+  iconClassName = 'size-[24px] text-white',
 }) => {
   return (
     <div
-      className={cn(
-        'body-1 group flex items-center uppercase text-light',
-        className,
-      )}
+      className={cn('text-link-m group flex items-center uppercase', className)}
     >
-      <div
-        data-type="simple-hover"
-        className={cn('interactable w-min overflow-hidden')}
-      >
-        <div className="flex h-full w-full flex-1">
-          <div className="link-1 flex flex-1 items-center justify-center gap-x-[23px] whitespace-nowrap text-center tracking-wider transition-[letter-spacing] duration-500 group-hover:tracking-[0.2em]">
-            {children}
-            {icon ? icon : <ArrowTopRight className={iconClassName} />}
-          </div>
+      <div data-type="simple-hover" className="interactable">
+        <div className="flex items-center justify-center gap-x-[23px] text-center transition-[letter-spacing] duration-500 group-hover:tracking-[0.2em]">
+          {children}
+          {icon ? icon : <ArrowTopRight className={iconClassName} />}
         </div>
       </div>
     </div>

@@ -25,13 +25,13 @@ const ProjectList: React.FC<ProjectProps> = ({
       onMouseLeave={(e) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
-      className="interactable group w-full cursor-pointer border-t border-solid border-t-light/50 text-light transition-all duration-200 last:border-b last:border-b-light/50 hover:opacity-50"
+      className="interactable group w-full cursor-pointer border-t border-solid border-t-white/50 text-white transition-all duration-200 last:border-b last:border-b-white/50 hover:opacity-50"
     >
       <td>
         <PageTransitionLink
           dataType="link"
           className={cn(
-            'h3',
+            'heading-xl',
             'interactable',
             'block py-7 transition-all duration-[0.4s] 2xl:py-[50px]',
           )}
@@ -43,7 +43,7 @@ const ProjectList: React.FC<ProjectProps> = ({
       <td>
         <PageTransitionLink
           dataType="link"
-          className="body-1 interactable block py-7 pr-5 transition-all duration-300 sm:pr-10 2xl:py-[50px] 2xl:pr-[100px]"
+          className="heading-m interactable block py-7 pr-5 transition-all duration-300 sm:pr-10 2xl:py-[50px] 2xl:pr-[100px]"
           href={`work/${slug.current}`}
         >
           {client}
@@ -52,7 +52,7 @@ const ProjectList: React.FC<ProjectProps> = ({
       <td>
         <PageTransitionLink
           dataType="link"
-          className="body-1 interactable block py-7 transition-all duration-300 2xl:py-[50px]"
+          className="heading-m interactable block py-7 transition-all duration-300 2xl:py-[50px]"
           href={`work/${slug.current}`}
         >
           {categories.map((category, index) => (

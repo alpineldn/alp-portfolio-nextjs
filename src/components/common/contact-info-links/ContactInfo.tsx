@@ -20,7 +20,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
           {/* <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
             Version
           </h3> */}
-          <p className="body-1 !font-medium">
+          <p className="text-spaced-sm !font-medium">
             ©{new Date().getFullYear()} ALPINE
           </p>
         </span>
@@ -33,7 +33,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
           <PageTransitionLink
             dataType="simple-hover"
             href="/privacy-policy"
-            className="underline_link body-1 interactable !font-medium"
+            className="underline_link text-spaced-sm interactable !font-medium"
           >
             Privacy
           </PageTransitionLink>

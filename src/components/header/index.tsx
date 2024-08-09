@@ -162,8 +162,7 @@ const Logo = () => {
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
         <p
           className={cn(
-            'link-1 relative transition-all duration-500 ease-smooth-curve',
-            'font-medium tracking-[0.12em]',
+            'text-link relative transition-all duration-500 ease-smooth-curve',
           )}
         >
           ALPINE
@@ -183,7 +182,7 @@ const NavLinks: React.FC<{
         onClick={() => {
           setIsActive((prev) => !prev);
         }}
-        className="link-1 relative z-[1] flex cursor-pointer opacity-0 sm:hidden"
+        className="text-link relative z-[1] flex cursor-pointer opacity-0 sm:hidden"
       >
         <span>Menu</span>
       </button>
@@ -195,7 +194,7 @@ const NavLinks: React.FC<{
             className={cn(
               'site-nav-link sm:opacity-0',
               'underline_link',
-              'link-1',
+              'text-link',
               'after:bg-white hover:before:bg-white',
             )}
           >

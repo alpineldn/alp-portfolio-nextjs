@@ -20,10 +20,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
           {/* <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
             Version
           </h3> */}
-          <p
-            data-type="simple-hover"
-            className="underline_link body-1 interactable !font-medium"
-          >
+          <p className="body-1 !font-medium">
             ©{new Date().getFullYear()} ALPINE
           </p>
         </span>

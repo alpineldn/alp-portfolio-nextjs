@@ -55,6 +55,7 @@
     @apply text-project-meta;
   }
 
+  /* Paddings */
   .section-padding-t {
     @apply pt-section md:pt-section-lg xl:pt-section-xxl;
   }

@@ -7,10 +7,11 @@ import { useStore } from '@/store/store';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Link from 'next/link';
 import { useLayoutEffect, useRef } from 'react';
 import { Slug } from 'sanity';
 import SplitType from 'split-type';
+import LinkEl from '@/components/common/ui/LinkEl';
+import Link from 'next/link';
 
 interface HeroProps {
   title: string;
@@ -95,30 +96,24 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <section>
-      <div className="relative h-full w-full bg-dark pt-[130px] text-light lg:pt-[277px]">
-        <div ref={sectionRef} className="container mx-auto pb-10">
-          <h1 ref={heroTextRef} className="h1 max-w-5xl">
+      <div
+        ref={sectionRef}
+        className="relative h-full w-full bg-dark pt-[130px] text-light lg:pt-[293px]"
+      >
+        <header className="pb-sm container mx-auto">
+          <h1 ref={heroTextRef} className="heading-xxl max-w-5xl">
             {title}
           </h1>
+        </header>
 
-          <div ref={detailContainerRef} className="relative">
-            <Details
-              client={client}
-              agency={agency}
-              categories={categories}
-              previewURL={previewURL}
-            />
-          </div>
-        </div>
-
-        <div className="relative z-[1] mx-auto max-w-screen-2xl !overflow-hidden pb-[100px] pt-10">
+        <div className="mb-section-md relative z-[1] mx-auto w-full !overflow-hidden">
           <div
             ref={imgContainerRef}
             className="translate-y-[15px] overflow-hidden opacity-0"
           >
             <div
-              data-scroll
-              data-scroll-speed={width >= 767 ? 0.2 : 0.05}
+              // data-scroll
+              // data-scroll-speed={width >= 767 ? 0.2 : 0.05}
               className="overflow-hidden"
             >
               <SanityImage
@@ -129,6 +124,14 @@ const Hero: React.FC<HeroProps> = ({
               />
             </div>
           </div>
+        </div>
+        <div ref={detailContainerRef} className="container relative mx-auto">
+          <Details
+            client={client}
+            agency={agency}
+            categories={categories}
+            previewURL={previewURL}
+          />
         </div>
       </div>
     </section>
@@ -143,28 +146,22 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
   previewURL,
 }) => {
   return (
-    <>
-      <ul className="grid gap-10 pt-20 max-lg:grid-cols-1 lg:grid-flow-col lg:gap-20 lg:pt-[118px]">
+    <div className="grid grid-cols-12">
+      <ul className="heading-m col-span-9 grid max-lg:grid-cols-1 lg:grid-flow-col">
         <li className="translate-y-[50px] opacity-0">
-          <div className="body-2 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
-            Client
-          </div>
-          <div className="body-1 pt-4 lg:pt-8">{client}</div>
+          <div className="text-lightGray uppercase">Client:</div>
+          <div className="">{client}</div>
         </li>
         {!!agency && (
           <li className="translate-y-[50px] opacity-0">
-            <div className="body-2 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
-              AGENCY
-            </div>
-            <div className="body-1 pt-4 lg:pt-8">{agency}</div>
+            <div className="text-lightGray uppercase">AGENCY:</div>
+            <div className="">{agency}</div>
           </li>
         )}
 
         <li className="translate-y-[50px] opacity-0">
-          <div className="body-2 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
-            CATEGORIES
-          </div>
-          <div className="body-1 pt-4 lg:pt-8">
+          <div className="text-lightGray uppercase">CATEGORIES:</div>
+          <div className="">
             {categories.map(({ title, _id }, index) => (
               <span key={_id}>
                 {title} {index !== categories.length - 1 && ', '}
@@ -172,23 +169,18 @@ const Details: React.FC<Omit<HeroProps, 'mainImage' | 'title'>> = ({
             ))}
           </div>
         </li>
-
-        {!!previewURL?.current && (
-          <li className="translate-y-[50px] opacity-0">
-            <div className="body-2 border-b-2 pb-4 uppercase text-gray-400 lg:pb-8">
-              PREVIEW URL
-            </div>
-
-            <Link
-              data-type="simple-hover"
-              className="body-1 interactable block pt-4 lg:pt-8"
-              href={previewURL.current}
-            >
-              {previewURL.current}
-            </Link>
-          </li>
-        )}
       </ul>
-    </>
+      <div className="col-span-3 flex items-end justify-end">
+        {!!previewURL?.current && (
+          <Link
+            className="interactable block"
+            data-type="simple-hover"
+            href={previewURL.current}
+          >
+            <LinkEl>View Site</LinkEl>
+          </Link>
+        )}
+      </div>
+    </div>
   );
 };

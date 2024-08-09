@@ -20,6 +20,7 @@ interface Model {
 interface ProjectsProps {
   projects: ProjectType[];
 }
+
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const container = useRef<HTMLDivElement>(null);
   const { width = 0 } = useWindowSize();
@@ -71,23 +72,25 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="relative z-[1] bg-dark py-[120px] text-light lg:pt-[300px]"
+      className="section-padding-y relative z-[1] bg-dark text-light"
     >
       <div className="container mx-auto">
-        <table className="w-full table-auto pb-[100px] max-lg:hidden">
-          <tbody>
-            {projects.map((project, index) => {
-              return (
-                <ProjectList
-                  {...project}
-                  key={project._id}
-                  index={index}
-                  manageModal={manageModal}
-                />
-              );
-            })}
-          </tbody>
-        </table>
+        <h2 className="subtitle-md text-lightGray mb-xs xl:mb-section-md">
+          Projects
+        </h2>
+
+        <div className="w-full max-lg:hidden">
+          {projects.map((project, index) => {
+            return (
+              <ProjectList
+                {...project}
+                key={project._id}
+                index={index}
+                manageModal={manageModal}
+              />
+            );
+          })}
+        </div>
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2 lg:hidden">
           {projects.slice(0, 4).map((project, index) => {
@@ -95,11 +98,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           })}
         </div>
 
-        <div className="flex">
-          <PageTransitionLink
-            className="mt-20 block md:mt-52 lg:mt-20"
-            href="/work"
-          >
+        <div className="mt-sm md:mt-section-lg flex">
+          <PageTransitionLink className="block" href="/work">
             <LinkEl>More Work</LinkEl>
           </PageTransitionLink>
         </div>

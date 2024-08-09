@@ -18,10 +18,10 @@ const Description: React.FC<DescriptionProps> = () => {
   return (
     <section
       ref={description}
-      className="relative z-10 bg-dark pt-[100px] text-light lg:pt-[200px]"
+      className="xl:pt-section-xl md:pt-section-lg pt-section relative z-10 bg-dark text-light"
     >
       <div className="container relative mx-auto">
-        <div className="flex flex-col gap-12 md:flex-row">
+        <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px] xl:gap-[207px]">
           <p className={cn('heading-l')}>
             {phrase.split(' ').map((word, index) => {
               return (
@@ -42,7 +42,7 @@ const Description: React.FC<DescriptionProps> = () => {
             })}
           </p>
           <motion.p
-            className="heading-m max-w-64 md:max-w-full"
+            className="heading-m max-w-[421px]"
             variants={opacity}
             animate={isInView ? 'open' : 'closed'}
           >
@@ -51,11 +51,12 @@ const Description: React.FC<DescriptionProps> = () => {
           </motion.p>
         </div>
 
-        <motion.div variants={opacity} animate={isInView ? 'open' : 'closed'}>
-          <PageTransitionLink
-            className="mt-12 block w-fit lg:mt-32"
-            href="/about"
-          >
+        <motion.div
+          className="pt-section md:pt-section-lg"
+          variants={opacity}
+          animate={isInView ? 'open' : 'closed'}
+        >
+          <PageTransitionLink className="block w-fit" href="/about">
             <LinkEl>About Us</LinkEl>
           </PageTransitionLink>
         </motion.div>

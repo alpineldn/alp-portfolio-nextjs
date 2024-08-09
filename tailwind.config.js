@@ -54,9 +54,13 @@ module.exports = {
 
     extend: {
       spacing: {
-        'section-xl': '216px',
-        'section-md': '144px',
+        'section-xxl': '216px',
+        'section-xl': '186px',
+        'section-lg': '144px',
+        'section-md': '113px',
         section: '96px',
+        sm: '65px',
+        xs: '32px',
       },
       fontSize: {
         // h1: ['clamp(3.5rem, 5.5vw + 1rem, 7.5rem)', { lineHeight: '1.2' }],

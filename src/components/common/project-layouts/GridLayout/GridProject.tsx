@@ -45,7 +45,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, ease: smoothCurve, duration: 1 }}
-            className="h3 border-b-2 border-light/20 py-6 text-light opacity-0"
+            className="heading-xl border-b-2 border-white/20 py-6 text-white opacity-0"
           >
             {title}
           </motion.h3>
@@ -54,11 +54,11 @@ const ProjectCard: React.FC<ProjectProps> = ({
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
               viewport={{ once: true }}
-              className="body-1 opacity-0"
+              className="heading-m opacity-0"
             >
               {client}
             </motion.p>
-            <ul ref={listContainerRef} className="body-1">
+            <ul ref={listContainerRef} className="heading-m">
               {categories.map(({ title, _id }, index) => (
                 <motion.li
                   key={_id}

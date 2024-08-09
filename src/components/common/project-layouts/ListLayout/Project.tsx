@@ -17,53 +17,28 @@ const ProjectList: React.FC<ProjectProps> = ({
   slug,
 }) => {
   return (
-    <tr
-      data-type="link"
+    <PageTransitionLink
+      href={`work/${slug.current}`}
+      dataType="link"
       onMouseEnter={(e) => {
         manageModal(true, index, e.clientX, e.clientY);
       }}
       onMouseLeave={(e) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
-      className="interactable group w-full cursor-pointer border-t border-solid border-t-white/50 text-white transition-all duration-200 last:border-b last:border-b-white/50 hover:opacity-50"
+      className="interactable 2xl:py-sm py-xs group grid w-full cursor-pointer grid-cols-12 items-center border-t border-solid border-t-white/50 text-white transition-all duration-300 last:border-b last:border-b-white/50 hover:opacity-50"
     >
-      <td>
-        <PageTransitionLink
-          dataType="link"
-          className={cn(
-            'heading-xl',
-            'interactable',
-            'block py-7 transition-all duration-[0.4s] 2xl:py-[50px]',
-          )}
-          href={`work/${slug.current}`}
-        >
-          {title}
-        </PageTransitionLink>
-      </td>
-      <td>
-        <PageTransitionLink
-          dataType="link"
-          className="heading-m interactable block py-7 pr-5 transition-all duration-300 sm:pr-10 2xl:py-[50px] 2xl:pr-[100px]"
-          href={`work/${slug.current}`}
-        >
-          {client}
-        </PageTransitionLink>
-      </td>
-      <td>
-        <PageTransitionLink
-          dataType="link"
-          className="heading-m interactable block py-7 transition-all duration-300 2xl:py-[50px]"
-          href={`work/${slug.current}`}
-        >
-          {categories.map((category, index) => (
-            <span key={category._id}>
-              {category.title}
-              {index !== categories.length - 1 && ', '}
-            </span>
-          ))}
-        </PageTransitionLink>
-      </td>
-    </tr>
+      <h3 className="heading-xl col-span-6">{title}</h3>
+      <div className="heading-m col-span-3 block">{client}</div>
+      <div className="heading-m interactable col-span-3 block text-right">
+        {categories.map((category, index) => (
+          <span key={category._id}>
+            {category.title}
+            {index !== categories.length - 1 && ', '}
+          </span>
+        ))}
+      </div>
+    </PageTransitionLink>
   );
 };
 

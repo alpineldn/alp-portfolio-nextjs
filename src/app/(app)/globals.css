@@ -56,14 +56,14 @@
   }
 
   .section-padding-t {
-    @apply pt-section md:pt-section-md xl:pt-section-xl;
+    @apply pt-section md:pt-section-lg xl:pt-section-xxl;
   }
 
   .section-padding-b {
-    @apply pb-section md:pb-section-md xl:pb-section-xl;
+    @apply pb-section md:pb-section-lg xl:pb-section-xxl;
   }
 
   .section-padding-y {
-    @apply py-section md:py-section-md xl:py-section-xl;
+    @apply py-section md:py-section-lg xl:py-section-xxl;
   }
 }

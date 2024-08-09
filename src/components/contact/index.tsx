@@ -51,8 +51,8 @@ const Contact: React.FC<ContactProps> = () => {
       ref={containerRef}
       className="relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-dark to-black/90 text-light"
     >
-      <div className="container w-full pt-[60px] lg:pt-[120px]">
-        <div className="relative">
+      <div className="section-padding-t w-full">
+        <div className="container relative mx-auto">
           <span className="flex items-center">
             <h2
               ref={heroText1Ref}
@@ -82,7 +82,7 @@ const CTAs = () => {
   return (
     <div
       id="contact-cta"
-      className="mt-[50px] flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col lg:mt-[110px]"
+      className="mt-sm container mx-auto flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col md:mt-[111px]"
     >
       <UnderlineLink
         className="heading-l interactable font-medium"

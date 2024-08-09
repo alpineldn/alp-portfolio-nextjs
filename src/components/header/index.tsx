@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       <div
         ref={header}
         className={cn(
-          'absolute top-0 z-[1] box-border flex w-full items-center justify-between px-5 py-[35px] font-light text-white sm:px-[35px]',
+          'absolute top-0 z-[1] box-border flex w-full items-center justify-between px-5 py-[35px] font-light text-white sm:px-[43px]',
         )}
       >
         <Logo />

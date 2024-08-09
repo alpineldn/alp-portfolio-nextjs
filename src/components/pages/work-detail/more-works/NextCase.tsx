@@ -1,6 +1,5 @@
-import ChevronIcon from '@/components/common/icons/ChevronIcon';
 import SanityImage from '@/components/common/sanity-image/SanityImage';
-import MarqueeText from '@/components/common/ui/MarqueeText';
+import LinkEl from '@/components/common/ui/LinkEl';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { motion } from 'framer-motion';
@@ -112,10 +111,7 @@ const ContactInfo: React.FC = () => {
           className="interactable"
           href="/work"
         >
-          <MarqueeText>
-            All Work
-            <ChevronIcon className="size-5 rotate-45 text-white" />
-          </MarqueeText>
+          <LinkEl>All Work</LinkEl>
         </PageTransitionLink>
       </div>
 

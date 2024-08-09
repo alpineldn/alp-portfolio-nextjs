@@ -8,9 +8,8 @@ import { scaleAnimation } from '@/components/common/anim';
 import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
 import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProject';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
-import MarqueeText from '@/components/common/ui/MarqueeText';
+import LinkEl from '@/components/common/ui/LinkEl';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import ChevronIcon from '@/components/common/icons/ChevronIcon';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -101,10 +100,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             className="mt-20 block md:mt-52 lg:mt-20"
             href="/work"
           >
-            <MarqueeText>
-              More Work
-              <ChevronIcon className="size-5 rotate-45 text-white" />
-            </MarqueeText>
+            <LinkEl>More Work</LinkEl>
           </PageTransitionLink>
         </div>
       </div>

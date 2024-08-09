@@ -84,13 +84,21 @@
 // export default MarqueeText;
 
 import cn from '@/utils/cn';
+import ArrowTopRight from '../icons/ArrowTopRight';
 
 interface MarqueeProps {
   children: React.ReactNode;
   className?: string;
+  iconClassName?: string;
+  icon?: JSX.Element;
 }
 
-const MarqueeText: React.FC<MarqueeProps> = ({ children, className }) => {
+const LinkEl: React.FC<MarqueeProps> = ({
+  children,
+  className,
+  icon,
+  iconClassName = 'size-4 text-white',
+}) => {
   return (
     <div
       className={cn(
@@ -98,24 +106,19 @@ const MarqueeText: React.FC<MarqueeProps> = ({ children, className }) => {
         className,
       )}
     >
-      <span className="flex-shrink-0 transition-[padding-right] duration-500 group-hover:pr-2">
-        [
-      </span>
       <div
         data-type="simple-hover"
         className={cn('interactable w-min overflow-hidden')}
       >
         <div className="flex h-full w-full flex-1">
-          <div className="link-1 flex flex-1 items-start justify-center gap-x-2 whitespace-nowrap pl-3 pr-1.5 text-center tracking-wider transition-[letter-spacing] duration-500 group-hover:tracking-[0.2em]">
+          <div className="link-1 flex flex-1 items-center justify-center gap-x-[23px] whitespace-nowrap text-center tracking-wider transition-[letter-spacing] duration-500 group-hover:tracking-[0.2em]">
             {children}
+            {icon ? icon : <ArrowTopRight className={iconClassName} />}
           </div>
         </div>
       </div>
-      <span className="flex-shrink-0 transition-[padding-left] duration-500 group-hover:pl-2">
-        ]
-      </span>
     </div>
   );
 };
 
-export default MarqueeText;
+export default LinkEl;

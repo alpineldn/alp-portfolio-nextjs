@@ -1,7 +1,6 @@
 'use client';
 
-import ChevronIcon from '@/components/common/icons/ChevronIcon';
-import MarqueeText from '@/components/common/ui/MarqueeText';
+import LinkEl from '@/components/common/ui/LinkEl';
 import zeroPad from '@/utils/zero-pad';
 import Image from 'next/image';
 
@@ -23,10 +22,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
             </h4>
 
             <div data-type="link" className="interactable hidden xl:block">
-              <MarqueeText>
-                Lorem, ipsum.
-                <ChevronIcon className="size-5 rotate-45 text-white" />
-              </MarqueeText>
+              <LinkEl>Lorem, ipsum.</LinkEl>
             </div>
           </div>
 
@@ -46,10 +42,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
             </ul>
 
             <div data-type="link" className="interactable block xl:hidden">
-              <MarqueeText>
-                Lorem, ipsum.
-                <ChevronIcon className="size-5 rotate-45 text-white" />
-              </MarqueeText>
+              <LinkEl>Lorem, ipsum.</LinkEl>
             </div>
           </div>
         </div>

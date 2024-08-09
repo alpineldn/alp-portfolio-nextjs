@@ -49,7 +49,10 @@ async function getPageData(): Promise<{
   clients: Client[];
 }> {
   try {
-    const projects = await sanityClient.fetch(WORK_QUERY, { start: 0, end: 8 });
+    const projects = await sanityClient.fetch(WORK_QUERY, {
+      start: 0,
+      end: 8,
+    });
     const clients = await sanityClient.fetch(CLIENTS_QUERY);
     return { projects, clients };
   } catch (error) {

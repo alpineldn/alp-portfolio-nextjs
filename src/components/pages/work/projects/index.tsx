@@ -3,7 +3,7 @@
 import type { Project } from '@/app/(app)/work/page';
 import ChevronIcon from '@/components/common/icons/ChevronIcon';
 import GridLayout from '@/components/common/project-layouts/GridLayout/GridLayout';
-import MarqueeText from '@/components/common/ui/MarqueeText';
+import LinkEl from '@/components/common/ui/LinkEl';
 import { useStore } from '@/store/store';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -41,10 +41,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               data-type="simple-hover"
               onClick={showAllWorks}
             >
-              <MarqueeText>
+              <LinkEl>
                 More Work
                 <ChevronIcon className="size-5 rotate-45 text-white" />
-              </MarqueeText>
+              </LinkEl>
             </button>
           </div>
         )}

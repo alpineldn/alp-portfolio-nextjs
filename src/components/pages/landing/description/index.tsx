@@ -4,10 +4,8 @@ import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { slideUp, opacity } from './animation';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
-import MarqueeText from '@/components/common/ui/MarqueeText';
-import ArrowIcon from '@/components/common/icons/ArrowIcon';
+import LinkEl from '@/components/common/ui/LinkEl';
 import cn from '@/utils/cn';
-import ChevronIcon from '@/components/common/icons/ChevronIcon';
 
 interface DescriptionProps {}
 
@@ -58,10 +56,7 @@ const Description: React.FC<DescriptionProps> = () => {
             className="mt-12 block w-fit lg:mt-32"
             href="/about"
           >
-            <MarqueeText>
-              About Us
-              <ChevronIcon className="size-5 rotate-45 text-white" />
-            </MarqueeText>
+            <LinkEl>About Us</LinkEl>
           </PageTransitionLink>
         </motion.div>
       </div>

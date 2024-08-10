@@ -34,7 +34,7 @@ const Nav: React.FC<NavProps> = () => {
           }}
           className="flex flex-col pt-24 sm:pt-[40px]"
         >
-          <ul className="space-y-6 pt-10">
+          <ul className="pt-10">
             {navItems.map((data, index) => {
               return (
                 <LinkEl
@@ -49,7 +49,7 @@ const Nav: React.FC<NavProps> = () => {
         </div>
         <div className="flex flex-col justify-between sm:flex-row sm:items-center">
           <UnderlineLink
-            className="h5 interactable"
+            className="text-spaced-sm interactable"
             href="mailto:studio@alpineldn.com"
           >
             studio@alpineldn.com
@@ -57,10 +57,10 @@ const Nav: React.FC<NavProps> = () => {
 
           <div>
             <PageTransitionLink
-              className="underline_link interactable body-1"
+              className="underline_link interactable text-spaced-sm"
               href="/privacy-policy"
             >
-              Privacy Policy
+              Privacy
             </PageTransitionLink>
           </div>
         </div>

@@ -50,6 +50,8 @@ const Description: React.FC<DescriptionProps> = ({
         defaults: { ease: 'power4.inOut', duration: 1.4 },
         scrollTrigger: {
           trigger: sectionRef.current,
+          start: 'top 80%',
+          end: 'bottom 80%',
         },
       });
 

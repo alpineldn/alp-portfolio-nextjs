@@ -33,7 +33,7 @@ const LinkEl: React.FC<LinkProps> = ({
     >
       <PageTransitionLink
         dataType="simple-hover"
-        className={cn('underline_link interactable', 'nav-1')}
+        className={cn('underline_link interactable', 'link-hover-xl')}
         href={href}
       >
         {title}

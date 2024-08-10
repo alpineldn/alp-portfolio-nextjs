@@ -34,7 +34,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
   return (
     <section ref={containerRef} className="section-padding-t min-h-screen">
-      <div className="container mx-auto flex flex-col gap-[5.62rem] sm:gap-[7rem] lg:gap-[9rem]">
+      <div className="flex flex-col gap-[5.62rem] max-lg:px-5 sm:gap-[7rem] lg:gap-[9rem] lg:px-[8vw]">
         <h1 className="heading-xxl lg:max-w-7xl">
           Lorem ipsum dolor sit amet consectetur.
         </h1>

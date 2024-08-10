@@ -11,7 +11,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
     <div
       id={id}
       className={cn(
-        'pb-sm md:mt-section-md mt-section px-5 sm:px-[43px] xl:mt-[241px]',
+        'mt-section px-5 pb-sm sm:px-[43px] md:mt-section-md xl:mt-[241px]',
         className,
       )}
     >

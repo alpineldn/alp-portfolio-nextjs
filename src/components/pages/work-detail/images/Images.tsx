@@ -19,7 +19,7 @@ const Images: React.FC<ImagesProps> = ({ images }) => {
           whileInView="enter"
           variants={fadeInAndSlideUp}
           viewport={{ once: true }}
-          className="container relative z-10 mx-auto !overflow-hidden first:pt-[100px]"
+          className="container relative z-10 mx-auto !overflow-hidden"
         >
           <SanityImage
             sizes="80vw"

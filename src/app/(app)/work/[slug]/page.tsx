@@ -11,6 +11,7 @@ import { PortableTextBlock } from 'next-sanity';
 import { notFound } from 'next/navigation';
 import { Slug } from 'sanity';
 import { Project } from '../page';
+import Description from '@/components/pages/work-detail/description/Description';
 
 interface WorkDetailProps {
   params: { slug: string };
@@ -87,16 +88,17 @@ const WorkDetail: React.FC<WorkDetailProps> = async ({ params }) => {
     previewURL,
     images,
     nextProject,
+    body,
   } = project;
 
   return (
     <Page pageName={title}>
-      <Hero
-        title={title}
+      <Hero title={title} mainImage={mainImage} />
+      <Description
+        body={body}
         client={client}
         agency={agency}
         categories={categories}
-        mainImage={mainImage}
         previewURL={previewURL}
       />
       {!!images?.length && <Images images={images} />}

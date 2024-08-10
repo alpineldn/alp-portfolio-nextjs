@@ -57,7 +57,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
     <div ref={containerRef}>
       <PageTransitionLink
         dataType="link"
-        className="interactable group relative block h-[35vh] w-full overflow-hidden"
+        className="interactable group relative block h-[35vh] w-full overflow-hidden lg:h-[60vh]"
         href={`/work/${slug.current}`}
       >
         <motion.div className="relative h-full w-full max-sm:aspect-square">
@@ -77,13 +77,13 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
             <div className="container mx-auto">
               <h2
                 ref={header1Ref}
-                className="h5 translate-y-[25px] opacity-0 drop-shadow-lg"
+                className="heading-m translate-y-[25px] opacity-0 drop-shadow-lg"
               >
                 Next Project_
               </h2>
               <h3
                 ref={header2Ref}
-                className="h2 translate-y-[25px] opacity-0 drop-shadow-lg"
+                className="heading-xl translate-y-[25px] opacity-0 drop-shadow-lg"
               >
                 {title}
               </h3>
@@ -114,46 +114,29 @@ const ContactInfo: React.FC = () => {
           <LinkEl>All Work</LinkEl>
         </PageTransitionLink>
       </div>
-
       <div
         id="info"
         className="flex translate-y-[25px] flex-col-reverse justify-between px-5 opacity-0 md:flex-row"
       >
-        <div className="flex items-end gap-2.5 max-md:justify-between max-md:pt-8">
-          <span className="flex flex-col gap-[15px]">
-            {/* <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
-              Version
-            </h3> */}
-            <p
-              data-type="simple-hover"
-              className="underline_link interactable body-2"
-            >
-              ©2024 ALPINE
-            </p>
-          </span>
-        </div>
-        <div className="flex items-end gap-2.5 border-b-[rgb(134,134,134)]/50 max-md:border-b max-md:pb-8">
-          <span className="flex flex-col gap-[15px]">
-            {/* <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
-              Socials
-            </h3> */}
-            <PageTransitionLink
-              dataType="interactable"
-              href="/privacy-policy"
-              className="underline_link body-2"
-            >
-              Privacy
-            </PageTransitionLink>
-          </span>
-          {/* <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-            Instagram
-          </p>
-          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-            Dribbble
-          </p>
-          <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-            Linkedin
-          </p> */}
+        <div className="flex w-full flex-col-reverse justify-between pt-8 md:flex-row lg:border-t lg:border-white/50">
+          <div className="flex items-end gap-2.5 max-md:justify-between max-md:pt-8">
+            <span className="flex flex-col gap-[15px]">
+              <p className="text-spaced-sm !font-medium">
+                ©{new Date().getFullYear()} ALPINE
+              </p>
+            </span>
+          </div>
+          <div className="flex items-end gap-2.5 border-b-white/50 max-md:border-b max-md:pb-8">
+            <span className="flex flex-col gap-[15px]">
+              <PageTransitionLink
+                dataType="simple-hover"
+                href="/privacy-policy"
+                className="underline_link text-spaced-sm interactable !font-medium"
+              >
+                Privacy
+              </PageTransitionLink>
+            </span>
+          </div>
         </div>
       </div>
     </div>

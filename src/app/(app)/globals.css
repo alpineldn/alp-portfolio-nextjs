@@ -16,7 +16,7 @@
 
 @layer utilities {
   .heading-xxl {
-    @apply text-l xl:text-xxl md:text-xl;
+    @apply text-l md:text-xl xl:text-xxl;
   }
 
   .heading-xl {
@@ -40,11 +40,11 @@
   }
 
   .link-hover-xl {
-    @apply text-l xl:text-xxl md:text-xl;
+    @apply text-l md:text-xl xl:text-xxl;
   }
 
   .text-link-m {
-    @apply text-m-medium;
+    @apply text-text-link lg:text-m-medium;
   }
 
   .subtitle-md {

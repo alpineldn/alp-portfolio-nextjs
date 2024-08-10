@@ -45,7 +45,6 @@ const Contact: React.FC<ContactProps> = () => {
 
     return () => context.revert();
   }, [containerRef]);
-  // bg-gradient-to-b from-dark to-black/90
   return (
     <motion.section
       ref={containerRef}

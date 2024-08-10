@@ -45,20 +45,25 @@ const Contact: React.FC<ContactProps> = () => {
 
     return () => context.revert();
   }, [containerRef]);
-
   return (
     <motion.section
       ref={containerRef}
-      className="relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-dark to-black/90 text-light"
+      className="text-light relative flex flex-col items-center justify-center overflow-hidden"
     >
-      <div className="container w-full pt-[60px] lg:pt-[120px]">
-        <div className="relative">
+      <div className="section-padding-t w-full">
+        <div className="container relative mx-auto">
           <span className="flex items-center">
-            <h2 ref={heroText1Ref} className="h2 translate-y-[25px] opacity-0">
+            <h2
+              ref={heroText1Ref}
+              className="heading-xl translate-y-[25px] opacity-0"
+            >
               Let's work
             </h2>
           </span>
-          <h2 ref={heroText2Ref} className="h2 translate-y-[25px] opacity-0">
+          <h2
+            ref={heroText2Ref}
+            className="heading-xl translate-y-[25px] opacity-0"
+          >
             together
           </h2>
         </div>
@@ -76,10 +81,10 @@ const CTAs = () => {
   return (
     <div
       id="contact-cta"
-      className="mt-[50px] flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col lg:mt-[110px]"
+      className="container mx-auto mt-sm flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col md:mt-[111px]"
     >
       <UnderlineLink
-        className="h4 interactable font-medium"
+        className="heading-l interactable font-medium"
         href="mailto:studio@alpineldn.com"
       >
         studio@alpineldn.com

@@ -11,45 +11,29 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
     <div
       id={id}
       className={cn(
-        'mt-[40px] flex flex-col-reverse justify-between pb-[60px] md:flex-row lg:mt-[90px]',
+        'mt-section px-5 pb-sm sm:px-[43px] md:mt-section-md xl:mt-[241px]',
         className,
       )}
     >
-      <div className="flex items-end gap-2.5 max-md:justify-between max-md:pt-8">
-        <span className="flex flex-col gap-[15px]">
-          {/* <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
-            Version
-          </h3> */}
-          <p
-            data-type="simple-hover"
-            className="underline_link body-1 interactable !font-medium"
-          >
-            ©{new Date().getFullYear()} ALPINE
-          </p>
-        </span>
-      </div>
-      <div className="flex items-end gap-2.5 border-b-[rgb(134,134,134)]/50 max-md:border-b max-md:pb-8">
-        <span className="flex flex-col gap-[15px]">
-          {/* <h3 className="m-0 cursor-default p-[2.5px] text-xs font-light text-[grey]">
-            Socials
-          </h3> */}
-          <PageTransitionLink
-            dataType="simple-hover"
-            href="/privacy-policy"
-            className="underline_link body-1 interactable !font-medium"
-          >
-            Privacy
-          </PageTransitionLink>
-        </span>
-        {/* <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-          Instagram
-        </p>
-        <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-          Dribbble
-        </p>
-        <p className='m-0 cursor-pointer p-[2.5px] text-sm after:relative after:left-2/4 after:mt-[2px] after:block after:h-px after:w-[0%] after:-translate-x-2/4 after:bg-[white] after:transition-[width] after:duration-[0.2s] after:ease-linear after:content-[""] hover:after:w-full'>
-          Linkedin
-        </p> */}
+      <div className="flex flex-col-reverse justify-between pt-8 md:flex-row lg:border-t lg:border-white/50">
+        <div className="flex items-end gap-2.5 max-md:justify-between max-md:pt-8">
+          <span className="flex flex-col gap-[15px]">
+            <p className="text-spaced-sm !font-medium">
+              ©{new Date().getFullYear()} ALPINE
+            </p>
+          </span>
+        </div>
+        <div className="flex items-end gap-2.5 border-b-white/50 max-md:border-b max-md:pb-8">
+          <span className="flex flex-col gap-[15px]">
+            <PageTransitionLink
+              dataType="simple-hover"
+              href="/privacy-policy"
+              className="underline_link text-spaced-sm interactable !font-medium"
+            >
+              Privacy
+            </PageTransitionLink>
+          </span>
+        </div>
       </div>
     </div>
   );

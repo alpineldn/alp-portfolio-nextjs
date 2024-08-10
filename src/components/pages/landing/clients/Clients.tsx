@@ -17,9 +17,8 @@ interface ClientsProps {
   clients: Client[];
 }
 
-const DESIRED_LENGTH = 12;
-
 const Clients: React.FC<ClientsProps> = ({ clients }) => {
+  const DESIRED_LENGTH = 12;
   const [allClient, setClients] = useState(clients);
 
   const checkAndRepeatClients = () => {
@@ -49,6 +48,11 @@ const Clients: React.FC<ClientsProps> = ({ clients }) => {
 
   return (
     <div className="relative overflow-hidden bg-dark">
+      <div className="subtitle-md container mx-auto text-lightGray">
+        <h2 className="subtitle-md mb-xs text-lightGray xl:mb-section-md">
+          Partners
+        </h2>
+      </div>
       <div className="relative">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[20%] bg-gradient-to-r from-dark via-dark/95 to-transparent"></div>
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[20%] bg-gradient-to-l from-dark via-dark/95 to-transparent"></div>

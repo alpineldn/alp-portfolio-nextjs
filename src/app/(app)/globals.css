@@ -15,39 +15,56 @@
 }
 
 @layer utilities {
-  .h1 {
-    @apply text-h1 font-medium;
+  .heading-xxl {
+    @apply text-l md:text-xl xl:text-xxl;
   }
 
-  .h2 {
-    @apply text-h2;
+  .heading-xl {
+    @apply text-m md:text-l xl:text-xl;
   }
 
-  .h3 {
-    @apply text-h3 font-normal sm:text-h3-sm lg:text-h3-lg 2xl:text-h3-2xl;
+  .heading-l {
+    @apply text-m xl:text-l;
   }
 
-  .h4 {
-    @apply text-h4 sm:text-h4-sm lg:text-h4-lg 2xl:text-h4-2xl;
+  .heading-m {
+    @apply text-s-spaced xl:text-m;
   }
 
-  .h5 {
-    @apply text-h5 sm:text-h5-sm lg:text-h5-lg 2xl:text-h5-2xl;
+  .text-spaced-sm {
+    @apply text-s-spaced;
   }
 
-  .body-1 {
-    @apply text-body1 md:text-body1-md xl:text-body1-xl;
+  .text-link {
+    @apply text-text-link;
   }
 
-  .body-2 {
-    @apply text-body2 md:text-body2-md;
+  .link-hover-xl {
+    @apply text-l md:text-xl xl:text-xxl;
   }
 
-  .nav-1 {
-    @apply text-nav1 md:text-nav1-md xl:text-nav1-xl;
+  .text-link-m {
+    @apply text-text-link lg:text-m-medium;
   }
 
-  .link-1 {
-    @apply text-link1 md:text-link1-md xl:text-link1-xl;
+  .subtitle-md {
+    @apply text-section-subtitle;
+  }
+
+  .meta-md {
+    @apply text-project-meta;
+  }
+
+  /* Paddings */
+  .section-padding-t {
+    @apply pt-section md:pt-section-lg xl:pt-section-xxl;
+  }
+
+  .section-padding-b {
+    @apply pb-section md:pb-section-lg xl:pb-section-xxl;
+  }
+
+  .section-padding-y {
+    @apply py-section md:py-section-lg xl:py-section-xxl;
   }
 }

@@ -26,7 +26,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         ) : (
           <p
             id="page-name"
-            className="h3 absolute z-[1] flex items-center text-white opacity-0"
+            className="heading-xl absolute z-[1] flex items-center text-white opacity-0"
           >
             {pageName}
           </p>

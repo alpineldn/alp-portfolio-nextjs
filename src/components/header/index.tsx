@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       <div
         ref={header}
         className={cn(
-          'absolute top-0 z-[1] box-border flex w-full items-center justify-between px-5 py-[35px] font-light text-white sm:px-[35px]',
+          'absolute top-0 z-[1] box-border flex w-full items-center justify-between px-5 py-[35px] font-light text-white sm:px-[43px]',
         )}
       >
         <Logo />
@@ -130,7 +130,7 @@ const Logo = () => {
       href="/"
       className={cn(
         'interactable',
-        'flex items-center justify-center text-base opacity-0 after:bg-white hover:before:bg-white',
+        'text-base flex items-center justify-center opacity-0 after:bg-white hover:before:bg-white',
       )}
     >
       <motion.svg
@@ -162,8 +162,7 @@ const Logo = () => {
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
         <p
           className={cn(
-            'link-1 relative transition-all duration-500 ease-smooth-curve',
-            'font-medium tracking-[0.12em]',
+            'text-link relative transition-all duration-500 ease-smooth-curve',
           )}
         >
           ALPINE
@@ -183,7 +182,7 @@ const NavLinks: React.FC<{
         onClick={() => {
           setIsActive((prev) => !prev);
         }}
-        className="link-1 relative z-[1] flex cursor-pointer opacity-0 sm:hidden"
+        className="text-link relative z-[1] flex cursor-pointer opacity-0 sm:hidden"
       >
         <span>Menu</span>
       </button>
@@ -195,7 +194,7 @@ const NavLinks: React.FC<{
             className={cn(
               'site-nav-link sm:opacity-0',
               'underline_link',
-              'link-1',
+              'text-link',
               'after:bg-white hover:before:bg-white',
             )}
           >
@@ -232,7 +231,7 @@ const HamburgerMenuBtn = forwardRef<
       >
         <div
           className={cn(
-            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[2px] before:w-[30%] before:bg-light before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[2px] after:w-[30%] after:bg-light after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
+            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[2px] before:w-[30%] before:bg-white before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[2px] after:w-[30%] after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
             {
               'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
                 isActive,

@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         initial="initial"
         whileInView="enter"
         viewport={{ once: true }}
-        className="relative w-full text-light"
+        className="text-light relative w-full"
       >
         <div className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden">
           <SanityImage
@@ -40,26 +40,29 @@ const ProjectCard: React.FC<ProjectProps> = ({
             className="aspect-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
           />
         </div>
-        <div className="w-full py-4">
+        <div className="w-full pt-xs lg:pt-[45px]">
           <motion.h3
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, ease: smoothCurve, duration: 1 }}
-            className="h3 border-b-2 border-light/20 py-6 text-light opacity-0"
+            className="heading-xl text-white opacity-0"
           >
             {title}
           </motion.h3>
-          <div className="flex justify-between py-5">
+          <div className="flex flex-wrap items-center gap-3">
             <motion.p
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
               viewport={{ once: true }}
-              className="body-1 opacity-0"
+              className="heading-m opacity-0"
             >
               {client}
             </motion.p>
-            <ul ref={listContainerRef} className="body-1">
-              {categories.map(({ title, _id }, index) => (
+
+            {!!client && !!categories?.length && <DoubleDashed />}
+
+            <ul ref={listContainerRef} className="heading-m flex">
+              {categories?.map(({ title, _id }, index) => (
                 <motion.li
                   key={_id}
                   whileInView={{ opacity: 1 }}
@@ -82,3 +85,14 @@ const ProjectCard: React.FC<ProjectProps> = ({
   );
 };
 export default ProjectCard;
+
+const DoubleDashed = () => {
+  return (
+    <motion.div
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
+      viewport={{ once: true }}
+      className="h-[2px] w-[24px] bg-white opacity-0 sm:w-[36px]"
+    ></motion.div>
+  );
+};

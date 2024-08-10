@@ -58,11 +58,11 @@ const Hero: React.FC<HeroProps> = ({}) => {
   }, [sectionRef]);
 
   return (
-    <section ref={sectionRef} className="bg-dark text-light">
-      <div className="container mx-auto pt-[200px] md:pt-[293px]">
+    <section ref={sectionRef} className="text-light bg-dark">
+      <div className="container mx-auto pt-section-xl lg:pt-[328px]">
         <h1
           ref={heroTextRef}
-          className="heading-xxl max-w-5xl font-normal leading-[1.2] tracking-tighter text-light"
+          className="heading-xxl text-light max-w-5xl font-normal leading-[1.2] tracking-tighter"
         >
           Creating next level digital products
         </h1>

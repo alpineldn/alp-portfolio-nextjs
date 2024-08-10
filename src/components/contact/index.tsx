@@ -45,11 +45,11 @@ const Contact: React.FC<ContactProps> = () => {
 
     return () => context.revert();
   }, [containerRef]);
-
+  // bg-gradient-to-b from-dark to-black/90
   return (
     <motion.section
       ref={containerRef}
-      className="relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-dark to-black/90 text-light"
+      className="text-light relative flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="section-padding-t w-full">
         <div className="container relative mx-auto">
@@ -82,7 +82,7 @@ const CTAs = () => {
   return (
     <div
       id="contact-cta"
-      className="mt-sm container mx-auto flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col md:mt-[111px]"
+      className="container mx-auto mt-sm flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col md:mt-[111px]"
     >
       <UnderlineLink
         className="heading-l interactable font-medium"

@@ -12,7 +12,7 @@ const ArrowTopRight: React.FC<ArrowTopRightProps> = ({ className }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M2 26L26 2M26 2V26M26 2H2" stroke="white" stroke-width="3" />
+      <path d="M2 26L26 2M26 2V26M26 2H2" stroke="white" strokeWidth="3" />
     </svg>
   );
 };

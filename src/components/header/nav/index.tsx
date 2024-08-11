@@ -47,7 +47,7 @@ const Nav: React.FC<NavProps> = () => {
             })}
           </ul>
         </div>
-        <div className="flex flex-col justify-between sm:flex-row sm:items-center">
+        <div className="flex flex-col justify-between gap-xs sm:flex-row sm:items-center">
           <UnderlineLink
             className="text-spaced-sm interactable"
             href="mailto:studio@alpineldn.com"

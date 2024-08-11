@@ -17,7 +17,9 @@ const getTrailerIcon = (type: TrailerOption) => {
     case 'click':
       return <Click />;
     case 'link':
-      return <ChevronIcon className="size-2 rotate-45" />;
+      return (
+        <ChevronIcon className="size-2 -translate-y-[10%] translate-x-[15%] scale-75" />
+      );
     default:
       return null;
   }

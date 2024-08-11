@@ -124,7 +124,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <div
         data-scroll
         data-scroll-speed={0.1}
-        className="container flex h-full w-full flex-col justify-center sm:hidden"
+        className="container flex h-full w-full translate-y-5 flex-col justify-center sm:hidden"
       >
         <h1
           ref={heroTextRefSm}

@@ -109,7 +109,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
       <div
         ref={trailerRef}
         id="trailer"
-        className="pointer-events-none fixed left-0 top-0 z-50 grid h-4 w-4 place-items-center rounded-full bg-white opacity-0 mix-blend-difference shadow-md transition-opacity duration-500"
+        className="pointer-events-none fixed left-0 top-0 z-50 grid h-5 w-5 place-items-center rounded-full bg-white opacity-0 mix-blend-difference shadow-md transition-opacity duration-500"
       >
         <div
           ref={trailerIconRef}

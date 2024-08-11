@@ -11,24 +11,28 @@ module.exports = {
         '2xl': '100px',
       },
     },
+
     fontSize: {
       xxl: [
         '144px',
-        { letterSpacing: '1%', fontWeight: 400, lineHeight: 'normal' },
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: 'normal' },
       ],
       xl: [
         '70px',
-        { letterSpacing: '1%', fontWeight: 400, lineHeight: 'normal' },
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: 'normal' },
       ],
-      l: ['50px', { letterSpacing: '1%', fontWeight: 400, lineHeight: '66px' }],
+      l: [
+        '50px',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '66px' },
+      ],
       m: [
         '36px',
-        { letterSpacing: '1%', fontWeight: 400, lineHeight: 'normal' },
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: 'normal' },
       ],
       'm-medium': [
         '36px',
         {
-          letterSpacing: '2%',
+          letterSpacing: '0.02em',
           fontWeight: 500,
           lineHeight: 'normal',
           textTransform: 'uppercase',
@@ -36,19 +40,19 @@ module.exports = {
       ],
       's-spaced': [
         '24px',
-        { letterSpacing: '3%', fontWeight: 400, lineHeight: 'normal' },
+        { letterSpacing: '0.03em', fontWeight: 400, lineHeight: 'normal' },
       ],
       'text-link': [
         '24px',
-        { letterSpacing: '3%', fontWeight: 400, lineHeight: 'normal' },
+        { letterSpacing: '0.03em', fontWeight: 400, lineHeight: 'normal' },
       ],
       'section-subtitle': [
         '32px',
-        { letterSpacing: '10%', fontWeight: 400, lineHeight: 'normal' },
+        { letterSpacing: '0.1em', fontWeight: 400, lineHeight: 'normal' },
       ],
       'project-meta': [
         '36px',
-        { letterSpacing: '1%', fontWeight: 400, lineHeight: '50px' },
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '50px' },
       ],
     },
 

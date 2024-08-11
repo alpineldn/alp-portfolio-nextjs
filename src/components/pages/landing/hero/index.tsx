@@ -95,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       // variants={slideUp}
       initial="initial"
       animate="enter"
-      className="relative flex h-screen overflow-hidden text-light"
+      className="text-light relative flex h-screen overflow-hidden"
     >
       <video
         autoPlay
@@ -106,8 +106,8 @@ const Hero: React.FC<HeroProps> = ({}) => {
         <source src="/mountains_video_looped_optimized.mp4" type="video/mp4" />
       </video>
 
-      <div className="flex h-screen flex-col justify-center max-lg:px-5 lg:max-w-7xl lg:pl-[8vw]">
-        <h1 ref={heroTextRef} className={cn('heading-xxl', 'hidden sm:block')}>
+      <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex lg:max-w-7xl lg:pl-[8vw]">
+        <h1 ref={heroTextRef} className={cn('heading-xxl', '')}>
           Brand + Digital <br /> Design Studio
         </h1>
       </div>
@@ -124,7 +124,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <div
         data-scroll
         data-scroll-speed={0.1}
-        className="absolute bottom-[10%] px-5 sm:hidden"
+        className="container flex h-full w-full flex-col justify-center sm:hidden"
       >
         <h1
           ref={heroTextRefSm}

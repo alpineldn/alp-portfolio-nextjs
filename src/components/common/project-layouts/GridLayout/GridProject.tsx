@@ -72,9 +72,9 @@ const ProjectCard: React.FC<ProjectProps> = ({
                     duration: 1,
                   }}
                   viewport={{ once: true, root: listContainerRef }}
-                  className="opacity-0"
+                  className="whitespace-pre opacity-0"
                 >
-                  {title} {index !== categories.length - 1 && ', '}
+                  {title + (index < categories.length - 1 ? ', ' : '')}
                 </motion.li>
               ))}
             </ul>

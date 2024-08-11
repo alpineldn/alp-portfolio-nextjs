@@ -37,7 +37,7 @@ export const ALL_WORK_QUERY = groq`
 `;
 
 export const WORK_QUERY = groq`
-	*[_type == "project" && selectedWorks == true] | order(orderRank)[$start...$end]{
+	*[_type == "project" && selectedWorks == true] | order(orderRank)[]{
       _id,
 	    agency,
         ${asset('mainImage')},

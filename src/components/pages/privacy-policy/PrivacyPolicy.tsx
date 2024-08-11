@@ -20,7 +20,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
   }, []);
 
   return (
-    <div className="prose prose-invert mx-auto max-w-screen-xl px-5 pb-[100px]">
+    <div className="container mx-auto pt-sm">
       <div>
         <Image
           className="aspect-video max-h-[500px] rounded-lg object-cover"
@@ -31,10 +31,10 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
         />
       </div>
       <div>
-        <h1>Privacy policy</h1>
+        <h1 className="heading-xl pt-sm">Privacy policy</h1>
         <p>Effective Date: 04.07.2024</p>
       </div>
-      <section>
+      <section className="mx-auto max-w-none">
         This Privacy Policy explains how Alpine collects, uses, and discloses
         information about you when you visit our website alpineldn.com (the
         "Site"). We are committed to protecting your privacy and complying with

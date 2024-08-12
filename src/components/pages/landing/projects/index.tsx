@@ -6,7 +6,6 @@ import { Project as ProjectType } from '@/app/(app)/work/page';
 import SanityImage from '@/components/common/sanity-image/SanityImage';
 import { scaleAnimation } from '@/components/common/anim';
 import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
-import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProject';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import LinkEl from '@/components/common/ui/LinkEl';
 import { useWindowSize } from '@/hooks/useWindowSize';
@@ -83,7 +82,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           Projects
         </h2>
 
-        <div className="w-full max-lg:hidden">
+        <div className="w-full">
           {projects.map((project, index) => {
             return (
               <ProjectList
@@ -93,12 +92,6 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 manageModal={manageModal}
               />
             );
-          })}
-        </div>
-
-        <div className="grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2 lg:hidden">
-          {projects.slice(0, 4).map((project, index) => {
-            return <ProjectCard {...project} key={project._id} index={index} />;
           })}
         </div>
 

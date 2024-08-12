@@ -212,11 +212,13 @@ const HamburgerMenuBtn = forwardRef<
       >
         <div
           className={cn(
-            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[2px] before:w-[30%] before:bg-white before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[2px] after:w-[30%] after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
-            {
-              'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
-                isActive,
-            },
+            'relative z-[1] w-full',
+            "before:absolute before:left-1/2 before:top-1/2 before:h-[2px] before:w-[30%] before:-translate-x-1/2 before:-translate-y-1/2 before:bg-white before:transition-transform before:duration-300 before:content-[''] sm:before:w-[60%]",
+            "after:absolute after:left-1/2 after:top-1/2 after:h-[2px] after:w-[30%] after:-translate-x-1/2 after:-translate-y-1/2 after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:after:w-[60%]",
+            'before:block after:block',
+            isActive
+              ? 'before:rotate-[-45deg] after:rotate-[45deg]'
+              : 'before:translate-y-[200%] before:rotate-0 after:-translate-y-[200%] after:rotate-0',
           )}
         ></div>
       </RoundedButton>

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import ChevronIcon from '../common/icons/ChevronIcon';
+import { usePathname } from 'next/navigation';
 
 type TrailerOption = 'video' | 'link' | 'click' | 'simple-hover';
 
@@ -32,6 +33,18 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
   const trailerIconRef = useRef<HTMLDivElement>(null);
   const [TrailerIcon, setTrailerIcon] = useState<JSX.Element | null>(null);
   const [mode, setMode] = useState<'dark' | 'light'>('light');
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (!trailerRef.current) return;
+
+    const trailerElement = trailerRef.current;
+
+    trailerElement.style.mixBlendMode = 'difference';
+    gsap.to(trailerElement, { scale: 1, ease: 'power2.out' });
+    gsap.to(trailerRef.current, { backgroundColor: 'white' });
+    setTrailerIcon(getTrailerIcon('simple-hover'));
+  }, [pathname]);
 
   useEffect(() => {
     if (!trailerRef.current) return;

@@ -44,7 +44,7 @@
   }
 
   .text-link-m {
-    @apply text-text-link lg:text-m-medium;
+    @apply text-text-link xl:text-m-medium;
   }
 
   .subtitle-md {

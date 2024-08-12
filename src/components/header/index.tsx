@@ -14,7 +14,8 @@ import {
   useState,
 } from 'react';
 import PageTransitionLink from '../common/ui/PageTransitionLink';
-import Nav from './nav';
+import OverlayNav from './nav/OverlayNav';
+import AlpLogo from '../common/icons/AlpLogo';
 
 interface HeaderProps {}
 
@@ -82,9 +83,12 @@ const Header: React.FC<HeaderProps> = ({}) => {
       });
 
       mm.add('(max-width: 639px)', () => {
-        const navBtn = document.querySelector('#site-menu-btn');
-        gsap.set([navBtn, navBtn], { opacity: 0 });
-        tl.to(logoEl, { opacity: 1 }).to(navBtn, { opacity: 1 });
+        // const navBtn = document.querySelector('#site-menu-btn');
+        // gsap.set([navBtn, navBtn], { opacity: 0 });
+        // tl.to(logoEl, { opacity: 1 }).to(navBtn, { opacity: 1 });
+        // const navBtn = document.querySelector('#site-menu-btn');
+        // gsap.set([navBtn, navBtn], { opacity: 0 });
+        // tl.to(logoEl, { opacity: 1 }).to(navBtn, { opacity: 1 });
       });
     });
 
@@ -110,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       />
 
       <AnimatePresence mode="wait">
-        {menuIconIsActive && <Nav />}
+        {menuIconIsActive && <OverlayNav />}
       </AnimatePresence>
     </>
   );
@@ -131,31 +135,10 @@ const Logo = () => {
         'text-base flex items-center justify-center opacity-0 after:bg-white hover:before:bg-white',
       )}
     >
-      <motion.svg
+      <AlpLogo
+        firstVisit={firstVisit}
         className="h-fit w-[40px] -translate-y-[2px] object-contain"
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 231.53 92.95"
-      >
-        <motion.path
-          initial={{ pathLength: 1 }}
-          animate={{ pathLength: [0, 1] }}
-          transition={{
-            duration: 2,
-            repeatType: 'reverse',
-            ease: 'easeInOut',
-            delay: firstVisit ? 3 : 2,
-          }}
-          style={{
-            fill: 'none',
-            stroke: '#fff',
-            strokeLinecap: 'square',
-            strokeMiterlimit: 10,
-            strokeWidth: '10px',
-          }}
-          d="m5.66 86.84 64.93-64.93 65.29 65.3H62.69l81.55-81.55 81.64 81.64"
-        />
-      </motion.svg>
+      />
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
         <p

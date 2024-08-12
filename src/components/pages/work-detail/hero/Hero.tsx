@@ -4,7 +4,6 @@ import SanityImage from '@/components/common/sanity-image/SanityImage';
 import { useStore } from '@/store/store';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
 
@@ -20,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
   const previewURLMarqueeRef = useRef<HTMLDivElement>(null);
   const imgContainerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
-  const { firstVisit, setShowMenuButton } = useStore((store) => store);
+  const { firstVisit } = useStore((store) => store);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -37,27 +36,6 @@ const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
 
     return () => context.revert();
   }, [imgRef]);
-
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      if (!sectionRef?.current) return;
-
-      gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        onLeave: () => {
-          setShowMenuButton(true);
-        },
-        onEnterBack: () => {
-          setShowMenuButton(false);
-        },
-      });
-    });
-
-    return () => context.revert();
-  }, [sectionRef]);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {

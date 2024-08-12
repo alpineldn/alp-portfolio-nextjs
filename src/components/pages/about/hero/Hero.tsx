@@ -1,36 +1,11 @@
 'use client';
 
-import { useStore } from '@/store/store';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
   const containerRef = useRef<HTMLElement>(null);
-  const { setShowMenuButton } = useStore((store) => store);
-
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      if (!containerRef?.current) return;
-
-      gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        onLeave: () => {
-          setShowMenuButton(true);
-        },
-        onEnterBack: () => {
-          setShowMenuButton(false);
-        },
-      });
-    });
-
-    return () => context.revert();
-  }, [containerRef]);
 
   return (
     <section ref={containerRef} className="section-padding-t min-h-screen">

@@ -4,14 +4,13 @@ import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import { useStore } from '@/store/store';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
   const sectionRef = useRef<HTMLElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
-  const { firstVisit, setShowMenuButton } = useStore((store) => store);
+  const { firstVisit } = useStore((store) => store);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -35,27 +34,6 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
     return () => context.revert();
   }, [heroTextRef]);
-
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      if (!sectionRef?.current) return;
-
-      gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        onLeave: () => {
-          setShowMenuButton(true);
-        },
-        onEnterBack: () => {
-          setShowMenuButton(false);
-        },
-      });
-    });
-
-    return () => context.revert();
-  }, [sectionRef]);
 
   return (
     <section ref={sectionRef} className="text-light bg-dark">

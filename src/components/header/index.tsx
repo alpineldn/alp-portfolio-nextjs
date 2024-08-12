@@ -27,10 +27,6 @@ const navItems = [
     title: 'About',
     href: '/about',
   },
-  // {
-  //   title: 'Contact',
-  //   href: '/contact',
-  // },
 ];
 
 const Header: React.FC<HeaderProps> = ({}) => {
@@ -44,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
   useEffect(() => {
     if (menuIconIsActive) setMenuIconIsActive(false);
-    if (showMenuButton) setShowMenuButton(false);
+    if (showMenuButton) setShowMenuButton(true);
   }, [pathName]);
 
   useLayoutEffect(() => {
@@ -74,13 +70,15 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
       const logoEl = document.querySelector('#site-logo');
       mm.add('(min-width: 640px)', () => {
-        const navLinks = document.querySelectorAll('.site-nav-link');
-        gsap.set([logoEl, navLinks], { opacity: 0 });
+        // const navLinks = document.querySelectorAll('.site-nav-link');
+        // gsap.set([logoEl, navLinks], { opacity: 0 });
 
-        tl.to(logoEl, { opacity: 1 }).to(navLinks, {
-          opacity: 1,
-          stagger: 0.1,
-        });
+        // tl.to(logoEl, { opacity: 1 }).to(navLinks, {
+        //   opacity: 1,
+        //   stagger: 0.1,
+        // });
+        gsap.set([logoEl], { opacity: 0 });
+        tl.to(logoEl, { opacity: 1 });
       });
 
       mm.add('(max-width: 639px)', () => {
@@ -102,7 +100,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
         )}
       >
         <Logo />
-        <NavLinks setIsActive={setMenuIconIsActive} />
+        {/* <NavLinks setIsActive={setMenuIconIsActive} /> */}
       </div>
 
       <HamburgerMenuBtn

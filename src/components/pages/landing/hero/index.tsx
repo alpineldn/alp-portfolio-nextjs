@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import { useStore } from '@/store/store';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import cn from '@/utils/cn';
 
 interface HeroProps {}
@@ -16,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const descriptionRefSm = useRef<HTMLParagraphElement>(null);
   const heroTextRefSm = useRef<HTMLHeadingElement>(null);
-  const { firstVisit, setShowMenuButton } = useStore((store) => store);
+  const { firstVisit } = useStore((store) => store);
 
   const createAnimation = (
     headerRef: React.RefObject<HTMLHeadingElement>,
@@ -67,27 +66,6 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
     return () => context.revert();
   }, [heroTextRef, descriptionRef, heroTextRefSm, descriptionRefSm]);
-
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      if (!containerRef?.current) return;
-
-      gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        onLeave: () => {
-          setShowMenuButton(true);
-        },
-        onEnterBack: () => {
-          setShowMenuButton(false);
-        },
-      });
-    });
-
-    return () => context.revert();
-  }, [containerRef]);
 
   return (
     <motion.div

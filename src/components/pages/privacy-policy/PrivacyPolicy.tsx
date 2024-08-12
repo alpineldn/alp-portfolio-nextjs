@@ -1,27 +1,11 @@
 'use client';
 
-import { useStore } from '@/store/store';
 import cn from '@/utils/cn';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect } from 'react';
 
 interface PrivacyPolicyProps {}
 
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
-  const { setShowMenuButton } = useStore((store) => store);
-
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY >= 150) setShowMenuButton(true);
-      else setShowMenuButton(false);
-    }
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // <li class="relative pl-4 mb-2 before:absolute before:left-0 before:top-1/2 before:h-px before:w-2 before:bg-gray-400">
-
   return (
     <div className="container mx-auto lg:pt-xs">
       <div

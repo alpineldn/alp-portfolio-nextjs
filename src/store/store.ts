@@ -13,7 +13,7 @@ interface Actions {
 }
 
 export const useStore = create<States & Actions>((set) => ({
-  showMenuButton: false,
+  showMenuButton: true,
   firstVisit: true,
   pageName: undefined,
   setPageName: (pageName) => set(() => ({ pageName })),

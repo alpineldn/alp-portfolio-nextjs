@@ -49,35 +49,42 @@ const ProjectCard: React.FC<ProjectProps> = ({
           >
             {title}
           </motion.h3>
-          <div className="flex flex-wrap items-center gap-3">
-            <motion.p
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
-              viewport={{ once: true }}
-              className="heading-m opacity-0"
-            >
-              {client}
-            </motion.p>
+          <div className="grid w-fit grid-flow-col-dense items-center gap-3">
+            {!!client && (
+              <motion.p
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
+                viewport={{ once: true }}
+                className="heading-m text-ellipsis whitespace-pre opacity-0"
+              >
+                {client}
+              </motion.p>
+            )}
 
             {!!client && !!categories?.length && <DoubleDashed />}
 
-            <ul ref={listContainerRef} className="heading-m flex">
-              {categories?.map(({ title, _id }, index) => (
-                <motion.li
-                  key={_id}
-                  whileInView={{ opacity: 1 }}
-                  transition={{
-                    delay: 0.2 + 0.05 * index,
-                    ease: smoothCurve,
-                    duration: 1,
-                  }}
-                  viewport={{ once: true, root: listContainerRef }}
-                  className="whitespace-pre opacity-0"
-                >
-                  {title + (index < categories.length - 1 ? ', ' : '')}
-                </motion.li>
-              ))}
-            </ul>
+            {!!categories?.length && (
+              <ul
+                ref={listContainerRef}
+                className="heading-m flex overflow-hidden text-ellipsis"
+              >
+                {categories?.map(({ title, _id }, index) => (
+                  <motion.li
+                    key={_id}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      delay: 0.2 + 0.05 * index,
+                      ease: smoothCurve,
+                      duration: 1,
+                    }}
+                    viewport={{ once: true, root: listContainerRef }}
+                    className="overflow-hidden text-ellipsis whitespace-pre opacity-0"
+                  >
+                    {title + (index < categories.length - 1 ? ', ' : '')}
+                  </motion.li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </motion.div>

@@ -1,5 +1,4 @@
 import { Project as ProjectType } from '@/app/(app)/work/page';
-import { motion } from 'framer-motion';
 import ProjectCard from './GridProject';
 
 interface GridViewProps {

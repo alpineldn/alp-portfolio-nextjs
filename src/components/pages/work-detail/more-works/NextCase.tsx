@@ -112,7 +112,7 @@ const ContactInfo: React.FC = () => {
         <div className="flex w-full flex-col-reverse justify-between pb-xs pt-8 md:flex-row md:pb-sm lg:border-t lg:border-white/50">
           <div className="flex items-end gap-2.5 max-md:justify-between max-md:pt-8">
             <span className="flex flex-col gap-[15px]">
-              <p className="text-spaced-sm !font-medium">
+              <p className="text-xs !font-medium">
                 ©{new Date().getFullYear()} ALPINE
               </p>
             </span>
@@ -122,7 +122,7 @@ const ContactInfo: React.FC = () => {
               <PageTransitionLink
                 dataType="simple-hover"
                 href="/privacy-policy"
-                className="underline_link text-spaced-sm interactable !font-medium"
+                className="underline_link text-xs interactable !font-medium"
               >
                 Privacy
               </PageTransitionLink>

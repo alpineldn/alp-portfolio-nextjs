@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { slide } from '../../animation';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import cn from '@/utils/cn';
+import { usePathname } from 'next/navigation';
 
 interface LinkProps {
   data: {
@@ -20,10 +21,13 @@ const LinkEl: React.FC<LinkProps> = ({
   className,
 }) => {
   const { title, href, index } = data;
+  const pathName = usePathname();
 
   return (
     <motion.li
-      className={cn('relative flex items-center', className)}
+      className={cn('relative', className, {
+        group: pathName !== href,
+      })}
       onMouseEnter={() => setSelectedIndicator(href)}
       custom={index}
       variants={slide}
@@ -33,10 +37,29 @@ const LinkEl: React.FC<LinkProps> = ({
     >
       <PageTransitionLink
         dataType="simple-hover"
-        className={cn('underline_link interactable', 'link-hover-xl')}
         href={href}
+        className={cn(
+          'interactable',
+          'flex items-center gap-x-20 group-hover:text-gray',
+          { 'text-gray': pathName === href },
+        )}
       >
-        {title}
+        <span className="link-hover-xl transition-colors duration-500">
+          {title}
+        </span>
+        <svg
+          className="h-[85px] w-[85px] text-gray opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          viewBox="0 0 91 91"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 88L88 3M88 3V88M88 3H3"
+            stroke="currentColor"
+            strokeWidth="6"
+            strokeLinecap="square"
+          />
+        </svg>
       </PageTransitionLink>
     </motion.li>
   );

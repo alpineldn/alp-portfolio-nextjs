@@ -16,6 +16,7 @@ const ArrowTopRight: React.FC<ArrowTopRightProps> = ({ className }) => {
         d="M2 26L26 2M26 2V26M26 2H2"
         stroke="currentColor"
         strokeWidth="3"
+        strokeLinecap="square"
       />
     </svg>
   );

@@ -10,6 +10,7 @@ import ProjectCard from '@/components/common/project-layouts/GridLayout/GridProj
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import LinkEl from '@/components/common/ui/LinkEl';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import useTouchHandler from '@/hooks/useTouchHandler';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
@@ -24,6 +25,8 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const container = useRef<HTMLDivElement>(null);
   const { width = 0 } = useWindowSize();
+  const isTouched = useTouchHandler();
+
   const [modal, setModal] = useState<Model>({
     active: false,
     index: 0,
@@ -31,14 +34,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
   const { active, index } = modal;
   const modalContainer = useRef(null);
-
   let xMoveContainer = useRef<MoveRef>(null);
   let yMoveContainer = useRef<MoveRef>(null);
 
   useEffect(() => {
-    if (width <= 640) return;
+    if (width <= 640 || isTouched) return;
 
-    //Move Container
     xMoveContainer.current = gsap.quickTo(modalContainer.current, 'left', {
       duration: 0.8,
       ease: 'power3',
@@ -47,7 +48,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       duration: 0.8,
       ease: 'power3',
     });
-  }, [width]);
+  }, [width, isTouched]);
 
   const moveItems = (x: number, y: number) => {
     !!xMoveContainer?.current && xMoveContainer.current(x);
@@ -60,7 +61,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     x: number,
     y: number,
   ) => {
-    if (width <= 640) return;
+    if (width <= 640 || isTouched) {
+      setModal({ active: false, index });
+      return;
+    }
 
     moveItems(x, y);
     setModal({ active, index });
@@ -72,10 +76,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="section-padding-y relative z-[1] bg-dark text-light"
+      className="section-padding-y text-light relative z-[1] bg-dark"
     >
       <div className="container mx-auto">
-        <h2 className="subtitle-md text-lightGray mb-xs xl:mb-section-md">
+        <h2 className="subtitle-md mb-xs text-lightGray xl:mb-section-md">
           Projects
         </h2>
 
@@ -98,7 +102,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           })}
         </div>
 
-        <div className="mt-sm md:mt-section-lg flex">
+        <div className="mt-sm flex md:mt-section-lg">
           <PageTransitionLink className="block" href="/work">
             <LinkEl>More Work</LinkEl>
           </PageTransitionLink>

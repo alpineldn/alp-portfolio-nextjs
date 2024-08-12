@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import ChevronIcon from '../common/icons/ChevronIcon';
 import { usePathname } from 'next/navigation';
+import useTouchHandler from '@/hooks/useTouchHandler';
+import cn from '@/utils/cn';
 
 type TrailerOption = 'video' | 'link' | 'click' | 'simple-hover';
 
@@ -34,6 +36,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
   const [TrailerIcon, setTrailerIcon] = useState<JSX.Element | null>(null);
   const [mode, setMode] = useState<'dark' | 'light'>('light');
   const pathname = usePathname();
+  const isTouched = useTouchHandler();
 
   useEffect(() => {
     if (!trailerRef.current) return;
@@ -118,7 +121,7 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
   }, [mode, trailerRef, trailerIconRef]);
   //
   return (
-    <div className="hidden sm:block">
+    <div className={cn('hidden sm:block', { 'sm:hidden': isTouched })}>
       <div
         ref={trailerRef}
         id="trailer"

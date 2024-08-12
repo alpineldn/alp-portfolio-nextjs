@@ -1,5 +1,5 @@
 import { Project as ProjectTypes } from '@/app/(app)/work/page';
-import React from 'react';
+import React, { Dispatch } from 'react';
 import PageTransitionLink from '../../ui/PageTransitionLink';
 
 interface ProjectProps extends ProjectTypes {

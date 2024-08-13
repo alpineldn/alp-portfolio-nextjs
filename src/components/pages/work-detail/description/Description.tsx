@@ -99,25 +99,25 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
     <div className="grid max-lg:grid-cols-1 max-lg:gap-y-8 lg:grid-flow-col-dense lg:gap-x-10">
       <ul
         className={cn(
-          'heading-m',
+          'project-meta',
           'grid gap-5 max-lg:grid-cols-2 lg:grid-flow-col-dense',
         )}
       >
         {!!client && (
           <li className={cn('translate-y-[50px] opacity-0')}>
-            <div className="uppercase text-lightGray">Client:</div>
+            <div className=" text-lightGray">Client:</div>
             <div>{client}</div>
           </li>
         )}
         {!!agency && (
           <li className={cn('translate-y-[50px] opacity-0')}>
-            <div className="uppercase text-lightGray">AGENCY:</div>
+            <div className=" text-lightGray">Agency:</div>
             <div>{agency}</div>
           </li>
         )}
 
         <li className={cn('translate-y-[50px] opacity-0')}>
-          <div className="uppercase text-lightGray">CATEGORIES:</div>
+          <div className=" text-lightGray">Categories:</div>
           <div>
             {categories.map(({ title, _id }, index) => (
               <span key={_id}>

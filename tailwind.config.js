@@ -33,7 +33,7 @@ module.exports = {
         '1.4rem',
         {
           letterSpacing: '0.02em',
-          fontWeight: 500,
+          fontWeight: 400,
           lineHeight: '1.4',
           textTransform: 'uppercase',
         },
@@ -45,6 +45,10 @@ module.exports = {
       'text-link': [
         '1.2rem',
         { letterSpacing: '0.03em', fontWeight: 400, lineHeight: '1' },
+      ],
+      'brand-text-link': [
+        '1.2rem',
+        { letterSpacing: '0.1em', fontWeight: 400, lineHeight: '1' },
       ],
       'section-subtitle': [
         '1.6rem',

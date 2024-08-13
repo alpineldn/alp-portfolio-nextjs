@@ -137,13 +137,13 @@ const Logo = () => {
     >
       <AlpLogo
         firstVisit={firstVisit}
-        className="h-fit w-[40px] -translate-y-[2px] object-contain"
+        className="h-fit w-[42px] -translate-y-[2px] object-contain"
       />
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
         <p
           className={cn(
-            'text-link relative transition-all duration-500 ease-smooth-curve',
+            'brand-text-link relative transition-all duration-500 ease-smooth-curve',
           )}
         >
           ALPINE

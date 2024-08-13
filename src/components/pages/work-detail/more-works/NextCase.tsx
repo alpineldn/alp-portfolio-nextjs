@@ -79,7 +79,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
                 ref={header1Ref}
                 className="heading-m translate-y-[25px] opacity-0 drop-shadow-lg"
               >
-                Next Project_
+                Next Project
               </h2>
               <h3
                 ref={header2Ref}

@@ -5,14 +5,14 @@ export const metadata = {
 
 const Typography: React.FC<{}> = async () => {
   return (
-    <main className="min-h-screen bg-dark pt-32 text-light">
+    <main className="text-light min-h-screen bg-dark pt-32">
       <div className="container mx-auto space-y-6">
         <h1 className="heading-xxl">This is H1 </h1>
         <h2 className="heading-xl">This is H2 </h2>
         <h3 className="heading-l">This is H3</h3>
         <h4 className="heading-m">This is H4</h4>
         <h5 className="text-spaced-sm">This is H5</h5>
-        <h6 className="text-spaced-sm">This is H6</h6>
+        {/* <h6 className="text-spaced-sm">This is H6</h6> */}
         <p className="text-link">This a link</p>
         <p className="link-hover-xl">This is hover link xl</p>
 

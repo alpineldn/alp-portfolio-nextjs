@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { animatePageOut } from '@/utils/animations';
 import Link from 'next/link';
-import { MouseEvent } from 'react';
+import { MouseEvent, TouchEvent } from 'react';
 import cn from '@/utils/cn';
 
 interface Props {
@@ -13,6 +13,8 @@ interface Props {
   children: React.ReactNode;
   dataType?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => void;
+  onTouchStart?: (e?: TouchEvent<HTMLAnchorElement>) => void;
+  onTouchEnd?: (e?: TouchEvent<HTMLAnchorElement>) => void;
   onMouseEnter?: (
     e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
   ) => void;
@@ -30,6 +32,8 @@ const PageTransitionLink = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  onTouchStart,
+  onTouchEnd,
 }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -45,6 +49,8 @@ const PageTransitionLink = ({
       id={id}
       href={href}
       data-type={dataType}
+      onTouchEnd={onTouchEnd}
+      onTouchStart={onTouchStart}
       onMouseEnter={onMouseEnter}
       className={cn('', className)}
       onMouseLeave={onMouseLeave}

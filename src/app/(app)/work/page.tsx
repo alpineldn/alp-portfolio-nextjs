@@ -5,7 +5,7 @@ import Projects from '@/components/pages/work/projects';
 import { SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';
-import { META_QUERY, ALL_WORK_QUERY } from '@/utils/sanity/queries';
+import { ALL_WORK_QUERY, META_QUERY } from '@/utils/sanity/queries';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { Metadata } from 'next';
 import type { Slug } from 'sanity';

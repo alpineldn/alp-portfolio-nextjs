@@ -57,13 +57,13 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
     <div ref={containerRef}>
       <PageTransitionLink
         dataType="link"
-        className="interactable group relative block h-[35vh] w-full overflow-hidden lg:h-[60vh]"
+        className="interactable group relative block w-full overflow-hidden"
         href={`/work/${slug.current}`}
       >
         <motion.div className="relative h-full w-full max-sm:aspect-square">
           <figure className="relative h-full w-full overflow-hidden">
             <SanityImage
-              className="h-full w-full rounded object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
+              className="h-full max-h-[65vh] w-full rounded object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
               src={mainImage}
               sizes="100vw"
               alt={title}
@@ -101,27 +101,18 @@ export default NextCase;
 
 const ContactInfo: React.FC = () => {
   return (
-    <div id="all-work-cta" className="translate-y-[25px] pb-5 opacity-0">
-      <div
-        data-type="click"
-        className="flex w-full items-center justify-center py-10"
-      >
-        <PageTransitionLink
-          dataType="simple-hover"
-          className="interactable"
-          href="/work"
-        >
-          <LinkEl>All Work</LinkEl>
-        </PageTransitionLink>
-      </div>
+    <div
+      id="all-work-cta"
+      className="translate-y-[25px] pb-5 pt-section opacity-0 md:pt-section-md"
+    >
       <div
         id="info"
         className="flex translate-y-[25px] flex-col-reverse justify-between px-5 opacity-0 md:flex-row"
       >
-        <div className="flex w-full flex-col-reverse justify-between pt-8 md:flex-row lg:border-t lg:border-white/50">
+        <div className="flex w-full flex-col-reverse justify-between pb-xs pt-8 md:flex-row md:pb-sm lg:border-t lg:border-white/50">
           <div className="flex items-end gap-2.5 max-md:justify-between max-md:pt-8">
             <span className="flex flex-col gap-[15px]">
-              <p className="text-spaced-sm !font-medium">
+              <p className="text-xs !font-medium">
                 ©{new Date().getFullYear()} ALPINE
               </p>
             </span>
@@ -131,7 +122,7 @@ const ContactInfo: React.FC = () => {
               <PageTransitionLink
                 dataType="simple-hover"
                 href="/privacy-policy"
-                className="underline_link text-spaced-sm interactable !font-medium"
+                className="underline_link text-xs interactable !font-medium"
               >
                 Privacy
               </PageTransitionLink>

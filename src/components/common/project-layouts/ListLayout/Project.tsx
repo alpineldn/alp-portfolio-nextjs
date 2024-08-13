@@ -1,7 +1,6 @@
 import { Project as ProjectTypes } from '@/app/(app)/work/page';
 import React from 'react';
 import PageTransitionLink from '../../ui/PageTransitionLink';
-import cn from '@/utils/cn';
 
 interface ProjectProps extends ProjectTypes {
   index: number;
@@ -26,11 +25,11 @@ const ProjectList: React.FC<ProjectProps> = ({
       onMouseLeave={(e) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
-      className="interactable 2xl:py-sm py-xs group grid w-full cursor-pointer grid-cols-12 items-center border-t border-solid border-t-white/50 text-white transition-all duration-300 last:border-b last:border-b-white/50 hover:opacity-50"
+      className="interactable group grid w-full cursor-pointer items-center gap-2 border-t border-solid border-t-white/50 py-xs text-white transition-all duration-300 last:border-b last:border-b-white/50 hover:opacity-50 max-lg:grid-cols-12 md:gap-5 lg:grid-flow-col 2xl:py-sm"
     >
-      <h3 className="heading-xl col-span-6">{title}</h3>
-      <div className="heading-m col-span-3 block">{client}</div>
-      <div className="heading-m interactable col-span-3 block text-right">
+      <h3 className="heading-xl col-span-12 lg:col-span-12">{title}</h3>
+      <div className="heading-m col-span-12 block md:col-span-6">{client}</div>
+      <div className="heading-m col-span-12 block md:col-span-6 md:text-right">
         {categories.map((category, index) => (
           <span key={category._id}>
             {category.title}

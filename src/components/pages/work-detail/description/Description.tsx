@@ -9,6 +9,7 @@ import { useLayoutEffect, useRef } from 'react';
 import { Slug } from 'sanity';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
+import cn from '@/utils/cn';
 
 interface DescriptionProps {
   body: PortableTextBlock[];
@@ -76,7 +77,7 @@ const Description: React.FC<DescriptionProps> = ({
             previewURL={previewURL}
           />
         </div>
-        <div className="max-w-screen-lg overflow-hidden pb-sm pt-xs md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
+        <div className="max-w-screen-lg overflow-hidden pb-sm pt-sm md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
           <div ref={bodyRef} className="heading-l overflow-hidden">
             <PortableText value={body} />
           </div>
@@ -95,20 +96,27 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
   previewURL,
 }) => {
   return (
-    <div className="grid grid-cols-12 max-sm:gap-y-sm sm:gap-x-10">
-      <ul className="heading-m col-span-12 grid grid-cols-12 gap-5 sm:col-span-6 lg:col-span-8 xl:col-span-9">
-        <li className="col-span-6 translate-y-[50px] opacity-0 sm:col-span-12 lg:col-span-4">
-          <div className="uppercase text-lightGray">Client:</div>
-          <div>{client}</div>
-        </li>
+    <div className="grid max-lg:grid-cols-1 max-lg:gap-y-8 lg:grid-flow-col-dense lg:gap-x-10">
+      <ul
+        className={cn(
+          'heading-m',
+          'grid gap-5 max-lg:grid-cols-2 lg:grid-flow-col-dense',
+        )}
+      >
+        {!!client && (
+          <li className={cn('translate-y-[50px] opacity-0')}>
+            <div className="uppercase text-lightGray">Client:</div>
+            <div>{client}</div>
+          </li>
+        )}
         {!!agency && (
-          <li className="col-span-6 translate-y-[50px] opacity-0 sm:col-span-12 lg:col-span-4">
+          <li className={cn('translate-y-[50px] opacity-0')}>
             <div className="uppercase text-lightGray">AGENCY:</div>
             <div>{agency}</div>
           </li>
         )}
 
-        <li className="col-span-6 translate-y-[50px] opacity-0 sm:col-span-12 lg:col-span-4">
+        <li className={cn('translate-y-[50px] opacity-0')}>
           <div className="uppercase text-lightGray">CATEGORIES:</div>
           <div>
             {categories.map(({ title, _id }, index) => (
@@ -121,7 +129,10 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
       </ul>
       <div
         id="preview-url-btn"
-        className="col-span-12 flex translate-y-[50px] opacity-0 sm:col-span-6 sm:items-end sm:justify-end lg:col-span-4 xl:col-span-3"
+        className={cn(
+          'translate-y-[50px] opacity-0',
+          'flex lg:items-end lg:justify-end',
+        )}
       >
         {!!previewURL?.current && (
           <Link

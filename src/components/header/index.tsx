@@ -14,7 +14,8 @@ import {
   useState,
 } from 'react';
 import PageTransitionLink from '../common/ui/PageTransitionLink';
-import Nav from './nav';
+import OverlayNav from './nav/OverlayNav';
+import AlpLogo from '../common/icons/AlpLogo';
 
 interface HeaderProps {}
 
@@ -27,10 +28,6 @@ const navItems = [
     title: 'About',
     href: '/about',
   },
-  // {
-  //   title: 'Contact',
-  //   href: '/contact',
-  // },
 ];
 
 const Header: React.FC<HeaderProps> = ({}) => {
@@ -44,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
   useEffect(() => {
     if (menuIconIsActive) setMenuIconIsActive(false);
-    if (showMenuButton) setShowMenuButton(false);
+    if (showMenuButton) setShowMenuButton(true);
   }, [pathName]);
 
   useLayoutEffect(() => {
@@ -74,19 +71,24 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
       const logoEl = document.querySelector('#site-logo');
       mm.add('(min-width: 640px)', () => {
-        const navLinks = document.querySelectorAll('.site-nav-link');
-        gsap.set([logoEl, navLinks], { opacity: 0 });
+        // const navLinks = document.querySelectorAll('.site-nav-link');
+        // gsap.set([logoEl, navLinks], { opacity: 0 });
 
-        tl.to(logoEl, { opacity: 1 }).to(navLinks, {
-          opacity: 1,
-          stagger: 0.1,
-        });
+        // tl.to(logoEl, { opacity: 1 }).to(navLinks, {
+        //   opacity: 1,
+        //   stagger: 0.1,
+        // });
+        gsap.set([logoEl], { opacity: 0 });
+        tl.to(logoEl, { opacity: 1 });
       });
 
       mm.add('(max-width: 639px)', () => {
-        const navBtn = document.querySelector('#site-menu-btn');
-        gsap.set([navBtn, navBtn], { opacity: 0 });
-        tl.to(logoEl, { opacity: 1 }).to(navBtn, { opacity: 1 });
+        // const navBtn = document.querySelector('#site-menu-btn');
+        // gsap.set([navBtn, navBtn], { opacity: 0 });
+        // tl.to(logoEl, { opacity: 1 }).to(navBtn, { opacity: 1 });
+        // const navBtn = document.querySelector('#site-menu-btn');
+        // gsap.set([navBtn, navBtn], { opacity: 0 });
+        // tl.to(logoEl, { opacity: 1 }).to(navBtn, { opacity: 1 });
       });
     });
 
@@ -102,7 +104,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
         )}
       >
         <Logo />
-        <NavLinks setIsActive={setMenuIconIsActive} />
+        {/* <NavLinks setIsActive={setMenuIconIsActive} /> */}
       </div>
 
       <HamburgerMenuBtn
@@ -112,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       />
 
       <AnimatePresence mode="wait">
-        {menuIconIsActive && <Nav />}
+        {menuIconIsActive && <OverlayNav />}
       </AnimatePresence>
     </>
   );
@@ -133,31 +135,10 @@ const Logo = () => {
         'text-base flex items-center justify-center opacity-0 after:bg-white hover:before:bg-white',
       )}
     >
-      <motion.svg
+      <AlpLogo
+        firstVisit={firstVisit}
         className="h-fit w-[40px] -translate-y-[2px] object-contain"
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 231.53 92.95"
-      >
-        <motion.path
-          initial={{ pathLength: 1 }}
-          animate={{ pathLength: [0, 1] }}
-          transition={{
-            duration: 2,
-            repeatType: 'reverse',
-            ease: 'easeInOut',
-            delay: firstVisit ? 3 : 2,
-          }}
-          style={{
-            fill: 'none',
-            stroke: '#fff',
-            strokeLinecap: 'square',
-            strokeMiterlimit: 10,
-            strokeWidth: '10px',
-          }}
-          d="m5.66 86.84 64.93-64.93 65.29 65.3H62.69l81.55-81.55 81.64 81.64"
-        />
-      </motion.svg>
+      />
 
       <div className="relative ml-[10px] flex overflow-hidden whitespace-nowrap transition-all duration-500 ease-smooth-curve">
         <p
@@ -231,11 +212,13 @@ const HamburgerMenuBtn = forwardRef<
       >
         <div
           className={cn(
-            "relative z-[1] w-full before:relative before:top-[5px] before:m-auto before:block before:h-[2px] before:w-[30%] before:bg-white before:duration-300 before:content-[''] before:[transition:width_0s,background_.3s] after:relative after:top-[-5px] after:m-auto after:block after:h-[2px] after:w-[30%] after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:before:w-[40%] sm:after:w-[40%]",
-            {
-              'before:top-0 before:-rotate-45 after:top-[-1px] after:rotate-45':
-                isActive,
-            },
+            'relative z-[1] w-full',
+            "before:absolute before:left-1/2 before:top-1/2 before:h-[2px] before:w-[30%] before:-translate-x-1/2 before:-translate-y-1/2 before:bg-white before:transition-transform before:duration-300 before:content-[''] sm:before:w-[60%]",
+            "after:absolute after:left-1/2 after:top-1/2 after:h-[2px] after:w-[30%] after:-translate-x-1/2 after:-translate-y-1/2 after:bg-white after:transition-transform after:duration-300 after:content-[''] sm:after:w-[60%]",
+            'before:block after:block',
+            isActive
+              ? 'before:rotate-[-45deg] after:rotate-[45deg]'
+              : 'before:translate-y-[200%] before:rotate-0 after:-translate-y-[200%] after:rotate-0',
           )}
         ></div>
       </RoundedButton>

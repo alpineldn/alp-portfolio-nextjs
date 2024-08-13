@@ -51,8 +51,8 @@ module.exports = {
         { letterSpacing: '0.1em', fontWeight: 400, lineHeight: '1' },
       ],
       'section-subtitle': [
-        '1.6rem',
-        { letterSpacing: '0.1em', fontWeight: 400, lineHeight: '1' },
+        '1.2rem',
+        { letterSpacing: '0.1em', fontWeight: 300, lineHeight: '1', textTransform: 'uppercase' },
       ],
       'project-meta': [
         '1.6rem',

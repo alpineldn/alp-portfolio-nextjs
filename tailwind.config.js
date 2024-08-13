@@ -14,49 +14,49 @@ module.exports = {
 
     fontSize: {
       xxl: [
-        '144px',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: 'normal' },
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
       xl: [
-        '70px',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: 'normal' },
+        '3.9rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
       l: [
-        '50px',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '66px' },
+        '2.8rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
       m: [
-        '36px',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: 'normal' },
+        '1.9rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.4' },
       ],
       'm-medium': [
-        '36px',
+        '1.4rem',
         {
           letterSpacing: '0.02em',
           fontWeight: 500,
-          lineHeight: 'normal',
+          lineHeight: '1.4',
           textTransform: 'uppercase',
         },
       ],
       's-spaced': [
-        '24px',
+        '1.2rem',
         { letterSpacing: '0.03em', fontWeight: 400, lineHeight: 'normal' },
       ],
       'text-link': [
-        '24px',
-        { letterSpacing: '0.03em', fontWeight: 400, lineHeight: 'normal' },
+        '1.2rem',
+        { letterSpacing: '0.03em', fontWeight: 400, lineHeight: '1' },
       ],
       'section-subtitle': [
-        '32px',
-        { letterSpacing: '0.1em', fontWeight: 400, lineHeight: 'normal' },
+        '1.6rem',
+        { letterSpacing: '0.1em', fontWeight: 400, lineHeight: '1' },
       ],
       'project-meta': [
-        '36px',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '50px' },
+        '1.6rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
       xs: [
-        '18px',
-        { letterSpacing: '0.02em', fontWeight: 400, lineHeight: '20px' },
+        '1rem',
+        { letterSpacing: '0.02em', fontWeight: 400, lineHeight: '1.4' },
       ],
     },
 

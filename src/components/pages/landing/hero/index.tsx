@@ -86,7 +86,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
       <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex lg:max-w-7xl lg:pl-[8vw]">
         <h1 ref={heroTextRef} className={cn('heading-xxl', '')}>
-          Brand + Digital <br /> Design Studio
+          Elevating Brands +<br />Digital Experiences
         </h1>
       </div>
       <p
@@ -96,7 +96,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
           'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]',
         )}
       >
-        Born in London, working Globally
+        Brand + Digital Development Studio
       </p>
 
       <div

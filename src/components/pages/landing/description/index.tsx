@@ -18,7 +18,7 @@ const Description: React.FC<DescriptionProps> = () => {
   return (
     <section
       ref={description}
-      className="xl:pt-section-xl md:pt-section-lg pt-section relative z-10 bg-dark text-light"
+      className="text-light relative bg-dark pt-section md:pt-section-lg xl:pt-section-xl"
     >
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px] xl:gap-[207px]">

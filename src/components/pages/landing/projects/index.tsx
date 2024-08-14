@@ -75,7 +75,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       onMouseMove={(e) => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="section-padding-y text-light relative z-[1] bg-dark"
+      className="section-padding-y text-light relative bg-dark"
     >
       <div className="container mx-auto">
         <h2 className="subtitle-md mb-xs text-lightGray xl:mb-section-md">

@@ -32,7 +32,13 @@ const Description: React.FC<DescriptionProps> = ({
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
-      if (!detailContainerRef?.current || !bodyRef?.current) return;
+      if (
+        !detailContainerRef?.current ||
+        !bodyRef?.current ||
+        !sectionRef?.current
+      )
+        return;
+
       gsap.registerPlugin(ScrollTrigger);
 
       const bodyText = new SplitType(
@@ -42,8 +48,8 @@ const Description: React.FC<DescriptionProps> = ({
           lineClass: 'overflow-hidden',
         },
       );
+      if (!!bodyText.words?.length) gsap.set(bodyText.words, { y: '100%' });
 
-      gsap.set(bodyText.words, { y: '100%' });
       const projectInfoEls =
         detailContainerRef.current.querySelectorAll('ul > li');
 
@@ -56,15 +62,19 @@ const Description: React.FC<DescriptionProps> = ({
         },
       });
 
-      tl.to([projectInfoEls, '#preview-url-btn'], {
-        y: '0%',
-        opacity: 1,
-        stagger: 0.05,
-      }).to(bodyText.words, { y: '0%', stagger: 0.025 }, 0.2);
+      if (!!projectInfoEls?.length)
+        tl.to([projectInfoEls, '#preview-url-btn'], {
+          y: '0%',
+          opacity: 1,
+          stagger: 0.05,
+        });
+
+      if (!!bodyText.words?.length)
+        tl.to(bodyText.words, { y: '0%', stagger: 0.025 }, 0.2);
     });
 
     return () => context.revert();
-  }, [detailContainerRef, bodyRef]);
+  }, [detailContainerRef, bodyRef, sectionRef]);
 
   return (
     <section>

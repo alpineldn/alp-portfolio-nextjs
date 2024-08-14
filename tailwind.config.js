@@ -15,7 +15,7 @@ module.exports = {
     fontSize: {
       xxl: [
         '7rem',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+        { letterSpacing: '0.01em', fontWeight: 500, lineHeight: '1.2' },
       ],
       xl: [
         '3.9rem',

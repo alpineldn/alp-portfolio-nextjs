@@ -5,6 +5,9 @@
 @layer base {
   body {
     @apply m-0 cursor-wait overflow-hidden bg-dark text-white;
+    -webkit-font-smoothing: subpixel-antialiased;
+    /* -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
   }
 }
 

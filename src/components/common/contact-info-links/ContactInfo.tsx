@@ -23,7 +23,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
             </p>
           </span>
         </div>
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 max-md:justify-between max-md:pt-8">
           <span className="flex flex-col gap-[15px]">
             <PageTransitionLink
               dataType="simple-hover"

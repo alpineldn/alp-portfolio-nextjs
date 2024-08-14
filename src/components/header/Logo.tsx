@@ -42,7 +42,7 @@ const Logo: React.FC<LogoProps> = ({ showOverlay }) => {
       >
         <AlpLogo
           firstVisit={firstVisit}
-          className="mr-[10px] h-fit w-[42px] -translate-y-[2px] object-contain"
+          className="mr-[10px] h-fit w-[42px] -translate-y-[2px] object-contain sm:w-[50px]"
         />
 
         <AnimatePresence mode="wait">
@@ -55,7 +55,7 @@ const Logo: React.FC<LogoProps> = ({ showOverlay }) => {
             >
               <p
                 className={cn(
-                  'brand-text-link relative leading-none transition-all duration-500 ease-smooth-curve',
+                  'relative text-brand-text-link leading-none transition-all duration-500 ease-smooth-curve',
                 )}
               >
                 ALPINE

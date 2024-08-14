@@ -73,7 +73,7 @@ const Logo: React.FC<{}> = () => {
       >
         <AlpLogo
           normalDelay={1}
-          className="h-fit w-[40px] -translate-y-[2px] object-contain sm:w-[70px]"
+          className="h-fit w-[50px] object-contain max-sm:translate-y-1 sm:w-[70px]"
         />
       </motion.div>
     </PageTransitionLink>

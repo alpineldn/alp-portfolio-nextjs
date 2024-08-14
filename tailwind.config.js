@@ -33,7 +33,7 @@ module.exports = {
         '1.4rem',
         {
           letterSpacing: '0.02em',
-          fontWeight: 400,
+          fontWeight: 500,
           lineHeight: '1.4',
           textTransform: 'uppercase',
         },
@@ -52,7 +52,12 @@ module.exports = {
       ],
       'section-subtitle': [
         '1.2rem',
-        { letterSpacing: '0.1em', fontWeight: 300, lineHeight: '1', textTransform: 'uppercase' },
+        {
+          letterSpacing: '0.1em',
+          fontWeight: 300,
+          lineHeight: '1',
+          textTransform: 'uppercase',
+        },
       ],
       'project-meta': [
         '1.6rem',

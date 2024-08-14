@@ -43,14 +43,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       y: '0%',
       duration: 1.5,
       stagger: 0.05,
-    }).to(
-      description.words,
-      {
-        y: '0%',
-        stagger: 0.05,
-      },
-      '-=.5',
-    );
+    }).to(description.words, { y: '0%', stagger: 0.05 }, '-=.5');
   };
 
   useLayoutEffect(() => {
@@ -86,7 +79,8 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
       <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex lg:max-w-7xl lg:pl-[8vw]">
         <h1 ref={heroTextRef} className={cn('heading-xxl', '')}>
-          Elevating Brands +<br />Digital Experiences
+          Elevating Brands +<br />
+          Digital Experiences
         </h1>
       </div>
       <p
@@ -102,7 +96,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <div
         data-scroll
         data-scroll-speed={0.1}
-        className="container flex h-full w-full translate-y-5 flex-col justify-center sm:hidden"
+        className="container relative flex h-full w-full translate-y-5 flex-col justify-center sm:hidden"
       >
         <h1
           ref={heroTextRefSm}
@@ -110,7 +104,10 @@ const Hero: React.FC<HeroProps> = ({}) => {
         >
           Brand + Digital <br /> Design Studio
         </h1>
-        <p ref={descriptionRefSm} className="heading-m">
+        <p
+          ref={descriptionRefSm}
+          className="heading-m absolute bottom-14 left-0 max-lg:px-5"
+        >
           Born in London, working Globally
         </p>
         {/* <p className="m-0 mb-[10px]">Designer & Developer</p> */}

@@ -49,25 +49,24 @@ const ProjectCard: React.FC<ProjectProps> = ({
           >
             {title}
           </motion.h3>
-          <div className="grid w-fit grid-flow-col-dense items-center gap-3">
-            {!!client && (
-              <motion.p
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
-                viewport={{ once: true }}
-                className="heading-m text-ellipsis whitespace-pre opacity-0"
-              >
-                {client}
-              </motion.p>
-            )}
+          <div className="flex flex-wrap">
+            <div className="flex items-center">
+              {!!client && (
+                <motion.p
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
+                  viewport={{ once: true }}
+                  className="heading-m opacity-0"
+                >
+                  {client}
+                </motion.p>
+              )}
 
-            {!!client && !!categories?.length && <DoubleDashed />}
+              {!!client && !!categories?.length && <DoubleDashed />}
+            </div>
 
             {!!categories?.length && (
-              <ul
-                ref={listContainerRef}
-                className="heading-m flex overflow-hidden text-ellipsis"
-              >
+              <ul ref={listContainerRef} className="heading-m flex">
                 {categories?.map(({ title, _id }, index) => (
                   <motion.li
                     key={_id}
@@ -99,7 +98,7 @@ const DoubleDashed = () => {
       whileInView={{ opacity: 1 }}
       transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
       viewport={{ once: true }}
-      className="h-[2px] w-[24px] bg-white opacity-0 sm:w-[36px]"
+      className="mx-3 h-[2px] w-[24px] bg-white opacity-0 sm:w-[36px]"
     ></motion.div>
   );
 };

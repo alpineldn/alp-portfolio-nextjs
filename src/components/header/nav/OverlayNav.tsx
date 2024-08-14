@@ -69,11 +69,11 @@ const Logo: React.FC<{}> = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 1 } }}
         exit={{ scale: 0 }}
-        className="fixed left-2 z-20 flex h-[80px] w-[80px] items-center justify-center sm:m-[20px]"
+        className="fixed left-2 top-8 z-20 flex px-[20px] sm:px-[43px]"
       >
         <AlpLogo
           normalDelay={1}
-          className="h-fit w-[40px] -translate-y-[2px] object-contain lg:w-[70px]"
+          className="h-fit w-[50px] object-contain max-sm:translate-y-1 sm:w-[70px]"
         />
       </motion.div>
     </PageTransitionLink>

@@ -48,7 +48,7 @@ const LinkEl: React.FC<LinkProps> = ({
           {title}
         </span>
         <svg
-          className="h-[85px] w-[85px] text-gray opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="size-[28px] text-gray opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:size-[40px] md:size-[50px] lg:size-[84px]"
           viewBox="0 0 91 91"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

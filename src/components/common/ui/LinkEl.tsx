@@ -10,7 +10,7 @@ interface MarqueeProps {
 const LinkEl: React.FC<MarqueeProps> = ({
   children,
   className,
-  iconClassName = 'size-[24px] text-white group-hover:text-gray',
+  iconClassName,
 }) => {
   return (
     <div
@@ -20,20 +20,12 @@ const LinkEl: React.FC<MarqueeProps> = ({
         <div className="flex items-center justify-center gap-x-[23px] text-center transition-colors duration-500 group-hover:text-gray">
           {children}
 
-          <div className="relative overflow-hidden">
-            <ArrowTopRight
-              className={cn(
-                iconClassName,
-                'transition-[transform,colors] duration-500 group-hover:-translate-y-full',
-              )}
-            />
-            <ArrowTopRight
-              className={cn(
-                iconClassName,
-                'absolute left-0 transition-[transform,colors] duration-500 group-hover:-translate-y-full',
-              )}
-            />
-          </div>
+          <ArrowTopRight
+            className={cn(
+              iconClassName,
+              'size-5 transition-[transform,colors] duration-500',
+            )}
+          />
         </div>
       </div>
     </div>

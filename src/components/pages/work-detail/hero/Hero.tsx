@@ -6,6 +6,7 @@ import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import gsap from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
 import SplitType from 'split-type';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 interface HeroProps {
   title: string;
@@ -22,14 +23,18 @@ const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
   const { firstVisit } = useStore((store) => store);
 
   useLayoutEffect(() => {
+    if (!imgRef?.current) return;
+
     const context = gsap.context(() => {
+      gsap.registerPlugin(ScrollTrigger);
+
       gsap.to(imgRef.current, {
         y: 0,
         scrollTrigger: {
+          trigger: imgRef.current,
           start: '-120px bottom',
           end: 'bottom bottom',
           scrub: 3,
-          trigger: imgRef.current,
         },
       });
     });

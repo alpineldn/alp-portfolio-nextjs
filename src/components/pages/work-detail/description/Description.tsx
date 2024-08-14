@@ -32,7 +32,13 @@ const Description: React.FC<DescriptionProps> = ({
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
-      if (!detailContainerRef?.current || !bodyRef?.current) return;
+      if (
+        !detailContainerRef?.current ||
+        !bodyRef?.current ||
+        !sectionRef?.current
+      )
+        return;
+
       gsap.registerPlugin(ScrollTrigger);
 
       const bodyText = new SplitType(
@@ -42,8 +48,8 @@ const Description: React.FC<DescriptionProps> = ({
           lineClass: 'overflow-hidden',
         },
       );
+      if (!!bodyText.words?.length) gsap.set(bodyText.words, { y: '100%' });
 
-      gsap.set(bodyText.words, { y: '100%' });
       const projectInfoEls =
         detailContainerRef.current.querySelectorAll('ul > li');
 
@@ -56,15 +62,19 @@ const Description: React.FC<DescriptionProps> = ({
         },
       });
 
-      tl.to([projectInfoEls, '#preview-url-btn'], {
-        y: '0%',
-        opacity: 1,
-        stagger: 0.05,
-      }).to(bodyText.words, { y: '0%', stagger: 0.025 }, 0.2);
+      if (!!projectInfoEls?.length)
+        tl.to([projectInfoEls, '#preview-url-btn'], {
+          y: '0%',
+          opacity: 1,
+          stagger: 0.05,
+        });
+
+      if (!!bodyText.words?.length)
+        tl.to(bodyText.words, { y: '0%', stagger: 0.025 }, 0.2);
     });
 
     return () => context.revert();
-  }, [detailContainerRef, bodyRef]);
+  }, [detailContainerRef, bodyRef, sectionRef]);
 
   return (
     <section>
@@ -99,25 +109,25 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
     <div className="grid max-lg:grid-cols-1 max-lg:gap-y-8 lg:grid-flow-col-dense lg:gap-x-10">
       <ul
         className={cn(
-          'project-meta',
-          'grid gap-5 max-lg:grid-cols-2 lg:grid-flow-col-dense',
+          'text-project-meta',
+          'grid gap-5 max-lg:grid-cols-1 lg:grid-flow-col-dense',
         )}
       >
         {!!client && (
           <li className={cn('translate-y-[50px] opacity-0')}>
-            <div className=" text-lightGray">Client:</div>
+            <div className="text-lightGray">Client:</div>
             <div>{client}</div>
           </li>
         )}
         {!!agency && (
           <li className={cn('translate-y-[50px] opacity-0')}>
-            <div className=" text-lightGray">Agency:</div>
+            <div className="text-lightGray">Agency:</div>
             <div>{agency}</div>
           </li>
         )}
 
         <li className={cn('translate-y-[50px] opacity-0')}>
-          <div className=" text-lightGray">Categories:</div>
+          <div className="text-lightGray">Categories:</div>
           <div>
             {categories.map(({ title, _id }, index) => (
               <span key={_id}>
@@ -131,6 +141,7 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
         id="preview-url-btn"
         className={cn(
           'translate-y-[50px] opacity-0',
+          '',
           'flex lg:items-end lg:justify-end',
         )}
       >

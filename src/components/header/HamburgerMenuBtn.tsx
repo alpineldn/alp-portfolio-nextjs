@@ -29,7 +29,7 @@ const HamburgerMenuBtn = forwardRef<
             'before:block after:block',
             isActive
               ? 'before:rotate-[-45deg] after:rotate-[45deg]'
-              : 'before:translate-y-[270%] before:rotate-0 after:-translate-y-[270%] after:rotate-0',
+              : 'before:translate-y-[200%] before:rotate-0 after:-translate-y-[200%] after:rotate-0 sm:before:translate-y-[270%] sm:after:-translate-y-[270%]',
           )}
         ></div>
       </div>

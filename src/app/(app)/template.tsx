@@ -19,11 +19,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
         id="loading-banner-1"
         className="fixed left-0 top-0 z-30 flex min-h-screen w-full items-center justify-center bg-darkGray"
       >
-        <AnimatedLogo className="max-w-[100px] xl:max-w-[200px]" />
-
         {firstVisit ? (
           <>
-            <AnimatedLogo className="max-w-[100px] xl:max-w-[200px]" />
+            <AnimatedLogo className="w-full max-w-[100px] xl:max-w-[200px]" />
           </>
         ) : (
           <p
@@ -54,7 +52,7 @@ export const AnimatedLogo = ({ className }: { className?: string }) => {
         transition={logo_animation}
         style={{
           fill: 'none',
-          stroke: '#fff',
+          stroke: '#ffffff',
           strokeLinecap: 'square',
           strokeMiterlimit: 10,
           strokeWidth: '8px',

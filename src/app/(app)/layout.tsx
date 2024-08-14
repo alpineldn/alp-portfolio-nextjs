@@ -13,12 +13,15 @@ const ppNeueMontreal = localFont({
   src: [
     {
       path: '../../../public/fonts/neue-montreal/PPNeueMontreal-Variable.woff2',
+      weight: '100 900',
     },
     {
       path: '../../../public/fonts/neue-montreal/PPNeueMontreal-Variable.woff',
+      weight: '100 900',
     },
     {
       path: '../../../public/fonts/neue-montreal/PPNeueMontreal-Variable.ttf',
+      weight: '100 900',
     },
   ],
   variable: '--font-ppneuemontreal',

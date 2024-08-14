@@ -15,7 +15,12 @@ const HamburgerMenuBtn = forwardRef<
       className="interactable z-30 scale-0 cursor-pointer"
       onClick={() => setIsActive((prev) => !prev)}
     >
-      <div className="h-[30px] w-[35px] sm:w-[55px]">
+      <div
+        className={cn(
+          'h-[30px] w-[35px]',
+          isActive ? 'sm:w-[55px]' : 'sm:w-[45px]',
+        )}
+      >
         <div
           className={cn(
             'w-full',
@@ -24,7 +29,7 @@ const HamburgerMenuBtn = forwardRef<
             'before:block after:block',
             isActive
               ? 'before:rotate-[-45deg] after:rotate-[45deg]'
-              : 'before:translate-y-[200%] before:rotate-0 after:-translate-y-[200%] after:rotate-0',
+              : 'before:translate-y-[270%] before:rotate-0 after:-translate-y-[270%] after:rotate-0',
           )}
         ></div>
       </div>

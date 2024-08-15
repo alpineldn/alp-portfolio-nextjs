@@ -20,6 +20,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
       >
         <div>
           <Image
+            priority
             className="aspect-video max-h-[500px] rounded-lg object-cover"
             width={1920}
             height={500}

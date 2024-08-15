@@ -78,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       </video>
 
       <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex lg:max-w-7xl lg:pl-[8vw]">
-        <h1 ref={heroTextRef} className={cn('heading-xxl', '')}>
+        <h1 ref={heroTextRef} className={cn('heading-xxl')}>
           Elevating Brands +<br />
           Digital Experiences
         </h1>

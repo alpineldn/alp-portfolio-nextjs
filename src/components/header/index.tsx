@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       <div
         ref={header}
         className={cn(
-          'fixed left-0 top-8 z-20 box-border flex w-full items-center justify-between px-[20px] font-light text-white sm:px-[43px]',
+          'fixed left-0 top-2 z-20 box-border flex w-full items-center justify-between px-[20px] font-light text-white sm:px-[20px]',
         )}
       >
         <Logo showOverlay={showOverlay} />

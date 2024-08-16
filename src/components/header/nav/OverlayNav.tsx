@@ -85,7 +85,7 @@ const BottomLinks: React.FC<{}> = () => {
     <div className="fixed bottom-0 left-0 mx-auto w-full">
       <div className="container mx-auto flex w-full flex-col justify-between gap-5 pb-section-md sm:flex-row sm:items-center">
         <UnderlineLink
-          className="heading-m interactable"
+          className="heading-l interactable"
           href="mailto:studio@alpineldn.com"
         >
           studio@alpineldn.com

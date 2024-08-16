@@ -17,8 +17,8 @@ const HamburgerMenuBtn = forwardRef<
     >
       <div
         className={cn(
-          'h-[30px] w-[35px]',
-          isActive ? 'sm:w-[55px]' : 'sm:w-[45px]',
+          'h-[45px] w-[45px]',
+          isActive ? 'sm:w-[45px]' : 'sm:w-[45px]',
         )}
       >
         <div

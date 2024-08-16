@@ -65,7 +65,7 @@ const Home: React.FC<HomeProps> = async () => {
   const { projects, clients } = data;
 
   return (
-    <Page pageName="Home">
+    <Page pageName="Alpine">
       <Hero />
       <Description />
       {!!projects?.length && <Projects projects={projects} />}

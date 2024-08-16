@@ -23,8 +23,8 @@ const Clients: React.FC<ClientsProps> = ({ clients }) => {
         </h2>
       </div>
 
-      <DesktopView className="hidden sm:block" clients={clients} />
-      <MobileView className="grid sm:hidden" clients={clients} />
+      {/* <DesktopView className="hidden sm:block" clients={clients} /> */}
+      <MobileView className="grid" clients={clients} />
     </div>
   );
 };

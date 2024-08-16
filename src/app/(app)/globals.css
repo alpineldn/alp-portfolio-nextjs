@@ -44,7 +44,7 @@
   }
 
   .link-hover-xl {
-    @apply text-l md:text-xl xl:text-xxl;
+    @apply text-xl md:text-xl xl:text-xxl;
   }
 
   .text-link-m {

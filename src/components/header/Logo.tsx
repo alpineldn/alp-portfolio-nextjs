@@ -42,7 +42,7 @@ const Logo: React.FC<LogoProps> = ({ showOverlay }) => {
       >
         <AlpLogo
           firstVisit={firstVisit}
-          className="mr-[10px] w-[42px] -translate-y-[2px] object-contain sm:w-[50px]"
+          className="mr-[10px] w-[60px] -translate-y-[2px] object-contain sm:w-[50px]"
         />
 
         <AnimatePresence mode="wait">

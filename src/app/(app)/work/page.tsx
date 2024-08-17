@@ -20,6 +20,7 @@ export interface Project {
   _id: string;
   agency: string;
   mainImage: SanityImageObject;
+  tileImage?: SanityImageObject;
   categories: Category[];
   client?: string;
   selectedWorks?: boolean;

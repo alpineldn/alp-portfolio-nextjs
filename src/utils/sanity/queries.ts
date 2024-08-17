@@ -20,35 +20,29 @@ export const CLIENTS_QUERY = groq`*[_type == "client"][]{
 
 }`;
 
+const projectFields = groq`
+  _id,
+  agency,
+  ${asset('mainImage')},
+  ${asset('tileImage')},
+  categories[]->{
+    _id,
+    title
+  },
+  client,
+  selectedWorks,
+  slug,
+  title
+`;
 export const ALL_WORK_QUERY = groq`
 	*[_type == "project"] | order(orderRank)[]{
-      _id,
-	    agency,
-        ${asset('mainImage')},
-        categories[]->{
-            _id,
-            title
-        },
-        client,
-        selectedWorks,
-        slug,
-        title
+    ${projectFields}
 	}
 `;
 
 export const WORK_QUERY = groq`
 	*[_type == "project" && selectedWorks == true] | order(orderRank)[$start...$end]{
-      _id,
-	    agency,
-        ${asset('mainImage')},
-        categories[]->{
-            _id,
-            title
-        },
-        client,
-        selectedWorks,
-        slug,
-        title
+    ${projectFields}
 	}
 `;
 

@@ -45,7 +45,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, ease: smoothCurve, duration: 1 }}
-            className="heading-xl text-white opacity-0"
+            className="heading-l text-white opacity-0"
           >
             {title}
           </motion.h3>
@@ -56,7 +56,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
                   viewport={{ once: true }}
-                  className="heading-m opacity-0"
+                  className="heading-m m-medium opacity-0 text-lightGray "
                 >
                   {client}
                 </motion.p>
@@ -66,7 +66,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
             </div>
 
             {!!categories?.length && (
-              <ul ref={listContainerRef} className="heading-m flex">
+              <ul ref={listContainerRef} className="heading-m flex text-lightGray">
                 {categories?.map(({ title, _id }, index) => (
                   <motion.li
                     key={_id}
@@ -77,7 +77,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
                       duration: 1,
                     }}
                     viewport={{ once: true, root: listContainerRef }}
-                    className="overflow-hidden text-ellipsis whitespace-pre opacity-0"
+                    className="overflow-hidden text-ellipsis whitespace-pre opacity-0 text-lightGray"
                   >
                     {title + (index < categories.length - 1 ? ', ' : '')}
                   </motion.li>

@@ -66,7 +66,6 @@ const Header: React.FC<HeaderProps> = ({}) => {
         )}
       >
         <Logo showOverlay={showOverlay} />
-        {/* <NavLinks setIsActive={setMenuIconIsActive} /> */}
 
         <HamburgerMenuBtn
           ref={buttonRef}
@@ -83,43 +82,3 @@ const Header: React.FC<HeaderProps> = ({}) => {
 };
 
 export default Header;
-
-// const NavLinks: React.FC<{
-//   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
-// }> = ({ setIsActive }) => {
-//   return (
-//     <>
-//       <button
-//         id="site-menu-btn"
-//         onClick={() => {
-//           setIsActive((prev) => !prev);
-//         }}
-//         className="text-link relative z-[1] flex cursor-pointer opacity-0 sm:hidden"
-//       >
-//         <span>Menu</span>
-//       </button>
-
-//       <div className="hidden items-center gap-6 overflow-hidden sm:flex">
-//         {navItems.map(({ href, title }) => (
-//           <div
-//             key={title}
-//             className={cn(
-//               'site-nav-link sm:opacity-0',
-//               'underline_link',
-//               'text-link',
-//               'after:bg-white hover:before:bg-white',
-//             )}
-//           >
-//             <PageTransitionLink
-//               className="interactable"
-//               dataType="simple-hover"
-//               href={href}
-//             >
-//               {title}
-//             </PageTransitionLink>
-//           </div>
-//         ))}
-//       </div>
-//     </>
-//   );
-// };

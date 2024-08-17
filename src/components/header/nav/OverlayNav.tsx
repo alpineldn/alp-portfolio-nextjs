@@ -5,7 +5,6 @@ import { menuSlide } from '../animation';
 import LinkEl from './link';
 import UnderlineLink from '@/components/common/ui/UnderlineLink';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
-import AlpLogo from '@/components/common/icons/AlpLogo';
 
 const navItems = [
   { title: 'Work', href: '/work' },
@@ -16,22 +15,18 @@ interface NavProps {}
 
 const OverlayNav: React.FC<NavProps> = () => {
   return (
-    <>
-      <Logo />
-
-      <motion.div
-        variants={menuSlide}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-        className="fixed right-0 top-0 z-[15] h-screen w-screen overflow-auto bg-darkGray text-white"
-      >
-        <div className="container mx-auto flex h-full items-center">
-          <NavLinks />
-          <BottomLinks />
-        </div>
-      </motion.div>
-    </>
+    <motion.div
+      variants={menuSlide}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      className="fixed right-0 top-0 z-[15] h-screen w-screen overflow-auto bg-darkGray text-white"
+    >
+      <div className="container mx-auto flex h-full items-center">
+        <NavLinks />
+        <BottomLinks />
+      </div>
+    </motion.div>
   );
 };
 
@@ -59,24 +54,6 @@ const NavLinks: React.FC<{}> = () => {
         })}
       </ul>
     </div>
-  );
-};
-
-const Logo: React.FC<{}> = () => {
-  return (
-    <PageTransitionLink href="/">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { delay: 1 } }}
-        exit={{ scale: 0 }}
-        className="fixed left-2 top-8 z-20 flex px-[20px] sm:px-[43px]"
-      >
-        <AlpLogo
-          normalDelay={1}
-          className="size-[50px] object-contain max-sm:translate-y-1 lg:size-[70px]"
-        />
-      </motion.div>
-    </PageTransitionLink>
   );
 };
 

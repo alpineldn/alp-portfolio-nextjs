@@ -4,7 +4,6 @@ import PageTransitionLink from '../common/ui/PageTransitionLink';
 import cn from '@/utils/cn';
 import AlpLogo from '../common/icons/AlpLogo';
 import { AnimatePresence, motion } from 'framer-motion';
-import { smoothCurve } from '@/utils/constants';
 
 interface LogoProps {
   showOverlay: boolean;
@@ -26,11 +25,7 @@ const Logo: React.FC<LogoProps> = ({ showOverlay }) => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: showOverlay ? 0 : 1 }}
-      transition={{ duration: 1.4, ease: smoothCurve }}
-    >
+    <div>
       <PageTransitionLink
         dataType="simple-hover"
         id="site-logo"
@@ -46,7 +41,7 @@ const Logo: React.FC<LogoProps> = ({ showOverlay }) => {
         />
 
         <AnimatePresence mode="wait">
-          {scrollY < 100 && (
+          {!showOverlay && scrollY < 100 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -64,7 +59,7 @@ const Logo: React.FC<LogoProps> = ({ showOverlay }) => {
           )}
         </AnimatePresence>
       </PageTransitionLink>
-    </motion.div>
+    </div>
   );
 };
 export default Logo;

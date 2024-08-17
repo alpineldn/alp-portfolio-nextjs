@@ -5,7 +5,6 @@ import { menuSlide } from '../animation';
 import LinkEl from './link';
 import UnderlineLink from '@/components/common/ui/UnderlineLink';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
-import AlpLogo from '@/components/common/icons/AlpLogo';
 
 const navItems = [
   { title: 'Work', href: '/work' },
@@ -16,22 +15,18 @@ interface NavProps {}
 
 const OverlayNav: React.FC<NavProps> = () => {
   return (
-    <>
-      <Logo />
-
-      <motion.div
-        variants={menuSlide}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-        className="fixed right-0 top-0 z-[15] h-screen w-screen overflow-auto bg-darkGray text-white"
-      >
-        <div className="container mx-auto flex h-full items-center">
-          <NavLinks />
-          <BottomLinks />
-        </div>
-      </motion.div>
-    </>
+    <motion.div
+      variants={menuSlide}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      className="fixed right-0 top-0 z-[15] h-screen w-screen overflow-auto bg-darkGray text-white"
+    >
+      <div className="container mx-auto flex h-full items-center">
+        <NavLinks />
+        <BottomLinks />
+      </div>
+    </motion.div>
   );
 };
 
@@ -62,36 +57,18 @@ const NavLinks: React.FC<{}> = () => {
   );
 };
 
-const Logo: React.FC<{}> = () => {
-  return (
-    <PageTransitionLink href="/">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { delay: 1 } }}
-        exit={{ scale: 0 }}
-        className="fixed left-2 top-8 z-20 flex px-[20px] sm:px-[43px]"
-      >
-        <AlpLogo
-          normalDelay={1}
-          className="size-[50px] object-contain max-sm:translate-y-1 lg:size-[70px]"
-        />
-      </motion.div>
-    </PageTransitionLink>
-  );
-};
-
 const BottomLinks: React.FC<{}> = () => {
   return (
     <div className="fixed bottom-0 left-0 mx-auto w-full">
-      <div className="container mx-auto flex w-full flex-col justify-between gap-5 pb-section-md sm:flex-row sm:items-center">
+      <div className="container mx-auto flex w-full flex-col justify-between gap-5 sm:flex-row sm:items-center sm:pb-section-md">
         <UnderlineLink
-          className="heading-l interactable"
+          className="heading-xl interactable max-sm:pb-section"
           href="mailto:studio@alpineldn.com"
         >
           studio@alpineldn.com
         </UnderlineLink>
 
-        <div>
+        <div className="max-sm:pb-xs">
           <PageTransitionLink
             dataType="simple-hover"
             className="underline_link text-spaced-sm"

@@ -114,7 +114,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             style={{ top: index * -100 + '%' }}
             className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
           >
-            {projects.map(({ mainImage, title, _id }) => {
+            {projects.map(({ mainImage, tileImage, title, _id }) => {
               return (
                 <div
                   className="flex h-full w-full items-center justify-center"
@@ -122,7 +122,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 >
                   <SanityImage
                     sizes="33vw"
-                    src={mainImage}
+                    src={tileImage ?? mainImage}
                     alt={title}
                     className="aspect-auto h-auto w-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
                   />

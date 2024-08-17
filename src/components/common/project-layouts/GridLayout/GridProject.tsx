@@ -13,6 +13,7 @@ interface ProjectProps extends ProjectType {
 const ProjectCard: React.FC<ProjectProps> = ({
   slug,
   mainImage,
+  tileImage,
   title,
   categories,
   client,
@@ -35,7 +36,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
         <div className="group flex aspect-square h-full w-full items-center justify-center overflow-hidden">
           <SanityImage
             sizes="(min-width: 1024px) 50vw, 100vw"
-            src={mainImage}
+            src={tileImage ?? mainImage}
             alt={title}
             className="aspect-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
           />

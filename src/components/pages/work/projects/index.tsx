@@ -22,7 +22,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         }}
         className="container mx-auto space-y-20"
       >
-        <GridLayout className="" projects={projects} />
+        <GridLayout projects={projects} />
       </motion.div>
     </motion.section>
   );

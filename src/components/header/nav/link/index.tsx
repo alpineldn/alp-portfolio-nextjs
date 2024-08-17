@@ -40,23 +40,26 @@ const LinkEl: React.FC<LinkProps> = ({
         href={href}
         className={cn(
           'interactable',
+          'link-hover-xl',
           'flex items-center gap-x-20 group-hover:text-gray',
           { 'text-gray': pathName === href },
         )}
       >
-        <span className="link-hover-xl transition-colors duration-500">
+        <span className="!leading-none transition-colors duration-500">
           {title}
         </span>
         <svg
-          className="size-[28px] text-gray opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:size-[40px] md:size-[50px] lg:size-[84px]"
+          width="1em"
+          height="1em"
+          className="scale-[.65] text-gray opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           viewBox="0 0 91 91"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            className="stroke-[6.5] md:stroke-[7] xl:stroke-[8]"
             d="M3 88L88 3M88 3V88M88 3H3"
             stroke="currentColor"
-            strokeWidth="6"
             strokeLinecap="square"
           />
         </svg>

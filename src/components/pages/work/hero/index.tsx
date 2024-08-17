@@ -40,9 +40,9 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <div className="container mx-auto pt-section-xl lg:pt-[328px]">
         <h1
           ref={heroTextRef}
-          className="heading-xxl text-light max-w-5xl font-normal leading-[1.2] tracking-tighter"
+          className="heading-xxl text-light max-w-5xl font-normal leading-[1.2]"
         >
-          Creating next level digital products
+          Projects
         </h1>
       </div>
     </section>

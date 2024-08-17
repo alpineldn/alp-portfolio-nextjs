@@ -18,12 +18,12 @@ const LinkEl: React.FC<MarqueeProps> = ({
     >
       <div data-type="simple-hover" className="interactable">
         <div className="flex items-center justify-center gap-x-[23px] text-center transition-colors duration-500 group-hover:text-gray">
-          {children}
+          <span>{children}</span>
 
           <ArrowTopRight
             className={cn(
               iconClassName,
-              'size-5 transition-[transform,colors] duration-500',
+              'transition-[transform,colors] duration-500',
             )}
           />
         </div>

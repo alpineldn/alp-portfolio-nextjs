@@ -60,15 +60,15 @@ const NavLinks: React.FC<{}> = () => {
 const BottomLinks: React.FC<{}> = () => {
   return (
     <div className="fixed bottom-0 left-0 mx-auto w-full">
-      <div className="container mx-auto flex w-full flex-col justify-between gap-5 pb-section-md sm:flex-row sm:items-center">
+      <div className="container mx-auto flex w-full flex-col justify-between gap-5 sm:flex-row sm:items-center sm:pb-section-md">
         <UnderlineLink
-          className="heading-l interactable"
+          className="heading-xl interactable max-sm:pb-section"
           href="mailto:studio@alpineldn.com"
         >
           studio@alpineldn.com
         </UnderlineLink>
 
-        <div>
+        <div className="max-sm:pb-xs">
           <PageTransitionLink
             dataType="simple-hover"
             className="underline_link text-spaced-sm"

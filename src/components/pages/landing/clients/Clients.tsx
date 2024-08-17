@@ -1,8 +1,7 @@
 'use client';
 
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
-import DesktopView from './DesktopView';
-import MobileView from './MobileView';
+import ClientsList from './ClientsList';
 
 export interface Client {
   _id: string;
@@ -16,16 +15,18 @@ interface ClientsProps {
 
 const Clients: React.FC<ClientsProps> = ({ clients }) => {
   return (
-    <div className="relative overflow-hidden bg-dark">
-      <div className="subtitle-md container mx-auto text-lightGray">
+    <section className="relative overflow-hidden bg-dark">
+      <div className="container mx-auto">
         <h2 className="subtitle-md mb-xs text-lightGray xl:mb-section-md">
           Partners
         </h2>
-      </div>
 
-      {/* <DesktopView className="hidden sm:block" clients={clients} /> */}
-      <MobileView className="grid" clients={clients} />
-    </div>
+        <ClientsList
+          className="grid grid-cols-2 md:grid-cols-3"
+          clients={clients}
+        />
+      </div>
+    </section>
   );
 };
 

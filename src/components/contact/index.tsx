@@ -57,14 +57,14 @@ const Contact: React.FC<ContactProps> = () => {
               ref={heroText1Ref}
               className="heading-xl translate-y-[25px] opacity-0"
             >
-              Let's work
+              Have an idea?
             </h2>
           </span>
           <h2
             ref={heroText2Ref}
             className="heading-xl translate-y-[25px] opacity-0"
           >
-            together
+            Let's build it
           </h2>
         </div>
 

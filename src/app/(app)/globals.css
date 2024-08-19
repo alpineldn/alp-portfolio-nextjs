@@ -20,7 +20,7 @@
 
 @layer utilities {
   .heading-xxl {
-    @apply text-l md:text-xl xl:text-xxl;
+    @apply text-xl md:text-xl xl:text-xxl;
   }
 
   .heading-xl {
@@ -71,4 +71,8 @@
   .section-padding-y {
     @apply py-section md:py-section-lg xl:py-section-xxl;
   }
+}
+
+::selection {
+  background: #d12245;
 }

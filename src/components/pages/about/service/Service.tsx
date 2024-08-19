@@ -11,7 +11,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
     <section>
       <div className="container mx-auto border-t border-white/50 py-sm">
         <div>
-          <h2 className="heading-xl pb-xs xl:pb-section-lg">Lorem, ipsum.</h2>
+          <h2 className="heading-xl pb-xs xl:pb-section-lg">Brand Development</h2>
         </div>
 
         <div className="grid grid-cols-12">
@@ -27,18 +27,23 @@ const Service: React.FC<ServiceProps> = ({}) => {
           </div>
 
           <div className="col-span-12 max-xl:pt-xs xl:col-span-4 xl:translate-y-[-2.5rem]">
-            <h5 className="subtitle-md mb-xs text-lightGray">Services</h5>
+            {/*<h5 className="subtitle-md mb-xs text-lightGray">Services</h5>*/}
 
             <ul className="pb-[3.5rem] md:pb-[2.5rem]">
-              {Array.from({ length: 5 }).map((_, i) => (
+              {/* {Array.from({ length: 5 }).map((_, i) => ( */}
                 <li
-                  key={i}
+                  // key={i}
                   className="text-spaced-sm border-sonic-silver border-t py-xs"
                 >
-                  <span className="pr-[1.5rem]">{zeroPad(i + 1, 2)}</span>
-                  <span>lorem</span>
-                </li>
-              ))}
+                  {/* <span className="pr-[1.5rem]">{zeroPad(i + 1, 2)}</span> */}
+                  <span>Brand Strategy & Positioning</span>
+                  </li>
+                  <span>Visual Identity Creation</span>
+
+                  <span>Brand Naming & Messaging</span>
+                  <span>Brand Guidelines & Documentation</span>
+                  <span>Rebranding & Brand Refresh</span>
+                
             </ul>
 
             <div data-type="link" className="interactable block xl:hidden">
@@ -46,15 +51,15 @@ const Service: React.FC<ServiceProps> = ({}) => {
             </div>
           </div>
         </div>
-        <div className="py-xs">
+        {/* <div className="py-xs">
           <Image
-            className="aspect-video h-full max-h-[650px] w-full rounded-lg object-cover"
+            className="aspect-video h-full max-h-[650px] w-full object-cover"
             src="/images/funny.jpg"
             width={1920}
             height={1080}
             alt="Alt"
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );

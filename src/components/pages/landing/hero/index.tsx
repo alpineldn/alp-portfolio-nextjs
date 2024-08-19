@@ -102,13 +102,14 @@ const Hero: React.FC<HeroProps> = ({}) => {
           ref={heroTextRefSm}
           className={cn('heading-xxl', 'relative m-0 pb-5')}
         >
-          Brand + Digital <br /> Design Studio
+          Elevating Brands +<br />
+          Digital Experiences
         </h1>
         <p
           ref={descriptionRefSm}
           className="heading-m absolute bottom-14 left-0 max-lg:px-5"
         >
-          Born in London, working Globally
+          Brand + Digital Development Studio
         </p>
         {/* <p className="m-0 mb-[10px]">Designer & Developer</p> */}
       </div>

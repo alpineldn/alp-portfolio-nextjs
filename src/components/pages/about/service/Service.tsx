@@ -21,9 +21,9 @@ const Service: React.FC<ServiceProps> = ({}) => {
               id asperiores velit eius enim aspernatur?
             </h4>
 
-            <div data-type="link" className="interactable hidden xl:block">
+            {/* <div data-type="link" className="interactable hidden xl:block">
               <LinkEl>Lorem, ipsum.</LinkEl>
-            </div>
+            </div> */}
           </div>
 
           <div className="col-span-12 max-xl:pt-xs xl:col-span-4 xl:translate-y-[-2.5rem]">
@@ -36,19 +36,26 @@ const Service: React.FC<ServiceProps> = ({}) => {
                   className="text-spaced-sm border-sonic-silver border-t py-xs"
                 >
                   {/* <span className="pr-[1.5rem]">{zeroPad(i + 1, 2)}</span> */}
-                  <span>Brand Strategy & Positioning</span>
+                    <span>Brand Strategy &amp; Positioning</span>
                   </li>
-                  <span>Visual Identity Creation</span>
-
-                  <span>Brand Naming & Messaging</span>
-                  <span>Brand Guidelines & Documentation</span>
-                  <span>Rebranding & Brand Refresh</span>
+                  <li className="text-spaced-sm border-sonic-silver border-t py-xs">
+                    <span>Visual Identity Creation</span>
+                  </li>
+                  <li className="text-spaced-sm border-sonic-silver border-t py-xs">
+                    <span>Brand Naming &amp; Messaging</span>
+                  </li>
+                  <li className="text-spaced-sm border-sonic-silver border-t py-xs">
+                    <span>Brand Guidelines &amp; Documentation</span>
+                  </li>
+                  <li className="text-spaced-sm border-sonic-silver border-t py-xs">
+                    <span>Design Systems</span>
+                  </li>
                 
             </ul>
 
-            <div data-type="link" className="interactable block xl:hidden">
+            {/* <div data-type="link" className="interactable block xl:hidden">
               <LinkEl>Lorem, ipsum.</LinkEl>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* <div className="py-xs">

@@ -32,7 +32,6 @@ const AboutPage: React.FC<{}> = () => {
     <Page pageName="About">
       <Hero />
       <Service />
-      <Service />
       <Contact />
     </Page>
   );

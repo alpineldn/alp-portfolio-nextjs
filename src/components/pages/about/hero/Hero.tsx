@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 
 interface HeroProps {}
 
@@ -14,7 +15,17 @@ const Hero: React.FC<HeroProps> = ({}) => {
           Lorem ipsum dolor sit amet consectetur.
         </h1>
 
-        <h3 className="heading-m ml-auto max-w-[45rem]">
+        <div className="py-xs">
+          <Image
+            className="aspect-video h-full max-h-[650px] w-full object-cover"
+            src="/images/funny.jpg"
+            width={1920}
+            height={1080}
+            alt="Alt"
+          />
+        </div>
+
+        <h3 className="heading-m max-w-[45rem]">
           Focusing on core areas, we combine our creative and technical skills
           to uncover brand’s essences.
         </h3>

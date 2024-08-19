@@ -25,11 +25,13 @@ const ProjectList: React.FC<ProjectProps> = ({
       onMouseLeave={(e) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
-      className="interactable group grid w-full cursor-pointer items-center gap-2 border-t border-solid border-t-white/50 py-xs text-white transition-all duration-300 last:border-b last:border-b-white/50 hover:opacity-50 max-lg:grid-cols-12 md:gap-5 lg:grid-flow-col 2xl:py-sm"
+      className="interactable group grid w-full cursor-pointer items-center gap-2 border-t border-solid border-t-white/50 py-xs text-white transition-all duration-300 last:border-b last:border-b-white/50 hover:opacity-50 max-lg:grid-cols-12 md:gap-5 lg:grid-cols-12 2xl:py-sm"
     >
-      <h3 className="heading-l col-span-12 lg:col-span-12">{title}</h3>
-      <div className="heading-m col-span-12 block md:col-span-6">{client}</div>
-      <div className="heading-m col-span-12 block md:col-span-6 md:text-right">
+      <h3 className="heading-l col-span-12 lg:col-span-5">{title}</h3>
+      <div className="heading-m col-span-12 block md:col-span-6 lg:col-span-4">
+        {client}
+      </div>
+      <div className="heading-m col-span-12 block md:col-span-6 md:text-right lg:col-span-3">
         {categories.map((category, index) => (
           <span key={category._id}>
             {category.title}

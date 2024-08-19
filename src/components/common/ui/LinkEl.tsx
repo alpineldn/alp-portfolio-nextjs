@@ -23,7 +23,7 @@ const LinkEl: React.FC<MarqueeProps> = ({
           <ArrowTopRight
             className={cn(
               iconClassName,
-              'transition-[transform,colors] duration-500',
+              'scale-75 transition-[transform,colors] duration-500',
             )}
           />
         </div>

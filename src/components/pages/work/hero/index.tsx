@@ -44,6 +44,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         >
           Projects
         </h1>
+        <h2 class="heading-m text-gray">Selected brand evolution and digital experiences</h2>
       </div>
     </section>
   );

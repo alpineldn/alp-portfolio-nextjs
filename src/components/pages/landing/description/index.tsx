@@ -41,14 +41,35 @@ const Description: React.FC<DescriptionProps> = () => {
               );
             })}
           </p>
-          <motion.p
+          {/* <motion.p
             className="heading-m max-w-[421px]"
             variants={opacity}
             animate={isInView ? 'open' : 'closed'}
           >
             The combination of my passion for design, code & interaction
             positions me in a unique place in the web design world.
-          </motion.p>
+          </motion.p> */}
+
+        {/* <div className="col-span-12 max-xl:pt-xs xl:col-span-3 xl:translate-y-[-2.5rem] mx-6"> */}
+            <div>
+    
+            <ul className="pb-[3.5rem] md:pb-[2.5rem]">
+                <li className="text-spaced-sm border-gray border-t py-4">
+                    <span>Brand Development</span>
+                  </li>
+                  <li className="text-spaced-sm border-gray border-t py-4">
+                    <span>Design</span>
+                  </li>
+                  <li className="text-spaced-sm border-gray border-t py-4">
+                    <span>Development</span>
+                  </li>
+                  <li className="text-spaced-sm border-gray border-t py-4">
+                    <span>Digital Marketing</span>
+                  </li>
+                
+            </ul>
+          </div>
+
         </div>
 
         <motion.div

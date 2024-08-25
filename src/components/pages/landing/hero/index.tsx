@@ -72,7 +72,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         autoPlay
         loop
         muted
-        className="absolute h-full w-full object-cover"
+        className="absolute h-full w-full object-cover home-hero"
       >
         <source src="/mountains_video_looped_optimized.mp4" type="video/mp4" />
       </video>

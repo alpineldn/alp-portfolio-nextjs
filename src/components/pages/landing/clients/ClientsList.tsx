@@ -16,11 +16,13 @@ const ClientsList: React.FC<ClientsListProps> = ({ clients, className }) => {
         return (
           <div
             key={_id}
-            className={cn('flex rounded-sm py-5 pr-5 max-md:justify-start', {
-              'md:justify-start': desktopColumnIndex === 0,
-              'md:justify-center': desktopColumnIndex === 1,
-              'md:justify-end': desktopColumnIndex === 2,
-            })}
+            // className={cn('flex rounded-sm py-5 pr-5 max-md:justify-start', {
+            //   'md:justify-start': desktopColumnIndex === 0,
+            //   'md:justify-center': desktopColumnIndex === 1,
+            //   'md:justify-end': desktopColumnIndex === 2,
+            // })}
+              className={cn('flex rounded-sm py-5 pr-5')}
+
           >
             <div className="">
               <SanityImage

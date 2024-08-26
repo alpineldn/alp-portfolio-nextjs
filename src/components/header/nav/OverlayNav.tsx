@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { menuSlide } from '../animation';
@@ -11,9 +11,11 @@ const navItems = [
   { title: 'About', href: '/about' },
 ];
 
-interface NavProps {}
+interface NavProps {
+  setShowOverlay: Dispatch<SetStateAction<boolean>>;
+}
 
-const OverlayNav: React.FC<NavProps> = () => {
+const OverlayNav: React.FC<NavProps> = ({ setShowOverlay }) => {
   return (
     <motion.div
       variants={menuSlide}
@@ -23,14 +25,16 @@ const OverlayNav: React.FC<NavProps> = () => {
       className="fixed right-0 top-0 z-[15] h-screen w-screen overflow-auto bg-darkGray text-white"
     >
       <div className="container mx-auto flex h-full items-center">
-        <NavLinks />
+        <NavLinks setShowOverlay={setShowOverlay} />
         <BottomLinks />
       </div>
     </motion.div>
   );
 };
 
-const NavLinks: React.FC<{}> = () => {
+const NavLinks: React.FC<{
+  setShowOverlay: Dispatch<SetStateAction<boolean>>;
+}> = ({ setShowOverlay }) => {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
@@ -41,7 +45,7 @@ const NavLinks: React.FC<{}> = () => {
       }}
       className="flex -translate-y-10 flex-col"
     >
-      <ul className="">
+      <ul>
         {navItems.map((data, index) => {
           return (
             <LinkEl
@@ -49,6 +53,7 @@ const NavLinks: React.FC<{}> = () => {
               data={{ ...data, index }}
               isActive={selectedIndicator == data.href}
               setSelectedIndicator={setSelectedIndicator}
+              setShowOverlay={setShowOverlay}
             />
           );
         })}

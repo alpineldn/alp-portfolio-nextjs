@@ -13,12 +13,14 @@ interface LinkProps {
   isActive: boolean;
   className?: string;
   setSelectedIndicator: React.Dispatch<React.SetStateAction<string>>;
+  setShowOverlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const LinkEl: React.FC<LinkProps> = ({
   data,
   setSelectedIndicator,
   className,
+  setShowOverlay,
 }) => {
   const { title, href, index } = data;
   const pathName = usePathname();
@@ -29,6 +31,7 @@ const LinkEl: React.FC<LinkProps> = ({
         group: pathName !== href,
       })}
       onMouseEnter={() => setSelectedIndicator(href)}
+      onClick={() => pathName === href && setShowOverlay(false)}
       custom={index}
       variants={slide}
       initial="initial"

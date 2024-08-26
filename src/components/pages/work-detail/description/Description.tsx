@@ -141,7 +141,6 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
         id="preview-url-btn"
         className={cn(
           'translate-y-[50px] opacity-0',
-          '',
           'flex lg:items-end lg:justify-end',
         )}
       >

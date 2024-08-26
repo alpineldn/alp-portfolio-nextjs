@@ -21,11 +21,7 @@ const Clients: React.FC<ClientsProps> = ({ clients }) => {
           Partners
         </h2>
 
-        <ClientsList
-          //className="grid grid-cols-2 md:grid-cols-3"
-          className="grid grid-cols-6"
-          clients={clients}
-        />
+        <ClientsList clients={clients} />
       </div>
     </section>
   );

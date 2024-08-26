@@ -18,7 +18,7 @@ const Description: React.FC<DescriptionProps> = () => {
   return (
     <section
       ref={description}
-      className="text-light relative bg-dark pt-section md:pt-section-lg xl:pt-section-xl"
+      className="text-light relative bg-dark py-section md:py-section-lg"
     >
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px] xl:gap-[207px]">
@@ -50,26 +50,23 @@ const Description: React.FC<DescriptionProps> = () => {
             positions me in a unique place in the web design world.
           </motion.p> */}
 
-        {/* <div className="col-span-12 max-xl:pt-xs xl:col-span-3 xl:translate-y-[-2.5rem] mx-6"> */}
-            <div>
-    
+          {/* <div className="col-span-12 max-xl:pt-xs xl:col-span-3 xl:translate-y-[-2.5rem] mx-6"> */}
+          <div>
             <ul className="pb-[3.5rem] md:pb-[2.5rem]">
-                <li className="text-spaced-sm border-gray border-t py-4">
-                    <span>Brand Development</span>
-                  </li>
-                  <li className="text-spaced-sm border-gray border-t py-4">
-                    <span>Design</span>
-                  </li>
-                  <li className="text-spaced-sm border-gray border-t py-4">
-                    <span>Development</span>
-                  </li>
-                  <li className="text-spaced-sm border-gray border-t py-4">
-                    <span>Digital Marketing</span>
-                  </li>
-                
+              <li className="text-spaced-sm border-t border-gray py-4">
+                <span>Brand Development</span>
+              </li>
+              <li className="text-spaced-sm border-t border-gray py-4">
+                <span>Design</span>
+              </li>
+              <li className="text-spaced-sm border-t border-gray py-4">
+                <span>Development</span>
+              </li>
+              <li className="text-spaced-sm border-t border-gray py-4">
+                <span>Digital Marketing</span>
+              </li>
             </ul>
           </div>
-
         </div>
 
         <motion.div

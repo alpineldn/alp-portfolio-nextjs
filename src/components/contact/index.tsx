@@ -48,7 +48,7 @@ const Contact: React.FC<ContactProps> = () => {
   return (
     <motion.section
       ref={containerRef}
-      className="text-light relative flex flex-col items-center justify-center overflow-hidden"
+      className="text-light relative flex flex-col items-center justify-center overflow-hidden bg-darkGray"
     >
       <div className="section-padding-t w-full">
         <div className="container relative mx-auto">

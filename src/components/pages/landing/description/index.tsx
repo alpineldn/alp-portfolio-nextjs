@@ -9,6 +9,13 @@ import cn from '@/utils/cn';
 
 interface DescriptionProps {}
 
+const services = [
+  { id: 1, title: 'Brand Development' },
+  { id: 2, title: 'Design' },
+  { id: 3, title: 'Development' },
+  { id: 4, title: 'Digital Marketing' },
+];
+
 const Description: React.FC<DescriptionProps> = () => {
   const phrase =
     'Building brands and digital experiences for over twenty years, crafting timeless identities and executing integrated strategies.';
@@ -18,10 +25,10 @@ const Description: React.FC<DescriptionProps> = () => {
   return (
     <section
       ref={description}
-      className="text-light relative bg-dark pt-section md:pt-section-lg xl:pt-section-xl"
+      className="text-light relative bg-dark py-section md:py-section-lg"
     >
       <div className="container relative mx-auto">
-        <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px] xl:gap-[207px]">
+        <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px]">
           <p className={cn('heading-l')}>
             {phrase.split(' ').map((word, index) => {
               return (
@@ -41,35 +48,20 @@ const Description: React.FC<DescriptionProps> = () => {
               );
             })}
           </p>
-          {/* <motion.p
-            className="heading-m max-w-[421px]"
-            variants={opacity}
-            animate={isInView ? 'open' : 'closed'}
-          >
-            The combination of my passion for design, code & interaction
-            positions me in a unique place in the web design world.
-          </motion.p> */}
 
-        {/* <div className="col-span-12 max-xl:pt-xs xl:col-span-3 xl:translate-y-[-2.5rem] mx-6"> */}
-            <div>
-    
-            <ul className="pb-[3.5rem] md:pb-[2.5rem]">
-                <li className="text-spaced-sm border-gray border-t py-4">
-                    <span>Brand Development</span>
-                  </li>
-                  <li className="text-spaced-sm border-gray border-t py-4">
-                    <span>Design</span>
-                  </li>
-                  <li className="text-spaced-sm border-gray border-t py-4">
-                    <span>Development</span>
-                  </li>
-                  <li className="text-spaced-sm border-gray border-t py-4">
-                    <span>Digital Marketing</span>
-                  </li>
-                
+          <div className="min-w-[421px]">
+            <ul className="flex flex-col gap-y-1">
+              {services.map(({ id, title }) => (
+                <li
+                  key={id}
+                  className="heading-m flex items-center space-x-3 lg:space-x-4"
+                >
+                  <div className="h-[1px] w-5 bg-gray lg:w-[27px]" />
+                  <span>{title}</span>
+                </li>
+              ))}
             </ul>
           </div>
-
         </div>
 
         <motion.div

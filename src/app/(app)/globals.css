@@ -61,7 +61,7 @@
 
   /* Paddings */
   .section-padding-t {
-    @apply pt-section md:pt-section-lg xl:pt-section-xxl;
+    @apply pt-section md:pt-section-lg;
   }
 
   .section-padding-b {
@@ -78,49 +78,51 @@
 }
 
 .home-hero {
-  after{
-    content:" ";
-    background-image:url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+  after {
+    content: ' ';
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png');
     height: 300%;
     width: 300%;
     position: fixed;
-    opacity:1;
-     animation: animateGrain 8s steps(10) infinite;
+    opacity: 1;
+    animation: animateGrain 8s steps(10) infinite;
   }
-  
-  @keyframes animateGrain{
-    0%, 100% { transform:translate(0, 0) }
-    10%{
-      transform:translate(-5%,-10%)
+
+  @keyframes animateGrain {
+    0%,
+    100% {
+      transform: translate(0, 0);
     }
-    20%{
-      transform:translate(-15%,-20%)
+    10% {
+      transform: translate(-5%, -10%);
     }
-    30%{
-      transform:translate(-5%,-10%)
+    20% {
+      transform: translate(-15%, -20%);
     }
-    40%{
-      transform:translate(-15%,-20%)
+    30% {
+      transform: translate(-5%, -10%);
     }
-    
-    50%{
-      transform:translate(-5%,-10%)
+    40% {
+      transform: translate(-15%, -20%);
     }
-    60%{
-      transform:translate(-15%,-20%)
+
+    50% {
+      transform: translate(-5%, -10%);
     }
-    70%{
-      transform:translate(-5%,-10%)
+    60% {
+      transform: translate(-15%, -20%);
     }
-    80%{
-      transform:translate(-15%,-20%)
+    70% {
+      transform: translate(-5%, -10%);
     }
-    90%{
-      transform:translate(-5%,-10%)
+    80% {
+      transform: translate(-15%, -20%);
     }
-    100%{
-      transform:translate(-15%,-20%)
+    90% {
+      transform: translate(-5%, -10%);
     }
-   
+    100% {
+      transform: translate(-15%, -20%);
+    }
   }
 }

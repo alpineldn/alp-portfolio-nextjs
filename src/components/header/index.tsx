@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       </div>
 
       <AnimatePresence mode="wait">
-        {showOverlay && <OverlayNav />}
+        {showOverlay && <OverlayNav setShowOverlay={setShowOverlay} />}
       </AnimatePresence>
     </>
   );

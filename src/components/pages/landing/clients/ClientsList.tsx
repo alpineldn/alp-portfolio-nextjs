@@ -7,34 +7,19 @@ interface ClientsListProps {
   className?: string;
 }
 
-const ClientsList: React.FC<ClientsListProps> = ({ clients, className }) => {
+const ClientsList: React.FC<ClientsListProps> = ({ clients }) => {
   return (
-    <div className={cn('relative w-full gap-x-5 gap-y-5', className)}>
-      {clients.map(({ image, name, _id }, index) => {
-        const desktopColumnIndex = index % 3;
-
-        return (
-          <div
-            key={_id}
-            // className={cn('flex rounded-sm py-5 pr-5 max-md:justify-start', {
-            //   'md:justify-start': desktopColumnIndex === 0,
-            //   'md:justify-center': desktopColumnIndex === 1,
-            //   'md:justify-end': desktopColumnIndex === 2,
-            // })}
-              className={cn('flex rounded-sm py-5 pr-5')}
-
-          >
-            <div className="">
-              <SanityImage
-                className="block max-h-[2.5rem] object-contain"
-                src={image}
-                alt={name}
-                sizes="200px"
-              />
-            </div>
-          </div>
-        );
-      })}
+    <div className={cn('relative flex w-full flex-wrap gap-5 lg:gap-10')}>
+      {clients.map(({ image, name, _id }) => (
+        <div key={_id}>
+          <SanityImage
+            className="block max-h-[2rem] max-w-[15rem] object-contain lg:max-h-[2.5rem] lg:max-w-[25rem]"
+            src={image}
+            alt={name}
+            sizes="200px"
+          />
+        </div>
+      ))}
     </div>
   );
 };

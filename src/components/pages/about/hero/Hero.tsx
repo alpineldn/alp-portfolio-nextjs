@@ -76,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
           </h1>
         </header>
 
-        <div className="relative z-[1] mx-auto mb-section-md w-full !overflow-hidden">
+        <div className="relative z-[1] mx-auto w-full !overflow-hidden">
           <div ref={imgContainerRef} className="overflow-hidden opacity-0">
             <Image
               ref={imgRef}

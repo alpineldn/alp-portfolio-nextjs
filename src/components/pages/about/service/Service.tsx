@@ -29,7 +29,12 @@ const Service: React.FC<ServiceProps> = ({}) => {
                   isEven ? 'bg-dark' : 'bg-darkGray',
                 )}
               >
-                <div className="container mx-auto grid grid-cols-12">
+                <div
+                  className={cn(
+                    'container mx-auto flex justify-between gap-7 xl:gap-16',
+                    isEven ? 'max-md:flex-col' : 'max-md:flex-col-reverse',
+                  )}
+                >
                   {isEven ? (
                     <Description
                       index={index}
@@ -40,7 +45,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
                     <ServicesList items={items} />
                   )}
 
-                  <div className="col-span-2" />
+                  <div className="md:col-span-1 2xl:col-span-2" />
 
                   {isEven ? (
                     <ServicesList items={items} />

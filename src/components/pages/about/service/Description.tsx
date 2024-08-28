@@ -12,7 +12,7 @@ const Description: React.FC<DescriptionProps> = ({
   title,
 }) => {
   return (
-    <div className={cn('col-span-6 space-y-8')}>
+    <div className={cn('space-y-8 md:max-w-[65%] xl:max-w-[55%]')}>
       <h3 className="heading-xl">
         <span className="text-gray">{index + 1}.</span> {title}
       </h3>

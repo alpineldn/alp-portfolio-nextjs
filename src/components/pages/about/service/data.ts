@@ -22,7 +22,7 @@ export const services = [
     ],
   },
   {
-    title: 'cTechnical Solutions',
+    title: 'Technical Solutions',
     description:
       'Powerful and efficient solutions for performance and immersive experiences. Seamless web and app functionality with reliable systems management.',
     items: [

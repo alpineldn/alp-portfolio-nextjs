@@ -6,7 +6,7 @@ interface ServicesListProps {
 
 const ServicesList: React.FC<ServicesListProps> = ({ items }) => {
   return (
-    <div className={cn('col-span-4')}>
+    <div className={cn('w-full md:max-w-[35%] xl:max-w-[45%]')}>
       <ul>
         {items.map((item) => (
           <li

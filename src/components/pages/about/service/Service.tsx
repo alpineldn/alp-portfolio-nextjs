@@ -1,33 +1,65 @@
 'use client';
 
+import cn from '@/utils/cn';
 import { services } from './data';
+import Description from './Description';
+import ServicesList from './ServicesList';
 
 interface ServiceProps {}
 
 const Service: React.FC<ServiceProps> = ({}) => {
   return (
-    <section>
-      <div className="container mx-auto border-t border-white/50 py-sm">
-        <div className="grid grid-cols-12">
-          {services.map(({ items, title }, index) => (
-            <div
-              key={index}
-              className="col-span-12 mx-6 max-xl:pt-xs xl:col-span-3 xl:translate-y-[-2.5rem]"
-            >
-              <h3 className="heading-m mb-xs text-lightGray">{title}</h3>
+    <section className="relative overflow-hidden bg-dark">
+      <div className="container mx-auto">
+        <h2 className="subtitle-md pt-sm text-lightGray md:pt-section xl:mb-section-md">
+          Services
+        </h2>
+      </div>
 
-              <ul className="pb-[3.5rem] md:pb-[2.5rem]">
-                {items.map((item, index) => (
-                  <li
-                    key={index}
-                    className="text-spaced-sm border-t border-gray py-4"
-                  >
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <div>
+        <div>
+          {services.map(({ items, title, description }, index) => {
+            const isEven = index % 2 === 0;
+
+            return (
+              <div
+                key={index}
+                className={cn(
+                  'py-section md:py-section-lg',
+                  isEven ? 'bg-dark' : 'bg-darkGray',
+                )}
+              >
+                <div
+                  className={cn(
+                    'container mx-auto flex justify-between gap-7 xl:gap-16',
+                    isEven ? 'max-md:flex-col' : 'max-md:flex-col-reverse',
+                  )}
+                >
+                  {isEven ? (
+                    <Description
+                      index={index}
+                      title={title}
+                      description={description}
+                    />
+                  ) : (
+                    <ServicesList items={items} />
+                  )}
+
+                  <div className="md:col-span-1 2xl:col-span-2" />
+
+                  {isEven ? (
+                    <ServicesList items={items} />
+                  ) : (
+                    <Description
+                      index={index}
+                      title={title}
+                      description={description}
+                    />
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

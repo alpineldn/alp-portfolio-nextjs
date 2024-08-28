@@ -1,42 +1,46 @@
 export const services = [
   {
     title: 'Brand Development',
+    description:
+      'Differentiate your brand from the competition, delivering a unique experience for your audience. Strategy drives momentum, deepens customer loyalty and enhances brand value.',
     items: [
-      'Brand Strategy & Positioning',
-      'Visual Identity Creation',
-      'Brand Naming & Messaging',
-      'Brand Guidelines & Documentation',
+      'Strategy & Positioning',
+      'Visual Identity',
+      'Brand Guidelines',
       'Design Systems',
     ],
   },
   {
-    title: 'Design',
+    title: 'Creative Design',
+    description:
+      'Kits and systems with engaging assets that amplify your brand across digital, motion and print. Captivating visuals that leave a lasting impression.',
     items: [
       'UI/UX Design',
-      'Website & App Design',
-      'Prototyping & Wireframing',
-      'Graphic Design & Visual Assets',
-      'Packaging & Print Design',
+      'Video & Animation',
+      'Graphics & Assets',
+      'Print & Packaging',
     ],
   },
   {
-    title: 'Development',
+    title: 'Technical Solutions',
+    description:
+      'Powerful and efficient solutions for performance and immersive experiences. Seamless web and app functionality with reliable systems management.',
     items: [
-      'Web Development',
-      'eCommerce Solutions',
-      'Web & Mobile App Development',
-      'CMS Implementation & Customization',
-      'API Integration & Custom Software',
+      'Web & App Development',
+      'eCommerce',
+      'API & CMS Integration',
+      'DevOps & SysOps',
     ],
   },
   {
     title: 'Digital Marketing',
+    description:
+      'Reach and impact with precision-driven strategy. Targeted campaigns boost visibility, engagement and conversions with measurable results.',
     items: [
       'SEO & SEM',
-      'Social Media Marketing',
-      'Content Strategy & Creation',
-      'Email Marketing & Automation',
-      'Paid Media & Campaign Management',
+      'Social Media',
+      'Content Creation',
+      'Email & Automation',
     ],
   },
 ];

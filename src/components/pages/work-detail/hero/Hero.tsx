@@ -92,14 +92,6 @@ const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
             />
           </div>
         </div>
-        {/* <div ref={detailContainerRef} className="container relative mx-auto">
-          <Details
-            client={client}
-            agency={agency}
-            categories={categories}
-            previewURL={previewURL}
-          />
-        </div> */}
       </div>
     </section>
   );

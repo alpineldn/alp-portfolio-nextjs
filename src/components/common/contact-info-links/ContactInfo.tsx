@@ -15,7 +15,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
         className,
       )}
     >
-      <div className="flex flex-row justify-between border-t border-white/50 pt-4 lg:pt-8">
+      <div className="flex flex-row justify-between border-t border-gray pt-4 lg:pt-8">
         <div className="flex items-center gap-2.5 max-md:justify-between max-md:pt-8">
           <span className="flex flex-col gap-[15px]">
             <p className="text-xs !font-medium">

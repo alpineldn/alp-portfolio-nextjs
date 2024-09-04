@@ -18,7 +18,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
           'prose-li:text-s-spaced',
         )}
       >
-        <div>
+        {/* <div>
           <Image
             priority
             className="aspect-video max-h-[500px] rounded-lg object-cover"
@@ -27,12 +27,12 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
             alt="flower"
             src="/images/flowers.jpg"
           />
-        </div>
+        </div> */}
         <div>
           <h1 className="text-l lg:text-xl">Privacy policy</h1>
           <p>Effective Date: 04.07.2024</p>
         </div>
-        <section className={cn('mx-auto')}>
+        <section className={cn('section-padding-b mx-auto')}>
           <p>
             This Privacy Policy explains how Alpine collects, uses, and
             discloses information about you when you visit our website

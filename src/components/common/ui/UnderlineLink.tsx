@@ -20,7 +20,7 @@ const UnderlineLink: React.FC<UnderlineLinkProps> = ({
       <Link
         data-type="simple-hover"
         href={href as string}
-        className={cn('underline_link', className)}
+        className={cn('underline_link group-hover:text-red', className)}
         {...rest}
       >
         {children}

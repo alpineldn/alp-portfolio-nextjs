@@ -91,9 +91,7 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
           </div>
         </motion.div>
       </PageTransitionLink>
-      <motion.div>
-        <ContactInfo />
-      </motion.div>
+      <motion.div>{/* <ContactInfo /> */}</motion.div>
     </div>
   );
 };
@@ -122,7 +120,7 @@ const ContactInfo: React.FC = () => {
               <PageTransitionLink
                 dataType="simple-hover"
                 href="/privacy-policy"
-                className="underline_link text-xs interactable !font-medium"
+                className="underline_link interactable text-xs !font-medium"
               >
                 Privacy
               </PageTransitionLink>

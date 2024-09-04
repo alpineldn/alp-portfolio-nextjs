@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useStore } from '@/store/store';
 import { animatePageIn, logo_animation } from '@/utils/animations';
 import { motion } from 'framer-motion';
@@ -8,6 +9,7 @@ import { useEffect } from 'react';
 export default function Template({ children }: { children: React.ReactNode }) {
   const { pageName, firstVisit, setFirstVisit } = useStore((state) => state);
   const time = firstVisit ? 2 : 1;
+  //const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     animatePageIn(time, firstVisit, setFirstVisit);
@@ -17,7 +19,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <div>
       <div
         id="loading-banner-1"
-        className="fixed left-0 top-0 z-30 flex min-h-screen w-full items-center justify-center bg-darkGray"
+        className="fixed left-0 top-0 z-30 flex min-h-screen w-full items-center justify-center bg-darkGray bg-cover bg-center"
       >
         {firstVisit ? (
           <>
@@ -26,11 +28,20 @@ export default function Template({ children }: { children: React.ReactNode }) {
         ) : (
           <p
             id="page-name"
-            className="heading-xl absolute z-[1] flex items-center text-white opacity-0"
+            className="text-loading-text absolute z-[1] flex items-center uppercase text-gray opacity-0"
           >
             {pageName}
           </p>
         )}
+        {/* <Image
+          ref={imgRef}
+          width={1920}
+          height={1080}
+          sizes="100vw"
+          src="/images/alpine_bg.jpg"
+          alt="About Image"
+          className="aspect-auto h-full max-h-[876px] w-full translate-y-[80px] scale-110 object-cover"
+        /> */}
       </div>
 
       {children}

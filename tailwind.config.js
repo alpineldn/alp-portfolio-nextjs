@@ -17,6 +17,27 @@ module.exports = {
         '7rem',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
+      'xxl-desktop': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+      'xxl-lg': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+      'xxl-md': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+      'xxl-sm': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+      'xxl-mob': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+
       xl: [
         '3.9rem',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
@@ -67,6 +88,15 @@ module.exports = {
         '1rem',
         { letterSpacing: '0.02em', fontWeight: 400, lineHeight: '1.4' },
       ],
+      'loading-text': [
+        '3rem',
+        {
+          letterSpacing: '0.06em',
+          fontWeight: 400,
+          lineHeight: '1.2',
+          textTransform: 'uppercase',
+        },
+      ],
     },
 
     extend: {
@@ -95,11 +125,12 @@ module.exports = {
       colors: {
         primary: '#D12245',
         white: '#FFFFFF',
-        dark: '#222222',
-        gray: '#707070',
+        dark: '#141414',
+        gray: '#505050',
         black: '#000000',
-        lightGray: '#9A9898',
-        darkGray: '#1D1D1D',
+        lightGray: '#888888',
+        darkGray: '#111111',
+        red: '#D12245',
 
         // dark: '#141516',
         // light: '#f5f5f5',

@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  /* html {
+    @apply scroll-smooth;
+  } */
   body {
     @apply m-0 cursor-wait overflow-hidden bg-dark text-white;
     text-rendering: optimizeLegibility;
@@ -20,7 +23,7 @@
 
 @layer utilities {
   .heading-xxl {
-    @apply text-xl md:text-xl xl:text-xxl;
+    @apply md:text-xxl-md lg:text-xxl-lg lg:text-xxl-desktop text-xl;
   }
 
   .heading-xl {
@@ -45,6 +48,7 @@
 
   .link-hover-xl {
     @apply text-xl md:text-xl xl:text-xxl;
+    padding: 1rem 0;
   }
 
   .text-link-m {
@@ -53,10 +57,15 @@
 
   .subtitle-md {
     @apply text-section-subtitle;
+    @apply uppercase;
   }
 
   .meta-md {
     @apply text-project-meta;
+  }
+
+  .loading-text {
+    @apply text-loading-text;
   }
 
   /* Paddings */
@@ -74,18 +83,19 @@
 }
 
 ::selection {
-  background: #d12245;
+  background: gray;
 }
 
-.home-hero {
+.bg-darkGrey {
   after {
-    content: ' ';
+    content: '';
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png');
     height: 300%;
     width: 300%;
     position: fixed;
     opacity: 1;
     animation: animateGrain 8s steps(10) infinite;
+    z-index: 20;
   }
 
   @keyframes animateGrain {
@@ -126,3 +136,7 @@
     }
   }
 }
+
+/* #loading-banner-1 {
+  background: url();
+} */

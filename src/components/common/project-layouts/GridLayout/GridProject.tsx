@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
           >
             {title}
           </motion.h3>
-          <div className="flex flex-wrap">
+          {/* <div className="flex flex-wrap">
             <div className="hidden items-center lg:flex">
               {!!client && (
                 <motion.p
@@ -88,6 +88,46 @@ const ProjectCard: React.FC<ProjectProps> = ({
                 ))}
               </ul>
             )}
+          </div> */}
+
+          <div className="block">
+            <div className="hidden items-center lg:flex">
+              {!!client && (
+                <motion.p
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
+                  viewport={{ once: true }}
+                  className="heading-m m-medium mt-3 text-lightGray opacity-0"
+                >
+                  {client}
+                </motion.p>
+              )}
+
+              {!!client && !!categories?.length}
+            </div>
+
+            {!!categories?.length && (
+              <ul
+                ref={listContainerRef}
+                className="heading-s mt-2 block text-lightGray"
+              >
+                {categories?.map(({ title, _id }, index) => (
+                  <motion.li
+                    key={_id}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      delay: 0.2 + 0.05 * index,
+                      ease: smoothCurve,
+                      duration: 1,
+                    }}
+                    viewport={{ once: true, root: listContainerRef }}
+                    className="inline-block overflow-hidden text-ellipsis whitespace-pre text-lightGray opacity-0"
+                  >
+                    {title + (index < categories.length - 1 ? ', ' : '')}
+                  </motion.li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </motion.div>
@@ -102,7 +142,7 @@ const DoubleDashed = () => {
       whileInView={{ opacity: 1 }}
       transition={{ delay: 0.2, ease: smoothCurve, duration: 1 }}
       viewport={{ once: true }}
-      className="mx-3 h-[2px] w-[24px] bg-white opacity-0 sm:w-[36px]"
+      className="mx-3 h-[1px] w-[24px] bg-gray opacity-0 sm:w-[36px]"
     ></motion.div>
   );
 };

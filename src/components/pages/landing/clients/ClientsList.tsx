@@ -13,10 +13,10 @@ const ClientsList: React.FC<ClientsListProps> = ({ clients }) => {
       {clients.map(({ image, name, _id }) => (
         <div key={_id}>
           <SanityImage
-            className="block max-h-[2rem] max-w-[15rem] object-contain lg:max-h-[2.5rem] lg:max-w-[25rem]"
+            className="block max-h-[2rem] max-w-[15rem] object-contain lg:max-h-[2.5rem] lg:max-w-[15rem]"
             src={image}
             alt={name}
-            sizes="200px"
+            sizes="180px"
           />
         </div>
       ))}

@@ -81,7 +81,7 @@ const CTAs = () => {
   return (
     <div
       id="contact-cta"
-      className="container mx-auto mt-sm flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col md:mt-[111px]"
+      className="container mx-auto mt-sm flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col md:mt-sm"
     >
       <UnderlineLink
         className="heading-l interactable font-medium"

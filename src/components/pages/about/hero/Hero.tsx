@@ -1,6 +1,8 @@
 'use client';
 
 import { useLayoutEffect, useRef } from 'react';
+import { useInView, motion } from 'framer-motion';
+//import { slideUp, opacity } from './animation';
 import Image from 'next/image';
 import { useStore } from '@/store/store';
 import SplitType from 'split-type';
@@ -83,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
               width={1920}
               height={1080}
               sizes="100vw"
-              src="/images/flowers.jpg"
+              src="/images/alpine_bg.jpg"
               alt="About Image"
               className="aspect-auto h-full max-h-[876px] w-full translate-y-[80px] scale-110 object-cover"
             />

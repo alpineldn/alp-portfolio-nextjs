@@ -19,7 +19,7 @@ export const scaleAnimation = {
 export const fadeInAndSlideUp = {
   initial: {
     opacity: 0,
-    y: 70,
+    y: 200,
   },
 
   enter: {

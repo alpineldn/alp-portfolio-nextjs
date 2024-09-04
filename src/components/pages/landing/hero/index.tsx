@@ -72,12 +72,12 @@ const Hero: React.FC<HeroProps> = ({}) => {
         autoPlay
         loop
         muted
-        className="absolute h-full w-full object-cover home-hero"
+        className="home-hero absolute h-full w-full object-cover"
       >
-        <source src="/mountains_video_looped_optimized.mp4" type="video/mp4" />
+        <source src="/mountains_video_4_optim.mp4" type="video/mp4" />
       </video>
 
-      <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex lg:max-w-7xl lg:pl-[8vw]">
+      <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex sm:pl-[3vw] sm:pl-[6vw] lg:max-w-7xl">
         <h1 ref={heroTextRef} className={cn('heading-xxl')}>
           Elevating Brands +<br />
           Digital Experiences

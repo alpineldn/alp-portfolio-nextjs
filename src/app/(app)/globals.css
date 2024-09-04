@@ -23,7 +23,7 @@
 
 @layer utilities {
   .heading-xxl {
-    @apply text-xl md:text-xl lg:text-xxl xl:text-xxl;
+    @apply md:text-xxl-md lg:text-xxl-lg lg:text-xxl-desktop text-xl;
   }
 
   .heading-xl {

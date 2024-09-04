@@ -17,6 +17,27 @@ module.exports = {
         '7rem',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
+      'xxl-desktop': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+      'xxl-lg': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+      'xxl-md': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+      'xxl-sm': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+      'xxl-mob': [
+        '7rem',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
+
       xl: [
         '3.9rem',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },

@@ -69,6 +69,8 @@ const MouseTrailer: React.FC<MouseTrailerProps> = ({}) => {
 
       if (trailerRef.current && trailerIconRef.current) {
         const target = e.target as HTMLElement;
+        if (!target?.closest) return;
+
         const interactable = target.closest('.interactable');
         const bgIsWhite = target.closest('[data-bg-white]');
         setMode(bgIsWhite ? 'dark' : 'light');

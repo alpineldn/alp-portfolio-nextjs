@@ -10,6 +10,7 @@ import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import { Metadata } from 'next';
 import type { Slug } from 'sanity';
 import { Meta } from '../page';
+import { IVideo } from '@/components/common/video/Video';
 
 export interface Category {
   _id: string;
@@ -20,7 +21,10 @@ export interface Project {
   _id: string;
   agency: string;
   mainImage: SanityImageObject;
-  tileImage?: SanityImageObject;
+  tileMedia?: {
+    tileImage?: SanityImageObject;
+    tileVideo?: IVideo;
+  };
   categories: Category[];
   client?: string;
   selectedWorks?: boolean;

@@ -84,7 +84,7 @@ const CTAs = () => {
       className="container mx-auto mt-sm flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col md:mt-sm"
     >
       <UnderlineLink
-        className="heading-l interactable font-medium"
+        className="heading-l interactable font-medium w-fit"
         href="mailto:studio@alpineldn.com"
       >
         studio@alpineldn.com

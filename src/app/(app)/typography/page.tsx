@@ -7,18 +7,18 @@ const Typography: React.FC<{}> = async () => {
   return (
     <main className="text-light min-h-screen bg-dark pt-32">
       <div className="container mx-auto space-y-6">
-        <h1 className="heading-xxl">This is H1 </h1>
-        <h2 className="heading-xl">This is H2 </h2>
-        <h3 className="heading-l">This is H3</h3>
-        <h4 className="heading-m">This is H4</h4>
-        <h5 className="text-spaced-sm">This is H5</h5>
-        {/* <h6 className="text-spaced-sm">This is H6</h6> */}
+        <h1 className="text-xxl">This is H1 </h1>
+        <h2 className="text-xl">This is H2 </h2>
+        <h3 className="text-l">This is H3</h3>
+        <h4 className="text-m">This is H4</h4>
+        <h5 className="text-s-spaced">This is H5</h5>
+        {/* <h6 className="text-s-spaced">This is H6</h6> */}
         <p className="text-link">This a link</p>
         <p className="link-hover-xl">This is hover link xl</p>
 
         <p className="text-link-m">This is text link M</p>
-        <p className="subtitle-md">This is subtitle MD</p>
-        <p className="meta-md">This is meta MD</p>
+        <p className="text-section-subtitle">This is subtitle MD</p>
+        <p className="text-project-meta">This is meta MD</p>
       </div>
     </main>
   );

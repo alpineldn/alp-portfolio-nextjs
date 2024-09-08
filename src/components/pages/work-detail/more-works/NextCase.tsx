@@ -77,13 +77,13 @@ const NextCase: React.FC<NextCaseProps> = ({ title, mainImage, slug }) => {
             <div className="container mx-auto">
               <h2
                 ref={header1Ref}
-                className="heading-m translate-y-[25px] opacity-0 drop-shadow-lg"
+                className="translate-y-[25px] text-m opacity-0 drop-shadow-lg"
               >
                 Next Project
               </h2>
               <h3
                 ref={header2Ref}
-                className="heading-xl translate-y-[25px] opacity-0 drop-shadow-lg"
+                className="translate-y-[25px] text-xl opacity-0 drop-shadow-lg"
               >
                 {title}
               </h3>

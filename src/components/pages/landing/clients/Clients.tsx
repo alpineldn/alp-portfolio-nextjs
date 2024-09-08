@@ -17,7 +17,7 @@ const Clients: React.FC<ClientsProps> = ({ clients }) => {
   return (
     <section className="relative overflow-hidden bg-dark py-section md:py-section-lg">
       <div className="container mx-auto">
-        <h2 className="subtitle-md mb-xs text-lightGray xl:mb-section-md">
+        <h2 className="mb-xs text-section-subtitle text-lightGray xl:mb-section-md">
           Partners
         </h2>
 

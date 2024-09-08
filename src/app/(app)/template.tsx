@@ -28,7 +28,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         ) : (
           <p
             id="page-name"
-            className="text-loading-text absolute z-[1] flex items-center uppercase text-gray opacity-0"
+            className="text-text-loading-text absolute z-[1] flex items-center uppercase text-gray opacity-0"
           >
             {pageName}
           </p>

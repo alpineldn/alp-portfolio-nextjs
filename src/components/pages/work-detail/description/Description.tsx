@@ -88,7 +88,7 @@ const Description: React.FC<DescriptionProps> = ({
           />
         </div>
         <div className="max-w-screen-lg overflow-hidden pb-sm pt-sm md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
-          <div ref={bodyRef} className="heading-l overflow-hidden">
+          <div ref={bodyRef} className="overflow-hidden text-l">
             <PortableText value={body} />
           </div>
         </div>

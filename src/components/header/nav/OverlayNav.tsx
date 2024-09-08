@@ -67,7 +67,7 @@ const BottomLinks: React.FC<{}> = () => {
     <div className="fixed bottom-0 left-0 mx-auto w-full">
       <div className="container mx-auto flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:pb-section-md">
         <UnderlineLink
-          className="heading-xl interactable w-auto max-sm:mb-10"
+          className="interactable w-auto text-xl max-sm:mb-10"
           href="mailto:studio@alpineldn.com"
         >
           studio@alpineldn.com
@@ -76,7 +76,7 @@ const BottomLinks: React.FC<{}> = () => {
         <div className="max-sm:pb-xs">
           <PageTransitionLink
             dataType="simple-hover"
-            className="underline_link text-spaced-sm"
+            className="underline_link text-s-spaced"
             href="/privacy-policy"
           >
             Privacy

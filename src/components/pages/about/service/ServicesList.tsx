@@ -40,7 +40,7 @@ const ServicesList: React.FC<ServicesListProps> = ({ items }) => {
       <ul ref={listRef}>
         {items.map((item) => (
           <li
-            className="heading-m border-b border-b-gray py-3 first:border-y first:border-y-gray"
+            className="border-b border-b-gray py-3 text-m first:border-y first:border-y-gray"
             key={item}
           >
             {item}

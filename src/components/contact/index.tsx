@@ -55,14 +55,14 @@ const Contact: React.FC<ContactProps> = () => {
           <span className="flex items-center">
             <h2
               ref={heroText1Ref}
-              className="heading-xl translate-y-[25px] opacity-0"
+              className="translate-y-[25px] text-xl opacity-0"
             >
               Have an idea?
             </h2>
           </span>
           <h2
             ref={heroText2Ref}
-            className="heading-xl translate-y-[25px] opacity-0"
+            className="translate-y-[25px] text-xl opacity-0"
           >
             Let's build it
           </h2>
@@ -84,7 +84,7 @@ const CTAs = () => {
       className="container mx-auto mt-sm flex translate-y-[25px] opacity-0 max-lg:flex max-lg:flex-col md:mt-sm"
     >
       <UnderlineLink
-        className="heading-l interactable font-medium w-fit"
+        className="interactable w-fit text-l font-medium"
         href="mailto:studio@alpineldn.com"
       >
         studio@alpineldn.com

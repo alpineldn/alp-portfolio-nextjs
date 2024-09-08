@@ -30,7 +30,7 @@ const Description: React.FC<DescriptionProps> = () => {
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px] lg:w-9/12">
           <div className="intro_para">
-            <p className={cn('heading-l')}>
+            <p className={cn('text-l')}>
               {phrase.split(' ').map((word, index) => {
                 return (
                   <span
@@ -57,7 +57,7 @@ const Description: React.FC<DescriptionProps> = () => {
             {services.map(({ id, title }) => (
               <li
                 key={id}
-                className="heading-m mr-10 inline-flex items-center space-x-3 sm:flex lg:space-x-4"
+                className="mr-10 inline-flex items-center space-x-3 text-m sm:flex lg:space-x-4"
               >
                 {/* <div className="h-[1px] w-5 bg-gray lg:w-[0.5rem]" /> */}
                 <span>{title}</span>

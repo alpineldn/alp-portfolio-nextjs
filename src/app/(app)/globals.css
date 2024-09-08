@@ -23,41 +23,35 @@
 
 @layer utilities {
   .heading-xxl {
-    @apply md:text-xxl-md lg:text-xxl-lg lg:text-xxl-desktop text-xl;
+    @apply text-xxl;
   }
 
   .heading-xl {
-    @apply text-m md:text-l xl:text-xl;
+    @apply text-xl;
   }
 
   .heading-l {
-    @apply text-m xl:text-l;
+    @apply text-l;
   }
 
   .heading-m {
-    @apply text-s-spaced xl:text-m;
+    @apply text-m;
   }
 
   .text-spaced-sm {
     @apply text-s-spaced;
   }
 
-  .text-link {
-    @apply text-text-link;
-  }
-
   .link-hover-xl {
-    @apply text-xl md:text-xl xl:text-xxl;
-    padding: 1rem 0;
+    @apply px-[1rem] text-xxl;
   }
 
   .text-link-m {
-    @apply text-text-link xl:text-m-medium;
+    @apply text-m-medium;
   }
 
   .subtitle-md {
-    @apply text-section-subtitle;
-    @apply uppercase;
+    @apply text-section-subtitle uppercase;
   }
 
   .meta-md {
@@ -65,7 +59,7 @@
   }
 
   .loading-text {
-    @apply text-loading-text;
+    @apply text-text-loading-text;
   }
 
   /* Paddings */

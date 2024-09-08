@@ -42,7 +42,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
   return (
     <section ref={sectionRef} className="bg-darkGray">
       <div className="container mx-auto overflow-hidden pb-sm pt-sm md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
-        <p ref={bodyRef} className="heading-l max-w-screen-lg overflow-hidden">
+        <p ref={bodyRef} className="max-w-screen-lg overflow-hidden text-l">
           A design agency specializing in product-driven brands. We work with
           global leaders and innovators, from startups to multinationals. Our
           lean, agile team brings together the right specialists for every

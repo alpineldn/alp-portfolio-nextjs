@@ -43,10 +43,10 @@ const Description: React.FC<DescriptionProps> = ({
 
   return (
     <div className={cn('space-y-8 md:max-w-[65%] xl:max-w-[55%]')}>
-      <h3 className="heading-xl">
+      <h3 className="text-xl">
         <span className="text-gray">{index + 1}.</span> {title}
       </h3>
-      <p ref={descriptionRef} className="heading-m">
+      <p ref={descriptionRef} className="text-m">
         {description}
       </p>
     </div>

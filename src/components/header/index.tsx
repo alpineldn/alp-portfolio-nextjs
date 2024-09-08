@@ -94,8 +94,9 @@ const Header: React.FC<HeaderProps> = ({}) => {
       <div
         ref={header}
         className={cn(
-          'fixed left-0 top-2 z-20 box-border flex w-full items-center justify-between px-[20px] font-light text-white sm:px-[20px]',
           'transition-transform duration-300 ease-smooth-curve',
+          'max-sm:bg-black/5 max-sm:backdrop-blur-sm',
+          'fixed left-0 top-0 z-20 box-border flex w-full items-center justify-between px-[20px] pt-2 font-light text-white sm:px-[20px]',
           {
             'max-sm:translate-y-0 max-sm:transform': scrollDirection === 'up',
             'max-sm:-translate-y-20 max-sm:transform':

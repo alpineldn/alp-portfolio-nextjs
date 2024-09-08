@@ -131,12 +131,31 @@ module.exports = {
       },
       animation: {
         marquee: 'marquee 2s linear infinite',
+        grain: 'grain 8s steps(10) infinite',
       },
       keyframes: {
         marquee: {
           '100%': { transform: 'translateX(-50%)' },
         },
+        grain: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '10%': { transform: 'translate(-5%, -10%)' },
+          '20%': { transform: 'translate(-15%, -20%)' },
+          '30%': { transform: 'translate(-5%, -10%)' },
+          '40%': { transform: 'translate(-15%, -20%)' },
+          '50%': { transform: 'translate(-5%, -10%)' },
+          '60%': { transform: 'translate(-15%, -20%)' },
+          '70%': { transform: 'translate(-5%, -10%)' },
+          '80%': { transform: 'translate(-15%, -20%)' },
+          '90%': { transform: 'translate(-5%, -10%)' },
+        },
       },
+
+      backgroundImage: {
+        noise:
+          "url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')",
+      },
+
       fontFamily: {
         ppneuemontreal: ['var(--font-ppneuemontreal)'],
       },

@@ -45,7 +45,6 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
               trigger: element,
               start: 'top 90%',
               end: 'bottom 10%',
-              scrub: true,
             },
           },
         );

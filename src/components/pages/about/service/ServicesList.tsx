@@ -27,7 +27,6 @@ const ServicesList: React.FC<ServicesListProps> = ({ items }) => {
             trigger: listRef.current,
             start: 'top 80%',
             end: 'bottom 20%',
-            scrub: true,
           },
         },
       );

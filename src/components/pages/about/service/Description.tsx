@@ -32,7 +32,6 @@ const Description: React.FC<DescriptionProps> = ({
             trigger: descriptionRef.current,
             start: 'top 80%',
             end: 'bottom 20%',
-            scrub: true,
           },
         },
       );

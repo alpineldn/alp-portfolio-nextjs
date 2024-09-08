@@ -24,8 +24,6 @@ const Header: React.FC<HeaderProps> = ({}) => {
     (store) => store,
   );
 
-  console.log({ scrollDirection });
-
   useEffect(() => {
     if (showOverlay) setShowOverlay(false);
     if (showMenuButton) setShowMenuButton(true);

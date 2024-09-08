@@ -16,15 +16,47 @@ const Header: React.FC<HeaderProps> = ({}) => {
   const header = useRef(null);
   const pathName = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const { firstVisit, showMenuButton, setShowMenuButton } = useStore(
     (store) => store,
   );
-  const [showOverlay, setShowOverlay] = useState(false);
+
+  console.log({ scrollDirection });
 
   useEffect(() => {
     if (showOverlay) setShowOverlay(false);
     if (showMenuButton) setShowMenuButton(true);
   }, [pathName]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          if (currentScrollY > lastScrollY.current) {
+            setScrollDirection('down');
+          } else if (currentScrollY < lastScrollY.current) {
+            setScrollDirection('up');
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking.current = false;
+        });
+
+        ticking.current = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -63,6 +95,12 @@ const Header: React.FC<HeaderProps> = ({}) => {
         ref={header}
         className={cn(
           'fixed left-0 top-2 z-20 box-border flex w-full items-center justify-between px-[20px] font-light text-white sm:px-[20px]',
+          'transition-transform duration-300 ease-smooth-curve',
+          {
+            'max-sm:translate-y-0 max-sm:transform': scrollDirection === 'up',
+            'max-sm:-translate-y-20 max-sm:transform':
+              scrollDirection === 'down',
+          },
         )}
       >
         <Logo showOverlay={showOverlay} />

@@ -14,9 +14,9 @@ const Typography: React.FC<{}> = async () => {
         <h5 className="text-s-spaced">This is H5</h5>
         {/* <h6 className="text-s-spaced">This is H6</h6> */}
         <p className="text-link">This a link</p>
-        <p className="link-hover-xl">This is hover link xl</p>
+        {/* <p className="link-hover-xl">This is hover link xl</p> */}
 
-        <p className="text-link-m">This is text link M</p>
+        {/* <p className="text-link-m">This is text link M</p> */}
         <p className="text-section-subtitle">This is subtitle MD</p>
         <p className="text-project-meta">This is meta MD</p>
       </div>

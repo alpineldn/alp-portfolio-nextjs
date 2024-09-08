@@ -22,7 +22,7 @@
 }
 
 @layer utilities {
-  .heading-xxl {
+  /* .heading-xxl {
     @apply text-xxl;
   }
 
@@ -59,8 +59,8 @@
   }
 
   .loading-text {
-    @apply text-text-loading-text;
-  }
+    @apply text-loading-text;
+  } */
 
   /* Paddings */
   .section-padding-t {

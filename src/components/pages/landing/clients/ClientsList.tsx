@@ -8,6 +8,7 @@ interface ClientsListProps {
 }
 
 const ClientsList: React.FC<ClientsListProps> = ({ clients }) => {
+  console.log(clients);
   return (
     <div className={cn('relative flex w-full flex-wrap gap-5 lg:gap-10')}>
       {clients.map(({ image, name, _id }) => (

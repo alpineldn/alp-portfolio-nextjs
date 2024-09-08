@@ -17,6 +17,10 @@ module.exports = {
         'clamp(3.9rem, 6vw, 7rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
+      'link-xxl': [
+        'clamp(2rem, 5vw + 2vh, 7rem)',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
+      ],
 
       xl: [
         'clamp(2.8rem, 5vw, 3.9rem)',

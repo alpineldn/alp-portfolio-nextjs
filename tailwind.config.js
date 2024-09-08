@@ -14,7 +14,7 @@ module.exports = {
 
     fontSize: {
       xxl: [
-        'clamp(3.9rem, 6vw, 7rem)',
+        'clamp(3.9rem, 6vw + 1vh, 7rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
       'link-xxl': [
@@ -23,22 +23,22 @@ module.exports = {
       ],
 
       xl: [
-        'clamp(2.8rem, 5vw, 3.9rem)',
+        'clamp(2.8rem, 5vw + 1vh, 3.9rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
 
       l: [
-        'clamp(2rem, 4vw, 2.8rem)',
+        'clamp(2rem, 4vw + 1vh, 2.8rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
 
       m: [
-        'clamp(1.5rem, 3vw, 1.9rem)',
+        'clamp(1.5rem, 3vw + 1vh, 1.9rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.4' },
       ],
 
       'm-medium': [
-        'clamp(1.2rem, 2vw, 1.4rem)',
+        'clamp(1.2rem, 2vw + 1vh, 1.4rem)',
         {
           letterSpacing: '0.02em',
           fontWeight: 500,
@@ -48,22 +48,22 @@ module.exports = {
       ],
 
       's-spaced': [
-        'clamp(1rem, 1.5vw, 1.2rem)',
+        'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
         { letterSpacing: '0.03em', fontWeight: 400, lineHeight: 'normal' },
       ],
 
       link: [
-        'clamp(1rem, 1.5vw, 1.2rem)',
+        'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
         { letterSpacing: '0.03em', fontWeight: 400, lineHeight: '1' },
       ],
 
       'brand-text-link': [
-        'clamp(1.2rem, 2vw, 1.4rem)',
+        'clamp(1.2rem, 2vw + 1vh, 1.4rem)',
         { letterSpacing: '0.1em', fontWeight: 400, lineHeight: '1' },
       ],
 
       'section-subtitle': [
-        'clamp(1rem, 1.5vw, 1.2rem)',
+        'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
         {
           letterSpacing: '0.1em',
           fontWeight: 300,
@@ -73,17 +73,17 @@ module.exports = {
       ],
 
       'project-meta': [
-        'clamp(1.2rem, 2vw, 1.6rem)',
+        'clamp(1.2rem, 2vw + 0.5vh, 1.6rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
 
       xs: [
-        'clamp(0.875rem, 1vw, 1rem)',
+        'clamp(0.875rem, 1vw + 0.5vh, 1rem)',
         { letterSpacing: '0.02em', fontWeight: 400, lineHeight: '1.4' },
       ],
 
       'loading-text': [
-        'clamp(2.5rem, 6vw, 3rem)',
+        'clamp(2.5rem, 6vw + 1vh, 3rem)',
         {
           letterSpacing: '0.06em',
           fontWeight: 400,

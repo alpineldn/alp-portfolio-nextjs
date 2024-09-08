@@ -117,7 +117,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
           >
             {projects.map((project) => (
-              <Project active={modal.active} {...project} />
+              <Project key={project._id} active={modal.active} {...project} />
             ))}
           </div>
         </motion.div>

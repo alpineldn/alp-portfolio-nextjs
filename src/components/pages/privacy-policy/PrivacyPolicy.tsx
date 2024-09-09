@@ -1,13 +1,61 @@
 'use client';
 
+import { useStore } from '@/store/store';
 import cn from '@/utils/cn';
-import Image from 'next/image';
+import { useLayoutEffect, useRef } from 'react';
+import SplitType from 'split-type';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface PrivacyPolicyProps {}
 
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
+  const heroTextRef = useRef<HTMLHeadingElement>(null);
+  const { firstVisit } = useStore((store) => store);
+
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      if (!heroTextRef?.current) return;
+
+      const tl = gsap.timeline({
+        defaults: { ease: 'power4.inOut', duration: 1.4 },
+        delay: firstVisit ? 2.7 : 1.5,
+      });
+
+      const header = new SplitType(heroTextRef.current, {
+        types: 'lines,words',
+        lineClass: 'overflow-hidden',
+      });
+
+      gsap.set(header.words, { y: '100%' });
+      tl.to(header.words, { y: '0%', stagger: 0.05 });
+
+      // Fade in animation for each fade-in element
+      gsap.utils.toArray<HTMLElement>('.fade-in').forEach((element) => {
+        gsap.fromTo(
+          element,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 90%',
+              end: 'bottom 10%',
+            },
+          },
+        );
+      });
+    });
+
+    return () => context.revert();
+  }, [heroTextRef]);
+
   return (
-    <div className="container mx-auto lg:pt-xs">
+    <div className="container mx-auto pt-[130px] lg:pt-[293px]">
       <div
         className={cn(
           'prose prose-invert max-w-none',
@@ -29,11 +77,13 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
           />
         </div> */}
         <div>
-          <h1 className="text-l lg:text-xl">Privacy policy</h1>
-          <p>Effective Date: 04.07.2024</p>
+          <h1 ref={heroTextRef} className="max-w-5xl text-xxl">
+            Privacy policy
+          </h1>
+          <p className="fade-in">Effective Date: 04.07.2024</p>
         </div>
         <section className={cn('section-padding-b mx-auto')}>
-          <p>
+          <p className="fade-in">
             This Privacy Policy explains how Alpine collects, uses, and
             discloses information about you when you visit our website
             alpineldn.com (the "Site"). We are committed to protecting your
@@ -41,23 +91,23 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
             (GDPR).
           </p>
           <div>
-            <h2>Information We Collect</h2>
-            <p>
+            <h2 className="fade-in">Information We Collect</h2>
+            <p className="fade-in">
               We may collect the following types of information about you when
               you visit the Site:
             </p>
             <ul>
-              <li>
+              <li className="fade-in">
                 Personal Information: This includes information that can
                 identify you, such as your name, email address, and any other
                 information you voluntarily provide to us.
               </li>
-              <li>
+              <li className="fade-in">
                 Usage Data: This includes information about how you use the
                 Site, such as the pages you visit, the links you click, and the
                 time you spend on each page.
               </li>
-              <li>
+              <li className="fade-in">
                 Technical Data: This includes information about your device,
                 browser, and internet connection, such as your IP address,
                 operating system, and device type.
@@ -65,25 +115,29 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
             </ul>
           </div>
           <div>
-            <h2> How We Use Your Information</h2>
-            <p>We may use your information for the following purposes:</p>
+            <h2 className="fade-in"> How We Use Your Information</h2>
+            <p className="fade-in">
+              We may use your information for the following purposes:
+            </p>
             <ul>
-              <li>To provide and maintain the Site.</li>
-              <li>
+              <li className="fade-in">To provide and maintain the Site.</li>
+              <li className="fade-in">
                 To analyze your use of the Site and improve its content and
                 functionality.
               </li>
-              <li>To personalize your experience on the Site.</li>
-              <li>
+              <li className="fade-in">
+                To personalize your experience on the Site.
+              </li>
+              <li className="fade-in">
                 To communicate with you, such as to respond to your inquiries or
                 send you newsletters.
               </li>
-              <li>To comply with legal obligations.</li>
+              <li className="fade-in">To comply with legal obligations.</li>
             </ul>
           </div>
           <div>
-            <h2>Google Analytics</h2>
-            <p>
+            <h2 className="fade-in">Google Analytics</h2>
+            <p className="fade-in">
               We use Google Analytics, a web analytics service provided by
               Google, to collect information about how you use the Site. Google
               Analytics uses cookies, which are small text files placed on your
@@ -97,31 +151,41 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
             </p>
           </div>
           <div>
-            <h2>Your Rights</h2>
-            <p>You have the following rights under the GDPR:</p>
+            <h2 className="fade-in">Your Rights</h2>
+            <p className="fade-in">
+              You have the following rights under the GDPR:
+            </p>
             <ul>
-              <li>The right to access your personal information.</li>
-              <li>The right to rectify inaccurate personal information.</li>
-              <li>The right to erase your personal information.</li>
-              <li>
+              <li className="fade-in">
+                The right to access your personal information.
+              </li>
+              <li className="fade-in">
+                The right to rectify inaccurate personal information.
+              </li>
+              <li className="fade-in">
+                The right to erase your personal information.
+              </li>
+              <li className="fade-in">
                 The right to restrict the processing of your personal
                 information.
               </li>
-              <li>The right to data portability.</li>
-              <li>
+              <li className="fade-in">The right to data portability.</li>
+              <li className="fade-in">
                 The right to object to the processing of your personal
                 information.
               </li>
-              <li>The right to withdraw your consent at any time.</li>
+              <li className="fade-in">
+                The right to withdraw your consent at any time.
+              </li>
             </ul>
-            <p>
+            <p className="fade-in">
               To exercise your rights, please contact us at
               studio@alpineldn.com.
             </p>
           </div>
           <div>
-            <h2> Changes to This Privacy Policy</h2>
-            <p>
+            <h2 className="fade-in"> Changes to This Privacy Policy</h2>
+            <p className="fade-in">
               We may update this Privacy Policy from time to time. We will
               notify you of any changes by posting the new Privacy Policy on the
               Site. You are advised to review this Privacy Policy periodically
@@ -129,8 +193,8 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
             </p>
           </div>
           <div>
-            <h2>Contact Us</h2>
-            <p>
+            <h2 className="fade-in">Contact Us</h2>
+            <p className="fade-in">
               If you have any questions about this Privacy Policy, please
               contact us at studio@alpineldn.com.
             </p>

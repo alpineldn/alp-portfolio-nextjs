@@ -76,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
         className="text-light relative h-full w-full bg-dark pt-[130px] lg:pt-[293px]"
       >
         <header className="container mx-auto pb-sm">
-          <h1 ref={heroTextRef} className="heading-xxl max-w-5xl">
+          <h1 ref={heroTextRef} className="max-w-5xl text-xxl">
             {title}
           </h1>
         </header>

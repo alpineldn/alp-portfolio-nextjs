@@ -11,6 +11,8 @@ import LinkEl from '@/components/common/ui/LinkEl';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import useTouchHandler from '@/hooks/useTouchHandler';
 
+import Video from '@/components/common/video/Video';
+
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
   active: boolean;
@@ -78,7 +80,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       className="text-light relative bg-darkGray py-section md:py-section-lg"
     >
       <div className="container mx-auto">
-        <h2 className="subtitle-md mb-xs text-lightGray xl:mb-section-md">
+        <h2 className="mb-xs text-section-subtitle text-lightGray xl:mb-section-md">
           Projects
         </h2>
 
@@ -114,21 +116,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             style={{ top: index * -100 + '%' }}
             className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
           >
-            {projects.map(({ mainImage, tileImage, title, _id }) => {
-              return (
-                <div
-                  className="flex h-full w-full items-center justify-center"
-                  key={`modal_${_id}`}
-                >
-                  <SanityImage
-                    sizes="33vw"
-                    src={tileImage ?? mainImage}
-                    alt={title}
-                    className="aspect-auto h-auto w-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
-                  />
-                </div>
-              );
-            })}
+            {projects.map((project) => (
+              <Project key={project._id} active={modal.active} {...project} />
+            ))}
           </div>
         </motion.div>
       </>
@@ -137,3 +127,31 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 };
 
 export default Projects;
+
+const Project: React.FC<ProjectType & { active: boolean }> = ({
+  _id,
+  title,
+  active,
+  mainImage,
+  tileMedia,
+}) => {
+  const img = tileMedia?.tileImage ?? mainImage;
+  const video = tileMedia?.tileVideo;
+  return (
+    <div
+      className="flex h-full w-full items-center justify-center"
+      key={`modal_${_id}`}
+    >
+      {!!video ? (
+        <Video active={active} {...video} />
+      ) : (
+        <SanityImage
+          sizes="33vw"
+          src={img}
+          alt={title}
+          className="aspect-auto h-auto w-auto object-cover transition-transform duration-500 ease-smooth-curve group-hover:scale-105"
+        />
+      )}
+    </div>
+  );
+};

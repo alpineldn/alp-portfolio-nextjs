@@ -24,7 +24,13 @@ const projectFields = groq`
   _id,
   agency,
   ${asset('mainImage')},
-  ${asset('tileImage')},
+  tileMedia {
+    ${asset('tileImage')},
+    tileVideo {
+      "webm": video_webm.asset->url,
+      "mov": video_hevc.asset->url
+    }
+  },
   categories[]->{
     _id,
     title

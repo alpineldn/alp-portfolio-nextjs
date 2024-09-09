@@ -22,42 +22,36 @@
 }
 
 @layer utilities {
-  .heading-xxl {
-    @apply md:text-xxl-md lg:text-xxl-lg lg:text-xxl-desktop text-xl;
+  /* .heading-xxl {
+    @apply text-xxl;
   }
 
   .heading-xl {
-    @apply text-m md:text-l xl:text-xl;
+    @apply text-xl;
   }
 
   .heading-l {
-    @apply text-m xl:text-l;
+    @apply text-l;
   }
 
   .heading-m {
-    @apply text-s-spaced xl:text-m;
+    @apply text-m;
   }
 
   .text-spaced-sm {
     @apply text-s-spaced;
   }
 
-  .text-link {
-    @apply text-text-link;
-  }
-
   .link-hover-xl {
-    @apply text-xl md:text-xl xl:text-xxl;
-    padding: 1rem 0;
+    @apply px-[1rem] text-xxl;
   }
 
   .text-link-m {
-    @apply text-text-link xl:text-m-medium;
+    @apply text-m-medium;
   }
 
   .subtitle-md {
-    @apply text-section-subtitle;
-    @apply uppercase;
+    @apply text-section-subtitle uppercase;
   }
 
   .meta-md {
@@ -66,7 +60,7 @@
 
   .loading-text {
     @apply text-loading-text;
-  }
+  } */
 
   /* Paddings */
   .section-padding-t {
@@ -80,61 +74,14 @@
   .section-padding-y {
     @apply py-section md:py-section-lg xl:py-section-xxl;
   }
+
+  .bg-noise-animation {
+    @apply after:bg-noise after:animate-grain after:pointer-events-none after:absolute after:h-[300%] after:w-[300%] after:opacity-10 after:content-[''];
+  }
 }
 
 ::selection {
   background: gray;
-}
-
-.bg-darkGrey {
-  after {
-    content: '';
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png');
-    height: 300%;
-    width: 300%;
-    position: fixed;
-    opacity: 1;
-    animation: animateGrain 8s steps(10) infinite;
-    z-index: 20;
-  }
-
-  @keyframes animateGrain {
-    0%,
-    100% {
-      transform: translate(0, 0);
-    }
-    10% {
-      transform: translate(-5%, -10%);
-    }
-    20% {
-      transform: translate(-15%, -20%);
-    }
-    30% {
-      transform: translate(-5%, -10%);
-    }
-    40% {
-      transform: translate(-15%, -20%);
-    }
-
-    50% {
-      transform: translate(-5%, -10%);
-    }
-    60% {
-      transform: translate(-15%, -20%);
-    }
-    70% {
-      transform: translate(-5%, -10%);
-    }
-    80% {
-      transform: translate(-15%, -20%);
-    }
-    90% {
-      transform: translate(-5%, -10%);
-    }
-    100% {
-      transform: translate(-15%, -20%);
-    }
-  }
 }
 
 /* #loading-banner-1 {

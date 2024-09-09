@@ -14,44 +14,31 @@ module.exports = {
 
     fontSize: {
       xxl: [
-        '7rem',
+        'clamp(3.9rem, 6vw + 1vh, 7rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
-      'xxl-desktop': [
-        '7rem',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
-      ],
-      'xxl-lg': [
-        '7rem',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
-      ],
-      'xxl-md': [
-        '7rem',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
-      ],
-      'xxl-sm': [
-        '7rem',
-        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
-      ],
-      'xxl-mob': [
-        '7rem',
+      'link-xxl': [
+        'clamp(2rem, 5vw + 2vh, 7rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
 
       xl: [
-        '3.9rem',
+        'clamp(2.8rem, 5vw + 1vh, 3.9rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
+
       l: [
-        '2.8rem',
+        'clamp(2rem, 4vw + 1vh, 2.8rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
+
       m: [
-        '1.9rem',
+        'clamp(1.5rem, 3vw + 1vh, 1.9rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.4' },
       ],
+
       'm-medium': [
-        '1.4rem',
+        'clamp(1.2rem, 2vw + 1vh, 1.4rem)',
         {
           letterSpacing: '0.02em',
           fontWeight: 500,
@@ -59,20 +46,24 @@ module.exports = {
           textTransform: 'uppercase',
         },
       ],
+
       's-spaced': [
-        '1.2rem',
+        'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
         { letterSpacing: '0.03em', fontWeight: 400, lineHeight: 'normal' },
       ],
-      'text-link': [
-        '1.2rem',
+
+      link: [
+        'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
         { letterSpacing: '0.03em', fontWeight: 400, lineHeight: '1' },
       ],
+
       'brand-text-link': [
-        '1.4rem',
+        'clamp(1.2rem, 2vw + 1vh, 1.4rem)',
         { letterSpacing: '0.1em', fontWeight: 400, lineHeight: '1' },
       ],
+
       'section-subtitle': [
-        '1.2rem',
+        'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
         {
           letterSpacing: '0.1em',
           fontWeight: 300,
@@ -80,16 +71,19 @@ module.exports = {
           textTransform: 'uppercase',
         },
       ],
+
       'project-meta': [
-        '1.6rem',
+        'clamp(1.2rem, 2vw + 0.5vh, 1.6rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
+
       xs: [
-        '1rem',
+        'clamp(0.875rem, 1vw + 0.5vh, 1rem)',
         { letterSpacing: '0.02em', fontWeight: 400, lineHeight: '1.4' },
       ],
+
       'loading-text': [
-        '3rem',
+        'clamp(2.5rem, 6vw + 1vh, 3rem)',
         {
           letterSpacing: '0.06em',
           fontWeight: 400,
@@ -137,12 +131,31 @@ module.exports = {
       },
       animation: {
         marquee: 'marquee 2s linear infinite',
+        grain: 'grain 8s steps(10) infinite',
       },
       keyframes: {
         marquee: {
           '100%': { transform: 'translateX(-50%)' },
         },
+        grain: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '10%': { transform: 'translate(-5%, -10%)' },
+          '20%': { transform: 'translate(-15%, -20%)' },
+          '30%': { transform: 'translate(-5%, -10%)' },
+          '40%': { transform: 'translate(-15%, -20%)' },
+          '50%': { transform: 'translate(-5%, -10%)' },
+          '60%': { transform: 'translate(-15%, -20%)' },
+          '70%': { transform: 'translate(-5%, -10%)' },
+          '80%': { transform: 'translate(-15%, -20%)' },
+          '90%': { transform: 'translate(-5%, -10%)' },
+        },
       },
+
+      backgroundImage: {
+        noise:
+          "url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')",
+      },
+
       fontFamily: {
         ppneuemontreal: ['var(--font-ppneuemontreal)'],
       },

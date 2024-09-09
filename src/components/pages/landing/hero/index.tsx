@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       // variants={slideUp}
       initial="initial"
       animate="enter"
-      className="text-light relative flex h-screen overflow-hidden"
+      className="text-light bg-noise-animation relative flex h-screen overflow-hidden"
     >
       <video
         autoPlay
@@ -77,8 +77,8 @@ const Hero: React.FC<HeroProps> = ({}) => {
         <source src="/mountains_video_4_optim.mp4" type="video/mp4" />
       </video>
 
-      <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex sm:pl-[3vw] sm:pl-[6vw] lg:max-w-7xl">
-        <h1 ref={heroTextRef} className={cn('heading-xxl')}>
+      <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex sm:pl-[6vw] lg:max-w-7xl">
+        <h1 ref={heroTextRef} className="text-xxl">
           Elevating Brands +<br />
           Digital Experiences
         </h1>
@@ -86,7 +86,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       <p
         ref={descriptionRef}
         className={cn(
-          'heading-m',
+          'text-m',
           'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]',
         )}
       >
@@ -98,16 +98,13 @@ const Hero: React.FC<HeroProps> = ({}) => {
         data-scroll-speed={0.1}
         className="container relative flex h-full w-full translate-y-5 flex-col justify-center sm:hidden"
       >
-        <h1
-          ref={heroTextRefSm}
-          className={cn('heading-xxl', 'relative m-0 pb-5')}
-        >
+        <h1 ref={heroTextRefSm} className="relative m-0 pb-5 text-xxl">
           Elevating Brands +<br />
           Digital Experiences
         </h1>
         <p
           ref={descriptionRefSm}
-          className="heading-m absolute bottom-14 left-0 max-lg:px-5"
+          className="absolute bottom-14 left-0 text-m max-lg:px-5"
         >
           Brand + Digital Development Studio
         </p>

@@ -11,7 +11,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
   return (
     <section className="relative overflow-hidden bg-dark">
       <div className="container mx-auto">
-        <h2 className="subtitle-md pt-sm text-lightGray md:pt-section xl:mb-section-md">
+        <h2 className="pt-sm text-section-subtitle text-lightGray md:pt-section xl:mb-section-md">
           Services
         </h2>
       </div>

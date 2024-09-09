@@ -31,7 +31,7 @@ export async function generateMetadata({}): Promise<Metadata> {
 const PrivacyPolicyPage: React.FC<{}> = () => {
   return (
     <Page pageName="Privacy Policy">
-      <div className="min-h-dark bg-dark pt-32">
+      <div className="min-h-dark bg-dark">
         <PrivacyPolicy />
         <Contact />
       </div>

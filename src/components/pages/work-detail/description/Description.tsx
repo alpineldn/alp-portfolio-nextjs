@@ -10,6 +10,8 @@ import { Slug } from 'sanity';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import cn from '@/utils/cn';
 import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
+import FadeInOnViewAnimation from '@/components/common/animations/FadeInOnViewAnimation';
+import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,32 +47,32 @@ const Description: React.FC<DescriptionProps> = ({
     });
   }, [sectionRef]);
 
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      if (!detailContainerRef?.current || !sectionRef?.current) return;
+  // useLayoutEffect(() => {
+  //   const context = gsap.context(() => {
+  //     if (!detailContainerRef?.current || !sectionRef?.current) return;
 
-      const projectInfoEls =
-        detailContainerRef.current.querySelectorAll('ul > li');
+  //     const projectInfoEls =
+  //       detailContainerRef.current.querySelectorAll('ul > li');
 
-      const tl = gsap.timeline({
-        defaults: { ease: 'power4.inOut', duration: 1.4 },
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          end: 'bottom 80%',
-        },
-      });
+  //     const tl = gsap.timeline({
+  //       defaults: { ease: 'power4.inOut', duration: 1.4 },
+  //       scrollTrigger: {
+  //         trigger: sectionRef.current,
+  //         start: 'top 80%',
+  //         end: 'bottom 80%',
+  //       },
+  //     });
 
-      if (!!projectInfoEls?.length)
-        tl.to([projectInfoEls, '#preview-url-btn'], {
-          y: '0%',
-          opacity: 1,
-          stagger: 0.05,
-        });
-    });
+  //     if (!!projectInfoEls?.length)
+  //       tl.to([projectInfoEls, '#preview-url-btn'], {
+  //         y: '0%',
+  //         opacity: 1,
+  //         stagger: 0.05,
+  //       });
+  //   });
 
-    return () => context.revert();
-  }, [detailContainerRef, sectionRef]);
+  //   return () => context.revert();
+  // }, [detailContainerRef, sectionRef]);
 
   return (
     <section>
@@ -117,35 +119,39 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
         )}
       >
         {!!client && (
-          <li className={cn('translate-y-[50px] opacity-0')}>
-            <div className="text-lightGray">Client:</div>
-            <div>{client}</div>
+          <li>
+            <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }}>
+              <div className="text-lightGray">Client:</div>
+              <div>{client}</div>
+            </FadeInAndSlideUpOnViewAnimation>
           </li>
         )}
         {!!agency && (
-          <li className={cn('translate-y-[50px] opacity-0')}>
-            <div className="text-lightGray">Agency:</div>
-            <div>{agency}</div>
+          <li>
+            <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }} delay={0.05}>
+              <div className="text-lightGray">Agency:</div>
+              <div>{agency}</div>
+            </FadeInAndSlideUpOnViewAnimation>
           </li>
         )}
 
-        <li className={cn('translate-y-[50px] opacity-0')}>
-          <div className="text-lightGray">Categories:</div>
-          <div>
-            {categories.map(({ title, _id }, index) => (
-              <span key={_id}>
-                {title} {index !== categories.length - 1 && ', '}
-              </span>
-            ))}
-          </div>
+        <li>
+          <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }} delay={0.1}>
+            <div className="text-lightGray">Categories:</div>
+            <div>
+              {categories.map(({ title, _id }, index) => (
+                <span key={_id}>
+                  {title} {index !== categories.length - 1 && ', '}
+                </span>
+              ))}
+            </div>
+          </FadeInAndSlideUpOnViewAnimation>
         </li>
       </ul>
-      <div
-        id="preview-url-btn"
-        className={cn(
-          'translate-y-[50px] opacity-0',
-          'flex lg:items-start lg:justify-end',
-        )}
+      <FadeInAndSlideUpOnViewAnimation
+        initial={{ y: 50 }}
+        delay={0.15}
+        className={cn('flex lg:items-start lg:justify-end')}
       >
         {!!previewURL?.current && (
           <Link
@@ -156,7 +162,7 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
             <LinkEl>View Site</LinkEl>
           </Link>
         )}
-      </div>
+      </FadeInAndSlideUpOnViewAnimation>
     </div>
   );
 };

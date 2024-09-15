@@ -31,11 +31,13 @@ const Description: React.FC<DescriptionProps> = () => {
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px] lg:w-9/12">
           <div className="intro_para">
-            <p className={cn('text-l')}>
-              <SplitTextAnimation el="p" animate={isInView}>
-                {phrase}
-              </SplitTextAnimation>
-            </p>
+            <SplitTextAnimation
+              el="p"
+              className={cn('text-l')}
+              animate={isInView}
+            >
+              {phrase}
+            </SplitTextAnimation>
           </div>
         </div>
 

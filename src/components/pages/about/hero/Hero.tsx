@@ -1,98 +1,126 @@
 'use client';
 
 import { useLayoutEffect, useRef } from 'react';
-import { useInView, motion } from 'framer-motion';
-//import { slideUp, opacity } from './animation';
-import Image from 'next/image';
-import { useStore } from '@/store/store';
+import { motion } from 'framer-motion';
 import SplitType from 'split-type';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useStore } from '@/store/store';
+import cn from '@/utils/cn';
+import Image from 'next/image';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
-  const previewURLMarqueeRef = useRef<HTMLDivElement>(null);
-  const imgContainerRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const descriptionRefSm = useRef<HTMLParagraphElement>(null);
+  const heroTextRefSm = useRef<HTMLHeadingElement>(null);
   const { firstVisit } = useStore((store) => store);
 
+  const createAnimation = (
+    headerRef: React.RefObject<HTMLHeadingElement>,
+    descriptionRef: React.RefObject<HTMLParagraphElement>,
+  ) => {
+    if (!headerRef?.current || !descriptionRef?.current) return;
+
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.inOut' },
+      delay: firstVisit ? 2.7 : 1.5,
+    });
+
+    const header = new SplitType(headerRef.current, {
+      types: 'lines,words',
+      lineClass: 'overflow-hidden',
+    });
+    const description = new SplitType(descriptionRef.current, {
+      types: 'lines,words',
+      lineClass: 'overflow-hidden',
+    });
+
+    gsap.set([header.words, description.words], { y: '100%' });
+
+    tl.to(header.words, {
+      y: '0%',
+      duration: 1.5,
+      stagger: 0.05,
+    }).to(description.words, { y: '0%', stagger: 0.05 }, '-=.5');
+  };
+
   useLayoutEffect(() => {
-    if (!imgRef?.current) return;
-
     const context = gsap.context(() => {
-      gsap.registerPlugin(ScrollTrigger);
-
-      gsap.to(imgRef.current, {
-        y: 0,
-        scrollTrigger: {
-          trigger: imgRef.current,
-          start: '-120px bottom',
-          end: 'bottom bottom',
-          scrub: 3,
-        },
-      });
+      let mm = gsap.matchMedia();
+      mm.add('(min-width: 640px)', () =>
+        createAnimation(heroTextRef, descriptionRef),
+      );
+      mm.add('(max-width: 639px)', () =>
+        createAnimation(heroTextRefSm, descriptionRefSm),
+      );
     });
 
     return () => context.revert();
-  }, [imgRef]);
-
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      if (!heroTextRef?.current) return;
-
-      const tl = gsap.timeline({
-        defaults: { ease: 'power4.inOut', duration: 1.4 },
-        delay: firstVisit ? 2.7 : 1.5,
-      });
-
-      const header = new SplitType(heroTextRef.current, {
-        types: 'lines,words',
-        lineClass: 'overflow-hidden',
-      });
-
-      gsap.set(header.words, { y: '100%' });
-      tl.to(header.words, { y: '0%', stagger: 0.05 });
-
-      if (previewURLMarqueeRef?.current) {
-        tl.to(previewURLMarqueeRef.current, { y: '0%', opacity: 1 }, 0.4);
-      }
-
-      tl.to(imgContainerRef.current, { opacity: 1 }, 0.6);
-    });
-
-    return () => context.revert();
-  }, [heroTextRef, imgContainerRef, previewURLMarqueeRef]);
+  }, [heroTextRef, descriptionRef, heroTextRefSm, descriptionRefSm]);
 
   return (
-    <section>
-      <div
-        ref={sectionRef}
-        className="text-light relative h-full w-full bg-dark pt-[130px] lg:pt-[293px]"
-      >
-        <header className="container mx-auto pb-sm">
-          <h1 ref={heroTextRef} className="max-w-5xl text-xxl">
-            About
-          </h1>
-        </header>
+    <motion.div
+      ref={containerRef}
+      // variants={slideUp}
+      initial="initial"
+      animate="enter"
+      className="text-light bg-noise-animation relative flex h-screen overflow-hidden"
+    >
+      {/*  */}
 
-        <div className="relative z-[1] mx-auto w-full !overflow-hidden">
-          <div ref={imgContainerRef} className="overflow-hidden opacity-0">
-            <Image
-              ref={imgRef}
-              width={1920}
-              height={1080}
-              sizes="100vw"
-              src="/images/alpine_bg.jpg"
-              alt="About Image"
-              className="aspect-auto h-full max-h-[876px] w-full translate-y-[80px] scale-110 object-cover"
-            />
-          </div>
-        </div>
+      <figure className="absolute h-full w-full object-cover">
+        <Image
+          width={1920}
+          height={1080}
+          sizes="100vw"
+          src="/images/alpine_bg.jpg"
+          alt="About Image"
+          className="aspect-auto h-full w-full object-cover"
+        />
+      </figure>
+      {/* <video
+        autoPlay
+        loop
+        muted
+        className="home-hero absolute h-full w-full object-cover"
+      >
+        <source src="/mountains_video_4_optim.mp4" type="video/mp4" />
+      </video> */}
+
+      <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex sm:pl-[6vw] lg:max-w-7xl">
+        <h1 ref={heroTextRef} className="text-xxl">
+          About
+        </h1>
       </div>
-    </section>
+      <p
+        ref={descriptionRef}
+        className={cn(
+          'text-m',
+          'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]',
+        )}
+      >
+        Lorem ipsum dolor sit amet.
+      </p>
+
+      <div
+        data-scroll
+        data-scroll-speed={0.1}
+        className="container relative flex h-full w-full translate-y-5 flex-col justify-center sm:hidden"
+      >
+        <h1 ref={heroTextRefSm} className="relative m-0 pb-5 text-xxl">
+          About
+        </h1>
+        <p
+          ref={descriptionRefSm}
+          className="absolute bottom-14 left-0 text-m max-lg:px-5"
+        >
+          Lorem ipsum dolor sit amet.
+        </p>
+      </div>
+    </motion.div>
   );
 };
 

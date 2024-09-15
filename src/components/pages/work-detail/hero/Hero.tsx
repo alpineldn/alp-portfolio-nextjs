@@ -5,22 +5,21 @@ import { useStore } from '@/store/store';
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 import gsap from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
-import SplitType from 'split-type';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
 
 interface HeroProps {
   title: string;
-
   mainImage: SanityImageObject;
 }
 
 const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const heroTextRef = useRef<HTMLHeadingElement>(null);
   const previewURLMarqueeRef = useRef<HTMLDivElement>(null);
   const imgContainerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const { firstVisit } = useStore((store) => store);
+  const initialDelay = firstVisit ? 2.7 : 1.5;
 
   useLayoutEffect(() => {
     if (!imgRef?.current) return;
@@ -44,20 +43,10 @@ const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
-      if (!heroTextRef?.current) return;
-
       const tl = gsap.timeline({
         defaults: { ease: 'power4.inOut', duration: 1.4 },
-        delay: firstVisit ? 2.7 : 1.5,
+        delay: initialDelay,
       });
-
-      const header = new SplitType(heroTextRef.current, {
-        types: 'lines,words',
-        lineClass: 'overflow-hidden',
-      });
-
-      gsap.set(header.words, { y: '100%' });
-      tl.to(header.words, { y: '0%', stagger: 0.05 });
 
       if (previewURLMarqueeRef?.current) {
         tl.to(previewURLMarqueeRef.current, { y: '0%', opacity: 1 }, 0.4);
@@ -67,7 +56,7 @@ const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
     });
 
     return () => context.revert();
-  }, [heroTextRef, imgContainerRef, previewURLMarqueeRef]);
+  }, [imgContainerRef, previewURLMarqueeRef]);
 
   return (
     <section>
@@ -76,9 +65,13 @@ const Hero: React.FC<HeroProps> = ({ title, mainImage }) => {
         className="text-light relative h-full w-full bg-dark pt-[130px] lg:pt-[293px]"
       >
         <header className="container mx-auto pb-sm">
-          <h1 ref={heroTextRef} className="max-w-5xl text-xxl">
+          <SplitTextAnimation
+            el="h1"
+            delay={initialDelay}
+            className="max-w-5xl text-xxl"
+          >
             {title}
-          </h1>
+          </SplitTextAnimation>
         </header>
 
         <div className="relative z-[1] mx-auto mb-section-md w-full !overflow-hidden">

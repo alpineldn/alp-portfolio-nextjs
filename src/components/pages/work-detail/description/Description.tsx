@@ -5,11 +5,13 @@ import LinkEl from '@/components/common/ui/LinkEl';
 import gsap from 'gsap';
 import { PortableText, PortableTextBlock } from 'next-sanity';
 import Link from 'next/link';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Slug } from 'sanity';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import SplitType from 'split-type';
 import cn from '@/utils/cn';
+import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface DescriptionProps {
   body: PortableTextBlock[];
@@ -28,27 +30,24 @@ const Description: React.FC<DescriptionProps> = ({
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const detailContainerRef = useRef<HTMLDivElement>(null);
-  const bodyRef = useRef<HTMLDivElement>(null);
+  const [animationTrigger, setAnimationTrigger] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef?.current) return;
+
+    ScrollTrigger.create({
+      trigger: sectionRef?.current,
+      start: 'top 80%',
+      end: 'bottom 80%',
+      onEnter: () => {
+        setAnimationTrigger(true);
+      },
+    });
+  }, [sectionRef]);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
-      if (
-        !detailContainerRef?.current ||
-        !bodyRef?.current ||
-        !sectionRef?.current
-      )
-        return;
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      const bodyText = new SplitType(
-        Array.from(bodyRef.current.childNodes) as HTMLElement[],
-        {
-          types: 'lines,words',
-          lineClass: 'overflow-hidden',
-        },
-      );
-      if (!!bodyText.words?.length) gsap.set(bodyText.words, { y: '100%' });
+      if (!detailContainerRef?.current || !sectionRef?.current) return;
 
       const projectInfoEls =
         detailContainerRef.current.querySelectorAll('ul > li');
@@ -68,13 +67,10 @@ const Description: React.FC<DescriptionProps> = ({
           opacity: 1,
           stagger: 0.05,
         });
-
-      if (!!bodyText.words?.length)
-        tl.to(bodyText.words, { y: '0%', stagger: 0.025 }, 0.2);
     });
 
     return () => context.revert();
-  }, [detailContainerRef, bodyRef, sectionRef]);
+  }, [detailContainerRef, sectionRef]);
 
   return (
     <section>
@@ -87,11 +83,18 @@ const Description: React.FC<DescriptionProps> = ({
             previewURL={previewURL}
           />
         </div>
-        <div className="max-w-screen-lg overflow-hidden pb-sm pt-sm md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
-          <div ref={bodyRef} className="overflow-hidden text-l">
-            <PortableText value={body} />
+        {!!body && (
+          <div className="max-w-screen-lg overflow-hidden pb-sm pt-sm md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
+            <SplitTextAnimation
+              el="div"
+              target="childNodes"
+              animate={animationTrigger}
+              className="!overflow-hidden text-l"
+            >
+              <PortableText value={body} />
+            </SplitTextAnimation>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

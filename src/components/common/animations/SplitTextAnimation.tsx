@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect, useState } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -17,6 +17,7 @@ interface SplitTextAnimationProps {
   duration?: number;
   animate?: boolean; // Flag to trigger the animation
   el?: React.ElementType;
+  target?: 'current' | 'childNodes';
 }
 
 const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
@@ -28,19 +29,30 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
   stagger = 0.05,
   duration = 1.5,
   animate = true,
+  target = 'current',
 }) => {
   const ref = useRef<HTMLElement>(null);
+  const [_splitText, setSplitTexts] = useState<SplitType>();
 
   useLayoutEffect(() => {
-    if (!ref.current || !animate) return; // If animate is false, skip the animation
+    if (!ref.current) return;
 
     // Split the text into lines and words
-    const splitText = new SplitType(ref.current as HTMLElement, {
-      types: 'lines,words',
-      lineClass: 'overflow-hidden',
-    });
-
+    const splitText = new SplitType(
+      target === 'current'
+        ? (ref.current as HTMLElement)
+        : (ref.current.childNodes as NodeListOf<HTMLElement>),
+      {
+        types: 'lines,words',
+        lineClass: 'overflow-hidden',
+      },
+    );
+    setSplitTexts(splitText);
     gsap.set(splitText.words, { y: '100%' });
+  }, [ref]);
+
+  useLayoutEffect(() => {
+    if (!ref.current || !animate || !_splitText) return;
 
     // Create the animation timeline
     const tl = gsap.timeline({
@@ -48,17 +60,17 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
       delay,
     });
 
-    tl.to(splitText.words, {
+    tl.to(_splitText.words, {
       y: '0%',
       duration,
       stagger,
     });
 
     return () => {
-      splitText.revert(); // Cleanup SplitType
+      _splitText.revert(); // Cleanup SplitType
       tl.kill(); // Clean up the GSAP timeline
     };
-  }, [ref]); // Dependency array includes 'animate'
+  }, [ref, animate, _splitText]); // Dependency array includes 'animate'
 
   return (
     <Element ref={ref} className={cn('overflow-hidden', className)}>

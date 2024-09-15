@@ -1,73 +1,25 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import SplitType from 'split-type';
-import gsap from 'gsap';
 import { useStore } from '@/store/store';
 import cn from '@/utils/cn';
 import Image from 'next/image';
+import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const heroTextRef = useRef<HTMLHeadingElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
-  const descriptionRefSm = useRef<HTMLParagraphElement>(null);
-  const heroTextRefSm = useRef<HTMLHeadingElement>(null);
   const { firstVisit } = useStore((store) => store);
-
-  const createAnimation = (
-    headerRef: React.RefObject<HTMLHeadingElement>,
-    descriptionRef: React.RefObject<HTMLParagraphElement>,
-  ) => {
-    if (!headerRef?.current || !descriptionRef?.current) return;
-
-    const tl = gsap.timeline({
-      defaults: { ease: 'power2.inOut' },
-      delay: firstVisit ? 2.7 : 1.5,
-    });
-
-    const header = new SplitType(headerRef.current, {
-      types: 'lines,words',
-      lineClass: 'overflow-hidden',
-    });
-    const description = new SplitType(descriptionRef.current, {
-      types: 'lines,words',
-      lineClass: 'overflow-hidden',
-    });
-
-    gsap.set([header.words, description.words], { y: '100%' });
-
-    tl.to(header.words, {
-      y: '0%',
-      duration: 1.5,
-      stagger: 0.05,
-    }).to(description.words, { y: '0%', stagger: 0.05 }, '-=.5');
-  };
-
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      let mm = gsap.matchMedia();
-      mm.add('(min-width: 640px)', () =>
-        createAnimation(heroTextRef, descriptionRef),
-      );
-      mm.add('(max-width: 639px)', () =>
-        createAnimation(heroTextRefSm, descriptionRefSm),
-      );
-    });
-
-    return () => context.revert();
-  }, [heroTextRef, descriptionRef, heroTextRefSm, descriptionRefSm]);
+  const initialDelay = firstVisit ? 2.7 : 1.5;
 
   return (
     <motion.div
       ref={containerRef}
-      // variants={slideUp}
       initial="initial"
       animate="enter"
-      className="text-light bg-noise-animation relative flex h-screen overflow-hidden"
+      className="text-light relative flex h-screen overflow-hidden"
     >
       {/*  */}
 
@@ -91,34 +43,40 @@ const Hero: React.FC<HeroProps> = ({}) => {
       </video> */}
 
       <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex sm:pl-[6vw] lg:max-w-7xl">
-        <h1 ref={heroTextRef} className="text-xxl">
+        <SplitTextAnimation el="h1" delay={initialDelay} className="text-xxl">
           About
-        </h1>
+        </SplitTextAnimation>
       </div>
-      <p
-        ref={descriptionRef}
+      <SplitTextAnimation
+        el="p"
+        delay={initialDelay + 0.2}
         className={cn(
           'text-m',
           'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]',
         )}
       >
         Lorem ipsum dolor sit amet.
-      </p>
+      </SplitTextAnimation>
 
       <div
         data-scroll
         data-scroll-speed={0.1}
         className="container relative flex h-full w-full translate-y-5 flex-col justify-center sm:hidden"
       >
-        <h1 ref={heroTextRefSm} className="relative m-0 pb-5 text-xxl">
+        <SplitTextAnimation
+          el="h1"
+          delay={initialDelay}
+          className="relative m-0 pb-5 text-xxl"
+        >
           About
-        </h1>
-        <p
-          ref={descriptionRefSm}
+        </SplitTextAnimation>
+        <SplitTextAnimation
+          el="p"
+          delay={initialDelay + 0.2}
           className="absolute bottom-14 left-0 text-m max-lg:px-5"
         >
           Lorem ipsum dolor sit amet.
-        </p>
+        </SplitTextAnimation>
       </div>
     </motion.div>
   );

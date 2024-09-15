@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       // variants={slideUp}
       initial="initial"
       animate="enter"
-      className="text-light bg-noise-animation relative flex h-screen overflow-hidden"
+      className="text-light relative flex h-screen overflow-hidden"
     >
       <video
         autoPlay

@@ -44,7 +44,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
         /> */}
       </div>
 
-      {children}
+      <div className="bg-noise-animation relative overflow-hidden">
+        {children}
+      </div>
     </div>
   );
 }

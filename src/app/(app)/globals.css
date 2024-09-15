@@ -76,7 +76,7 @@
   }
 
   .bg-noise-animation {
-    @apply after:bg-noise after:animate-grain after:pointer-events-none after:absolute after:h-[300%] after:w-[300%] after:opacity-10 after:content-[''];
+    @apply after:pointer-events-none after:absolute after:inset-0 after:h-[300%] after:w-[300%] after:animate-grain after:bg-noise after:opacity-5 after:content-[''];
   }
 }
 

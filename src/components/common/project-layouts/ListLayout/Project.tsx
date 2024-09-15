@@ -57,7 +57,7 @@ const ProjectList: React.FC<ProjectProps> = ({
       onMouseLeave={(e) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
-      className="interactable group grid w-full cursor-pointer grid-cols-2 items-center gap-2 border-t border-solid border-t-white/50 py-xs text-white transition-all duration-300 last:border-b last:border-b-white/50 hover:opacity-50 lg:grid-cols-1 2xl:py-sm"
+      className="interactable group grid w-full cursor-pointer grid-cols-2 items-center gap-5 border-t border-solid border-t-white/50 py-xs text-white transition-all duration-300 last:border-b last:border-b-white/50 hover:opacity-50 lg:grid-cols-1 2xl:py-sm"
     >
       <div className="grid max-lg:grid-cols-12 md:gap-5 lg:grid-cols-12">
         <h3 className="col-span-12 text-l lg:col-span-5">{title}</h3>

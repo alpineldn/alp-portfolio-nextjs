@@ -43,8 +43,8 @@ const LinkEl: React.FC<LinkProps> = ({
         href={href}
         className={cn(
           'interactable',
-          '!text-link-xxl flex items-center gap-x-20 group-hover:text-red',
-          { 'text-gray': pathName === href },
+          'group-hover:text-primary-hover flex items-center gap-x-20 !text-link-xxl',
+          { 'text-primary-active hover:text-primary-hover': pathName === href },
         )}
       >
         <span className="!leading-none transition-colors duration-500">

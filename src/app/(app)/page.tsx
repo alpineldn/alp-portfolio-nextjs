@@ -1,7 +1,7 @@
 import Page from '@/components/common/Page';
 import Contact from '@/components/contact';
 import Description from '@/components/pages/landing/description';
-import Hero from '@/components/pages/landing/hero';
+import Hero from '@/components/pages/landing/hero/Hero';
 import Projects from '@/components/pages/landing/projects';
 import { SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';

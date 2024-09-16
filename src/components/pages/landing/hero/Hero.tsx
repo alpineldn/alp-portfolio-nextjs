@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useStore } from '@/store/store';
 import cn from '@/utils/cn';
-import Image from 'next/image';
 import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
 
 interface HeroProps {}
@@ -21,30 +20,19 @@ const Hero: React.FC<HeroProps> = ({}) => {
       animate="enter"
       className="text-light relative flex h-screen overflow-hidden"
     >
-      {/*  */}
-
-      <figure className="absolute h-full w-full object-cover">
-        <Image
-          width={1920}
-          height={1080}
-          sizes="100vw"
-          src="/images/alpine_bg.jpg"
-          alt="About Image"
-          className="aspect-auto h-full w-full object-cover"
-        />
-      </figure>
-      {/* <video
+      <video
         autoPlay
         loop
         muted
         className="home-hero absolute h-full w-full object-cover"
       >
         <source src="/mountains_video_4_optim.mp4" type="video/mp4" />
-      </video> */}
+      </video>
 
       <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex sm:pl-[6vw] lg:max-w-7xl">
         <SplitTextAnimation el="h1" delay={initialDelay} className="text-xxl">
-          About
+          Elevating Brands +<br />
+          Digital Experiences
         </SplitTextAnimation>
       </div>
       <SplitTextAnimation
@@ -55,7 +43,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
           'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]',
         )}
       >
-        Lorem ipsum dolor sit amet.
+        Brand + Digital Development Studio
       </SplitTextAnimation>
 
       <div
@@ -68,14 +56,15 @@ const Hero: React.FC<HeroProps> = ({}) => {
           delay={initialDelay}
           className="relative m-0 pb-5 text-xxl"
         >
-          About
+          Elevating Brands +<br />
+          Digital Experiences
         </SplitTextAnimation>
         <SplitTextAnimation
           el="p"
           delay={initialDelay + 0.2}
           className="absolute bottom-14 left-0 text-m max-lg:px-5"
         >
-          Lorem ipsum dolor sit amet.
+          Brand + Digital Development Studio
         </SplitTextAnimation>
       </div>
     </motion.div>

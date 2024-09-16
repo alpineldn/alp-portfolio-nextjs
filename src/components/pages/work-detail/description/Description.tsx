@@ -5,11 +5,15 @@ import LinkEl from '@/components/common/ui/LinkEl';
 import gsap from 'gsap';
 import { PortableText, PortableTextBlock } from 'next-sanity';
 import Link from 'next/link';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Slug } from 'sanity';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import SplitType from 'split-type';
 import cn from '@/utils/cn';
+import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
+import FadeInOnViewAnimation from '@/components/common/animations/FadeInOnViewAnimation';
+import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface DescriptionProps {
   body: PortableTextBlock[];
@@ -28,53 +32,47 @@ const Description: React.FC<DescriptionProps> = ({
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const detailContainerRef = useRef<HTMLDivElement>(null);
-  const bodyRef = useRef<HTMLDivElement>(null);
+  const [animationTrigger, setAnimationTrigger] = useState(false);
 
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      if (
-        !detailContainerRef?.current ||
-        !bodyRef?.current ||
-        !sectionRef?.current
-      )
-        return;
+  useEffect(() => {
+    if (!sectionRef?.current) return;
 
-      gsap.registerPlugin(ScrollTrigger);
-
-      const bodyText = new SplitType(
-        Array.from(bodyRef.current.childNodes) as HTMLElement[],
-        {
-          types: 'lines,words',
-          lineClass: 'overflow-hidden',
-        },
-      );
-      if (!!bodyText.words?.length) gsap.set(bodyText.words, { y: '100%' });
-
-      const projectInfoEls =
-        detailContainerRef.current.querySelectorAll('ul > li');
-
-      const tl = gsap.timeline({
-        defaults: { ease: 'power4.inOut', duration: 1.4 },
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          end: 'bottom 80%',
-        },
-      });
-
-      if (!!projectInfoEls?.length)
-        tl.to([projectInfoEls, '#preview-url-btn'], {
-          y: '0%',
-          opacity: 1,
-          stagger: 0.05,
-        });
-
-      if (!!bodyText.words?.length)
-        tl.to(bodyText.words, { y: '0%', stagger: 0.025 }, 0.2);
+    ScrollTrigger.create({
+      trigger: sectionRef?.current,
+      start: 'top 80%',
+      end: 'bottom 80%',
+      onEnter: () => {
+        setAnimationTrigger(true);
+      },
     });
+  }, [sectionRef]);
 
-    return () => context.revert();
-  }, [detailContainerRef, bodyRef, sectionRef]);
+  // useLayoutEffect(() => {
+  //   const context = gsap.context(() => {
+  //     if (!detailContainerRef?.current || !sectionRef?.current) return;
+
+  //     const projectInfoEls =
+  //       detailContainerRef.current.querySelectorAll('ul > li');
+
+  //     const tl = gsap.timeline({
+  //       defaults: { ease: 'power4.inOut', duration: 1.4 },
+  //       scrollTrigger: {
+  //         trigger: sectionRef.current,
+  //         start: 'top 80%',
+  //         end: 'bottom 80%',
+  //       },
+  //     });
+
+  //     if (!!projectInfoEls?.length)
+  //       tl.to([projectInfoEls, '#preview-url-btn'], {
+  //         y: '0%',
+  //         opacity: 1,
+  //         stagger: 0.05,
+  //       });
+  //   });
+
+  //   return () => context.revert();
+  // }, [detailContainerRef, sectionRef]);
 
   return (
     <section>
@@ -87,11 +85,18 @@ const Description: React.FC<DescriptionProps> = ({
             previewURL={previewURL}
           />
         </div>
-        <div className="max-w-screen-lg overflow-hidden pb-sm pt-sm md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
-          <div ref={bodyRef} className="overflow-hidden text-l">
-            <PortableText value={body} />
+        {!!body && (
+          <div className="max-w-screen-lg overflow-hidden pb-sm pt-sm md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
+            <SplitTextAnimation
+              el="div"
+              target="childNodes"
+              animate={animationTrigger}
+              className="!overflow-hidden text-l"
+            >
+              <PortableText value={body} />
+            </SplitTextAnimation>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
@@ -114,35 +119,39 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
         )}
       >
         {!!client && (
-          <li className={cn('translate-y-[50px] opacity-0')}>
-            <div className="text-lightGray">Client:</div>
-            <div>{client}</div>
+          <li>
+            <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }}>
+              <div className="text-lightGray">Client:</div>
+              <div>{client}</div>
+            </FadeInAndSlideUpOnViewAnimation>
           </li>
         )}
         {!!agency && (
-          <li className={cn('translate-y-[50px] opacity-0')}>
-            <div className="text-lightGray">Agency:</div>
-            <div>{agency}</div>
+          <li>
+            <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }} delay={0.05}>
+              <div className="text-lightGray">Agency:</div>
+              <div>{agency}</div>
+            </FadeInAndSlideUpOnViewAnimation>
           </li>
         )}
 
-        <li className={cn('translate-y-[50px] opacity-0')}>
-          <div className="text-lightGray">Categories:</div>
-          <div>
-            {categories.map(({ title, _id }, index) => (
-              <span key={_id}>
-                {title} {index !== categories.length - 1 && ', '}
-              </span>
-            ))}
-          </div>
+        <li>
+          <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }} delay={0.1}>
+            <div className="text-lightGray">Categories:</div>
+            <div>
+              {categories.map(({ title, _id }, index) => (
+                <span key={_id}>
+                  {title} {index !== categories.length - 1 && ', '}
+                </span>
+              ))}
+            </div>
+          </FadeInAndSlideUpOnViewAnimation>
         </li>
       </ul>
-      <div
-        id="preview-url-btn"
-        className={cn(
-          'translate-y-[50px] opacity-0',
-          'flex lg:items-start lg:justify-end',
-        )}
+      <FadeInAndSlideUpOnViewAnimation
+        initial={{ y: 50 }}
+        delay={0.15}
+        className={cn('flex lg:items-start lg:justify-end')}
       >
         {!!previewURL?.current && (
           <Link
@@ -153,7 +162,7 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
             <LinkEl>View Site</LinkEl>
           </Link>
         )}
-      </div>
+      </FadeInAndSlideUpOnViewAnimation>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { slideUp, opacity } from './animation';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import LinkEl from '@/components/common/ui/LinkEl';
 import cn from '@/utils/cn';
+import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
 
 interface DescriptionProps {}
 
@@ -30,37 +31,30 @@ const Description: React.FC<DescriptionProps> = () => {
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px] lg:w-9/12">
           <div className="intro_para">
-            <p className={cn('text-l')}>
-              {phrase.split(' ').map((word, index) => {
-                return (
-                  <span
-                    key={index}
-                    className="relative mr-[7px] inline-flex overflow-hidden"
-                  >
-                    <motion.span
-                      variants={slideUp}
-                      custom={index}
-                      animate={isInView ? 'open' : 'closed'}
-                      key={index}
-                    >
-                      {word}
-                    </motion.span>
-                  </span>
-                );
-              })}
-            </p>
+            <SplitTextAnimation
+              el="p"
+              className={cn('text-l')}
+              animate={isInView}
+            >
+              {phrase}
+            </SplitTextAnimation>
           </div>
         </div>
 
         <div className="flex w-full flex-row flex-wrap">
           <ul className="mt-20 flex flex-row flex-wrap max-sm:flex-col max-sm:flex-nowrap">
-            {services.map(({ id, title }) => (
+            {services.map(({ id, title }, index) => (
               <li
                 key={id}
                 className="mr-10 inline-flex items-center space-x-3 text-m sm:flex lg:space-x-4"
               >
-                {/* <div className="h-[1px] w-5 bg-gray lg:w-[0.5rem]" /> */}
-                <span>{title}</span>
+                <SplitTextAnimation
+                  el="span"
+                  delay={index * 0.2}
+                  animate={isInView}
+                >
+                  {title}
+                </SplitTextAnimation>
               </li>
             ))}
           </ul>

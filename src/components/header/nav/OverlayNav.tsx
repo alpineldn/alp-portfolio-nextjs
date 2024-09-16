@@ -45,7 +45,7 @@ const NavLinks: React.FC<{
       }}
       className="flex -translate-y-10 flex-col"
     >
-      <ul>
+      <ul className="space-y-4">
         {navItems.map((data, index) => {
           return (
             <LinkEl
@@ -67,7 +67,7 @@ const BottomLinks: React.FC<{}> = () => {
     <div className="fixed bottom-0 left-0 mx-auto w-full">
       <div className="container mx-auto flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:pb-section-md">
         <UnderlineLink
-          className="interactable w-auto text-xl max-sm:mb-10"
+          className="interactable w-auto text-l max-sm:mb-10 md:text-xl"
           href="mailto:studio@alpineldn.com"
         >
           studio@alpineldn.com

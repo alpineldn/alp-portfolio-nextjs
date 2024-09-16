@@ -3,36 +3,21 @@
 import { useStore } from '@/store/store';
 import cn from '@/utils/cn';
 import { useLayoutEffect, useRef } from 'react';
-import SplitType from 'split-type';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface PrivacyPolicyProps {}
 
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const { firstVisit } = useStore((store) => store);
+  const initialDelay = firstVisit ? 2.7 : 1.5;
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
-      gsap.registerPlugin(ScrollTrigger);
-
-      if (!heroTextRef?.current) return;
-
-      const tl = gsap.timeline({
-        defaults: { ease: 'power4.inOut', duration: 1.4 },
-        delay: firstVisit ? 2.7 : 1.5,
-      });
-
-      const header = new SplitType(heroTextRef.current, {
-        types: 'lines,words',
-        lineClass: 'overflow-hidden',
-      });
-
-      gsap.set(header.words, { y: '100%' });
-      tl.to(header.words, { y: '0%', stagger: 0.05 });
-
-      // Fade in animation for each fade-in element
       gsap.utils.toArray<HTMLElement>('.fade-in').forEach((element) => {
         gsap.fromTo(
           element,
@@ -52,7 +37,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
     });
 
     return () => context.revert();
-  }, [heroTextRef]);
+  }, []);
 
   return (
     <div className="container mx-auto pt-[130px] lg:pt-[293px]">
@@ -66,20 +51,14 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
           'prose-li:text-s-spaced',
         )}
       >
-        {/* <div>
-          <Image
-            priority
-            className="aspect-video max-h-[500px] rounded-lg object-cover"
-            width={1920}
-            height={500}
-            alt="flower"
-            src="/images/flowers.jpg"
-          />
-        </div> */}
         <div>
-          <h1 ref={heroTextRef} className="max-w-5xl text-xxl">
+          <SplitTextAnimation
+            delay={initialDelay}
+            el="h1"
+            className="max-w-5xl text-xxl"
+          >
             Privacy policy
-          </h1>
+          </SplitTextAnimation>
           <p className="fade-in">Effective Date: 04.07.2024</p>
         </div>
         <section className={cn('section-padding-b mx-auto')}>

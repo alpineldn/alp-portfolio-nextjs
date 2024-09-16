@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 export default function Template({ children }: { children: React.ReactNode }) {
   const { pageName, firstVisit, setFirstVisit } = useStore((state) => state);
   const time = firstVisit ? 2 : 1;
-  //const imgRef = useRef<HTMLImageElement>(null);
+  // const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     animatePageIn(time, firstVisit, setFirstVisit);
@@ -44,7 +44,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
         /> */}
       </div>
 
-      {children}
+      <div className="bg-noise-animation relative overflow-hidden">
+        {children}
+      </div>
     </div>
   );
 }

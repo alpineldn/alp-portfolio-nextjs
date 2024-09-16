@@ -6,6 +6,8 @@ import { useLayoutEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 
+gsap.registerPlugin(ScrollTrigger);
+
 interface ContactProps {}
 
 const Contact: React.FC<ContactProps> = () => {
@@ -16,8 +18,6 @@ const Contact: React.FC<ContactProps> = () => {
   useLayoutEffect(() => {
     const context = gsap.context(() => {
       if (!containerRef?.current) return;
-
-      gsap.registerPlugin(ScrollTrigger);
 
       const emailEl =
         containerRef.current.querySelector<HTMLDivElement>('#contact-cta');

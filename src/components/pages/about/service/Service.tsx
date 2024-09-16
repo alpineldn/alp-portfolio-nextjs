@@ -25,7 +25,9 @@ const Service: React.FC<ServiceProps> = ({}) => {
               <div
                 key={index}
                 className={cn(
-                  'py-section md:py-section-lg',
+                  index === 0
+                    ? 'pb-section md:pb-section-lg'
+                    : 'py-section md:py-section-lg',
                   isEven ? 'bg-dark' : 'bg-darkGray',
                 )}
               >

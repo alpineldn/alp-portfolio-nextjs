@@ -122,7 +122,7 @@ module.exports = {
       },
 
       colors: {
-        primary: '#FFFFFF',
+        primary: '#505050',
         'primary-hover': '#505050',
         'primary-active': '#202020',
         white: '#FFFFFF',

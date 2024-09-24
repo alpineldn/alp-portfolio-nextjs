@@ -10,11 +10,11 @@ interface ServiceProps {}
 const Service: React.FC<ServiceProps> = ({}) => {
   return (
     <section className="relative overflow-hidden bg-dark">
-      <div className="container mx-auto">
+      {/* <div className="container mx-auto">
         <h2 className="pt-sm text-section-subtitle text-lightGray md:pt-section xl:mb-section-md">
           Services
         </h2>
-      </div>
+      </div> */}
 
       <div>
         <div>
@@ -33,7 +33,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
               >
                 <div
                   className={cn(
-                    'container mx-auto flex justify-between gap-7 xl:gap-16',
+                    'container mx-auto flex gap-7 xl:gap-16',
                     isEven ? 'max-md:flex-col' : 'max-md:flex-col-reverse',
                   )}
                 >

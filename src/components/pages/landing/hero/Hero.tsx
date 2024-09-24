@@ -26,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         muted
         className="home-hero absolute h-full w-full object-cover"
       >
-        <source src="/mountains_video_4_optim.mp4" type="video/mp4" />
+        <source src="/mountains_video_looped_optimized.mp4" type="video/mp4" />
       </video>
 
       <div className="hidden h-screen flex-col justify-center max-lg:px-5 sm:flex sm:pl-[6vw] lg:max-w-7xl">
@@ -40,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         delay={initialDelay + 0.2}
         className={cn(
           'text-m',
-          'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]',
+          'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block sm:pl-[6vw] lg:max-w-7xl',
         )}
       >
         Brand + Digital Development Studio

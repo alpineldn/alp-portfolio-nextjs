@@ -47,6 +47,11 @@ module.exports = {
         },
       ],
 
+      s: [
+        'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.3' },
+      ],
+
       's-spaced': [
         'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
         { letterSpacing: '0.03em', fontWeight: 400, lineHeight: 'normal' },

@@ -52,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         delay={initialDelay + 0.2}
         className={cn(
           'text-m',
-          'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[8vw]',
+          'absolute bottom-[15%] left-0 hidden w-full max-lg:px-5 sm:block lg:max-w-7xl lg:pl-[6vw]',
         )}
       >
         Lorem ipsum dolor sit amet.

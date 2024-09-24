@@ -12,14 +12,14 @@ const Description: React.FC<DescriptionProps> = ({
   title,
 }) => {
   return (
-    <div className="space-y-8 md:max-w-[65%] xl:max-w-[55%]">
+    <div className="space-y-8 md:max-w-[50%]">
       <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }}>
-        <h3 className="text-xl">
+        <h3 className="text-l">
           <span className="text-gray">{index + 1}.</span> {title}
         </h3>
       </FadeInAndSlideUpOnViewAnimation>
       <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
-        <p className="text-m">{description}</p>
+        <p className="text-s">{description}</p>
       </FadeInAndSlideUpOnViewAnimation>
     </div>
   );

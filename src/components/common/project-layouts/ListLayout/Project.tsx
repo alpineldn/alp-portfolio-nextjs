@@ -60,11 +60,11 @@ const ProjectList: React.FC<ProjectProps> = ({
       className="interactable group grid w-full cursor-pointer grid-cols-2 items-center gap-5 border-t border-solid border-t-white/50 py-xs text-white transition-all duration-300 last:border-b last:border-b-white/50 hover:opacity-50 lg:grid-cols-1 2xl:py-sm"
     >
       <div className="grid max-lg:grid-cols-12 md:gap-5 lg:grid-cols-12">
-        <h3 className="col-span-12 text-l lg:col-span-5">{title}</h3>
-        <div className="col-span-12 block text-m max-lg:hidden md:col-span-6 lg:col-span-4">
+        <h3 className="col-span-12 text-l lg:col-span-8">{title}</h3>
+        {/* <div className="col-span-12 block text-m max-lg:hidden md:col-span-6 lg:col-span-4">
           {client}
-        </div>
-        <div className="col-span-12 block text-m md:col-span-6 lg:col-span-3 xl:text-right">
+        </div> */}
+        <div className="col-span-12 block text-m md:col-span-6 lg:col-span-4 xl:text-right">
           {categories.map((category, index) => (
             <span key={category._id}>
               {category.title}

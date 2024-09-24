@@ -86,7 +86,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
           </motion.h3>
 
           <div className="block">
-            <div className="hidden items-center overflow-hidden lg:flex">
+            <div className="hidden items-center overflow-hidden">
               {!!client && (
                 <FadeInOnViewAnimation className="mt-3 text-m text-lightGray opacity-0">
                   {client}
@@ -102,7 +102,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
                   <FadeInOnViewAnimation
                     key={_id}
                     viewport={{ root: listContainerRef }}
-                    className="inline-block overflow-hidden text-ellipsis whitespace-pre text-lightGray opacity-0"
+                    className="inline-block overflow-hidden text-ellipsis whitespace-pre text-m text-lightGray opacity-0"
                   >
                     {title + (index < categories.length - 1 ? ', ' : '')}
                   </FadeInOnViewAnimation>

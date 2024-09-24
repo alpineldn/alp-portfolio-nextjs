@@ -122,9 +122,9 @@ module.exports = {
       },
 
       colors: {
-        primary: '#D12245',
-        'primary-hover': '#B11A39',
-        'primary-active': '#991C38',
+        primary: '#FFFFFF',
+        'primary-hover': '#505050',
+        'primary-active': '#202020',
         white: '#FFFFFF',
         dark: '#141414',
         gray: '#505050',

@@ -159,8 +159,7 @@ module.exports = {
       },
 
       backgroundImage: {
-        noise:
-          "url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')",
+        noise: "url('/images/Dissolve_Noise_Texture.jpg')",
       },
 
       fontFamily: {

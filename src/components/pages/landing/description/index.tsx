@@ -7,6 +7,8 @@ import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import LinkEl from '@/components/common/ui/LinkEl';
 import cn from '@/utils/cn';
 import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
+import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
+import FadeInOnViewAnimation from '@/components/common/animations/FadeInOnViewAnimation';
 
 interface DescriptionProps {}
 
@@ -41,33 +43,37 @@ const Description: React.FC<DescriptionProps> = () => {
           </div>
         </div>
 
-        <div className="flex w-full flex-row flex-wrap">
-          <ul className="mt-20 flex flex-row flex-wrap max-sm:flex-col max-sm:flex-nowrap">
-            {services.map(({ id, title }, index) => (
-              <li
-                key={id}
-                className="mr-10 inline-flex items-center space-x-3 text-m sm:flex lg:space-x-4"
-              >
-                <SplitTextAnimation
-                  el="span"
-                  delay={index * 0.2}
-                  animate={isInView}
+        <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }}>
+          <div className="flex w-full flex-row flex-wrap">
+            <ul className="mt-20 flex flex-row flex-wrap max-sm:flex-col max-sm:flex-nowrap">
+              {services.map(({ id, title }, index) => (
+                <li
+                  key={id}
+                  className="mr-10 inline-flex items-center space-x-3 text-m sm:flex lg:space-x-4"
                 >
-                  {title}
-                </SplitTextAnimation>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  <SplitTextAnimation
+                    el="span"
+                    delay={index * 0.5}
+                    animate={isInView}
+                  >
+                    {title}
+                  </SplitTextAnimation>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </FadeInAndSlideUpOnViewAnimation>
 
         <motion.div
           className="pt-section md:pt-section-lg"
           variants={opacity}
           animate={isInView ? 'open' : 'closed'}
         >
-          <PageTransitionLink className="block w-fit" href="/about">
-            <LinkEl>About Us</LinkEl>
-          </PageTransitionLink>
+          <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.5}>
+            <PageTransitionLink className="block w-fit" href="/about">
+              <LinkEl>About Us</LinkEl>
+            </PageTransitionLink>
+          </FadeInAndSlideUpOnViewAnimation>
         </motion.div>
       </div>
     </section>

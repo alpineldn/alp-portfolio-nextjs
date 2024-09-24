@@ -26,7 +26,7 @@ const Service: React.FC<ServiceProps> = ({}) => {
                 key={index}
                 className={cn(
                   index === 0
-                    ? 'pb-section md:pb-section-lg'
+                    ? 'pb-section md:py-section-lg'
                     : 'py-section md:py-section-lg',
                   isEven ? 'bg-dark' : 'bg-darkGray',
                 )}
@@ -34,7 +34,9 @@ const Service: React.FC<ServiceProps> = ({}) => {
                 <div
                   className={cn(
                     'container mx-auto flex gap-7 xl:gap-16',
-                    isEven ? 'max-md:flex-col' : 'max-md:flex-col-reverse',
+                    isEven
+                      ? 'flex-row justify-start max-md:flex-col'
+                      : 'flex-row justify-end max-md:flex-col-reverse',
                   )}
                 >
                   {isEven ? (

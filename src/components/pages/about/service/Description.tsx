@@ -15,7 +15,7 @@ const Description: React.FC<DescriptionProps> = ({
     <div className="space-y-8 md:max-w-[50%]">
       <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }}>
         <h3 className="text-l">
-          <span className="text-gray">{index + 1}.</span> {title}
+          <span className="text-l text-gray">{index + 1}.</span> {title}
         </h3>
       </FadeInAndSlideUpOnViewAnimation>
       <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>

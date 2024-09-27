@@ -1,9 +1,11 @@
 // schemas/post.js
+import {UserRoundSearch} from 'lucide-react'
 
 export default {
   name: 'meta',
   title: 'Meta',
   type: 'document',
+  icon: UserRoundSearch,
   fields: [
     {
       name: 'title',
@@ -22,23 +24,10 @@ export default {
       },
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'text',
-      description: 'The body with custom meta in JSON format only*',
-      validation: Rule =>
-        Rule.custom(text => {
-          try {
-            // Attempt to parse the text as JSON
-            JSON.parse(text);
-            return true;
-          } catch (error) {
-            // If parsing fails, return an error message
-            return 'The body must be a valid JSON object.';
-          }
-        }),
+      name: 'ogImage',
+      type: 'image',
     },
-    // Add your custom meta tags field
+
     {
       name: 'meta',
       title: 'Meta Tags',
@@ -54,10 +43,17 @@ export default {
           name: 'keywords',
           title: 'Keywords',
           type: 'array',
-          of: [{ type: 'string' }],
+          of: [{type: 'string'}],
           description: 'Meta keywords for the post',
         },
       ],
     },
   ],
-};
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'path.current',
+      media: 'ogImage',
+    },
+  },
+}

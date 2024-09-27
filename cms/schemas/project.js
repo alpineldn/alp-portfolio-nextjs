@@ -1,3 +1,4 @@
+import {orderRankField} from '@sanity/orderable-document-list'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
@@ -5,6 +6,39 @@ export default defineType({
   title: 'Project',
   type: 'document',
   fields: [
+    orderRankField({type: 'project'}),
+
+    defineField({
+      name: 'meta',
+      title: 'Meta',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+          description: 'Your page title.',
+        },
+        {
+          name: 'description',
+          title: 'Description',
+          type: 'text',
+          description: 'Meta description for the post',
+        },
+        {
+          name: 'keywords',
+          title: 'Keywords',
+          type: 'array',
+          of: [{type: 'string'}],
+          description: 'Meta keywords for the post',
+        },
+        {
+          name: 'ogImage',
+          title: 'Open Graph Image',
+          type: 'image',
+        },
+      ],
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -26,6 +60,26 @@ export default defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: 'tileMedia',
+      type: 'object',
+      description: "If you don't upload a video, the tile image will be used.",
+      fields: [
+        {
+          name: 'tileImage',
+          title: 'Tile image',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
+        {
+          name: 'tileVideo',
+          title: 'Tile video',
+          type: 'video',
+        },
+      ],
     }),
     defineField({
       name: 'client',

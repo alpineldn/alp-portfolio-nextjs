@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
           width={1920}
           height={1080}
           sizes="100vw"
-          src="/images/alpine_bg.jpg"
+          src="/images/about_image.jpg"
           alt="About Image"
           className="aspect-auto h-full w-full object-cover"
         />

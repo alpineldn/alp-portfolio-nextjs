@@ -80,6 +80,22 @@
   }
 }
 
+.menu-mask-gradient {
+  @media (max-width: 640px) {
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 50%,
+      /* No fade in the first 80% */ rgba(255, 255, 255, 0) 100%
+        /* Fades out in the last 20% */
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+
 ::selection {
   background: gray;
 }

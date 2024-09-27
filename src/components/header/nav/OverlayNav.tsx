@@ -22,7 +22,7 @@ const OverlayNav: React.FC<NavProps> = ({ setShowOverlay }) => {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="fixed right-0 top-0 z-[15] h-screen w-screen overflow-auto bg-darkGray text-white"
+      className="bg-noise-animation fixed right-0 top-0 z-[15] h-screen w-screen overflow-auto overflow-hidden bg-darkGray text-white"
     >
       <div className="container mx-auto flex h-full items-center">
         <NavLinks setShowOverlay={setShowOverlay} />
@@ -67,7 +67,7 @@ const BottomLinks: React.FC<{}> = () => {
     <div className="fixed bottom-0 left-0 mx-auto w-full">
       <div className="container mx-auto flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:pb-section-md">
         <UnderlineLink
-          className="interactable w-auto text-l max-sm:mb-10 md:text-xl"
+          className="interactable w-auto text-l max-sm:mb-10 md:text-l"
           href="mailto:studio@alpineldn.com"
         >
           studio@alpineldn.com

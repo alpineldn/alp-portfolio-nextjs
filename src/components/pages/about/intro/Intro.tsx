@@ -27,7 +27,8 @@ const Intro: React.FC<IntroProps> = ({}) => {
 
   return (
     <section ref={sectionRef} className="bg-darkGray">
-      <div className="container mx-auto overflow-hidden pb-sm pt-sm md:pb-section-lg md:pt-section-md xl:pb-section-xxl xl:pt-section-xl">
+      {/* md:pb-section-lg xl:pb-section-xxl ---removed from below div */}
+      <div className="container mx-auto overflow-hidden pb-sm pt-sm md:pt-section-md xl:pt-section-xl">
         <SplitTextAnimation
           el="p"
           stagger={0.025}
@@ -41,6 +42,12 @@ const Intro: React.FC<IntroProps> = ({}) => {
           project. With twenty years of experience, we execute with measurable
           results.
         </SplitTextAnimation>
+      </div>
+
+      <div className="container mx-auto">
+        <h2 className="pt-sm text-section-subtitle text-lightGray md:pb-section-lg md:pt-section xl:mb-section-md xl:pb-section-xxl">
+          Services
+        </h2>
       </div>
     </section>
   );

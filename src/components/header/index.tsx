@@ -93,8 +93,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
         ref={header}
         className={cn(
           'transition-transform duration-300 ease-smooth-curve',
-          'max-sm:bg-black/5 max-sm:backdrop-blur-sm',
-          'fixed left-0 top-0 z-20 box-border flex w-full items-center justify-between px-[20px] pt-2 font-light text-white max-sm:pb-2 sm:px-[20px]',
+          'menu-mask-gradient max-sm:backdrop-blur-sm',
+          'fixed left-0 top-0 z-20 box-border flex w-full items-center justify-between px-[20px] pt-2 font-light text-white max-sm:pb-8 sm:px-[20px]',
           {
             'max-sm:translate-y-0 max-sm:transform': scrollDirection === 'up',
             'max-sm:-translate-y-20 max-sm:transform':

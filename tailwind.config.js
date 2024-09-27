@@ -14,11 +14,11 @@ module.exports = {
 
     fontSize: {
       xxl: [
-        'clamp(3.9rem, 6vw + 1vh, 7rem)',
+        'clamp(3.6rem, 6vw + 1vh, 7rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
       'link-xxl': [
-        'clamp(2rem, 5vw + 2vh, 7rem)',
+        'clamp(5rem, 5vw + 2vh, 7rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
 
@@ -28,12 +28,12 @@ module.exports = {
       ],
 
       l: [
-        'clamp(2rem, 4vw + 1vh, 2.8rem)',
+        'clamp(1.8rem, 3vw + 1vh, 2.8rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.2' },
       ],
 
       m: [
-        'clamp(1.5rem, 3vw + 1vh, 1.9rem)',
+        'clamp(1.2rem, 1vw + 1vh, 1.9rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.4' },
       ],
 
@@ -45,6 +45,11 @@ module.exports = {
           lineHeight: '1.4',
           textTransform: 'uppercase',
         },
+      ],
+
+      s: [
+        'clamp(1rem, 1.5vw + 0.5vh, 1.2rem)',
+        { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.3' },
       ],
 
       's-spaced': [
@@ -117,9 +122,9 @@ module.exports = {
       },
 
       colors: {
-        primary: '#D12245',
-        'primary-hover': '#B11A39',
-        'primary-active': '#991C38',
+        primary: '#505050',
+        'primary-hover': '#505050',
+        'primary-active': '#202020',
         white: '#FFFFFF',
         dark: '#141414',
         gray: '#505050',
@@ -154,8 +159,7 @@ module.exports = {
       },
 
       backgroundImage: {
-        noise:
-          "url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')",
+        noise: "url('/images/Dissolve_Noise_Texture.jpg')",
       },
 
       fontFamily: {

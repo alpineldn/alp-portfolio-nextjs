@@ -19,7 +19,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <div>
       <div
         id="loading-banner-1"
-        className="fixed left-0 top-0 z-30 flex min-h-screen w-full items-center justify-center bg-darkGray bg-cover bg-center"
+        className="bg-noise-animation fixed left-0 top-0 z-30 flex min-h-screen w-full items-center justify-center overflow-hidden bg-darkGray bg-cover bg-center"
       >
         {firstVisit ? (
           <>

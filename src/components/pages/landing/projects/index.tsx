@@ -13,6 +13,9 @@ import useTouchHandler from '@/hooks/useTouchHandler';
 
 import Video from '@/components/common/video/Video';
 
+import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
+import FadeInOnViewAnimation from '@/components/common/animations/FadeInOnViewAnimation';
+
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {
   active: boolean;
@@ -98,9 +101,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </div>
 
         <div className="mt-sm flex md:mt-section-lg">
-          <PageTransitionLink className="block" href="/work">
-            <LinkEl>More Work</LinkEl>
-          </PageTransitionLink>
+          <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.5}>
+            <PageTransitionLink className="block" href="/work">
+              <LinkEl>More Work</LinkEl>
+            </PageTransitionLink>
+          </FadeInAndSlideUpOnViewAnimation>
         </div>
       </div>
 

@@ -1,8 +1,8 @@
 import Page from '@/components/common/Page';
-import Contact from '@/components/contact';
-import Description from '@/components/pages/landing/description';
+import Contact from '@/components/contact/Contact';
+import Description from '@/components/pages/landing/description/Description';
 import Hero from '@/components/pages/landing/hero/Hero';
-import Projects from '@/components/pages/landing/projects';
+import Projects from '@/components/pages/landing/projects/Projects';
 import { SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';

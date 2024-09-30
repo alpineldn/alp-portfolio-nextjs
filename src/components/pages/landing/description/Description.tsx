@@ -2,13 +2,12 @@
 
 import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
-import { slideUp, opacity } from './animation';
+import { opacity } from './animation';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import LinkEl from '@/components/common/ui/LinkEl';
 import cn from '@/utils/cn';
 import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
 import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
-import FadeInOnViewAnimation from '@/components/common/animations/FadeInOnViewAnimation';
 
 interface DescriptionProps {}
 

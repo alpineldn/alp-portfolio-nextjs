@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { menuSlide } from '../animation';
-import LinkEl from './link';
+import NavLink from './link/NavLink';
 import UnderlineLink from '@/components/common/ui/UnderlineLink';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 
@@ -22,7 +22,7 @@ const OverlayNav: React.FC<NavProps> = ({ setShowOverlay }) => {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="bg-noise-animation fixed right-0 top-0 z-[15] h-screen w-screen overflow-auto overflow-hidden bg-darkGray text-white"
+      className="bg-noise-animation fixed right-0 top-0 z-[15] h-screen w-screen overflow-hidden bg-darkGray text-white"
     >
       <div className="container mx-auto flex h-full items-center">
         <NavLinks setShowOverlay={setShowOverlay} />
@@ -48,7 +48,7 @@ const NavLinks: React.FC<{
       <ul className="space-y-4">
         {navItems.map((data, index) => {
           return (
-            <LinkEl
+            <NavLink
               key={index}
               data={{ ...data, index }}
               isActive={selectedIndicator == data.href}

@@ -16,7 +16,7 @@ interface LinkProps {
   setShowOverlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const LinkEl: React.FC<LinkProps> = ({
+const NavLink: React.FC<LinkProps> = ({
   data,
   setSelectedIndicator,
   className,
@@ -43,7 +43,7 @@ const LinkEl: React.FC<LinkProps> = ({
         href={href}
         className={cn(
           'interactable',
-          'group-hover:text-primary-hover flex items-center gap-x-20 !text-link-xxl',
+          'flex items-center gap-x-20 !text-link-xxl group-hover:text-primary-hover',
           { 'text-primary-active hover:text-primary-hover': pathName === href },
         )}
       >
@@ -70,4 +70,4 @@ const LinkEl: React.FC<LinkProps> = ({
   );
 };
 
-export default LinkEl;
+export default NavLink;

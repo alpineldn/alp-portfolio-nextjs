@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import ContactInfo from '../common/contact-info-links/ContactInfo';
+import Footer from '../common/footer/Footer';
 import UnderlineLink from '../common/ui/UnderlineLink';
 import { useLayoutEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -69,7 +69,7 @@ const Contact: React.FC<ContactProps> = () => {
         </div>
 
         <CTAs />
-        <ContactInfo id="info" className="translate-y-[25px] opacity-0" />
+        <Footer id="info" className="translate-y-[25px] opacity-0" />
       </div>
     </motion.section>
   );

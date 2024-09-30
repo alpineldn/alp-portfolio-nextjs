@@ -1,5 +1,5 @@
 import Page from '@/components/common/Page';
-import Contact from '@/components/contact';
+import Contact from '@/components/contact/Contact';
 import Hero from '@/components/pages/about/hero/Hero';
 import Service from '@/components/pages/about/service/Service';
 import { SITE_URL } from '@/utils/constants';

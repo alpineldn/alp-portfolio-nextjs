@@ -1,20 +1,17 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { Project as ProjectType } from '@/app/(app)/work/page';
+import { scaleAnimation } from '@/components/common/anim';
+import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
+import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
+import SanityImage from '@/components/common/sanity-image/SanityImage';
+import LinkEl from '@/components/common/ui/LinkEl';
+import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
+import Video from '@/components/common/video/Video';
+import useTouchHandler from '@/hooks/useTouchHandler';
+import { useWindowSize } from '@/hooks/useWindowSize';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import { Project as ProjectType } from '@/app/(app)/work/page';
-import SanityImage from '@/components/common/sanity-image/SanityImage';
-import { scaleAnimation } from '@/components/common/anim';
-import ProjectList from '@/components/common/project-layouts/ListLayout/Project';
-import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
-import LinkEl from '@/components/common/ui/LinkEl';
-import { useWindowSize } from '@/hooks/useWindowSize';
-import useTouchHandler from '@/hooks/useTouchHandler';
-
-import Video from '@/components/common/video/Video';
-
-import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
-import FadeInOnViewAnimation from '@/components/common/animations/FadeInOnViewAnimation';
+import { useEffect, useRef, useState } from 'react';
 
 type MoveRef = gsap.QuickToFunc | null;
 interface Model {

@@ -22,9 +22,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
     // Also, alternate the background color between 'bg-dark' and 'bg-darkGray' based on whether the section index is even
     <div
       className={cn(
-        index === 0
-          ? 'pb-sm md:py-section' // Apply larger padding for the first section
-          : 'py-sm md:py-section', // Standard padding for all other sections
+        'py-section md:py-section-lg',
         isEven ? 'bg-dark' : 'bg-darkGray', // Background color changes based on the even/odd index
       )}
     >

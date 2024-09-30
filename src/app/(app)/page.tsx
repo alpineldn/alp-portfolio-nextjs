@@ -3,7 +3,7 @@ import Contact from '@/components/contact/Contact';
 import Description from '@/components/pages/landing/description/Description';
 import Hero from '@/components/pages/landing/hero/Hero';
 import Projects from '@/components/pages/landing/projects/Projects';
-import { SITE_URL } from '@/utils/constants';
+import { HOMEPAGE_ID, SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';
 import { CLIENTS_QUERY, META_QUERY, WORK_QUERY } from '@/utils/sanity/queries';
@@ -65,7 +65,7 @@ const Home: React.FC<HomeProps> = async () => {
   const { projects, clients } = data;
 
   return (
-    <Page pageName="Alpine">
+    <Page pageName={HOMEPAGE_ID}>
       <Hero />
       <Description />
       {!!projects?.length && <Projects projects={projects} />}

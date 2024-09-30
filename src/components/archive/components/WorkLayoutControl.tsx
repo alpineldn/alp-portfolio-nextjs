@@ -1,7 +1,7 @@
-import RoundedButton from '@/components/common/ui/rounded-button';
 import ListIcon from './icons/ListIcon';
 import GridIcon from './icons/GridIcon';
 import cn from '@/utils/cn';
+import RoundedButton from './rounded-button';
 
 interface ViewControlProps {
   viewMode: 'list' | 'grid';

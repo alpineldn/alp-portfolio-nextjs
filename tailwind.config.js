@@ -33,7 +33,7 @@ module.exports = {
       ],
 
       m: [
-        'clamp(1.2rem, 1vw + 1vh, 1.9rem)',
+        'clamp(1.2rem, 2vw + 1.2vh, 1.9rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.4' },
       ],
 

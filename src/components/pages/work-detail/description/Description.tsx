@@ -47,33 +47,6 @@ const Description: React.FC<DescriptionProps> = ({
     });
   }, [sectionRef]);
 
-  // useLayoutEffect(() => {
-  //   const context = gsap.context(() => {
-  //     if (!detailContainerRef?.current || !sectionRef?.current) return;
-
-  //     const projectInfoEls =
-  //       detailContainerRef.current.querySelectorAll('ul > li');
-
-  //     const tl = gsap.timeline({
-  //       defaults: { ease: 'power4.inOut', duration: 1.4 },
-  //       scrollTrigger: {
-  //         trigger: sectionRef.current,
-  //         start: 'top 80%',
-  //         end: 'bottom 80%',
-  //       },
-  //     });
-
-  //     if (!!projectInfoEls?.length)
-  //       tl.to([projectInfoEls, '#preview-url-btn'], {
-  //         y: '0%',
-  //         opacity: 1,
-  //         stagger: 0.05,
-  //       });
-  //   });
-
-  //   return () => context.revert();
-  // }, [detailContainerRef, sectionRef]);
-
   return (
     <section>
       <div ref={sectionRef} className="container mx-auto">

@@ -43,12 +43,6 @@ const Intro: React.FC<IntroProps> = ({}) => {
           results.
         </SplitTextAnimation>
       </div>
-
-      <div className="container mx-auto">
-        <h2 className="pt-sm text-section-subtitle text-lightGray md:pb-section-lg md:pt-section xl:mb-section-md xl:pb-section-xxl">
-          Services
-        </h2>
-      </div>
     </section>
   );
 };

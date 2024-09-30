@@ -158,6 +158,8 @@ module.exports = {
         lightGray: '#888888',
         darkGray: '#111111',
         red: '#D12245',
+        'red-hover': '#D12245',
+        'red-active': '#A71E3A',
 
         // dark: '#141516',
         // light: '#f5f5f5',

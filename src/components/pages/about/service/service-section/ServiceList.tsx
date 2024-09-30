@@ -2,11 +2,11 @@ import cn from '@/utils/cn';
 import { useRef } from 'react';
 import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
 
-interface ServicesListProps {
+interface ServiceListProps {
   items: string[];
 }
 
-const ServicesList: React.FC<ServicesListProps> = ({ items }) => {
+const ServiceList: React.FC<ServiceListProps> = ({ items }) => {
   const listRef = useRef<HTMLUListElement>(null);
 
   return (
@@ -18,7 +18,7 @@ const ServicesList: React.FC<ServicesListProps> = ({ items }) => {
               initial={{ y: 50 }}
               delay={0.2 + index * 0.02}
               viewport={{ root: listRef }}
-              className={cn('text-s border-b border-b-gray py-3', {
+              className={cn('border-b border-b-gray py-3 text-s', {
                 'border-y border-y-gray': index === 0,
               })}
             >
@@ -31,4 +31,4 @@ const ServicesList: React.FC<ServicesListProps> = ({ items }) => {
   );
 };
 
-export default ServicesList;
+export default ServiceList;

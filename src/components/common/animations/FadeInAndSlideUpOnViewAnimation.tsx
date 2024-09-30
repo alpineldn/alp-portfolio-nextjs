@@ -1,6 +1,5 @@
 import { AnimationProps, motion, MotionProps } from 'framer-motion';
 import { smoothCurve } from '../anim';
-import cn from '@/utils/cn';
 
 interface Props {
   children: React.ReactNode;
@@ -14,6 +13,31 @@ interface Props {
   viewport?: MotionProps['viewport'];
 }
 
+/**
+ * FadeInAndSlideUpOnViewAnimation Component
+ *
+ * This component animates its children with a fade-in and slide-up effect when they come into view.
+ *
+ * Props:
+ * - children: React.ReactNode - The content to be animated.
+ * - className?: string - Additional class names for the motion div.
+ * - initial?: AnimationProps['initial'] - Initial animation state.
+ * - whileInView?: MotionProps['whileInView'] - Animation state when the component is in view.
+ * - transition?: MotionProps['transition'] - Transition properties for the animation.
+ * - viewportOnce?: boolean - Whether the animation should only occur once when the component comes into view.
+ * - motionProps?: MotionProps - Additional motion properties.
+ * - delay?: number - Delay before the animation starts.
+ * - viewport?: MotionProps['viewport'] - Viewport properties for the animation.
+ *
+ * Usage:
+ * ```tsx
+ * <FadeInAndSlideUpOnViewAnimation>
+ *   <YourComponent />
+ * </FadeInAndSlideUpOnViewAnimation>
+ * ```
+ *
+ * For more information, visit: https://www.framer.com/motion/component/
+ */
 const FadeInAndSlideUpOnViewAnimation: React.FC<Props> = ({
   children,
   className,

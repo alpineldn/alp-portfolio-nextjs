@@ -31,7 +31,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
           >
             {pageName === HOMEPAGE_ID ? (
               <AnimatedLogo
-                duration={1.6}
+                duration={1.5}
                 className="w-full max-w-[100px] xl:max-w-[200px]"
               />
             ) : (

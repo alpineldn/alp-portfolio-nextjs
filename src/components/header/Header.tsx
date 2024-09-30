@@ -102,7 +102,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
           },
         )}
       >
-        <Logo showOverlay={showOverlay} />
+        <Logo showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
 
         <HamburgerMenuBtn
           ref={buttonRef}

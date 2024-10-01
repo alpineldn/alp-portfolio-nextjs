@@ -1,17 +1,20 @@
 import { useStore } from '@/store/store';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import PageTransitionLink from '../common/ui/PageTransitionLink';
 import cn from '@/utils/cn';
 import AlpLogo from '../common/icons/AlpLogo';
 import { AnimatePresence, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 interface LogoProps {
   showOverlay: boolean;
+  setShowOverlay: Dispatch<SetStateAction<boolean>>;
 }
 
-const Logo: React.FC<LogoProps> = ({ showOverlay }) => {
+const Logo: React.FC<LogoProps> = ({ showOverlay, setShowOverlay }) => {
   const { firstVisit } = useStore((store) => store);
   const [scrollY, setScrollY] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +28,11 @@ const Logo: React.FC<LogoProps> = ({ showOverlay }) => {
   }, []);
 
   return (
-    <div>
+    <div
+      onClick={() => {
+        if (pathname === '/') setShowOverlay(false);
+      }}
+    >
       <PageTransitionLink
         dataType="simple-hover"
         id="site-logo"

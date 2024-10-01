@@ -1,15 +1,14 @@
 'use client';
 
-import Image from 'next/image';
 import { useStore } from '@/store/store';
-import { animatePageIn, logo_animation } from '@/utils/animations';
+import { animatePageIn } from '@/utils/animations';
+import { HOMEPAGE_ID } from '@/utils/constants';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const { pageName, firstVisit, setFirstVisit } = useStore((state) => state);
   const time = firstVisit ? 2 : 1;
-  // const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     animatePageIn(time, firstVisit, setFirstVisit);
@@ -26,22 +25,22 @@ export default function Template({ children }: { children: React.ReactNode }) {
             <AnimatedLogo className="w-full max-w-[100px] xl:max-w-[200px]" />
           </>
         ) : (
-          <p
+          <div
+            className="absolute z-[1] flex items-center opacity-0"
             id="page-name"
-            className="absolute z-[1] flex items-center text-loading-text uppercase text-gray opacity-0"
           >
-            {pageName}
-          </p>
+            {pageName === HOMEPAGE_ID ? (
+              <AnimatedLogo
+                duration={1.5}
+                className="w-full max-w-[100px] xl:max-w-[200px]"
+              />
+            ) : (
+              <p className="text-loading-text uppercase text-gray">
+                {pageName}
+              </p>
+            )}
+          </div>
         )}
-        {/* <Image
-          ref={imgRef}
-          width={1920}
-          height={1080}
-          sizes="100vw"
-          src="/images/alpine_bg.jpg"
-          alt="About Image"
-          className="aspect-auto h-full max-h-[876px] w-full translate-y-[80px] scale-110 object-cover"
-        /> */}
       </div>
 
       <div className="bg-noise-animation relative overflow-hidden">
@@ -51,7 +50,13 @@ export default function Template({ children }: { children: React.ReactNode }) {
   );
 }
 
-export const AnimatedLogo = ({ className }: { className?: string }) => {
+export const AnimatedLogo = ({
+  className,
+  duration = 2,
+}: {
+  className?: string;
+  duration?: number;
+}) => {
   return (
     <svg
       className={className}
@@ -62,7 +67,7 @@ export const AnimatedLogo = ({ className }: { className?: string }) => {
       <motion.path
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={logo_animation}
+        transition={{ duration: duration, yoyo: Infinity, ease: 'easeInOut' }}
         style={{
           fill: 'none',
           stroke: '#ffffff',

@@ -1,7 +1,7 @@
 'use client';
 
 import type { Project } from '@/app/(app)/work/page';
-import GridLayout from '@/components/common/project-layouts/GridLayout/GridLayout';
+import GridLayout from '@/components/common/work-layouts/GridLayout/GridLayout';
 import { useStore } from '@/store/store';
 import { motion } from 'framer-motion';
 

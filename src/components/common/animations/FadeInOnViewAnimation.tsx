@@ -12,6 +12,30 @@ interface Props {
   viewport?: MotionProps['viewport'];
 }
 
+/**
+ * FadeInOnViewAnimation component
+ *
+ * This component wraps its children with a motion element that fades in when it comes into view.
+ *
+ * Props:
+ * - children: The content to be wrapped by the animation.
+ * - className: Optional additional class names for the motion element.
+ * - initial: Optional initial animation state.
+ * - whileInView: Optional animation state when the element is in view.
+ * - transition: Optional transition settings for the animation.
+ * - viewportOnce: If true, the animation will only play once when the element comes into view.
+ * - motionProps: Additional motion properties to be passed to the motion element.
+ * - viewport: Optional viewport settings for the animation.
+ *
+ * Usage:
+ * ```tsx
+ * <FadeInOnViewAnimation>
+ *   <YourComponent />
+ * </FadeInOnViewAnimation>
+ * ```
+ *
+ * For more information, visit: https://www.framer.com/motion/component/
+ */
 const FadeInOnViewAnimation: React.FC<Props> = ({
   children,
   className,

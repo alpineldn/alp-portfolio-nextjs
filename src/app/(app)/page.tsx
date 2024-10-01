@@ -1,9 +1,9 @@
 import Page from '@/components/common/Page';
-import Contact from '@/components/contact';
-import Description from '@/components/pages/landing/description';
+import Contact from '@/components/contact/Contact';
+import Description from '@/components/pages/landing/description/Description';
 import Hero from '@/components/pages/landing/hero/Hero';
-import Projects from '@/components/pages/landing/projects';
-import { SITE_URL } from '@/utils/constants';
+import Works from '@/components/pages/landing/works/Works';
+import { HOMEPAGE_ID, SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';
 import { CLIENTS_QUERY, META_QUERY, WORK_QUERY } from '@/utils/sanity/queries';
@@ -65,10 +65,10 @@ const Home: React.FC<HomeProps> = async () => {
   const { projects, clients } = data;
 
   return (
-    <Page pageName="Alpine">
+    <Page pageName={HOMEPAGE_ID}>
       <Hero />
       <Description />
-      {!!projects?.length && <Projects projects={projects} />}
+      {!!projects?.length && <Works projects={projects} />}
       {!!clients?.length && <Clients clients={clients} />}
       <Contact />
     </Page>

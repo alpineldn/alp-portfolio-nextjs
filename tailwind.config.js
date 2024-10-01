@@ -33,7 +33,7 @@ module.exports = {
       ],
 
       m: [
-        'clamp(1.2rem, 1vw + 1vh, 1.9rem)',
+        'clamp(1.2rem, 2vw + 1.2vh, 1.9rem)',
         { letterSpacing: '0.01em', fontWeight: 400, lineHeight: '1.4' },
       ],
 
@@ -99,6 +99,32 @@ module.exports = {
     },
 
     extend: {
+      typography: ({ theme }) => ({
+        alp: {
+          css: {
+            '--tw-prose-body': theme('colors.white'), // #FFFFFF
+            '--tw-prose-headings': theme('colors.white'), // #FFFFFF
+            '--tw-prose-lead': theme('colors.gray'), // #505050
+            '--tw-prose-links': theme('colors.white'), // #FFFFFF
+            '--tw-prose-bold': theme('colors.white'), // #FFFFFF
+            '--tw-prose-counters': theme('colors.lightGray'), // #888888
+            '--tw-prose-bullets': theme('colors.gray'), // #505050
+            '--tw-prose-hr': theme('colors.darkGray'), // #111111
+            '--tw-prose-quotes': theme('colors.white'), // #FFFFFF
+            '--tw-prose-quote-borders': theme('colors.darkGray'), // #111111
+            '--tw-prose-captions': theme('colors.gray'), // #505050
+            '--tw-prose-code': theme('colors.white'), // #FFFFFF
+            '--tw-prose-pre-code': theme('colors.lightGray'), // #888888
+            '--tw-prose-pre-bg': theme('colors.dark'), // #141414
+            '--tw-prose-th-borders': theme('colors.darkGray'), // #111111
+            '--tw-prose-td-borders': theme('colors.gray'), // #505050
+            '&:hover': {
+              '--tw-prose-links': theme('colors.red'), // #D12245
+              '--tw-prose-bold': theme('colors.red'), // #D12245
+            },
+          },
+        },
+      }),
       spacing: {
         'section-xxl': '216px',
         'section-xl': '186px',
@@ -132,6 +158,8 @@ module.exports = {
         lightGray: '#888888',
         darkGray: '#111111',
         red: '#D12245',
+        'red-hover': '#D12245',
+        'red-active': '#A71E3A',
 
         // dark: '#141516',
         // light: '#f5f5f5',

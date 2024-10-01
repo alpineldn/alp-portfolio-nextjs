@@ -6,12 +6,12 @@ import SanityImage from '../../sanity-image/SanityImage';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-interface ProjectProps extends ProjectTypes {
+interface WorkProps extends ProjectTypes {
   index: number;
   manageModal: (state: boolean, index: number, x: number, y: number) => void;
 }
 
-const ProjectList: React.FC<ProjectProps> = ({
+const WorkList: React.FC<WorkProps> = ({
   index,
   manageModal,
   title,
@@ -91,4 +91,4 @@ const ProjectList: React.FC<ProjectProps> = ({
   );
 };
 
-export default ProjectList;
+export default WorkList;

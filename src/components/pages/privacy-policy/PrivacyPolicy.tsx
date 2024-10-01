@@ -12,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 interface PrivacyPolicyProps {}
 
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
-  const heroTextRef = useRef<HTMLHeadingElement>(null);
   const { firstVisit } = useStore((store) => store);
   const initialDelay = firstVisit ? 2.7 : 1.5;
 
@@ -43,7 +42,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
     <div className="container mx-auto pt-[130px] lg:pt-[293px]">
       <div
         className={cn(
-          'prose prose-invert max-w-none',
+          'prose-alp prose max-w-none',
           'prose-ul:list-none',
           'prose-li:relative prose-li:pl-4 prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-1.5 prose-li:before:h-0.5 prose-li:before:w-2 prose-li:before:translate-y-full prose-li:before:bg-gray',
           'prose-h2:text-m',

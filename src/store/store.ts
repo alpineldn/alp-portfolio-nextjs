@@ -7,7 +7,7 @@ interface States {
 }
 
 interface Actions {
-  setPageName: (pageName: string) => void;
+  setPageName: (pageName?: string) => void;
   setFirstVisit: () => void;
   setShowMenuButton: (showMenuButton: boolean) => void;
 }

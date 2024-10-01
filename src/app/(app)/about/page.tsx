@@ -1,7 +1,7 @@
 import Page from '@/components/common/Page';
-import Contact from '@/components/contact';
+import Contact from '@/components/contact/Contact';
 import Hero from '@/components/pages/about/hero/Hero';
-import Service from '@/components/pages/about/service/Service';
+import Services from '@/components/pages/about/service/Services';
 import { SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';
@@ -48,7 +48,7 @@ const AboutPage: React.FC<{}> = async () => {
     <Page pageName="About">
       <Hero />
       <Intro />
-      <Service />
+      <Services />
       {!!clients?.length && <Clients clients={clients} />}
       <Contact />
     </Page>

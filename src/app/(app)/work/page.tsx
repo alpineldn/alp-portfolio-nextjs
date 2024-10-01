@@ -1,7 +1,7 @@
-import Contact from '@/components/contact';
+import Contact from '@/components/contact/Contact';
 import Page from '@/components/common/Page';
-import Hero from '@/components/pages/work/hero';
-import Projects from '@/components/pages/work/projects';
+import Hero from '@/components/pages/work/hero/Hero';
+import Projects from '@/components/pages/work/projects/Projects';
 import { SITE_URL } from '@/utils/constants';
 import generateMeta from '@/utils/generate-meta';
 import sanityClient from '@/utils/sanity/client';

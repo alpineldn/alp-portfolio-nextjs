@@ -1,12 +1,12 @@
 import cn from '@/utils/cn';
 import PageTransitionLink from '../ui/PageTransitionLink';
 
-interface ContactInfoProps {
+interface FooterProps {
   id?: string;
   className?: string;
 }
 
-const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
+const Footer: React.FC<FooterProps> = ({ id, className }) => {
   return (
     <div
       id={id}
@@ -38,4 +38,4 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ id, className }) => {
     </div>
   );
 };
-export default ContactInfo;
+export default Footer;

@@ -22,7 +22,7 @@ const Services: React.FC<ServiceProps> = ({}) => {
           </h2>
         </div>
       </div>
-      <div className="relative overflow-hidden bg-dark">
+      <div className="relative overflow-hidden bg-darkGray">
         {services.map(({ items, title, description }, index) => (
           <ServiceSection
             key={title}

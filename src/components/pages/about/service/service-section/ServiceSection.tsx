@@ -22,8 +22,8 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
     // Also, alternate the background color between 'bg-dark' and 'bg-darkGray' based on whether the section index is even
     <div
       className={cn(
-        'py-section md:py-section-lg',
-        isEven ? 'bg-dark' : 'bg-darkGray', // Background color changes based on the even/odd index
+        'py-section md:py-section-lg', //,
+        //isEven ? 'bg-dark' : 'bg-darkGray', // Background color changes based on the even/odd index
       )}
     >
       {/* Inner container to organize the layout of the section */}
@@ -33,7 +33,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
           'container mx-auto flex gap-7 xl:gap-16', // Common layout classes for all sections
           isEven
             ? 'flex-row justify-start max-md:flex-col' // For even sections, content is aligned to the start, layout in row
-            : 'flex-row justify-end max-md:flex-col-reverse', // For odd sections, content is aligned to the end, reversed layout for mobile
+            : 'flex-row justify-start max-md:flex-col', // For odd sections, content is aligned to the end, reversed layout for mobile
         )}
       >
         {/* Left-aligned content: Description for even sections, ServiceList for odd sections */}

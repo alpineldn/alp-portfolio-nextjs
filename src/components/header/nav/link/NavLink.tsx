@@ -43,8 +43,8 @@ const NavLink: React.FC<LinkProps> = ({
         href={href}
         className={cn(
           'interactable',
-          'group-hover:text-red-hover flex items-center gap-x-20 !text-link-xxl',
-          { 'text-red-active hover:text-red-hover': pathName === href },
+          'flex items-center gap-x-20 !text-link-xxl group-hover:text-primary-hover',
+          { 'text-primary-active hover:text-primary-hover': pathName === href },
         )}
       >
         <span className="!leading-none transition-colors duration-500">
@@ -53,7 +53,7 @@ const NavLink: React.FC<LinkProps> = ({
         <svg
           width="1em"
           height="1em"
-          className="text-red-hover scale-[.65] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="scale-[.65] text-primary-hover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           viewBox="0 0 91 91"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

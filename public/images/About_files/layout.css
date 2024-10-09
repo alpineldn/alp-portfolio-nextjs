@@ -2,27 +2,39 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[13].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/(app)/layout.tsx","import":"","arguments":[{"src":[{"path":"../../../public/fonts/neue-montreal/PPNeueMontreal-Variable.woff2","weight":"100 900"},{"path":"../../../public/fonts/neue-montreal/PPNeueMontreal-Variable.woff","weight":"100 900"},{"path":"../../../public/fonts/neue-montreal/PPNeueMontreal-Variable.ttf","weight":"100 900"}],"variable":"--font-ppneuemontreal"}],"variableName":"ppNeueMontreal"} ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @font-face {
-font-family: '__ppNeueMontreal_a467ff';
-src: url(/_next/static/media/61aa5cb366892c2f-s.p.woff2) format('woff2');
-font-display: swap;
-font-weight: 100 900;
+  font-family: '__ppNeueMontreal_a467ff';
+  src: url(/_next/static/media/61aa5cb366892c2f-s.p.woff2) format('woff2');
+  font-display: swap;
+  font-weight: 100 900;
 }
 
 @font-face {
-font-family: '__ppNeueMontreal_a467ff';
-src: url(/_next/static/media/1e01a585ef0c7ad1-s.p.woff) format('woff');
-font-display: swap;
-font-weight: 100 900;
+  font-family: '__ppNeueMontreal_a467ff';
+  src: url(/_next/static/media/1e01a585ef0c7ad1-s.p.woff) format('woff');
+  font-display: swap;
+  font-weight: 100 900;
 }
 
 @font-face {
-font-family: '__ppNeueMontreal_a467ff';
-src: url(/_next/static/media/e0cb19dfefbc4589-s.p.ttf) format('truetype');
-font-display: swap;
-font-weight: 100 900;
-}@font-face {font-family: '__ppNeueMontreal_Fallback_a467ff';src: local("Arial");ascent-override: 105.13%;descent-override: 26.56%;line-gap-override: 0.00%;size-adjust: 91.13%
-}.__className_a467ff {font-family: '__ppNeueMontreal_a467ff', '__ppNeueMontreal_Fallback_a467ff'
-}.__variable_a467ff {--font-ppneuemontreal: '__ppNeueMontreal_a467ff', '__ppNeueMontreal_Fallback_a467ff'
+  font-family: '__ppNeueMontreal_a467ff';
+  src: url(/_next/static/media/e0cb19dfefbc4589-s.p.ttf) format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: '__ppNeueMontreal_Fallback_a467ff';
+  src: local('Arial');
+  ascent-override: 105.13%;
+  descent-override: 26.56%;
+  line-gap-override: 0%;
+  size-adjust: 91.13%;
+}
+.__className_a467ff {
+  font-family: '__ppNeueMontreal_a467ff', '__ppNeueMontreal_Fallback_a467ff';
+}
+.__variable_a467ff {
+  --font-ppneuemontreal: '__ppNeueMontreal_a467ff',
+    '__ppNeueMontreal_Fallback_a467ff';
 }
 
 /*!***********************************************************************************************************************************************************************************************************************************************************************!*\
@@ -30,7 +42,7 @@ font-weight: 100 900;
   \***********************************************************************************************************************************************************************************************************************************************************************/
 /*
 ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
-*//*
+*/ /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
@@ -65,8 +77,9 @@ html,
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
-     tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
@@ -100,7 +113,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /*
@@ -146,7 +159,8 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace; /* 1 */
   font-feature-settings: normal; /* 2 */
   font-variation-settings: normal; /* 3 */
   font-size: 1em; /* 4 */
@@ -364,7 +378,8 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   opacity: 1; /* 1 */
   color: #9ca3af; /* 2 */
 }
@@ -380,7 +395,7 @@ Set the default cursor for buttons.
 */
 
 button,
-[role="button"] {
+[role='button'] {
   cursor: pointer;
 }
 
@@ -423,10 +438,10 @@ video {
 [hidden] {
   display: none;
 }
-  /* html {
+/* html {
     @apply scroll-smooth;
   } */
-  body {
+body {
   margin: 0px;
   cursor: wait;
   overflow: hidden;
@@ -434,13 +449,15 @@ video {
   background-color: rgb(20 20 20 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: none;
-    -webkit-font-smoothing: subpixel-antialiased;
-    -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -553,7 +570,6 @@ video {
   padding-left: 1rem;
 }
 @media (min-width: 640px) {
-
   .container {
     max-width: 640px;
     padding-right: 2rem;
@@ -561,13 +577,11 @@ video {
   }
 }
 @media (min-width: 768px) {
-
   .container {
     max-width: 768px;
   }
 }
 @media (min-width: 1024px) {
-
   .container {
     max-width: 1024px;
     padding-right: 4rem;
@@ -575,7 +589,6 @@ video {
   }
 }
 @media (min-width: 1280px) {
-
   .container {
     max-width: 1280px;
     padding-right: 5rem;
@@ -583,7 +596,6 @@ video {
   }
 }
 @media (min-width: 1536px) {
-
   .container {
     max-width: 1536px;
     padding-right: 100px;
@@ -594,110 +606,161 @@ video {
   color: var(--tw-prose-body);
   max-width: 65ch;
 }
-.prose :where(p):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(p):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
 }
-.prose :where([class~="lead"]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where([class~='lead']):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   color: var(--tw-prose-lead);
   font-size: 1.25em;
   line-height: 1.6;
   margin-top: 1.2em;
   margin-bottom: 1.2em;
 }
-.prose :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-links);
   text-decoration: underline;
   font-weight: 500;
 }
-.prose :where(strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-bold);
   font-weight: 600;
 }
-.prose :where(a strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(a strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: inherit;
 }
-.prose :where(blockquote strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(blockquote strong):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   color: inherit;
 }
-.prose :where(thead th strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(thead th strong):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   color: inherit;
 }
-.prose :where(ol):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   list-style-type: decimal;
   margin-top: 1.25em;
   margin-bottom: 1.25em;
   padding-inline-start: 1.625em;
 }
-.prose :where(ol[type="A"]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='A']):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: upper-alpha;
 }
-.prose :where(ol[type="a"]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='a']):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: lower-alpha;
 }
-.prose :where(ol[type="A" s]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='A' s]):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: upper-alpha;
 }
-.prose :where(ol[type="a" s]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='a' s]):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: lower-alpha;
 }
-.prose :where(ol[type="I"]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='I']):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: upper-roman;
 }
-.prose :where(ol[type="i"]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='i']):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: lower-roman;
 }
-.prose :where(ol[type="I" s]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='I' s]):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: upper-roman;
 }
-.prose :where(ol[type="i" s]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='i' s]):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: lower-roman;
 }
-.prose :where(ol[type="1"]):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol[type='1']):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   list-style-type: decimal;
 }
-.prose :where(ul):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(ul):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   list-style-type: disc;
   margin-top: 1.25em;
   margin-bottom: 1.25em;
   padding-inline-start: 1.625em;
 }
-.prose :where(ol > li):not(:where([class~="not-prose"],[class~="not-prose"] *))::marker {
+.prose
+  :where(ol > li):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  )::marker {
   font-weight: 400;
   color: var(--tw-prose-counters);
 }
-.prose :where(ul > li):not(:where([class~="not-prose"],[class~="not-prose"] *))::marker {
+.prose
+  :where(ul > li):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  )::marker {
   color: var(--tw-prose-bullets);
 }
-.prose :where(dt):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(dt):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
   margin-top: 1.25em;
 }
-.prose :where(hr):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(hr):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   border-color: var(--tw-prose-hr);
   border-top-width: 1px;
   margin-top: 3em;
   margin-bottom: 3em;
 }
-.prose :where(blockquote):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(blockquote):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   font-weight: 500;
   font-style: italic;
   color: var(--tw-prose-quotes);
   border-inline-start-width: 0.25rem;
   border-inline-start-color: var(--tw-prose-quote-borders);
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: '\201C' '\201D' '\2018' '\2019';
   margin-top: 1.6em;
   margin-bottom: 1.6em;
   padding-inline-start: 1em;
 }
-.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
+.prose
+  :where(blockquote p:first-of-type):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  )::before {
   content: open-quote;
 }
-.prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"],[class~="not-prose"] *))::after {
+.prose
+  :where(blockquote p:last-of-type):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  )::after {
   content: close-quote;
 }
-.prose :where(h1):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(h1):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-headings);
   font-weight: 800;
   font-size: 2.25em;
@@ -705,11 +768,12 @@ video {
   margin-bottom: 0.8888889em;
   line-height: 1.1111111;
 }
-.prose :where(h1 strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h1 strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   font-weight: 900;
   color: inherit;
 }
-.prose :where(h2):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(h2):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-headings);
   font-weight: 700;
   font-size: 1.5em;
@@ -717,11 +781,12 @@ video {
   margin-bottom: 1em;
   line-height: 1.3333333;
 }
-.prose :where(h2 strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h2 strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   font-weight: 800;
   color: inherit;
 }
-.prose :where(h3):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(h3):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
   font-size: 1.25em;
@@ -729,39 +794,44 @@ video {
   margin-bottom: 0.6em;
   line-height: 1.6;
 }
-.prose :where(h3 strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h3 strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   font-weight: 700;
   color: inherit;
 }
-.prose :where(h4):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(h4):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   line-height: 1.5;
 }
-.prose :where(h4 strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h4 strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   font-weight: 700;
   color: inherit;
 }
-.prose :where(img):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(img):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-.prose :where(picture):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(picture):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   display: block;
   margin-top: 2em;
   margin-bottom: 2em;
 }
-.prose :where(video):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(video):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-.prose :where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(kbd):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   font-weight: 500;
   font-family: inherit;
   color: var(--tw-prose-kbd);
-  box-shadow: 0 0 0 1px rgb(var(--tw-prose-kbd-shadows) / 10%), 0 3px 0 rgb(var(--tw-prose-kbd-shadows) / 10%);
+  box-shadow:
+    0 0 0 1px rgb(var(--tw-prose-kbd-shadows) / 10%),
+    0 3px 0 rgb(var(--tw-prose-kbd-shadows) / 10%);
   font-size: 0.875em;
   border-radius: 0.3125rem;
   padding-top: 0.1875em;
@@ -769,41 +839,58 @@ video {
   padding-bottom: 0.1875em;
   padding-inline-start: 0.375em;
 }
-.prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-code);
   font-weight: 600;
   font-size: 0.875em;
 }
-.prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
-  content: "`";
+.prose
+  :where(code):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  )::before {
+  content: '`';
 }
-.prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::after {
-  content: "`";
+.prose
+  :where(code):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  )::after {
+  content: '`';
 }
-.prose :where(a code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(a code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: inherit;
 }
-.prose :where(h1 code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h1 code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: inherit;
 }
-.prose :where(h2 code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h2 code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: inherit;
   font-size: 0.875em;
 }
-.prose :where(h3 code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h3 code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: inherit;
   font-size: 0.9em;
 }
-.prose :where(h4 code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h4 code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: inherit;
 }
-.prose :where(blockquote code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(blockquote code):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   color: inherit;
 }
-.prose :where(thead th code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(thead th code):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   color: inherit;
 }
-.prose :where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(pre):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-pre-code);
   background-color: var(--tw-prose-pre-bg);
   overflow-x: auto;
@@ -818,7 +905,8 @@ video {
   padding-bottom: 0.8571429em;
   padding-inline-start: 1.1428571em;
 }
-.prose :where(pre code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(pre code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   background-color: transparent;
   border-width: 0;
   border-radius: 0;
@@ -829,13 +917,19 @@ video {
   font-family: inherit;
   line-height: inherit;
 }
-.prose :where(pre code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
+.prose
+  :where(pre code):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  )::before {
   content: none;
 }
-.prose :where(pre code):not(:where([class~="not-prose"],[class~="not-prose"] *))::after {
+.prose
+  :where(pre code):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  )::after {
   content: none;
 }
-.prose :where(table):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   width: 100%;
   table-layout: auto;
   text-align: start;
@@ -844,11 +938,12 @@ video {
   font-size: 0.875em;
   line-height: 1.7142857;
 }
-.prose :where(thead):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(thead):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   border-bottom-width: 1px;
   border-bottom-color: var(--tw-prose-th-borders);
 }
-.prose :where(thead th):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(thead th):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
   vertical-align: bottom;
@@ -856,28 +951,36 @@ video {
   padding-bottom: 0.5714286em;
   padding-inline-start: 0.5714286em;
 }
-.prose :where(tbody tr):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(tbody tr):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   border-bottom-width: 1px;
   border-bottom-color: var(--tw-prose-td-borders);
 }
-.prose :where(tbody tr:last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(tbody tr:last-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   border-bottom-width: 0;
 }
-.prose :where(tbody td):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(tbody td):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   vertical-align: baseline;
 }
-.prose :where(tfoot):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(tfoot):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   border-top-width: 1px;
   border-top-color: var(--tw-prose-th-borders);
 }
-.prose :where(tfoot td):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(tfoot td):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   vertical-align: top;
 }
-.prose :where(figure > *):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(figure > *):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 0;
   margin-bottom: 0;
 }
-.prose :where(figcaption):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(figcaption):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-captions);
   font-size: 0.875em;
   line-height: 1.4285714;
@@ -923,86 +1026,135 @@ video {
   font-size: 1rem;
   line-height: 1.75;
 }
-.prose :where(picture > img):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(picture > img):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-top: 0;
   margin-bottom: 0;
 }
-.prose :where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-.prose :where(ol > li):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ol > li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   padding-inline-start: 0.375em;
 }
-.prose :where(ul > li):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ul > li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   padding-inline-start: 0.375em;
 }
-.prose :where(.prose > ul > li p):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(.prose > ul > li p):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 }
-.prose :where(.prose > ul > li > p:first-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(.prose > ul > li > p:first-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-top: 1.25em;
 }
-.prose :where(.prose > ul > li > p:last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(.prose > ul > li > p:last-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-bottom: 1.25em;
 }
-.prose :where(.prose > ol > li > p:first-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(.prose > ol > li > p:first-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-top: 1.25em;
 }
-.prose :where(.prose > ol > li > p:last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(.prose > ol > li > p:last-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-bottom: 1.25em;
 }
-.prose :where(ul ul, ul ol, ol ul, ol ol):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(ul ul, ul ol, ol ul, ol ol):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 }
-.prose :where(dl):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(dl):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
 }
-.prose :where(dd):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose :where(dd):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 0.5em;
   padding-inline-start: 1.625em;
 }
-.prose :where(hr + *):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(hr + *):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 0;
 }
-.prose :where(h2 + *):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h2 + *):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 0;
 }
-.prose :where(h3 + *):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h3 + *):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 0;
 }
-.prose :where(h4 + *):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(h4 + *):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 0;
 }
-.prose :where(thead th:first-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(thead th:first-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   padding-inline-start: 0;
 }
-.prose :where(thead th:last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(thead th:last-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   padding-inline-end: 0;
 }
-.prose :where(tbody td, tfoot td):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(tbody td, tfoot td):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   padding-top: 0.5714286em;
   padding-inline-end: 0.5714286em;
   padding-bottom: 0.5714286em;
   padding-inline-start: 0.5714286em;
 }
-.prose :where(tbody td:first-child, tfoot td:first-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(tbody td:first-child, tfoot td:first-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   padding-inline-start: 0;
 }
-.prose :where(tbody td:last-child, tfoot td:last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(tbody td:last-child, tfoot td:last-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   padding-inline-end: 0;
 }
-.prose :where(figure):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(figure):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-.prose :where(.prose > :first-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(.prose > :first-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-top: 0;
 }
-.prose :where(.prose > :last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+.prose
+  :where(.prose > :last-child):not(
+    :where([class~='not-prose'], [class~='not-prose'] *)
+  ) {
   margin-bottom: 0;
 }
 .prose-invert {
@@ -1364,59 +1516,85 @@ video {
 }
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-translate-y-10 {
   --tw-translate-y: -2.5rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-translate-y-\[10\%\] {
   --tw-translate-y: -10%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-translate-y-\[2px\] {
   --tw-translate-y: -2px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .translate-x-\[15\%\] {
   --tw-translate-x: 15%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .translate-y-5 {
   --tw-translate-y: 1.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .translate-y-\[25px\] {
   --tw-translate-y: 25px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .translate-y-\[80px\] {
   --tw-translate-y: 80px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .rotate-180 {
   --tw-rotate: 180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .scale-0 {
   --tw-scale-x: 0;
   --tw-scale-y: 0;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .scale-110 {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .scale-75 {
-  --tw-scale-x: .75;
-  --tw-scale-y: .75;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-scale-x: 0.75;
+  --tw-scale-y: 0.75;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .scale-\[\.65\] {
-  --tw-scale-x: .65;
-  --tw-scale-y: .65;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-scale-x: 0.65;
+  --tw-scale-y: 0.65;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .cursor-pointer {
   cursor: pointer;
@@ -1489,11 +1667,11 @@ video {
 }
 .gap-x-20 {
   -moz-column-gap: 5rem;
-       column-gap: 5rem;
+  column-gap: 5rem;
 }
 .gap-x-\[23px\] {
   -moz-column-gap: 23px;
-       column-gap: 23px;
+  column-gap: 23px;
 }
 .gap-y-20 {
   row-gap: 5rem;
@@ -1644,7 +1822,7 @@ video {
   background-position: center;
 }
 .fill-\[rgb\(41\2c 41\2c 41\)\] {
-  fill: rgb(41,41,41);
+  fill: rgb(41, 41, 41);
 }
 .stroke-none {
   stroke: none;
@@ -1654,11 +1832,11 @@ video {
 }
 .object-contain {
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .object-cover {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .px-12 {
   padding-left: 3rem;
@@ -1885,30 +2063,65 @@ video {
   mix-blend-mode: difference;
 }
 .shadow-\[0px_60px_50px_rgba\(0\2c 0\2c 0\2c 0\.2\)\] {
-  --tw-shadow: 0px 60px 50px rgba(0,0,0,0.2);
+  --tw-shadow: 0px 60px 50px rgba(0, 0, 0, 0.2);
   --tw-shadow-colored: 0px 60px 50px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+    0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .blur {
   --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
+    var(--tw-sepia) var(--tw-drop-shadow);
 }
 .drop-shadow-lg {
-  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
+    var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
+    var(--tw-sepia) var(--tw-drop-shadow);
 }
 .transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    opacity,
+    box-shadow,
+    transform,
+    filter,
+    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    opacity,
+    box-shadow,
+    transform,
+    filter,
+    backdrop-filter,
+    -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1918,7 +2131,7 @@ video {
   transition-duration: 150ms;
 }
 .transition-\[transform\2c colors\] {
-  transition-property: transform,colors;
+  transition-property: transform, colors;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1928,7 +2141,8 @@ video {
   transition-duration: 150ms;
 }
 .transition-colors {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1998,7 +2212,6 @@ video {
   padding-top: 96px;
 }
 @media (min-width: 768px) {
-
   .section-padding-t {
     padding-top: 144px;
   }
@@ -2007,13 +2220,11 @@ video {
   padding-bottom: 96px;
 }
 @media (min-width: 768px) {
-
   .section-padding-b {
     padding-bottom: 144px;
   }
 }
 @media (min-width: 1280px) {
-
   .section-padding-b {
     padding-bottom: 216px;
   }
@@ -2027,8 +2238,8 @@ video {
   width: 300%;
 }
 @keyframes grain {
-
-  0%, 100% {
+  0%,
+  100% {
     content: var(--tw-content);
     transform: translate(0, 0);
   }
@@ -2086,7 +2297,7 @@ video {
   content: var(--tw-content);
 }
 @media (max-width: 640px) {
-.menu-mask-gradient {
+  .menu-mask-gradient {
     mask-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 1) 50%,
@@ -2097,9 +2308,9 @@ video {
       to bottom,
       rgba(255, 255, 255, 1) 50%,
       rgba(255, 255, 255, 0) 100%
-    )
-}
+    );
   }
+}
 ::-moz-selection {
   background: gray;
 }
@@ -2136,27 +2347,37 @@ video {
 .before\:-translate-x-1\/2::before {
   content: var(--tw-content);
   --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .before\:-translate-y-1\/2::before {
   content: var(--tw-content);
   --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .before\:translate-y-\[200\%\]::before {
   content: var(--tw-content);
   --tw-translate-y: 200%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .before\:rotate-0::before {
   content: var(--tw-content);
   --tw-rotate: 0deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .before\:rotate-\[-45deg\]::before {
   content: var(--tw-content);
   --tw-rotate: -45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .before\:bg-white::before {
   content: var(--tw-content);
@@ -2204,27 +2425,37 @@ video {
 .after\:-translate-x-1\/2::after {
   content: var(--tw-content);
   --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .after\:-translate-y-1\/2::after {
   content: var(--tw-content);
   --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .after\:-translate-y-\[200\%\]::after {
   content: var(--tw-content);
   --tw-translate-y: -200%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .after\:rotate-0::after {
   content: var(--tw-content);
   --tw-rotate: 0deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .after\:rotate-\[45deg\]::after {
   content: var(--tw-content);
   --tw-rotate: 45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .after\:bg-white::after {
   content: var(--tw-content);
@@ -2266,7 +2497,9 @@ video {
 .group:hover .group-hover\:scale-105 {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .group:hover .group-hover\:\!text-dark {
   --tw-text-opacity: 1 !important;
@@ -2287,73 +2520,107 @@ video {
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
 }
-.prose-h2\:text-m :is(:where(h2):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+.prose-h2\:text-m
+  :is(:where(h2):not(:where([class~='not-prose'], [class~='not-prose'] *))) {
   font-size: clamp(1.2rem, 2vw + 1vh, 1.9rem);
   line-height: 1.4;
   letter-spacing: 0.01em;
   font-weight: 400;
 }
-.prose-p\:text-s-spaced :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+.prose-p\:text-s-spaced
+  :is(:where(p):not(:where([class~='not-prose'], [class~='not-prose'] *))) {
   font-size: clamp(1rem, 1.5vw + 0.5vh, 1.2rem);
   line-height: normal;
   letter-spacing: 0.03em;
   font-weight: 400;
 }
-.prose-ul\:list-none :is(:where(ul):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+.prose-ul\:list-none
+  :is(:where(ul):not(:where([class~='not-prose'], [class~='not-prose'] *))) {
   list-style-type: none;
 }
-.prose-li\:relative :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+.prose-li\:relative
+  :is(:where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))) {
   position: relative;
 }
-.prose-li\:pl-4 :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+.prose-li\:pl-4
+  :is(:where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))) {
   padding-left: 1rem;
 }
-.prose-li\:text-s-spaced :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+.prose-li\:text-s-spaced
+  :is(:where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))) {
   font-size: clamp(1rem, 1.5vw + 0.5vh, 1.2rem);
   line-height: normal;
   letter-spacing: 0.03em;
   font-weight: 400;
 }
-.prose-li\:before\:absolute :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:absolute
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   position: absolute;
 }
-.prose-li\:before\:left-0 :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:left-0
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   left: 0px;
 }
-.prose-li\:before\:top-1 :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:top-1
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   top: 0.25rem;
 }
-.prose-li\:before\:top-1\.5 :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:top-1\.5
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   top: 0.375rem;
 }
-.prose-li\:before\:h-0 :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:h-0
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   height: 0px;
 }
-.prose-li\:before\:h-0\.5 :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:h-0\.5
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   height: 0.125rem;
 }
-.prose-li\:before\:w-2 :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:w-2
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   width: 0.5rem;
 }
-.prose-li\:before\:translate-y-full :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:translate-y-full
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   --tw-translate-y: 100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.prose-li\:before\:bg-gray :is(:where(li):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
+.prose-li\:before\:bg-gray
+  :is(
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *))
+  )::before {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(80 80 80 / var(--tw-bg-opacity));
 }
 @media not all and (min-width: 1024px) {
-
   .max-lg\:flex {
     display: flex;
   }
@@ -2384,7 +2651,6 @@ video {
   }
 }
 @media not all and (min-width: 768px) {
-
   .max-md\:flex-col {
     flex-direction: column;
   }
@@ -2418,7 +2684,6 @@ video {
   }
 }
 @media not all and (min-width: 640px) {
-
   .max-sm\:mb-10 {
     margin-bottom: 2.5rem;
   }
@@ -2429,16 +2694,22 @@ video {
 
   .max-sm\:-translate-y-20 {
     --tw-translate-y: -5rem;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .max-sm\:translate-y-0 {
     --tw-translate-y: 0px;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .max-sm\:transform {
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .max-sm\:flex-col {
@@ -2459,12 +2730,19 @@ video {
 
   .max-sm\:backdrop-blur-sm {
     --tw-backdrop-blur: blur(4px);
-    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur)
+      var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
+      var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+      var(--tw-backdrop-invert) var(--tw-backdrop-opacity)
+      var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+      var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+      var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+      var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+      var(--tw-backdrop-sepia);
   }
 }
 @media (min-width: 640px) {
-
   .sm\:block {
     display: block;
   }
@@ -2519,7 +2797,9 @@ video {
   .sm\:before\:translate-y-\[270\%\]::before {
     content: var(--tw-content);
     --tw-translate-y: 270%;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .sm\:after\:w-\[100\%\]::after {
@@ -2530,11 +2810,12 @@ video {
   .sm\:after\:-translate-y-\[270\%\]::after {
     content: var(--tw-content);
     --tw-translate-y: -270%;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 }
 @media (min-width: 768px) {
-
   .md\:col-span-1 {
     grid-column: span 1 / span 1;
   }
@@ -2585,7 +2866,7 @@ video {
 
   .md\:gap-x-10 {
     -moz-column-gap: 2.5rem;
-         column-gap: 2.5rem;
+    column-gap: 2.5rem;
   }
 
   .md\:gap-y-48 {
@@ -2634,11 +2915,12 @@ video {
 
   .md\:even\:translate-y-\[30\%\]:nth-child(even) {
     --tw-translate-y: 30%;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 }
 @media (min-width: 1024px) {
-
   .lg\:col-span-3 {
     grid-column: span 3 / span 3;
   }
@@ -2701,7 +2983,7 @@ video {
 
   .lg\:gap-x-10 {
     -moz-column-gap: 2.5rem;
-         column-gap: 2.5rem;
+    column-gap: 2.5rem;
   }
 
   .lg\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -2747,9 +3029,12 @@ video {
   .lg\:pt-\[45px\] {
     padding-top: 45px;
   }
+
+  .lg\:text-right {
+    text-align: right;
+  }
 }
 @media (min-width: 1280px) {
-
   .xl\:mb-section-md {
     margin-bottom: 113px;
   }
@@ -2783,7 +3068,6 @@ video {
   }
 }
 @media (min-width: 1536px) {
-
   .\32xl\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -2797,4 +3081,3 @@ video {
     padding-right: 200px;
   }
 }
-

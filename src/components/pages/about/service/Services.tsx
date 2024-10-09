@@ -9,30 +9,29 @@ interface ServiceProps {}
 const Services: React.FC<ServiceProps> = ({}) => {
   return (
     <section>
-      <div className="bg-darkGray">
+      <div className="relative overflow-hidden bg-darkGray py-section md:py-section-lg">
         <div className="container mx-auto">
           <h2
             className={cn(
               'text-section-subtitle text-lightGray',
-              'pt-section md:pt-section-lg',
               'pb-[calc(96px/2)] md:pb-[calc(144px/2)]', // pb is half of the pt values
             )}
           >
             Services
           </h2>
         </div>
-      </div>
-      <div className="relative overflow-hidden bg-dark">
-        {services.map(({ items, title, description }, index) => (
-          <ServiceSection
-            key={title}
-            description={description}
-            index={index}
-            isEven={index % 2 === 0}
-            items={items}
-            title={title}
-          />
-        ))}
+        <div className="container mx-auto grid max-lg:grid-cols-1 max-lg:gap-y-8 lg:grid-flow-col-dense lg:gap-x-10">
+          {services.map(({ items, title, description }, index) => (
+            <ServiceSection
+              key={title}
+              description={description}
+              index={index}
+              isEven={index % 2 === 0}
+              items={items}
+              title={title}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

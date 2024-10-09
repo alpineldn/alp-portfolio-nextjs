@@ -64,7 +64,7 @@ const WorkList: React.FC<WorkProps> = ({
         {/* <div className="col-span-12 block text-m max-lg:hidden md:col-span-6 lg:col-span-4">
           {client}
         </div> */}
-        <div className="col-span-12 block text-m md:col-span-6 lg:col-span-4 xl:text-right">
+        <div className="col-span-12 block text-m md:col-span-6 lg:col-span-4 lg:text-right">
           {categories.map((category, index) => (
             <span key={category._id}>
               {category.title}

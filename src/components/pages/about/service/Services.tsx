@@ -20,7 +20,7 @@ const Services: React.FC<ServiceProps> = ({}) => {
             Services
           </h2>
         </div>
-        <div className="container mx-auto flex grid-cols-2 gap-7">
+        <div className="container mx-auto grid max-lg:grid-cols-1 max-lg:gap-y-8 lg:grid-flow-col-dense lg:gap-x-10">
           {services.map(({ items, title, description }, index) => (
             <ServiceSection
               key={title}

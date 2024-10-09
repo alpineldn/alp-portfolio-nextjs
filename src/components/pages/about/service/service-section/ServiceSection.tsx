@@ -22,7 +22,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
     // Also, alternate the background color between 'bg-dark' and 'bg-darkGray' based on whether the section index is even
     <div
       className={cn(
-        'service-container w-[50%]',
+        'service-container',
         //'flex gap-7 py-section md:py-section-lg xl:gap-16', //,
         //isEven ? 'bg-dark' : 'bg-darkGray', // Background color changes based on the even/odd index
       )}

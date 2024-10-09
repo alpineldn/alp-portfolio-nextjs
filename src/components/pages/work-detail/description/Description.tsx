@@ -124,7 +124,7 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
       <FadeInAndSlideUpOnViewAnimation
         initial={{ y: 50 }}
         delay={0.15}
-        className={cn('flex lg:items-start lg:justify-end')}
+        className={cn('flex flex-col lg:items-end lg:justify-end')}
       >
         {!!previewURL?.current && (
           <Link
@@ -132,7 +132,9 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
             data-type="simple-hover"
             href={previewURL.current}
           >
-            <LinkEl>View Site</LinkEl>
+            <LinkEl className={cn('flex text-project-meta lg:justify-end')}>
+              View Site
+            </LinkEl>
           </Link>
         )}
       </FadeInAndSlideUpOnViewAnimation>

@@ -22,8 +22,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
     // Also, alternate the background color between 'bg-dark' and 'bg-darkGray' based on whether the section index is even
     <div
       className={cn(
-        'service-container w-[50%]',
-        //'flex gap-7 py-section md:py-section-lg xl:gap-16', //,
+        'py-section md:py-section-lg', //,
         //isEven ? 'bg-dark' : 'bg-darkGray', // Background color changes based on the even/odd index
       )}
     >
@@ -31,15 +30,29 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
       {/* The layout alternates between 'flex-row' and 'flex-col-reverse' based on whether the section is even or odd */}
       <div
         className={cn(
-          'service-inner',
-          //'container mx-auto flex gap-7 xl:gap-16', // Common layout classes for all sections
-          // isEven
-          //   ? 'flex-row justify-start max-md:flex-col' // For even sections, content is aligned to the start, layout in row
-          //   : 'flex-row justify-start max-md:flex-col', // For odd sections, content is aligned to the end, reversed layout for mobile
+          'container mx-auto flex gap-7 xl:gap-16', // Common layout classes for all sections
+          isEven
+            ? 'flex-row justify-start max-md:flex-col' // For even sections, content is aligned to the start, layout in row
+            : 'flex-row justify-start max-md:flex-col', // For odd sections, content is aligned to the end, reversed layout for mobile
         )}
       >
-        <Description index={index} title={title} description={description} />
-        <ServiceList items={items} />
+        {/* Left-aligned content: Description for even sections, ServiceList for odd sections */}
+        {isEven ? (
+          <Description index={index} title={title} description={description} />
+        ) : (
+          <ServiceList items={items} />
+        )}
+
+        {/* Spacer: A div that helps space out the layout between the left and right columns */}
+        {/* The grid columns span different numbers of columns depending on screen size (md, 2xl) */}
+        <div className="md:col-span-1 2xl:col-span-2" />
+
+        {/* Right-aligned content: ServiceList for even sections, Description for odd sections */}
+        {isEven ? (
+          <ServiceList items={items} />
+        ) : (
+          <Description index={index} title={title} description={description} />
+        )}
       </div>
     </div>
   );

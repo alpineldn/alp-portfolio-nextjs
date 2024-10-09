@@ -10,13 +10,10 @@ const ServiceList: React.FC<ServiceListProps> = ({ items }) => {
   const listRef = useRef<HTMLUListElement>(null);
 
   return (
-    <div className={cn('w-full')}>
+    <div className={cn('w-full md:max-w-[25%]')}>
       <ul ref={listRef}>
         {items.map((item, index) => (
-          <li
-            key={item}
-            //className="border-y border-b border-y-gray border-b-gray py-1 text-s"
-          >
+          <li key={item}>
             <FadeInAndSlideUpOnViewAnimation
               initial={{ y: 50 }}
               delay={0.2 + index * 0.02}

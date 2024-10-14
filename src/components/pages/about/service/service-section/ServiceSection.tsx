@@ -31,7 +31,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
       {/* The layout alternates between 'flex-row' and 'flex-col-reverse' based on whether the section is even or odd */}
       <div
         className={cn(
-          'service-inner',
+          'service-inner flex w-full flex-col justify-between',
           //'container mx-auto flex gap-7 xl:gap-16', // Common layout classes for all sections
           // isEven
           //   ? 'flex-row justify-start max-md:flex-col' // For even sections, content is aligned to the start, layout in row

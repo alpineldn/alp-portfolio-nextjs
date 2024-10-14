@@ -1,8 +1,10 @@
 'use client';
 
 import cn from '@/utils/cn';
+import { useRef } from 'react';
 import { services } from './data';
 import ServiceSection from './service-section/ServiceSection';
+import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
 
 interface ServiceProps {}
 
@@ -20,17 +22,71 @@ const Services: React.FC<ServiceProps> = ({}) => {
             Services
           </h2>
         </div>
-        <div className="container mx-auto grid max-lg:grid-cols-1 max-lg:gap-y-8 lg:grid-flow-col-dense lg:gap-x-10">
-          {services.map(({ items, title, description }, index) => (
-            <ServiceSection
-              key={title}
-              description={description}
-              index={index}
-              isEven={index % 2 === 0}
-              items={items}
-              title={title}
-            />
-          ))}
+        <div className="container mx-auto flex grid grid-cols-2 gap-10 max-lg:grid-cols-1 max-lg:gap-y-8 lg:gap-x-10">
+          <div className="service-container h-full">
+            <div className="space-y-8">
+              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.02}>
+                <h3 className="text-m">
+                  <span className="text-m text-gray">1. </span>Brand Development
+                </h3>
+              </FadeInAndSlideUpOnViewAnimation>
+              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
+                <p className="text-s">
+                  Differentiate your brand from the competition, delivering a
+                  unique experience for your audience. Strategy drives momentum,
+                  deepens customer loyalty and enhances brand value.
+                </p>
+              </FadeInAndSlideUpOnViewAnimation>
+            </div>
+          </div>
+          <div className="service-container">
+            <div className="space-y-8">
+              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.02}>
+                <h3 className="text-m">
+                  <span className="text-m text-gray">1. </span>Brand Development
+                </h3>
+              </FadeInAndSlideUpOnViewAnimation>
+              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
+                <p className="text-s">
+                  Differentiate your brand from the competition, delivering a
+                  unique experience for your audience. Strategy drives momentum,
+                  deepens customer loyalty and enhances brand value.
+                </p>
+              </FadeInAndSlideUpOnViewAnimation>
+            </div>
+          </div>
+          <div className="service-container">
+            <div className="space-y-8">
+              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.02}>
+                <h3 className="text-m">
+                  <span className="text-m text-gray">1. </span>Brand Development
+                </h3>
+              </FadeInAndSlideUpOnViewAnimation>
+              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
+                <p className="text-s">
+                  Differentiate your brand from the competition, delivering a
+                  unique experience for your audience. Strategy drives momentum,
+                  deepens customer loyalty and enhances brand value.
+                </p>
+              </FadeInAndSlideUpOnViewAnimation>
+            </div>
+          </div>
+          <div className="service-container">
+            <div className="space-y-8">
+              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.02}>
+                <h3 className="text-m">
+                  <span className="text-m text-gray">1. </span>Brand Development
+                </h3>
+              </FadeInAndSlideUpOnViewAnimation>
+              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
+                <p className="text-s">
+                  Differentiate your brand from the competition, delivering a
+                  unique experience for your audience. Strategy drives momentum,
+                  deepens customer loyalty and enhances brand value.
+                </p>
+              </FadeInAndSlideUpOnViewAnimation>
+            </div>
+          </div>
         </div>
       </div>
     </section>

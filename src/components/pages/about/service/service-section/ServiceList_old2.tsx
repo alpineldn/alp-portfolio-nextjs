@@ -16,18 +16,14 @@ const ServiceList: React.FC<ServiceListProps> = ({ items }) => {
           <li
             key={item}
             //className="border-y border-b border-y-gray border-b-gray py-1 text-s"
-            className="inline"
           >
             <FadeInAndSlideUpOnViewAnimation
               initial={{ y: 50 }}
               delay={0.2 + index * 0.02}
               viewport={{ root: listRef }}
-              className={cn(
-                'border-mediumGray my-1 mr-2 inline-block border border-solid p-2 text-s',
-                {
-                  'border-mediumGray border border-solid': index === 0,
-                },
-              )}
+              className={cn('border-b border-b-gray py-3 text-s', {
+                'border-y border-y-gray': index === 0,
+              })}
             >
               {item}
             </FadeInAndSlideUpOnViewAnimation>

@@ -91,7 +91,7 @@ module.exports = {
         'clamp(2.5rem, 6vw + 1vh, 3rem)',
         {
           letterSpacing: '0.06em',
-          fontWeight: 400,
+          fontWeight: 300,
           lineHeight: '1.2',
           textTransform: 'uppercase',
         },
@@ -156,6 +156,7 @@ module.exports = {
         gray: '#505050',
         black: '#000000',
         lightGray: '#888888',
+        mediumGray: '#333333',
         darkGray: '#111111',
         red: '#D12245',
         'red-hover': '#D12245',

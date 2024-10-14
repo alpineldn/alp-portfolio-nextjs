@@ -23,7 +23,7 @@ const ServiceList: React.FC<ServiceListProps> = ({ items }) => {
               delay={0.2 + index * 0.02}
               viewport={{ root: listRef }}
               className={cn(
-                'border-mediumGray my-2 mr-2 inline-block border border-solid p-2 text-s',
+                'border-mediumGray my-1 mr-2 inline-block border border-solid p-2 text-s',
                 {
                   'border-mediumGray border border-solid': index === 0,
                 },

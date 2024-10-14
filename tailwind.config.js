@@ -91,7 +91,7 @@ module.exports = {
         'clamp(2.5rem, 6vw + 1vh, 3rem)',
         {
           letterSpacing: '0.06em',
-          fontWeight: 400,
+          fontWeight: 300,
           lineHeight: '1.2',
           textTransform: 'uppercase',
         },

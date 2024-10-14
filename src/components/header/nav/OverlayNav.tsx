@@ -7,6 +7,7 @@ import UnderlineLink from '@/components/common/ui/UnderlineLink';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 
 const navItems = [
+  //{ title: 'Home', href: '/' },
   { title: 'Work', href: '/work' },
   { title: 'About', href: '/about' },
 ];

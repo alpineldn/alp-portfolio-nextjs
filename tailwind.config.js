@@ -156,6 +156,7 @@ module.exports = {
         gray: '#505050',
         black: '#000000',
         lightGray: '#888888',
+        mediumGray: '#333333',
         darkGray: '#111111',
         red: '#D12245',
         'red-hover': '#D12245',

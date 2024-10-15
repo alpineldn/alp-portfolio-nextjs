@@ -18,30 +18,24 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
 }) => {
   return (
     // The outer container for the entire service section
-    // Apply conditional classes using 'cn'. If the index is 0, apply a bottom padding; otherwise, use standard padding
-    // Also, alternate the background color between 'bg-dark' and 'bg-darkGray' based on whether the section index is even
+    // Set a min-height to ensure all sections have the same height
     <div
       className={cn(
-        'service-container',
-        //'flex gap-7 py-section md:py-section-lg xl:gap-16', //,
-        //isEven ? 'bg-dark' : 'bg-darkGray', // Background color changes based on the even/odd index
+        'flex h-full min-h-[300px] flex-col py-4', // Adjust min-height as needed
+        //isEven ? 'bg-dark' : 'bg-darkGray' // Background color changes based on the even/odd index
       )}
     >
       {/* Inner container to organize the layout of the section */}
-      {/* The layout alternates between 'flex-row' and 'flex-col-reverse' based on whether the section is even or odd */}
-      <div
-        className={cn(
-          'service-inner flex w-full flex-col justify-between',
-          //'container mx-auto flex gap-7 xl:gap-16', // Common layout classes for all sections
-          // isEven
-          //   ? 'flex-row justify-start max-md:flex-col' // For even sections, content is aligned to the start, layout in row
-          //   : 'flex-row justify-start max-md:flex-col', // For odd sections, content is aligned to the end, reversed layout for mobile
-        )}
-      >
+      <div className="flex flex-grow flex-col">
+        {/* Use flex-grow to make the description take available space */}
         <Description index={index} title={title} description={description} />
-        <ServiceList items={items} />
+        <div className="flex-grow" />
+        {/* This empty div pushes the ServiceList to the bottom */}
       </div>
+      <ServiceList items={items} />
+      {/* Positioned at the bottom of the section */}
     </div>
   );
 };
+
 export default ServiceSection;

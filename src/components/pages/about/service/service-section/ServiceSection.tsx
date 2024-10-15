@@ -27,13 +27,12 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
     >
       {/* Inner container to organize the layout of the section */}
       <div className="flex flex-grow flex-col">
-        {' '}
         {/* Use flex-grow to make the description take available space */}
         <Description index={index} title={title} description={description} />
-        <div className="flex-grow" />{' '}
+        <div className="flex-grow" />
         {/* This empty div pushes the ServiceList to the bottom */}
       </div>
-      <ServiceList items={items} />{' '}
+      <ServiceList items={items} />
       {/* Positioned at the bottom of the section */}
     </div>
   );

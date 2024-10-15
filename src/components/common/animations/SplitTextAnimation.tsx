@@ -29,7 +29,7 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
   target = 'current',
 }) => {
   const ref = useRef<HTMLElement>(null);
-  const [_splitText, setSplitTexts] = useState<SplitType>();
+  const [_splitText, setSplitTexts] = useState<SplitType | null>(null);
 
   useLayoutEffect(() => {
     if (!ref.current) return;
@@ -40,22 +40,25 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
     });
     setSplitTexts(splitText);
 
-    // Wrap each word with an overflow-hidden container
-    splitText.words.forEach((word) => {
-      const wrapper = document.createElement('div'); // Create a wrapper element
-      wrapper.style.overflow = 'hidden'; // Ensure overflow is hidden
-      wrapper.style.display = 'inline-block'; // Inline-block for each word to wrap properly
-      wrapper.style.verticalAlign = 'top'; // Ensure words align correctly
-      word.parentNode?.insertBefore(wrapper, word); // Insert the wrapper before the word
-      wrapper.appendChild(word); // Move the word inside the wrapper
-    });
+    // Ensure words exist before wrapping
+    if (splitText.words && splitText.words.length) {
+      // Wrap each word with an overflow-hidden container
+      splitText.words.forEach((word) => {
+        const wrapper = document.createElement('div'); // Create a wrapper element
+        wrapper.style.overflow = 'hidden'; // Ensure overflow is hidden
+        wrapper.style.display = 'inline-block'; // Inline-block for each word to wrap properly
+        wrapper.style.verticalAlign = 'top'; // Ensure words align correctly
+        word.parentNode?.insertBefore(wrapper, word); // Insert the wrapper before the word
+        wrapper.appendChild(word); // Move the word inside the wrapper
+      });
 
-    // Set initial position of words off the visible area
-    gsap.set(splitText.words, { y: '100%' });
+      // Set initial position of words off the visible area
+      gsap.set(splitText.words, { y: '100%' });
+    }
   }, [ref]);
 
   useLayoutEffect(() => {
-    if (!ref.current || !animate || !_splitText) return;
+    if (!ref.current || !animate || !_splitText?.words?.length) return; // Check if words exist before animating
 
     const tl = gsap.timeline({
       defaults: { ease: 'power4.inOut', ...animationOptions },
@@ -70,7 +73,7 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
     });
 
     return () => {
-      _splitText.revert(); // Clean up SplitType changes
+      _splitText?.revert(); // Clean up SplitType changes
       tl.kill(); // Clean up the GSAP timeline
     };
   }, [ref, animate, _splitText]);

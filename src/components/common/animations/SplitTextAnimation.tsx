@@ -3,10 +3,7 @@
 import { useRef, useLayoutEffect, useState } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import cn from '@/utils/cn';
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface SplitTextAnimationProps {
   children: React.ReactNode;
@@ -15,100 +12,68 @@ interface SplitTextAnimationProps {
   delay?: number;
   stagger?: number;
   duration?: number;
-  animate?: boolean; // Flag to trigger the animation
+  animate?: boolean;
   el?: React.ElementType;
   target?: 'current' | 'childNodes';
 }
 
-/**
- * Usage:
- *
- * Import the component:
- * import SplitTextAnimation from '@/components/common/animations/SplitTextAnimation';
- *
- * Use it in your JSX:
- *
- * <SplitTextAnimation
- *   className="your-custom-class"
- *   animationOptions={{ ease: 'elastic.out' }}
- *   delay={0.5}
- *   stagger={0.1}
- *   duration={2}
- *   animate={true}
- *   el="div"
- *   target="current"
- * >
- *   Your text goes here.
- * </SplitTextAnimation>
- *
- * Props:
- * - `children`: The text content to be animated.
- * - `className`: Additional CSS classes for styling.
- * - `animationOptions`: GSAP animation options (e.g., easing).
- * - `delay`: Delay before the animation starts.
- * - `stagger`: Time between the start of each word's animation.
- * - `duration`: Duration of the animation.
- * - `animate`: Boolean flag to trigger the animation.
- * - `el`: The HTML element to wrap the text (default is 'span').
- * - `target`: Whether to split the text of the current element or its child nodes.
- *
- * Useful Links:
- * - GSAP Documentation: https://greensock.com/docs/
- * - SplitType Documentation: https://github.com/lukePeavey/SplitType
- * - React Documentation: https://reactjs.org/docs/getting-started.html
- */
-
 const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
-  el: Element = 'span', // Default element to wrap the text is 'span'
-  children, // The text content to be animated
-  delay, // Delay before the animation starts
-  className, // Additional CSS classes for styling
-  animationOptions, // GSAP animation options (e.g., easing)
-  stagger = 0.05, // Time between the start of each word's animation
-  duration = 1.5, // Duration of the animation
-  animate = true, // Boolean flag to trigger the animation
-  target = 'current', // Whether to split the text of the current element or its child nodes
+  el: Element = 'span',
+  children,
+  delay,
+  className,
+  animationOptions,
+  stagger = 0.05,
+  duration = 1.5,
+  animate = true,
+  target = 'current',
 }) => {
-  const ref = useRef<HTMLElement>(null); // Reference to the HTML element
-  const [_splitText, setSplitTexts] = useState<SplitType>(); // State to store the SplitType instance
+  const ref = useRef<HTMLElement>(null);
+  const [_splitText, setSplitTexts] = useState<SplitType>();
 
   useLayoutEffect(() => {
-    if (!ref.current) return; // If the reference is not set, do nothing
+    if (!ref.current) return;
 
-    // Split the text into lines and words
-    const splitText = new SplitType(
-      target === 'current'
-        ? (ref.current as HTMLElement) // Split the text of the current element
-        : (ref.current.childNodes as NodeListOf<HTMLElement>), // Split the text of the child nodes
-      {
-        types: 'lines,words', // Split into lines and words
-        lineClass: 'overflow-hidden', // Add 'overflow-hidden' class to lines
-      },
-    );
-    setSplitTexts(splitText); // Store the SplitType instance in state
-    gsap.set(splitText.words, { y: '100%' }); // Set initial position of words
-  }, [ref]); // Run this effect when the reference changes
+    // Split the text into words and apply inline-block display for proper wrapping
+    const splitText = new SplitType(ref.current, {
+      types: 'chars,words',
+    });
+    setSplitTexts(splitText);
 
-  useLayoutEffect(() => {
-    if (!ref.current || !animate || !_splitText) return; // If conditions are not met, do nothing
-
-    // Create the animation timeline
-    const tl = gsap.timeline({
-      defaults: { ease: 'power4.inOut', ...animationOptions }, // Default animation options
-      delay, // Delay before the animation starts
+    // Wrap each word with an overflow-hidden container
+    splitText.words.forEach((word) => {
+      const wrapper = document.createElement('div'); // Create a wrapper element
+      wrapper.style.overflow = 'hidden'; // Ensure overflow is hidden
+      wrapper.style.display = 'inline-block'; // Inline-block for each word to wrap properly
+      wrapper.style.verticalAlign = 'top'; // Ensure words align correctly
+      word.parentNode?.insertBefore(wrapper, word); // Insert the wrapper before the word
+      wrapper.appendChild(word); // Move the word inside the wrapper
     });
 
+    // Set initial position of words off the visible area
+    gsap.set(splitText.words, { y: '100%' });
+  }, [ref]);
+
+  useLayoutEffect(() => {
+    if (!ref.current || !animate || !_splitText) return;
+
+    const tl = gsap.timeline({
+      defaults: { ease: 'power4.inOut', ...animationOptions },
+      delay,
+    });
+
+    // Animate each word from y: 100% to y: 0%
     tl.to(_splitText.words, {
-      y: '0%', // Animate words to their final position
-      duration, // Duration of the animation
-      stagger, // Time between the start of each word's animation
+      y: '0%',
+      duration,
+      stagger,
     });
 
     return () => {
-      _splitText.revert(); // Cleanup SplitType
+      _splitText.revert(); // Clean up SplitType changes
       tl.kill(); // Clean up the GSAP timeline
     };
-  }, [ref, animate, _splitText]); // Dependency array includes 'animate'
+  }, [ref, animate, _splitText]);
 
   return (
     <Element ref={ref} className={cn('overflow-hidden', className)}>

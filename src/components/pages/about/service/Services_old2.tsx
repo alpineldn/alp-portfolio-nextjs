@@ -13,8 +13,9 @@ const Services: React.FC<ServiceProps> = ({}) => {
         <div className="container mx-auto">
           <h2
             className={cn(
-              'text-section-subtitle text-lightGray',
-              'pb-[calc(96px/2)] md:pb-[calc(144px/2)]', // pb is half of the pt values
+              'text-lightGray',
+              'pb-[calc(96px/2)] md:pb-[calc(144px/2)]',
+              'text-section-subtitle', // pb is half of the pt values
             )}
           >
             Services

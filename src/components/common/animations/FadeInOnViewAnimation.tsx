@@ -17,14 +17,14 @@ interface Props {
 const FadeInAndSlideUpOnViewAnimation: React.FC<Props> = ({
   children,
   className,
-  initial = { y: 65, opacity: 0 }, // Default initial values
-  whileInView = { y: 0, opacity: 1 }, // Animation values when in view
+  initial = { y: 65, opacity: 0 },
+  whileInView = { y: 0, opacity: 1 },
   transition,
   viewportOnce = true,
   motionProps,
   viewport,
-  staggerChildren = 0.1, // Default stagger value
-  delayChildren = 0.3, // Default delay value
+  staggerChildren = 0.1,
+  delayChildren = 0.3,
 }) => {
   const variants: Variants = {
     hidden: initial,
@@ -41,11 +41,11 @@ const FadeInAndSlideUpOnViewAnimation: React.FC<Props> = ({
   return (
     <motion.div
       className={className}
-      initial="hidden" // Specify hidden state
-      animate="show" // Specify show state
-      variants={variants} // Pass the variants object
-      viewport={{ once: viewportOnce, ...viewport }} // Viewport settings
-      {...motionProps} // Additional motion props
+      initial="hidden"
+      animate="show"
+      variants={variants}
+      viewport={{ once: viewportOnce, ...viewport }}
+      {...motionProps}
     >
       {children}
     </motion.div>

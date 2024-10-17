@@ -23,15 +23,15 @@ const Services: React.FC<ServiceProps> = () => {
           </h2>
         </div>
         <FadeInAndSlideUpOnViewAnimation
-          initial={{ y: 65, opacity: 0 }} // Initial state for animation
-          whileInView={{ y: 0, opacity: 1 }} // State when in view
-          staggerChildren={0.1} // Stagger delay for child animations
-          delayChildren={0.3} // Delay before child animations start
+          initial={{ y: 65, opacity: 0 }} // Initial state
+          whileInView={{ y: 0, opacity: 1 }} // State in view
+          staggerChildren={0.1} // Stagger for child animations
+          delayChildren={0.3} // Delay before children animations start
         >
-          <div className="container mx-auto flex grid grid-cols-2 gap-10 max-lg:gap-y-8 max-sm:grid-cols-1 lg:gap-x-10">
+          <div className="container mx-auto grid grid-cols-2 gap-10 max-lg:gap-y-8 max-sm:grid-cols-1 lg:gap-x-10">
             {services.map(({ items, title, description }, index) => (
               <ServiceSection
-                key={title} // Ensure each ServiceSection has a unique key
+                key={title}
                 description={description}
                 index={index}
                 isEven={index % 2 === 0}

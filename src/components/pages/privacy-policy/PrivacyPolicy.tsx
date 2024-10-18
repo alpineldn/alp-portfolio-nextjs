@@ -42,12 +42,14 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({}) => {
     <div className="container mx-auto pt-[130px] lg:pt-[293px]">
       <div
         className={cn(
-          'prose-alp prose max-w-none',
-          'prose-ul:list-none',
-          'prose-li:relative prose-li:pl-4 prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-1.5 prose-li:before:h-0.5 prose-li:before:w-2 prose-li:before:translate-y-full prose-li:before:bg-gray',
-          'prose-h2:text-m',
-          'prose-p:text-s-spaced',
-          'prose-li:text-s-spaced',
+          '[&_ul]:mt-2 [&_ul]:list-none [&_ul]:space-y-2',
+          '[&_li]:relative [&_li]:pl-4 [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-1.5 [&_li]:before:h-0.5 [&_li]:before:w-2 [&_li]:before:translate-y-full [&_li]:before:bg-gray',
+          '[&_h2]:text-m',
+          '[&_p]:mt-4 [&_p]:text-s-spaced',
+          '[&_li]:text-s-spaced',
+          '[&_p]:space-y-8',
+          '[&_div]:mt-8',
+          'space-y-6',
         )}
       >
         <div>

@@ -31,41 +31,64 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
   const ref = useRef<HTMLElement>(null);
   const [_splitText, setSplitTexts] = useState<SplitType | null>(null);
 
-  useLayoutEffect(() => {
+  const debounce = (func: Function, delay: number) => {
+    let timeoutId: NodeJS.Timeout;
+    return (...args: any[]) => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  };
+
+  const splitText = () => {
     if (!ref.current) return;
 
-    // Split the text into words and apply inline-block display for proper wrapping
-    const splitText = new SplitType(ref.current, {
+    // Clear previous SplitType instance
+    _splitText?.revert();
+
+    const split = new SplitType(ref.current, {
       types: 'chars,words',
     });
-    setSplitTexts(splitText);
+    setSplitTexts(split);
 
-    // Ensure words exist before wrapping
-    if (splitText.words && splitText.words.length) {
-      // Wrap each word with an overflow-hidden container
-      splitText.words.forEach((word) => {
-        const wrapper = document.createElement('div'); // Create a wrapper element
-        wrapper.style.overflow = 'hidden'; // Ensure overflow is hidden
-        wrapper.style.display = 'inline-block'; // Inline-block for each word to wrap properly
-        wrapper.style.verticalAlign = 'top'; // Ensure words align correctly
-        word.parentNode?.insertBefore(wrapper, word); // Insert the wrapper before the word
-        wrapper.appendChild(word); // Move the word inside the wrapper
+    if (split.words && split.words.length) {
+      split.words.forEach((word) => {
+        const wrapper = document.createElement('div');
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.display = 'inline-block';
+        wrapper.style.verticalAlign = 'top';
+        word.parentNode?.insertBefore(wrapper, word);
+        wrapper.appendChild(word);
       });
 
-      // Set initial position of words off the visible area
-      gsap.set(splitText.words, { y: '100%' });
+      gsap.set(split.words, { y: '100%' });
     }
-  }, [ref]);
+  };
 
   useLayoutEffect(() => {
-    if (!ref.current || !animate || !_splitText?.words?.length) return; // Check if words exist before animating
+    splitText(); // Initial split
+
+    const handleResize = debounce(() => {
+      splitText(); // Re-split on resize
+    }, 150); // Adjust debounce time as needed
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      _splitText?.revert(); // Clean up SplitType changes
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!ref.current || !animate || !_splitText?.words?.length) return;
 
     const tl = gsap.timeline({
       defaults: { ease: 'power4.inOut', ...animationOptions },
       delay,
     });
 
-    // Animate each word from y: 100% to y: 0%
     tl.to(_splitText.words, {
       y: '0%',
       duration,
@@ -73,8 +96,7 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
     });
 
     return () => {
-      _splitText?.revert(); // Clean up SplitType changes
-      tl.kill(); // Clean up the GSAP timeline
+      tl.kill();
     };
   }, [ref, animate, _splitText]);
 

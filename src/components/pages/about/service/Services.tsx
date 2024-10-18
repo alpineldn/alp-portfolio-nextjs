@@ -22,15 +22,15 @@ const Services: React.FC<ServiceProps> = ({}) => {
             Services
           </h2>
         </div>
-        <div className="container mx-auto flex grid grid-cols-2 gap-10 max-lg:grid-cols-1 max-lg:gap-y-8 lg:gap-x-10">
+        <div className="container mx-auto grid grid-cols-2 gap-10 max-lg:grid-cols-1 max-lg:gap-y-8 lg:gap-x-10">
           <div className="service-container h-full">
             <div className="space-y-8">
-              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.02}>
+              <FadeInAndSlideUpOnViewAnimation hidden={{ y: 65 }} delay={0.02}>
                 <h3 className="text-m">
                   <span className="text-m text-gray">1. </span>Brand Development
                 </h3>
               </FadeInAndSlideUpOnViewAnimation>
-              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
+              <FadeInAndSlideUpOnViewAnimation hidden={{ y: 65 }} delay={0.1}>
                 <p className="text-s">
                   Differentiate your brand from the competition, delivering a
                   unique experience for your audience. Strategy drives momentum,
@@ -41,12 +41,12 @@ const Services: React.FC<ServiceProps> = ({}) => {
           </div>
           <div className="service-container">
             <div className="space-y-8">
-              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.02}>
+              <FadeInAndSlideUpOnViewAnimation hidden={{ y: 65 }} delay={0.02}>
                 <h3 className="text-m">
                   <span className="text-m text-gray">1. </span>Brand Development
                 </h3>
               </FadeInAndSlideUpOnViewAnimation>
-              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
+              <FadeInAndSlideUpOnViewAnimation hidden={{ y: 65 }} delay={0.1}>
                 <p className="text-s">
                   Differentiate your brand from the competition, delivering a
                   unique experience for your audience. Strategy drives momentum,
@@ -57,12 +57,12 @@ const Services: React.FC<ServiceProps> = ({}) => {
           </div>
           <div className="service-container">
             <div className="space-y-8">
-              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.02}>
+              <FadeInAndSlideUpOnViewAnimation hidden={{ y: 65 }} delay={0.02}>
                 <h3 className="text-m">
                   <span className="text-m text-gray">1. </span>Brand Development
                 </h3>
               </FadeInAndSlideUpOnViewAnimation>
-              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
+              <FadeInAndSlideUpOnViewAnimation hidden={{ y: 65 }} delay={0.1}>
                 <p className="text-s">
                   Differentiate your brand from the competition, delivering a
                   unique experience for your audience. Strategy drives momentum,
@@ -73,12 +73,12 @@ const Services: React.FC<ServiceProps> = ({}) => {
           </div>
           <div className="service-container">
             <div className="space-y-8">
-              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.02}>
+              <FadeInAndSlideUpOnViewAnimation hidden={{ y: 65 }} delay={0.02}>
                 <h3 className="text-m">
                   <span className="text-m text-gray">1. </span>Brand Development
                 </h3>
               </FadeInAndSlideUpOnViewAnimation>
-              <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.1}>
+              <FadeInAndSlideUpOnViewAnimation hidden={{ y: 65 }} delay={0.1}>
                 <p className="text-s">
                   Differentiate your brand from the competition, delivering a
                   unique experience for your audience. Strategy drives momentum,

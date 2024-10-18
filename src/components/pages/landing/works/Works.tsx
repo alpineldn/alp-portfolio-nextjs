@@ -72,19 +72,21 @@ const Works: React.FC<ProjectsProps> = ({ projects }) => {
   };
 
   return (
-    <FadeInAndSlideUpOnViewAnimation initial={{ y: 200 }}>
-      <section
-        ref={container}
-        onMouseMove={(e) => {
-          moveItems(e.clientX, e.clientY);
-        }}
-        className="text-light relative bg-darkGray py-section md:py-section-lg"
-      >
-        <div className="container mx-auto">
+    <section
+      ref={container}
+      onMouseMove={(e) => {
+        moveItems(e.clientX, e.clientY);
+      }}
+      className="text-light relative bg-darkGray py-section md:py-section-lg"
+    >
+      <div className="container mx-auto">
+        <FadeInAndSlideUpOnViewAnimation>
           <h2 className="mb-xs text-section-subtitle text-lightGray xl:mb-section-md">
             Projects
           </h2>
+        </FadeInAndSlideUpOnViewAnimation>
 
+        <FadeInAndSlideUpOnViewAnimation delay={0.2}>
           <div className="w-full">
             {projects.map((project, index) => {
               return (
@@ -97,36 +99,36 @@ const Works: React.FC<ProjectsProps> = ({ projects }) => {
               );
             })}
           </div>
+        </FadeInAndSlideUpOnViewAnimation>
 
-          <div className="mt-sm flex md:mt-section-lg">
-            <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.5}>
-              <PageTransitionLink className="block" href="/work">
-                <LinkEl>More Work</LinkEl>
-              </PageTransitionLink>
-            </FadeInAndSlideUpOnViewAnimation>
-          </div>
+        <div className="mt-sm flex md:mt-section-lg">
+          <FadeInAndSlideUpOnViewAnimation>
+            <PageTransitionLink className="block" href="/work">
+              <LinkEl>More Work</LinkEl>
+            </PageTransitionLink>
+          </FadeInAndSlideUpOnViewAnimation>
         </div>
+      </div>
 
-        <>
-          <motion.div
-            ref={modalContainer}
-            variants={scaleAnimation}
-            initial="initial"
-            animate={active ? 'enter' : 'closed'}
-            className="pointer-events-none fixed left-2/4 top-2/4 z-[3] h-[350px] w-[400px] overflow-hidden bg-[white]"
+      <>
+        <motion.div
+          ref={modalContainer}
+          variants={scaleAnimation}
+          initial="initial"
+          animate={active ? 'enter' : 'closed'}
+          className="pointer-events-none fixed left-2/4 top-2/4 z-[3] h-[350px] w-[400px] overflow-hidden bg-[white]"
+        >
+          <div
+            style={{ top: index * -100 + '%' }}
+            className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
           >
-            <div
-              style={{ top: index * -100 + '%' }}
-              className="relative h-full w-full transition-[top] duration-500 ease-smooth-curve"
-            >
-              {projects.map((project) => (
-                <Project key={project._id} active={modal.active} {...project} />
-              ))}
-            </div>
-          </motion.div>
-        </>
-      </section>
-    </FadeInAndSlideUpOnViewAnimation>
+            {projects.map((project) => (
+              <Project key={project._id} active={modal.active} {...project} />
+            ))}
+          </div>
+        </motion.div>
+      </>
+    </section>
   );
 };
 

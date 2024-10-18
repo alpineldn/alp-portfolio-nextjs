@@ -42,33 +42,30 @@ const Description: React.FC<DescriptionProps> = () => {
           </div>
         </div>
 
-        <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }}>
-          <div className="flex w-full flex-row flex-wrap">
-            <ul className="mt-20 flex flex-row flex-wrap max-sm:flex-col max-sm:flex-nowrap">
-              {services.map(({ id, title }, index) => (
-                <li
-                  key={id}
-                  className="mr-10 inline-flex items-center space-x-3 text-m sm:flex lg:space-x-4"
-                >
-                  <SplitTextAnimation
-                    el="span"
-                    delay={index * 0.5}
-                    animate={isInView}
-                  >
-                    {title}
-                  </SplitTextAnimation>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </FadeInAndSlideUpOnViewAnimation>
+        <div className="flex w-full flex-row flex-wrap">
+          <FadeInAndSlideUpOnViewAnimation
+            hidden={{ y: 35 }}
+            delay={0.5}
+            isList
+            className="mt-20 flex flex-row flex-wrap max-sm:flex-col max-sm:flex-nowrap"
+          >
+            {services.map(({ id, title }, index) => (
+              <div
+                key={id}
+                className="mr-10 inline-flex items-center space-x-3 text-m sm:flex lg:space-x-4"
+              >
+                <span>{title}</span>
+              </div>
+            ))}
+          </FadeInAndSlideUpOnViewAnimation>
+        </div>
 
         <motion.div
           className="pt-section md:pt-section-lg"
           variants={opacity}
           animate={isInView ? 'open' : 'closed'}
         >
-          <FadeInAndSlideUpOnViewAnimation initial={{ y: 65 }} delay={0.5}>
+          <FadeInAndSlideUpOnViewAnimation delay={0.5}>
             <PageTransitionLink className="block w-fit" href="/about">
               <LinkEl>About Us</LinkEl>
             </PageTransitionLink>

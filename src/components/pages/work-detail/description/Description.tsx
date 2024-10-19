@@ -93,7 +93,7 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
       >
         {!!client && (
           <li>
-            <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }}>
+            <FadeInAndSlideUpOnViewAnimation hidden={{ y: 50 }} delay={0}>
               <div className="text-lightGray">Client:</div>
               <div>{client}</div>
             </FadeInAndSlideUpOnViewAnimation>
@@ -101,7 +101,7 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
         )}
         {!!agency && (
           <li>
-            <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }} delay={0.05}>
+            <FadeInAndSlideUpOnViewAnimation hidden={{ y: 50 }} delay={0.05}>
               <div className="text-lightGray">Agency:</div>
               <div>{agency}</div>
             </FadeInAndSlideUpOnViewAnimation>
@@ -109,7 +109,7 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
         )}
 
         <li>
-          <FadeInAndSlideUpOnViewAnimation initial={{ y: 50 }} delay={0.1}>
+          <FadeInAndSlideUpOnViewAnimation hidden={{ y: 50 }} delay={0.1}>
             <div className="text-lightGray">Categories:</div>
             <div>
               {categories.map(({ title, _id }, index) => (
@@ -122,7 +122,7 @@ const Details: React.FC<Omit<DescriptionProps, 'body'>> = ({
         </li>
       </ul>
       <FadeInAndSlideUpOnViewAnimation
-        initial={{ y: 50 }}
+        hidden={{ y: 50 }}
         delay={0.15}
         className={cn('flex flex-col lg:items-end lg:justify-end')}
       >

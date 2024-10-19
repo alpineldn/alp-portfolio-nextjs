@@ -15,7 +15,7 @@ interface ClientsProps {
 
 const Clients: React.FC<ClientsProps> = ({ clients }) => {
   return (
-    <FadeInAndSlideUpOnViewAnimation initial={{ y: 100 }}>
+    <FadeInAndSlideUpOnViewAnimation hidden={{ y: 100 }}>
       <section className="relative overflow-hidden bg-dark py-section md:py-section-lg">
         <div className="container mx-auto">
           <h2 className="mb-xs text-section-subtitle text-lightGray xl:mb-section-md">

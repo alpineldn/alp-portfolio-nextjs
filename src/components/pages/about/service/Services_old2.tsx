@@ -1,12 +1,33 @@
 'use client';
 
 import cn from '@/utils/cn';
+import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
 import { services } from './data';
 import ServiceSection from './service-section/ServiceSection';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 interface ServiceProps {}
 
-const Services: React.FC<ServiceProps> = ({}) => {
+const containerVariants = {
+  hidden: { opacity: 0, y: 65 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 65 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const Services: React.FC<ServiceProps> = () => {
+  const serviceListContainerRef = useRef<HTMLDivElement>(null);
+
   return (
     <section>
       <div className="relative overflow-hidden bg-darkGray py-section md:py-section-lg">
@@ -15,16 +36,19 @@ const Services: React.FC<ServiceProps> = ({}) => {
             className={cn(
               'text-lightGray',
               'pb-[calc(96px/2)] md:pb-[calc(144px/2)]',
-              'text-section-subtitle', // pb is half of the pt values
+              'text-section-subtitle',
             )}
           >
             Services
           </h2>
         </div>
-        <div className="container mx-auto flex grid grid-cols-2 gap-10 max-lg:gap-y-8 max-sm:grid-cols-1 lg:gap-x-10">
+        <FadeInAndSlideUpOnViewAnimation
+          isList
+          className="container mx-auto grid grid-cols-2 gap-10 max-lg:gap-y-8 max-sm:grid-cols-1 lg:gap-x-10"
+        >
           {services.map(({ items, title, description }, index) => (
             <ServiceSection
-              key={title}
+              key={index}
               description={description}
               index={index}
               isEven={index % 2 === 0}
@@ -32,7 +56,7 @@ const Services: React.FC<ServiceProps> = ({}) => {
               title={title}
             />
           ))}
-        </div>
+        </FadeInAndSlideUpOnViewAnimation>
       </div>
     </section>
   );

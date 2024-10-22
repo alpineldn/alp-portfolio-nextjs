@@ -67,10 +67,12 @@ const Home: React.FC<HomeProps> = async () => {
   return (
     <Page pageName={HOMEPAGE_ID}>
       <Hero />
-      <Description />
-      {!!projects?.length && <Works projects={projects} />}
-      {!!clients?.length && <Clients clients={clients} />}
-      <Contact />
+      <div className="main">
+        <Description />
+        {!!projects?.length && <Works projects={projects} />}
+        {!!clients?.length && <Clients clients={clients} />}
+        <Contact />
+      </div>
     </Page>
   );
 };

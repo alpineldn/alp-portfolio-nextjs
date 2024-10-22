@@ -1,11 +1,6 @@
 import { MotionProps, motion } from 'framer-motion';
 import React from 'react';
 
-// Function to define container animation variants
-// This function returns an object with two states: 'hidden' and 'show'.
-// 'hidden' state sets the initial opacity to 0 and moves the element down by 65 pixels.
-// 'show' state sets the final opacity to 1 and moves the element to its original position.
-// The 'show' state also includes a transition configuration with duration, delay, and staggerChildren properties.
 const containerVariants = (
   stagger: number,
   duration: number,
@@ -26,11 +21,6 @@ const containerVariants = (
   },
 });
 
-// Function to define item animation variants
-// This function returns an object with two states: 'hidden' and 'show'.
-// 'hidden' state sets the initial opacity to 0 and moves the element down by 65 pixels.
-// 'show' state sets the final opacity to 1 and moves the element to its original position.
-// The 'show' state also includes a transition configuration with duration property.
 const itemVariants = (hidden?: object, show?: object, duration?: number) => ({
   hidden: { opacity: 0, y: 65, ...hidden },
   show: { opacity: 1, y: 0, ...show, transition: { duration: duration } },
@@ -47,21 +37,9 @@ interface FadeInAndSlideUpOnViewAnimationProps {
   triggerOnce?: boolean;
   viewport?: MotionProps['viewport'];
   isList?: boolean;
+  initial?: { y: number }; // Added initial prop
 }
 
-// Component to animate children with fade-in and slide-up effect on view
-// This component uses framer-motion to animate its children elements.
-// It accepts several props to customize the animation:
-// - children: The elements to be animated.
-// - stagger: Time in seconds to stagger the animation of child elements.
-// - duration: Duration of the animation in seconds.
-// - delay: Delay before the animation starts in seconds.
-// - className: Additional CSS classes for the container.
-// - hidden: Custom styles for the 'hidden' state.
-// - show: Custom styles for the 'show' state.
-// - triggerOnce: If true, the animation will only trigger once.
-// - viewport: Custom viewport settings for the animation.
-// - isList: If true, each child will be wrapped in a motion.div to apply individual animations. Use isList for looping through children.
 const FadeInAndSlideUpOnViewAnimation: React.FC<
   FadeInAndSlideUpOnViewAnimationProps
 > = ({
@@ -75,12 +53,13 @@ const FadeInAndSlideUpOnViewAnimation: React.FC<
   triggerOnce = true,
   isList = false,
   viewport = {},
+  initial = { y: 65 }, // Default initial prop
 }) => {
   return (
     <motion.div
       className={className}
       variants={containerVariants(stagger, duration, delay, hidden, show)}
-      initial="hidden"
+      initial={initial} // Pass the initial prop here
       whileInView="show"
       viewport={{ once: triggerOnce, ...viewport }}
     >

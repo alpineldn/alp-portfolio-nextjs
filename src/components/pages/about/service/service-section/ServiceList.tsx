@@ -11,7 +11,9 @@ const ServiceList: React.FC<ServiceListProps> = ({ items }) => {
       <FadeInAndSlideUpOnViewAnimation
         isList
         className="flex flex-wrap"
-        hidden={{ y: 25 }}
+        stagger={0.3} // Optionally, you can specify stagger if needed
+        duration={0.8} // Optionally, you can specify duration if needed
+        hidden={{ y: 25 }} // This is still valid as 'hidden' prop
       >
         {items.map((item, index) => (
           <li key={item} className="inline">

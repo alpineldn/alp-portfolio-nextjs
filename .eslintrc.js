@@ -5,13 +5,19 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+    'next',
+    'prettier', // This should be here
   ],
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'import'],
   rules: {
-    // your custom rules
     '@typescript-eslint/no-empty-object-type': 'off', // Disable the no-empty-object-type rule
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };

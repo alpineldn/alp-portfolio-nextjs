@@ -13,9 +13,9 @@ interface FadeInOutWrapperProps {
 const FadeInOutWrapper: React.FC<FadeInOutWrapperProps> = ({
   children,
   gsapOptions = {},
-  duration = 0.5, // Default duration is 0.5 seconds
-  delay = 0, // Default delay is 0 seconds
-  threshold = 0.2, // Set threshold to 20%
+  duration = 0.5,
+  delay = 0,
+  threshold = 0.2,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -24,11 +24,7 @@ const FadeInOutWrapper: React.FC<FadeInOutWrapperProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true); // Element is in view
-          } else {
-            setIsVisible(false); // Element is out of view
-          }
+          setIsVisible(entry.isIntersecting);
         });
       },
       { threshold },
@@ -47,10 +43,8 @@ const FadeInOutWrapper: React.FC<FadeInOutWrapperProps> = ({
 
   useEffect(() => {
     if (isVisible) {
-      // Fade in when in view with delay
       gsap.to(ref.current, { opacity: 1, duration, delay, ...gsapOptions });
     } else {
-      // Fade out when out of view with delay
       gsap.to(ref.current, { opacity: 0, duration, delay, ...gsapOptions });
     }
   }, [isVisible, gsapOptions, duration, delay]);

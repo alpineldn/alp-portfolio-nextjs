@@ -20,7 +20,8 @@ module.exports = {
     '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/display-name': 'off',
-    'react/no-unescaped-entities': 'off', // Disable the rule globally
+    'react/no-unescaped-entities': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off', // Disable the rule globally
   },
   settings: {
     react: {

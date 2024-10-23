@@ -17,7 +17,14 @@ module.exports = {
     '@typescript-eslint/no-empty-object-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'prefer-const': 'off',
-    '@typescript-eslint/no-unused-expressions': 'off', // Disable the rule globally
+    '@typescript-eslint/no-unused-expressions': 'off',
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      {
+        'ts-expect-error': 'allow-with-description', // Allow @ts-expect-error with description
+        'ts-ignore': false, // Allow @ts-ignore
+      },
+    ],
   },
   settings: {
     react: {

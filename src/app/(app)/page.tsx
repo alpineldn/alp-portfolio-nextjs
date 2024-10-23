@@ -1,3 +1,4 @@
+// Home.tsx
 import Page from '@/components/common/Page';
 import Contact from '@/components/contact/Contact';
 import Description from '@/components/pages/landing/description/Description';

@@ -8,7 +8,7 @@ import SplitTextAnimation from '@/components/common/animations/SplitTextAnimatio
 
 interface HeroProps {}
 
-const Hero: React.FC<HeroProps> = () => {
+const Hero: React.FC<HeroProps> = ({}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { firstVisit } = useStore((store) => store);
   const initialDelay = firstVisit ? 2.7 : 1.5;
@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = () => {
       ref={containerRef}
       initial="initial"
       animate="enter"
-      className="hero text-light fixed inset-0 z-10 flex h-screen overflow-hidden" // Fixed hero
+      className="text-light relative flex h-screen overflow-hidden"
     >
       <video
         autoPlay
@@ -35,7 +35,6 @@ const Hero: React.FC<HeroProps> = () => {
           Digital Experiences
         </SplitTextAnimation>
       </div>
-
       <SplitTextAnimation
         el="p"
         delay={initialDelay + 0.2}

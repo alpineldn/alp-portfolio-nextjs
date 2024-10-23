@@ -2,6 +2,7 @@
 
 import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
+import { opacity } from './animation';
 import PageTransitionLink from '@/components/common/ui/PageTransitionLink';
 import LinkEl from '@/components/common/ui/LinkEl';
 import cn from '@/utils/cn';
@@ -20,16 +21,13 @@ const services = [
 const Description: React.FC<DescriptionProps> = () => {
   const phrase =
     'Building brands and digital experiences for over twenty years, crafting timeless identities and executing integrated strategies.';
-  const descriptionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(descriptionRef, { margin: '-50%' });
+  const description = useRef(null);
+  const isInView = useInView(description, { margin: '-200px' });
 
   return (
-    <motion.section
-      ref={descriptionRef}
-      className="text-light relative z-20 bg-dark py-section md:py-section-lg" // Ensure it's below the hero
-      initial={{ y: '100%' }} // Start below the viewport
-      animate={{ y: isInView ? '0%' : '100%' }} // Slide in when in view
-      transition={{ duration: 0.5 }} // Smooth transition
+    <section
+      ref={description}
+      className="text-light relative bg-dark py-section md:py-section-lg"
     >
       <div className="container relative mx-auto">
         <div className="flex flex-col gap-[70px] md:flex-row md:gap-[50px] lg:w-9/12">
@@ -51,7 +49,7 @@ const Description: React.FC<DescriptionProps> = () => {
             isList
             className="mt-20 flex flex-row flex-wrap max-sm:flex-col max-sm:flex-nowrap"
           >
-            {services.map(({ id, title }) => (
+            {services.map(({ id, title }, index) => (
               <div
                 key={id}
                 className="mr-10 inline-flex items-center space-x-3 text-m sm:flex lg:space-x-4"
@@ -62,7 +60,11 @@ const Description: React.FC<DescriptionProps> = () => {
           </FadeInAndSlideUpOnViewAnimation>
         </div>
 
-        <motion.div className="pt-section md:pt-section-lg">
+        <motion.div
+          className="pt-section md:pt-section-lg"
+          variants={opacity}
+          animate={isInView ? 'open' : 'closed'}
+        >
           <FadeInAndSlideUpOnViewAnimation delay={0.5}>
             <PageTransitionLink className="block w-fit" href="/about">
               <LinkEl>About Us</LinkEl>
@@ -70,7 +72,7 @@ const Description: React.FC<DescriptionProps> = () => {
           </FadeInAndSlideUpOnViewAnimation>
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

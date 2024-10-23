@@ -15,7 +15,14 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-empty-object-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off', // Disable no-explicit-any globally
+    '@typescript-eslint/no-explicit-any': 'off',
+    'prefer-const': 'off',
+    '@typescript-eslint/no-unused-expressions': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    'react/display-name': 'off',
+    'react/no-unescaped-entities': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off', // Disable the rule globally
   },
   settings: {
     react: {

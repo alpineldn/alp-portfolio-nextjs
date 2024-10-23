@@ -21,7 +21,8 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/display-name': 'off',
     'react/no-unescaped-entities': 'off',
-    'jsx-a11y/click-events-have-key-events': 'off', // Disable the rule globally
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off', // Disable the rule globally
   },
   settings: {
     react: {

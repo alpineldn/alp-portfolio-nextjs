@@ -26,6 +26,7 @@ interface FadeInAndSlideUpOnViewAnimationProps {
   viewport?: MotionProps['viewport'];
   isList?: boolean;
   hidden?: { y: number }; // Add this line
+  delay?: number; // Add this line
 }
 
 const FadeInAndSlideUpOnViewAnimation: React.FC<
@@ -37,6 +38,7 @@ const FadeInAndSlideUpOnViewAnimation: React.FC<
   triggerOnce = true,
   viewport = {},
   isList = false,
+  delay = 0.3, // Set default delay value here
 }) => {
   return (
     <FadeInOutWrapper
@@ -54,6 +56,7 @@ const FadeInAndSlideUpOnViewAnimation: React.FC<
           <motion.div
             variants={itemVariants}
             className={isList ? 'list-item-class' : ''}
+            transition={{ delay }} // Pass the delay to child transitions
           >
             {child}
           </motion.div>

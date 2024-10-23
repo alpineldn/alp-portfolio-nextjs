@@ -1,10 +1,10 @@
 'use client';
 
-import cn from '@/utils/cn';
+import { useRef } from 'react';
 import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
 import { services } from './data';
 import ServiceSection from './service-section/ServiceSection';
-import { useRef } from 'react';
+import cn from '@/utils/cn';
 
 interface ServiceProps {}
 

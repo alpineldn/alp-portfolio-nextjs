@@ -1,6 +1,4 @@
-'use client';
-
-import { useRef, useLayoutEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SplitType from 'split-type';
 import gsap from 'gsap';
 import cn from '@/utils/cn';
@@ -31,20 +29,9 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
   const ref = useRef<HTMLElement>(null);
   const [_splitText, setSplitTexts] = useState<SplitType | null>(null);
 
-  // const debounce = (func: Function, delay: number) => {
-  //   let timeoutId: NodeJS.Timeout;
-  //   return (...args: any[]) => {
-  //     if (timeoutId) clearTimeout(timeoutId);
-  //     timeoutId = setTimeout(() => {
-  //       func(...args);
-  //     }, delay);
-  //   };
-  // };
-
   const splitText = () => {
     if (!ref.current) return;
 
-    // Clear previous SplitType instance
     _splitText?.revert();
 
     const split = new SplitType(ref.current, {
@@ -66,22 +53,11 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     splitText(); // Initial split
-
-    // const handleResize = debounce(() => {
-    //   splitText(); // Re-split on resize
-    // }, 150); // Adjust debounce time as needed
-
-    // window.addEventListener('resize', handleResize);
-
-    // return () => {
-    //   window.removeEventListener('resize', handleResize);
-    //   _splitText?.revert(); // Clean up SplitType changes
-    // };
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!ref.current || !animate || !_splitText?.words?.length) return;
 
     const tl = gsap.timeline({

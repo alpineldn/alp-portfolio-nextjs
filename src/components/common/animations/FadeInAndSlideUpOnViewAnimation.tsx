@@ -23,6 +23,7 @@ interface FadeInAndSlideUpOnViewAnimationProps {
   className?: string;
   triggerOnce?: boolean; // Animation plays once when in view
   viewport?: MotionProps['viewport']; // Viewport settings
+  isList?: boolean; // Add isList prop for potential list styling
 }
 
 const FadeInAndSlideUpOnViewAnimation: React.FC<
@@ -33,6 +34,7 @@ const FadeInAndSlideUpOnViewAnimation: React.FC<
   className,
   triggerOnce = true,
   viewport = {},
+  isList = false, // Default value for isList
 }) => {
   return (
     <motion.div
@@ -43,7 +45,12 @@ const FadeInAndSlideUpOnViewAnimation: React.FC<
       viewport={{ once: triggerOnce, ...viewport }}
     >
       {React.Children.map(children, (child) => (
-        <motion.div variants={itemVariants}>{child}</motion.div>
+        <motion.div
+          variants={itemVariants}
+          className={isList ? 'list-item-class' : ''}
+        >
+          {child}
+        </motion.div>
       ))}
     </motion.div>
   );

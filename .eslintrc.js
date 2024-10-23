@@ -19,7 +19,8 @@ module.exports = {
     'prefer-const': 'off',
     '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    'react/display-name': 'off', // Disable the display-name rule globally
+    'react/display-name': 'off',
+    'react/no-unescaped-entities': 'off', // Disable the rule globally
   },
   settings: {
     react: {

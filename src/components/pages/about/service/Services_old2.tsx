@@ -1,13 +1,16 @@
 'use client';
 
-import cn from '@/utils/cn';
+import { useRef } from 'react';
 import FadeInAndSlideUpOnViewAnimation from '@/components/common/animations/FadeInAndSlideUpOnViewAnimation';
 import { services } from './data';
 import ServiceSection from './service-section/ServiceSection';
+import cn from '@/utils/cn';
 
 interface ServiceProps {}
 
 const Services: React.FC<ServiceProps> = () => {
+  const serviceListContainerRef = useRef<HTMLDivElement>(null);
+
   return (
     <section className="services">
       <div className="relative overflow-hidden bg-darkGray py-section md:py-section-lg">
@@ -23,8 +26,8 @@ const Services: React.FC<ServiceProps> = () => {
           </h2>
         </div>
         <FadeInAndSlideUpOnViewAnimation
+          isList
           className="container mx-auto grid grid-cols-2 gap-10 max-lg:gap-y-8 max-sm:grid-cols-1 lg:gap-x-10"
-          stagger={0.3} // Adjust stagger time as needed
         >
           {services.map(({ items, title, description }, index) => (
             <ServiceSection

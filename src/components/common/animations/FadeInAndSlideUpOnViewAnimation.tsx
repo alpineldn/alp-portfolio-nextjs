@@ -1,5 +1,6 @@
 import { MotionProps, motion } from 'framer-motion';
 import React from 'react';
+import FadeInOutWrapper from './FadeInOutWrapper'; // Import the fade in/out wrapper
 
 const containerVariants = (stagger: number) => ({
   hidden: { opacity: 0, y: 65 },
@@ -19,10 +20,11 @@ const itemVariants = {
 
 interface FadeInAndSlideUpOnViewAnimationProps {
   children: React.ReactNode;
-  stagger?: number; // Stagger for child animations
+  stagger?: number;
   className?: string;
-  triggerOnce?: boolean; // Animation plays once when in view
-  viewport?: MotionProps['viewport']; // Viewport settings
+  triggerOnce?: boolean;
+  viewport?: MotionProps['viewport'];
+  isList?: boolean;
 }
 
 const FadeInAndSlideUpOnViewAnimation: React.FC<
@@ -33,19 +35,30 @@ const FadeInAndSlideUpOnViewAnimation: React.FC<
   className,
   triggerOnce = true,
   viewport = {},
+  isList = false,
 }) => {
   return (
-    <motion.div
-      className={className}
-      variants={containerVariants(stagger)}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: triggerOnce, ...viewport }}
+    <FadeInOutWrapper
+      duration={0.5} // Set default duration
+      threshold={0.2} // Set threshold to 20%
     >
-      {React.Children.map(children, (child) => (
-        <motion.div variants={itemVariants}>{child}</motion.div>
-      ))}
-    </motion.div>
+      <motion.div
+        className={className}
+        variants={containerVariants(stagger)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: triggerOnce, ...viewport }}
+      >
+        {React.Children.map(children, (child) => (
+          <motion.div
+            variants={itemVariants}
+            className={isList ? 'list-item-class' : ''}
+          >
+            {child}
+          </motion.div>
+        ))}
+      </motion.div>
+    </FadeInOutWrapper>
   );
 };
 

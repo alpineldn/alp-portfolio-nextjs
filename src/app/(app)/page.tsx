@@ -1,3 +1,4 @@
+// Home.tsx
 import Page from '@/components/common/Page';
 import Contact from '@/components/contact/Contact';
 import Description from '@/components/pages/landing/description/Description';
@@ -67,10 +68,12 @@ const Home: React.FC<HomeProps> = async () => {
   return (
     <Page pageName={HOMEPAGE_ID}>
       <Hero />
-      <Description />
-      {!!projects?.length && <Works projects={projects} />}
-      {!!clients?.length && <Clients clients={clients} />}
-      <Contact />
+      <div className="main">
+        <Description />
+        {!!projects?.length && <Works projects={projects} />}
+        {!!clients?.length && <Clients clients={clients} />}
+        <Contact />
+      </div>
     </Page>
   );
 };

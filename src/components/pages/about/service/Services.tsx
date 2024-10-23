@@ -10,7 +10,7 @@ interface ServiceProps {}
 
 const Services: React.FC<ServiceProps> = ({}) => {
   return (
-    <section>
+    <section className="services-section">
       <div className="relative overflow-hidden bg-darkGray py-section md:py-section-lg">
         <div className="container mx-auto">
           <h2

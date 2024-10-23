@@ -29,7 +29,7 @@ const Services: React.FC<ServiceProps> = () => {
   const serviceListContainerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section>
+    <section className="services">
       <div className="relative overflow-hidden bg-darkGray py-section md:py-section-lg">
         <div className="container mx-auto">
           <h2

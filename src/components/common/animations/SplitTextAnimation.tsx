@@ -31,15 +31,15 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
   const ref = useRef<HTMLElement>(null);
   const [_splitText, setSplitTexts] = useState<SplitType | null>(null);
 
-  const debounce = (func: Function, delay: number) => {
-    let timeoutId: NodeJS.Timeout;
-    return (...args: any[]) => {
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        func(...args);
-      }, delay);
-    };
-  };
+  // const debounce = (func: Function, delay: number) => {
+  //   let timeoutId: NodeJS.Timeout;
+  //   return (...args: any[]) => {
+  //     if (timeoutId) clearTimeout(timeoutId);
+  //     timeoutId = setTimeout(() => {
+  //       func(...args);
+  //     }, delay);
+  //   };
+  // };
 
   const splitText = () => {
     if (!ref.current) return;
@@ -69,16 +69,16 @@ const SplitTextAnimation: React.FC<SplitTextAnimationProps> = ({
   useLayoutEffect(() => {
     splitText(); // Initial split
 
-    const handleResize = debounce(() => {
-      splitText(); // Re-split on resize
-    }, 150); // Adjust debounce time as needed
+    // const handleResize = debounce(() => {
+    //   splitText(); // Re-split on resize
+    // }, 150); // Adjust debounce time as needed
 
-    window.addEventListener('resize', handleResize);
+    // window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      _splitText?.revert(); // Clean up SplitType changes
-    };
+    // return () => {
+    //   window.removeEventListener('resize', handleResize);
+    //   _splitText?.revert(); // Clean up SplitType changes
+    // };
   }, []);
 
   useLayoutEffect(() => {

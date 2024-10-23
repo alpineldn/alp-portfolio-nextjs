@@ -15,7 +15,8 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-empty-object-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off', // Disable no-explicit-any globally
+    '@typescript-eslint/no-explicit-any': 'off',
+    'prefer-const': 'off', // Disable prefer-const globally
   },
   settings: {
     react: {

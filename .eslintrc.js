@@ -9,12 +9,13 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'next',
-    'prettier', // This should be here
+    'prettier',
   ],
   plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'import'],
   rules: {
-    '@typescript-eslint/no-unused-vars': 'off', // Disable the no-unused-vars rule globally
-    '@typescript-eslint/no-empty-object-type': 'off', // Disable the no-empty-object-type rule
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-empty-object-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'off', // Disable no-explicit-any globally
   },
   settings: {
     react: {

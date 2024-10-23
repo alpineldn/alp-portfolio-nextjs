@@ -18,13 +18,8 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'prefer-const': 'off',
     '@typescript-eslint/no-unused-expressions': 'off',
-    '@typescript-eslint/ban-ts-comment': [
-      'error',
-      {
-        'ts-expect-error': 'allow-with-description', // Allow @ts-expect-error with description
-        'ts-ignore': false, // Allow @ts-ignore
-      },
-    ],
+    '@typescript-eslint/ban-ts-comment': 'off',
+    'react/display-name': 'off', // Disable the display-name rule globally
   },
   settings: {
     react: {

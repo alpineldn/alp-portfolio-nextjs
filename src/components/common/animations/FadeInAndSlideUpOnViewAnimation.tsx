@@ -25,6 +25,7 @@ interface FadeInAndSlideUpOnViewAnimationProps {
   triggerOnce?: boolean;
   viewport?: MotionProps['viewport'];
   isList?: boolean;
+  hidden?: { y: number }; // Add this line
 }
 
 const FadeInAndSlideUpOnViewAnimation: React.FC<

@@ -14,7 +14,7 @@ interface Props {
   delayChildren?: number; // Initial delay before children animation
 }
 
-const FadeInAndSlideUpOnViewAnimation: React.FC<Props> = ({
+const FadeInOnViewAnimation: React.FC<Props> = ({
   children,
   className,
   initial = { y: 65, opacity: 0 },
@@ -52,4 +52,4 @@ const FadeInAndSlideUpOnViewAnimation: React.FC<Props> = ({
   );
 };
 
-export default FadeInAndSlideUpOnViewAnimation;
+export default FadeInOnViewAnimation;
